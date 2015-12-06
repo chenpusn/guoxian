@@ -101,6 +101,8 @@ abstract class Driver {
                 if(version_compare(PHP_VERSION,'5.3.6','<=')){ 
                     // 禁用模拟预处理语句
                     $this->options[PDO::ATTR_EMULATE_PREPARES]  =   true;
+                    // 2015.12.16 CHEN PU 将false 改成true, 应对百度My SQL 版本检查失误的问题，百度My SQL 实际版本5.6,
+                    // 此处检查却为小于5.3.6 导致数据库脚本安装出错
                 }
                 $this->linkID[$linkNum] = new PDO( $config['dsn'], $config['username'], $config['password'],$this->options);
             }catch (\PDOException $e) {
