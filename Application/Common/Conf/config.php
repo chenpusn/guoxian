@@ -14,10 +14,10 @@
 return array(
 		// 数据库配置
         'DB_TYPE'   => 'mysql', // 数据库类型
-        'DB_HOST'   => '127.0.0.1', // 服务器地址
-        'DB_NAME'   => 'weiphp222', // 数据库名
-        'DB_USER'   => 'idouly', // 用户名
-        'DB_PWD'    => 'idoulytest',  // 密码
+        'DB_HOST'   => 'mysql56.rdsmxaxdpurey85.rds.bj.baidubce.com', // 服务器地址
+        'DB_NAME'   => 'zhiguoxian', // 数据库名
+        'DB_USER'   => 'pchen', // 用户名
+        'DB_PWD'    => '1qazxsw2',  // 密码
         'DB_PORT'   => '3306', // 端口
         'DB_PREFIX' => 'wp_', // 数据库表前缀
 		'DB_PARAMS' => array (
@@ -25,7 +25,7 @@ return array(
 		),
 		
 		// 系统数据加密设置
-		'DATA_AUTH_KEY' => ')I1J5QVe@H;*<j:dtO0+bC8|"nq.P}3uL4wfGDS?', // 默认数据加密KEY
+		'DATA_AUTH_KEY' => 'M:Kt^_AcGw|QB9!C&Jq8=.~}-`Hn1o#IWUxX?>@k', // 默认数据加密KEY
 		                                                               
 		// 调试配置
 		'SHOW_PAGE_TRACE' => true,
