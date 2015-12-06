@@ -1,0 +1,103 @@
+<!-- 提示 -->
+<div id="top-alert" class="top-alert-tips alert-error" style="display: none;">
+  <a class="close" href="javascript:;"><b class="fa fa-times-circle"></b></a>
+  <div class="alert-content">这是内容</div>
+</div>
+<!-- 导航条
+================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+ 	<php>
+ 		if ($mid ) {
+			$link = M ( 'public_link' )->where ( 'uid=' . $mid )->order ( 'is_use desc' )->select ();
+			foreach ( $link as $l ) {
+				$mp_ids [] = $l ['mp_id'];
+				$is_use [$l ['mp_id']] = $l ['is_use'];
+			}
+			$mp_ids = getSubByKey ( $link, 'mp_id' );
+			if (! empty ( $mp_ids )) {
+				$mp_ids_list = count ( $mp_ids );
+				$mp_ids = implode ( ',', $mp_ids );
+				$map ['id'] = array (
+						'in',
+						$mp_ids 
+				);
+				
+				$public_list = M ( 'public' )->where ( $map )->order ( 'FIND_IN_SET(id,"' . $mp_ids . '")' )->select ();
+				$public = $public_list [0];
+				
+				$token = get_token ();
+				if ($public ['public_id'] && ($is_use [$public ['id']] == 0 || $token == '' || $token == - 1)) {
+					get_token ( $public ['public_id'] );
+				}
+				
+				unset ( $public_list [0] );
+			} else {
+				$mp_ids_list=0;
+			}
+			
+			$publicInfo=M('public')->where(array('uid'=>$mid))->find();
+            $userInfo=getUserInfo($mid);
+            //dump($mid);
+		}    
+			
+       </php>
+    <div class="wrap">
+    
+       <a class="brand" title="{:C('WEB_SITE_TITLE')}" href="{:U('index/index')}">
+       <notempty name="userInfo[website_logo]">
+       		<img height="52" src="{$userInfo.website_logo|get_cover_url}"/>
+       	<else/>
+       		<img height="52" src="__IMG__/logo.png"/>
+       </notempty>
+       </a>
+       
+       
+            <div class="top_nav">
+                <if condition="is_login()">
+                    <ul class="nav" style="margin-right:0">
+                    	<if condition="$myinfo.is_init eq 0 ">
+                    		<li><p>该账号配置信息尚未完善，功能还不能使用</p></li>
+                    		<elseif condition="$myinfo.is_audit eq 0 and !$reg_audit_switch" />
+                    		<li><p>该账号配置信息已提交，请等待审核</p></li>
+                    		<else /> 
+                    		<volist name='core_top_menu' id='ca'>
+                           		<li data-id="{$ca.id}" class="{$ca.class}"><a href="{$ca.url}">{$ca.title}</a></li>
+                       		</volist>
+                    	</if>
+                    	
+                    	
+                        
+                        <li class="dropdown admin_nav">
+                            <a href="#" class="dropdown-toggle login-nav" data-toggle="dropdown" style="">
+                                <notempty name="userInfo[headface_url]">
+                                    <img class="admin_head" src="{$userInfo.headface_url|get_cover_url}"/>
+                                <else/>
+                                    <img class="admin_head" src="__IMG__/default.png"/>
+                                </notempty>
+                                {$mid|get_username|getShort=4}<b class="pl_5 fa fa-sort-down"></b>
+                            </a>
+                            <ul class="dropdown-menu" style="display:none">
+                            	<li><a href="{:U ('Home/Public/add',array('id'=>$publicInfo[id]))}">账号配置</a></li>
+                                <li><a href="{:U ('Home/Public/step_0',array('id'=>$publicInfo[id]))}">公众号配置</a></li>
+                                <li><a href="{:U('User/profile')}">修改密码</a></li>
+                                <li><a href="{:U('User/logout')}">退出</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                <else/>
+                    <ul class="nav" style="margin-right:0">
+                    	<li style="padding-right:20px">你好!欢迎来到{:C('WEB_SITE_TITLE')}</li>
+                        <li>
+                            <a href="{:U('User/login')}">登录</a>
+                        </li>
+                        <li>
+                            <a href="{:U('User/register')}">注册</a>
+                        </li>
+                        <li>
+                            <a href="{:U('admin/index/index')}" style="padding-right:0">后台入口</a>
+                        </li>
+                    </ul>
+                </if>
+            </div>
+        </div>
+</div>

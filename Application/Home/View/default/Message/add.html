@@ -1,0 +1,200 @@
+<extend name="Base/common" />
+<block name="body">
+  <div class="span9 page_message">
+    <section id="contents"> <include file="Addons/_nav" />
+      <div class="tab-content"> 
+      <div class="message_list" style="padding:10px;  text-align: left;color: #333;padding: 10px;
+background-color: #eaeaea;">
+           <div class="msg_tab">
+                <a class="txt current" href="javascript:;">文本消息</a>
+                <a class="appmsg" href="javascript:;">图文消息</a>
+                <!--<a class="image" href="javascript:;">图片消息</a>-->
+            </div>
+            <php> $post_url || $post_url = U('add?model='.$model['id'], $get_param);</php>
+            <form id="form" action="{$post_url}" method="post" class="form-horizontal form-center">
+                <input type="hidden" name="msg_type" value="text"/>
+                <label class="textarea input-large">
+                    <textarea name="content" placeholder="请输入要发送的文本"></textarea>
+                    <div style="display:none" class="appmsg_area" id="appmsg_area">
+                        <input type="hidden" name="appmsg_id" value="0"/>
+                        <a class="select_appmsg" href="javascript:;" onClick="$.WeiPHP.openSelectAppMsg('{:U('/Home/Material/material_data')}',selectAppMsgCallback)">选择图文</a>
+                        <div class="appmsg_wrap"></div>
+                        <a class="delete" href="javascript:;">删除</a>
+                    </div>
+                    <div style="display:none;margin:0 10px 10px 0; background:#ddd; padding:6px;height:204px; width:930px;" class="msg_image controls uploadrow2" title="点击修改图片" rel="image">
+                        <input type="file" id="upload_picture_image">
+                        <input type="hidden" name="image" id="cover_id_image" value="0"/>
+                        <div class="upload-img-box" style="display:none; top:6px; left:6px;">
+                            <div class="upload-pre-item2"><img width="100" height="100" src=""/></div>
+                        </div>
+                    </div>
+                 </label>
+                 <!--
+                 <div class="action_type">
+                    <a class="action_item face" href="javascript:;" title="表情">&nbsp;</a>
+                    <a class="action_item link" href="javascript:;" title="连接">&nbsp;</a>
+                    <div class="action_item picture" href="javascript:;" title="图片">
+                        <div class="controls uploadrow2" title="点击修改图片" rel="pic">
+                          <input type="file" id="upload_picture_pic">
+                          <input type="hidden" name="pic" id="cover_id_pic" value="0"/>
+                          <div class="upload-img-box">
+                           
+                              <div class="upload-pre-item2"><img width="100" height="100" src=""/></div>
+                            
+                          </div>
+                      </div>
+                    </div>
+                    <a class="action_item article" href="javascript:;" title="图文">&nbsp;</a>
+                 </div>
+                 -->
+                 <div class="form-item cf toggle-send_type">
+                    <label class="item-label"> 发送方式 <span class="check-tips"> </span></label>
+                    <div class="controls">
+                      <select name="send_type">
+                        <option selected="" toggle-data="group_id@show,send_openids@hide" class="toggle-data" value="0">按用户组发送 </option>
+                        <option toggle-data="group_id@hide,send_openids@show" class="toggle-data" value="1">指定OpenID发送 </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-item cf toggle-group_id">
+                        <label class="item-label"> 群发对象 <span class="check-tips"> （全部用户或者某分组用户） </span></label>
+                        <div class="controls">
+                          <div id="dynamic_select_group_id"></div>
+                          <select name="group_id">
+                            <option toggle-data="全部用户" class="toggle-data" value="0">全部用户</option>
+                            <volist name="group_list" id="vo">
+                            <option toggle-data="" class="toggle-data" value="{$vo.id}">{$vo.title} </option>
+                            </volist>
+
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-item cf toggle-send_openids" style="display: none;">
+                        <label class="item-label"> 要发送的OpenID <span class="check-tips"> （多个可用逗号或者换行分开，OpenID值可在微信用户的列表中找到） </span></label>
+                        <div class="controls">
+                          <label class="textarea input-large">
+                            <textarea name="send_openids"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="form-item cf toggle-preview_openids">
+                        <label class="item-label"> 预览人OPENID <span class="check-tips"> （选填，多个可用逗号或者换行分开，OpenID值可在微信用户的列表中找到） </span></label>
+                        <div class="controls">
+                          <label class="textarea input-large">
+                            <textarea name="preview_openids" style="height:50px; min-height:50px;"></textarea>
+                          </label>
+                        </div>
+                      </div>
+                      
+                 <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">回 复</button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <button onclick="preview()" class="border-btn submit-btn ajax-post">预览</button>
+            </form>
+        </div>
+       
+      </div>
+    </section>
+  </div>
+</block>
+<block name="script">
+  <link href="__STATIC__/datetimepicker/css/datetimepicker.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+  <php>if(C('COLOR_STYLE')=='blue_color') echo '
+    <link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+    ';</php>
+  <link href="__STATIC__/datetimepicker/css/dropdown.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.js"></script> 
+  <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js?v={:SITE_VERSION}" charset="UTF-8"></script> 
+  <script type="text/javascript">
+$('#submit').click(function(){
+    $('#form').submit();
+});
+function preview(){
+	  var query = $('#form').serialize();
+	  $.post("{:U('preview')}",query,function(data){
+			if (data.status==1) {
+				  if (data.url) {
+						updateAlert(data.info + ' 页面即将自动跳转~','alert-success');
+				  }else{
+						updateAlert(data.info ,'alert-success');
+				  }
+				  setTimeout(function(){
+						if (data.url) {
+							  location.href=data.url;
+						}else{
+							  location.reload();
+						}
+				  },1500);
+			}else{
+				  updateAlert(data.info);
+				  setTimeout(function(){
+						if (data.url) {
+							  location.href=data.url;
+						}else{
+							  $('#top-alert').find('button').click();
+						}
+				  },1500);
+			}
+	  })
+}
+
+$(function(){
+	showTab();
+	
+	$('.toggle-data').each(function(){
+		var data = $(this).attr('toggle-data');
+		if(data=='') return true;		
+		
+	     if($(this).is(":selected") || $(this).is(":checked")){
+			 change_event(this)
+		 }
+	});
+	
+	$('select').change(function(){
+		$('.toggle-data').each(function(){
+			var data = $(this).attr('toggle-data');
+			if(data=='') return true;		
+			
+			 if($(this).is(":selected") || $(this).is(":checked")){
+				 change_event(this)
+			 }
+		});
+	});
+});
+$(function(){
+	//初始化上传图片插件
+	initUploadImg({width:308,height:200});
+	$('.uploadify-button').css('background-color','#ccc')
+})
+$('.msg_tab .txt').click(function(){
+	//纯文本
+	$(this).addClass('current').siblings().removeClass('current');
+	$('input[name="msg_type"]').val('text');
+	$('textarea[name="content"]').show().siblings().hide();
+})
+$('.msg_tab .appmsg').click(function(){
+	//图文消息
+	$(this).addClass('current').siblings().removeClass('current');
+	$('input[name="msg_type"]').val('appmsg');
+	$('#appmsg_area').show().siblings().hide();
+})
+$('.msg_tab .image').click(function(){
+	//图片消息
+	$(this).addClass('current').siblings().removeClass('current');
+	$('input[name="msg_type"]').val('image');
+	$('.msg_image').show().siblings().hide();
+})
+$('.appmsg_area .delete').click(function(){
+	$('.appmsg_wrap').html('').hide();
+	$('.select_appmsg').show();
+	$('.appmsg_area .delete').hide();
+	$('input[name="appmsg_id"]').val(0);
+})
+function selectAppMsgCallback(_this){
+	$('.appmsg_wrap').html($(_this).html()).show();
+	$('.select_appmsg').hide();
+	$('.appmsg_area .delete').show();
+	$('input[name="appmsg_id"]').val($(_this).data('id'));
+	$.Dialog.close();
+}
+</script> 
+</block>

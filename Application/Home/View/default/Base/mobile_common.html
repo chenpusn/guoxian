@@ -1,0 +1,124 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <block name="title">
+    <title>{$mp_name}</title>
+	</block>
+    <link rel="stylesheet" href="__FUI__/css/frozen.css">
+    <link rel="stylesheet" href="__FUI__/css/icon.css">
+    <block name="head">
+    </block>
+    
+    <style type="text/css">
+    	footer i[class^='ui-icon']{
+    		font-size: 30px;
+    		line-height: 30px;
+    	}
+    </style>
+
+    <block name="style">
+	</block>
+</head>
+<body>
+	<block name="header">
+	<header class="ui-header ui-header-stable ui-border-b">
+	    <i class="ui-icon-return"></i><h1>标题</h1>
+	</header>
+	</block>
+	<block name="body">
+		<section class="ui-notice">
+		    <i></i>
+		    <p>请检查网络</p>
+		    <div class="ui-notice-btn">
+		        <button class="ui-btn-primary ui-btn-lg">按钮</button>
+		    </div>
+		</section>
+	</block>
+	<block name="footer">
+		<footer class="ui-footer ui-footer-stable ui-border-t">
+		    <ul class="ui-tiled">
+		        <li><i class="ui-icon-home"></i><i>菜单1</i></li>
+		        <li><i class="ui-icon-add-group"></i><i>菜单2</i></li>
+		        <li><i class="ui-icon-personal"></i><i>菜单3</i></li>
+		    </ul>
+		</footer>
+	</block>
+
+<script src="__FUI__/lib/zepto.min.js"></script>
+<script src="__FUI__/js/frozen.js"></script>
+
+<script type="text/javascript">
+
+	/**
+	 * 提示信息函数
+	 * @param String content 提示内容
+	 * @param Array elements 提示结束后要操作的元素
+	 */
+	function tips(content,elements){
+		el=$.tips({
+	        content:content,
+	        stayTime:2000,
+	        type:"warn"
+	    })
+	    el.on("tips:hide",function(){
+	        elements.focus();
+
+	    })
+	}
+
+	/**
+	 * 提示信息函数
+	 * @param String content 提示内容
+	 */
+	function dialog(content){
+		var dia=$.dialog({
+	        title:'',
+	        content:content,
+	        button:["取消"]
+	    });
+
+	    dia.on("dialog:action",function(e){
+	        console.log(e.index)
+	    });
+	    dia.on("dialog:hide",function(e){
+	        closepage();
+	    });
+	}
+
+	/**
+	 * ajax提交数据函数
+	 * @param String url 处理数据的地址
+	 * @param Array data 提交的数据
+	 * @param String successMsg 提交数据成功的提示信息
+	 * @param String errorMsg 提交数据失败的提示信息
+	 */
+	function ajax(url,data,successMsg,errorMsg){
+		$.ajax({
+			url:url,
+			type:"post",
+			dataType:"json",
+			data:data,
+			success:function(data){
+				dialog(successMsg);
+			},
+			error:function(){
+				alert(errorMsg);
+			}
+		});
+	}
+
+	/**
+	 * 关闭微信浏览器当前页面
+	 */
+	function closepage(){
+		WeixinJSBridge.call('closeWindow');
+	}
+</script>
+
+<block name="script"></block>
+
+</body>
+
+</html>

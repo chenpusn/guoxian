@@ -1,0 +1,72 @@
+<include file="Public/mobile_head"/>	
+<link href="{:SITE_URL}/{:CUSTOM_TEMPLATE_PATH}Index/STV1/main.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+<body id="weisite" style="background:#900000 url({$config.background}) no-repeat; background-size:100% auto">
+<div class="container">
+    <if condition="!empty($slideshow)">
+    <section class="banner">
+    	<ul>
+        <volist name="slideshow" id="vo" key="i">
+        	<li>
+            	<a href="{$vo.url}&publicid={$publicid}&manager_id={$manager_id}"><img src="{$vo.img}"/></a>
+                <gt name="i" value="1">
+                	<span class="title">{$vo.title}</span>
+                </gt>
+            </li>
+         </volist>
+        </ul>
+    </section>
+     <span class="identify">
+        <volist name="slideshow" id="vo">
+        	<em></em>
+         </volist>        
+        </span>
+    </if>
+    <if condition="!empty($category)">
+    <section>
+    	<div class="cate_lists">
+            <volist name="category" id="vo">
+            	<div class="item_wrap">
+                    <div class="item">
+                        <span class="icon"><img src="{$vo.icon}"/></span>
+                        <span class="txt">{$vo.title}</span>
+                        <span class="arrow"></span>
+                    </div>
+                    <a href="{$vo.url}&publicid={$publicid}&manager_id={$manager_id}"></a>
+                </div>
+            </volist>
+        </div>
+    </section>
+    </if>
+</div>
+<p class="copyright">{$system_copy_right}</p>
+<!-- 底部导航 -->
+{$footer_html}
+<!-- 统计代码 -->
+<notempty name="config.code">
+<p class="hide bdtongji">
+{$config.code}
+</p>
+<else />
+<p class="hide bdtongji">
+{$tongji_code}
+</p>
+</notempty>
+</body>
+<script type="text/javascript">
+$(function(){
+	$.WeiPHP.initBanner(true,5000);
+	function startAnim(){
+		$('.cate_lists .item').each( function(index) {
+			var $this=$(this);
+			setTimeout(function(){
+				$this.addClass('animated infinite flipX');
+			},500*(index+1));
+			
+		});
+	}
+
+	var t=setTimeout(startAnim,3000)
+})
+
+</script>
+</html>

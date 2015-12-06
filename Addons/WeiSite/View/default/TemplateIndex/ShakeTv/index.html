@@ -1,0 +1,91 @@
+<include file="Public/mobile_head"/>	
+<link href="{:CUSTOM_TEMPLATE_PATH}Index/ShakeTv/main.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+<body id="weisite" style="background:#eee; background-size:100% 100%">
+<div class="container">
+    <if condition="!empty($slideshow)">
+    <section class="banner">
+    	<ul>
+        <volist name="slideshow" id="vo">
+        	<li>
+            	<a href="{$vo.url}"><img src="{$vo.img}"/></a>
+            	<span class="title">{$vo.title}</span>
+            </li>
+         </volist>
+        </ul>
+        <if condition="count(slideshow) gt 1">
+        <span class="identify">
+        <volist name="slideshow" id="vo">
+        	<em></em>
+         </volist>        
+        </span>
+        </if>
+    </section>
+    </if>
+    <if condition="!empty($category)">
+    <section>
+    	<div class="icon_lists">
+            <volist name="category" id="vo">
+                <a class="item" href="{$vo.url}" onClick="return showShakeDialog(this);">
+                    <span class="icon"><img src="{$vo.icon}"/></span>
+                    <span class="click_item_txt">{$vo.title}</span>
+                </a>
+            </volist>
+        </div>
+    </section>
+    </if>
+</div>
+<!-- 底部导航 -->
+{$footer_html}
+<!-- 统计代码 -->
+<notempty name="config.code">
+<p class="hide bdtongji">
+{$config.code}
+</p>
+<else />
+<p class="hide bdtongji">
+{$tongji_code}
+</p>
+</notempty>
+<audio id="sound" preload="auto" src="{:CUSTOM_TEMPLATE_PATH}Index/ShakeTv/shake.mp3" style="visibility:visible">
+</audio>
+<script type="text/javascript" src="{:CUSTOM_TEMPLATE_PATH}Index/ShakeTv/jquery.shake.js"></script>
+<script type="text/javascript">
+var shakeUrl = "";
+function showShakeDialog(_this){
+	shakeUrl = $(_this).attr('href');
+	if(/(http)/.test(shakeUrl)){
+		var title = $(_this).find('.click_item_txt').text();
+		var src = $(_this).find('img').attr('src');
+		var $div = $('<div class="shake_dialog">'+
+						'<div class="shake_pic"></div>'+
+						'<p>摇一摇体验'+title+'</p>'+
+						'<p class="cancel_p"><a href="javascript:$.Dialog.close();">取消</a></p>'+
+				   '</div>');
+		$.Dialog.open($div);
+		return false;
+	}
+	return true;
+}
+$(function(){
+	$.WeiPHP.initBanner(true,5000);
+	$(document).shake({
+		shake_speed:15,  
+		time_difference:50,
+		shakeAfter : function(){
+			if(shakeUrl=="" || shakeUrl == undefined){
+				return;
+			}else{
+				var audio = document.getElementById('sound');
+				audio.play();
+				setTimeout(function(){
+					$.Dialog.close();
+					window.location.href = shakeUrl;
+				},1000);
+				
+			}
+			
+		}
+	});
+})
+</script>
+</html>
