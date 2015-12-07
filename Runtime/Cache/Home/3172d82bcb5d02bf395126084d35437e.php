@@ -227,7 +227,7 @@ var  UPLOAD_FILE = "<?php echo U('File/upload',array('session_id'=>session_id())
 
 	<!-- 底部 -->
 	<div class="wrap bottom" style="background:#fff; border-top:#ddd;">
-    <p class="copyright">本系统由<a href="http://weiphp.cn" target="_blank">WeiPHP</a>强力驱动</p>
+    <!-- <p class="copyright">本系统由<a href="http://weiphp.cn" target="_blank">WeiPHP</a>强力驱动</p>-->
 </div>
 
 <script type="text/javascript">
@@ -277,7 +277,7 @@ $(function(){
 <?php echo hook('pageFooter', 'widget');?>
 <?php echo ($tongji_code); ?>
 <div class="hidden"><!-- 用于加载统计代码等隐藏元素 -->
-	
+    
 </div>
 
 	<!-- /底部 -->

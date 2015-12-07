@@ -124,65 +124,71 @@ var  UPLOAD_FILE = "<?php echo U('File/upload',array('session_id'=>session_id())
 	
 <!-- <?php  if(!is_login()){ Cookie ( '__forward__', $_SERVER ['REQUEST_URI'] ); redirect(U('home/user/login',array('from'=>4))); } ?>
  -->
-  <?php $m = strtolower(MODULE_NAME); $c = strtolower(CONTROLLER_NAME); $a = strtolower(ACTION_NAME); if(!is_login()){ redirect(U('home/user/login')); } $ad = ucfirst ( parse_name ( $_REQUEST['_addons'], 1 ) ); $navClass[$ad] = 'active'; $navClass[$m.'_'.$c.'_'.$a] = 'active'; $addonList = D ( 'Addons' )->getWeixinList (false, array(), true); $categorys = M ( 'addon_category' )->order ( 'sort asc, id desc' )->select (); foreach($categorys as &$cate){ foreach($addonList as $k=>$a){ if($cate['id']==intval($a['cate_id'])){ $cate['addons'][] = $a; unset($addonList[$k]); } } } ?>
+<?php $m = strtolower(MODULE_NAME); $c = strtolower(CONTROLLER_NAME); $a = strtolower(ACTION_NAME); if(!is_login()){ redirect(U('home/user/login')); } $ad = ucfirst ( parse_name ( $_REQUEST['_addons'], 1 ) ); $navClass[$ad] = 'active'; $navClass[$m.'_'.$c.'_'.$a] = 'active'; $addonList = D ( 'Addons' )->getWeixinList (false, array(), true); $categorys = M ( 'addon_category' )->order ( 'sort asc, id desc' )->select (); foreach($categorys as &$cate){ foreach($addonList as $k=>$a){ if($cate['id']==intval($a['cate_id'])){ $cate['addons'][] = $a; unset($addonList[$k]); } } } ?>
 <div id="main-container" class="admin_container">
-  
+
     <div class="sidebar">
 
-     
 
-      <ul class="sidenav">
+        <ul class="sidenav">
 
-        <li>
-          <a class="sidenav_parent" href="javascript:;"> 
-            <img src="https://res.wx.qq.com/mpres/htmledition/images/icon/menu/icon_menu_function.png"/>
-            管理</a>
-          <ul class="sidenav_sub">
-            
-              <li class="" data-id=""> <a href="<?php echo U('Home/Public/lists');?>">公众号管理</a><b class="active_arrow"></b></li>
-              <li class="" data-id=""> <a href="<?php echo U('Home/WeixinMessage/lists');?>">消息管理</a><b class="active_arrow"></b></li>
-              <li class="" data-id=""> <a href="<?php echo addons_url('UserCenter://UserCenter/lists'); ?>">用户管理</a><b class="active_arrow"></b></li>
-              <li class="" data-id=""> <a href="<?php echo U('Home/Material/material_lists');?>">素材管理</a><b class="active_arrow"></b></li>
-              <li class="" data-id=""> <a href="<?php echo U('Home/Message/add');?>">群发管理</a><b class="active_arrow"></b></li>
-            
-          </ul>
-        </li>  
-        
-        <?php if(is_array($categorys)): $i = 0; $__LIST__ = $categorys;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ca): $mod = ($i % 2 );++$i; if($ca['addons'] != ''): ?><li>
-          <a class="sidenav_parent" href="javascript:;"> 
-            <img src="https://res.wx.qq.com/mpres/htmledition/images/icon/menu/icon_menu_function.png"/>
-            <?php echo ($ca["title"]); ?></a>
-          <ul class="sidenav_sub">
-            <?php if(is_array($ca["addons"])): $i = 0; $__LIST__ = $ca["addons"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li class="<?php echo ($vo["class"]); ?>" data-id="<?php echo ($vo["id"]); ?>"> <a href="<?php echo ($vo[addons_url]); ?>"><?php echo ($vo["title"]); ?></a><b class="active_arrow"></b></li><?php endforeach; endif; else: echo "" ;endif; ?>
-          </ul>
-        </li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+            <li>
+                <a class="sidenav_parent" href="javascript:;">
+                    <img src="https://res.wx.qq.com/mpres/htmledition/images/icon/menu/icon_menu_function.png"/>
+                    管理</a>
+                <ul class="sidenav_sub">
 
-        <!-- <li>
-          <?php if(!empty($now_top_menu_name)): ?><a class="sidenav_parent" href="javascript:;"> 
-            <img src="https://res.wx.qq.com/mpres/htmledition/images/icon/menu/icon_menu_function.png"/>
-            <?php echo ($now_top_menu_name); ?></a><?php endif; ?>
-          <ul class="sidenav_sub">
-            <?php if(is_array($core_side_menu)): $i = 0; $__LIST__ = $core_side_menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li class="<?php echo ($vo["class"]); ?>" data-id="<?php echo ($vo["id"]); ?>"> <a href="<?php echo ($vo["url"]); ?>"> <?php echo ($vo["title"]); ?> </a><b class="active_arrow"></b></li><?php endforeach; endif; else: echo "" ;endif; ?>
-          </ul>
-        </li> -->
-        
-      </ul>
+                    <li class="" data-id=""><a href="<?php echo U('Home/Public/lists');?>">公众号管理</a><b class="active_arrow"></b>
+                    </li>
+                    <li class="" data-id=""><a href="<?php echo U('Home/WeixinMessage/lists');?>">消息管理</a><b
+                            class="active_arrow"></b></li>
+                    <li class="" data-id=""><a
+                            href="<?php echo addons_url('UserCenter://UserCenter/lists'); ?>">用户管理</a><b
+                            class="active_arrow"></b></li>
+                    <li class="" data-id=""><a href="<?php echo U('Home/Material/material_lists');?>">素材管理</a><b
+                            class="active_arrow"></b></li>
+                    <li class="" data-id=""><a href="<?php echo U('Home/Message/add');?>">群发管理</a><b class="active_arrow"></b></li>
+
+                </ul>
+            </li>
+
+            <?php if(is_array($categorys)): $i = 0; $__LIST__ = $categorys;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ca): $mod = ($i % 2 );++$i; if($ca['addons'] != ''): ?><li>
+                        <a class="sidenav_parent" href="javascript:;">
+                            <img src="https://res.wx.qq.com/mpres/htmledition/images/icon/menu/icon_menu_function.png"/>
+                            <?php echo ($ca["title"]); ?></a>
+                        <ul class="sidenav_sub">
+                            <?php if(is_array($ca["addons"])): $i = 0; $__LIST__ = $ca["addons"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li class="<?php echo ($vo["class"]); ?>" data-id="<?php echo ($vo["id"]); ?>"><a href="<?php echo ($vo[addons_url]); ?>"><?php echo ($vo["title"]); ?></a><b
+                                        class="active_arrow"></b></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                        </ul>
+                    </li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+
+            <!-- <li>
+              <?php if(!empty($now_top_menu_name)): ?><a class="sidenav_parent" href="javascript:;">
+                <img src="https://res.wx.qq.com/mpres/htmledition/images/icon/menu/icon_menu_function.png"/>
+                <?php echo ($now_top_menu_name); ?></a><?php endif; ?>
+              <ul class="sidenav_sub">
+                <?php if(is_array($core_side_menu)): $i = 0; $__LIST__ = $core_side_menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li class="<?php echo ($vo["class"]); ?>" data-id="<?php echo ($vo["id"]); ?>"> <a href="<?php echo ($vo["url"]); ?>"> <?php echo ($vo["title"]); ?> </a><b class="active_arrow"></b></li><?php endforeach; endif; else: echo "" ;endif; ?>
+              </ul>
+            </li> -->
+
+        </ul>
     </div>
- 
-  <div class="main_body">
-    
+
+    <div class="main_body">
+        
   <div class="span9 page_message">
     <section id="contents"> 
       <ul class="tab-nav nav">
-  <?php if(is_array($nav)): $i = 0; $__LIST__ = $nav;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li class="<?php echo ($vo["class"]); ?>"><a href="<?php echo ($vo["url"]); ?>"><?php echo ($vo["title"]); ?><span class="arrow fa fa-sort-up"></span></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+    <?php if(is_array($nav)): $i = 0; $__LIST__ = $nav;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li class="<?php echo ($vo["class"]); ?>"><a href="<?php echo ($vo["url"]); ?>"><?php echo ($vo["title"]); ?><span class="arrow fa fa-sort-up"></span></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
 </ul>
 <?php if(!empty($sub_nav)): ?><div class="sub-tab-nav">
-       <ul class="sub_tab">
-       <?php if(is_array($sub_nav)): $i = 0; $__LIST__ = $sub_nav;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a class="<?php echo ($vo["class"]); ?>" href="<?php echo ($vo["url"]); ?>"><?php echo ($vo["title"]); ?><span class="arrow fa fa-sort-up"></span></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
-<!--          <li><a class="cur" href="<?php echo addons_url('WeiSite://footer/lists');?>">底部菜单配置</a></li>
-          <li><a href="<?php echo addons_url('WeiSite://footer/template');?>">底部菜单模板</a></li>-->
-      </ul>
-</div><?php endif; ?>
+        <ul class="sub_tab">
+            <?php if(is_array($sub_nav)): $i = 0; $__LIST__ = $sub_nav;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a class="<?php echo ($vo["class"]); ?>" href="<?php echo ($vo["url"]); ?>"><?php echo ($vo["title"]); ?><span class="arrow fa fa-sort-up"></span></a>
+                </li><?php endforeach; endif; else: echo "" ;endif; ?>
+            <!--          <li><a class="cur" href="<?php echo addons_url('WeiSite://footer/lists');?>">底部菜单配置</a></li>
+                      <li><a href="<?php echo addons_url('WeiSite://footer/template');?>">底部菜单模板</a></li>-->
+        </ul>
+    </div><?php endif; ?>
 <?php if(!empty($normal_tips)): ?><p class="normal_tips"><b class="fa fa-info-circle"></b> <?php echo ($normal_tips); ?></p><?php endif; ?> 
       <?php if($add_button || $del_button || $search_button || !empty($top_more_button)): ?><div class="table-bar">
         <div class="fl">
@@ -249,18 +255,18 @@ var  UPLOAD_FILE = "<?php echo U('File/upload',array('session_id'=>session_id())
     </section>
   </div>
 
-  </div>
+    </div>
 </div>
 
 <script type="text/javascript">
-    $(function(){
-       
-      $("ul.nav li[class='active'] a").attr("target","_self");
-       
-      var now_url = "<?php echo GetCurUrl(); ?>";  // 获取当前浏览地址
-      // alert(now_url);
-      $(".sidenav_sub a[href='"+now_url+"']").parent().addClass("active");
-       
+    $(function () {
+
+        $("ul.nav li[class='active'] a").attr("target", "_self");
+
+        var now_url = "<?php echo GetCurUrl(); ?>";  // 获取当前浏览地址
+        // alert(now_url);
+        $(".sidenav_sub a[href='" + now_url + "']").parent().addClass("active");
+
     })
 </script>
 
@@ -268,7 +274,7 @@ var  UPLOAD_FILE = "<?php echo U('File/upload',array('session_id'=>session_id())
 
 	<!-- 底部 -->
 	<div class="wrap bottom" style="background:#fff; border-top:#ddd;">
-    <p class="copyright">本系统由<a href="http://weiphp.cn" target="_blank">WeiPHP</a>强力驱动</p>
+    <!-- <p class="copyright">本系统由<a href="http://weiphp.cn" target="_blank">WeiPHP</a>强力驱动</p>-->
 </div>
 
 <script type="text/javascript">
@@ -320,7 +326,7 @@ $(function(){
 <?php echo hook('pageFooter', 'widget');?>
 <?php echo ($tongji_code); ?>
 <div class="hidden"><!-- 用于加载统计代码等隐藏元素 -->
-	
+    
 </div>
 
 	<!-- /底部 -->
