@@ -1,0 +1,24 @@
+[ 2015-12-07T04:04:51+08:00 ] 103.240.16.119 http://www.example.com/
+SQL: SELECT `value` FROM `wp_config` WHERE ( name="FOLLOW_YOUKE_UID" ) LIMIT 1   [ RunTime:0.0008s ]
+SQL: UPDATE `wp_config` SET `value`='-11877' WHERE ( name="FOLLOW_YOUKE_UID" ) [ RunTime:0.0009s ]
+NOTIC: [8] Undefined index: uid /home/www/default/ThinkPHP/Library/Think/Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0015s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-11877' and g.status='1' )  [ RunTime:0.0009s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0008s ]
+NOTIC: [8] Undefined variable: addons /home/www/default/Application/Common/Common/function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons /home/www/default/Application/Common/Common/function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons /home/www/default/Application/Common/Common/function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons /home/www/default/Application/Common/Common/function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 0 ORDER BY sort asc, id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0007s ]
+NOTIC: [8] Undefined variable: res /home/www/default/Application/Common/Model/ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu /home/www/default/Application/Common/Model/ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu /home/www/default/Application/Common/Model/ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu /home/www/default/Application/Common/Model/ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu /home/www/default/Application/Common/Model/ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu /home/www/default/Application/Common/Model/ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu /home/www/default/Application/Common/Model/ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu /home/www/default/Application/Common/Model/ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: HTTP_REFERER /home/www/default/Application/Common/Model/ManagerMenuModel.class.php 第 106 行.
+NOTIC: [2] Invalid argument supplied for foreach() /home/www/default/Application/Common/Model/ManagerMenuModel.class.php 第 143 行.
+
