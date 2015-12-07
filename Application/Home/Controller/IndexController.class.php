@@ -31,7 +31,10 @@ class IndexController extends HomeController {
 			redirect ( U ( 'home/Public/waitAudit' ) );
 		} else {
 			$menus = D ( 'Common/ManagerMenu' )->get ( $this->mid );
+			// 后台用户管理 用户信息 导航管理 里第一个菜单作为init_url
+			// Application/Common/ManagerMenuModel
 			redirect ( $menus ['init_url'] );
+
 			// redirect ( U ( 'home/index/main' ) );
 		}
 	}
