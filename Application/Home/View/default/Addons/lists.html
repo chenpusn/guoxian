@@ -41,7 +41,7 @@
                     <span>{$vo.title}：</span>
                     <select name="{$vo.name}" class="search-input input-small">
                     <volist name='vo.options' id='option'>
-                    <option value="{$option.value}" <eq name='option.default_value' value='option.value'>selected</eq> >{$option.title}</option>
+                    <option value="{$option.value}"><eq name='option.default_value' value='option.value'>selected</eq> >{$option.title}</option>
                     </volist>                    
                     </select>
                 </case>
@@ -83,7 +83,7 @@
               <tr>
                 <if condition="$check_all"><th class="row-selected row-selected"> <input type="checkbox" id="checkAll" class="check-all regular-checkbox"><label for="checkAll"></label></th></if>
                 <volist name="list_grids" id="field">
-                  <th <notempty name="field.width">width="{$field.width}%"</notempty> >{$field.title}</th>
+                  <th><notempty name="field.width">width="{$field.width}%"</notempty> >{$field.title}</th>
                 </volist>
               </tr>
             </thead>
