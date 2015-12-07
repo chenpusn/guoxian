@@ -26,6 +26,11 @@ class BaseController extends AddonsController {
 		$res ['url'] = addons_url ( 'Shop://Shop/lists' );
 		$res ['class'] = ($controller == 'shop' && _ACTION == "lists") ? 'current' : '';
 		$nav [0] = $res;
+
+		$res ['title'] = '订单管理';
+		$res ['url'] = addons_url ( 'Shop://Order/lists' );
+		$res ['class'] = ($controller == 'order' && _ACTION == "lists") ? 'current' : '';
+		$nav [1] = $res;
 		
 		$nav = array ();
 		$this->assign ( 'nav', $nav );
