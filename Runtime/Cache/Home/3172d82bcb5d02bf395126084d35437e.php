@@ -75,7 +75,7 @@ var  UPLOAD_FILE = "<?php echo U('File/upload',array('session_id'=>session_id())
                         <li><p>该账号配置信息已提交，请等待审核</p></li>
                         <?php else: ?>
                         <?php if(is_array($core_top_menu)): $i = 0; $__LIST__ = $core_top_menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ca): $mod = ($i % 2 );++$i;?><li data-id="<?php echo ($ca["id"]); ?>" class="<?php echo ($ca["class"]); ?>"><a href="<?php echo ($ca["url"]); ?>"
-                                                                          target="_blank"><?php echo ($ca["title"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; endif; ?>
+                                                                          target="<?php echo ($ca["target"]); ?>"><?php echo ($ca["title"]); ?></a></li><?php endforeach; endif; else: echo "" ;endif; endif; ?>
                     <li class="dropdown admin_nav">
                         <a href="#" class="dropdown-toggle login-nav" data-toggle="dropdown" style="">
                             <?php if(!empty($userInfo[headface_url])): ?><img class="admin_head" src="<?php echo (get_cover_url($userInfo["headface_url"])); ?>"/>
@@ -84,8 +84,8 @@ var  UPLOAD_FILE = "<?php echo U('File/upload',array('session_id'=>session_id())
                             <?php echo (getShort(get_username($mid),4)); ?><b class="pl_5 fa fa-sort-down"></b>
                         </a>
                         <ul class="dropdown-menu" style="display:none">
-                            <li><a href="<?php echo U ('Home/Public/add',array('id'=>$publicInfo[id]));?>">账号配置</a></li>
-                            <li><a href="<?php echo U ('Home/Public/lists');?>">公众号配置</a></li>
+                            <!--<li><a href="<?php echo U ('Home/Public/add',array('id'=>$publicInfo[id]));?>">账号配置</a></li>
+                            <li><a href="<?php echo U ('Home/Public/lists');?>">公众号配置</a></li>-->
                             <li><a href="<?php echo U('User/profile');?>">修改密码</a></li>
                             <li><a href="<?php echo U('User/logout');?>">退出</a></li>
                         </ul>

@@ -66,7 +66,7 @@ var  UPLOAD_FILE = "<?php echo U('File/upload',array('session_id'=>session_id())
                 	<img src="/Public/Home/images/about/img/banner_pic.png?20150723"/>
                 </div>
             	<section class="login_box">
-                  <form class="login-form" action="/index.php?s=/Home/User/login.html" method="post">
+                  <form class="login-form" action="/index.php?s=/Home/User/login/from/1.html" method="post">
                           <div class="form_body">
                                 <h6>欢迎使用WeiPHP!</h6>
                                 <div class="input_panel">
