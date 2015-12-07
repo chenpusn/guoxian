@@ -11,7 +11,7 @@ class ShopController extends BaseController {
 		parent::_initialize ();
 	}
 	function lists() {
-		redirect ( U ( 'lists' ) );
+		$this->display ();
 	}
 	function edit() {
 		$id = $this->shop_id;
