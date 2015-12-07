@@ -32,7 +32,7 @@ class BaseController extends AddonsController {
 		$res ['class'] = ($controller == 'order' && _ACTION == "lists") ? 'current' : '';
 		$nav [1] = $res;
 		
-		$nav = array ();
+		//$nav = array ();
 		$this->assign ( 'nav', $nav );
 		
 		define ( 'CUSTOM_TEMPLATE_PATH', ONETHINK_ADDON_PATH . 'Shop/View/default/Wap/Template' );
