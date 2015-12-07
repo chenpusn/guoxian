@@ -1,4 +1,4 @@
-<extend name="Base/common" />
+<extend name="Base/no_side_common" />
 <block name="body">
   <div class="span9 page_message">
   <section id="contents"> <include file="Addons/_nav" />
@@ -158,8 +158,7 @@
             </div>
           </if>
         </volist>
-       
-        </div>
+
         <div class="form-item form_bh">
           <button class="btn submit-btn ajax-post" id="submit" type="submit" target-form="form-horizontal">{$submit_name|default='确 定'}</button>
         </div>
