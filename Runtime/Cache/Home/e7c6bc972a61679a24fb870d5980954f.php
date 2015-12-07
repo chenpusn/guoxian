@@ -184,7 +184,7 @@ var  UPLOAD_FILE = "<?php echo U('File/upload',array('session_id'=>session_id())
         <ul class="sub_tab">
             <?php if(is_array($sub_nav)): $i = 0; $__LIST__ = $sub_nav;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a class="<?php echo ($vo["class"]); ?>" href="<?php echo ($vo["url"]); ?>"><?php echo ($vo["title"]); ?><span class="arrow fa fa-sort-up"></span></a>
                 </li><?php endforeach; endif; else: echo "" ;endif; ?>
-            <!--          <li><a class="cur" href="<?php echo addons_url('WeiSite://footer/lists');?>">底部菜单配置</a></li>
+            <!--<li><a class="cur" href="<?php echo addons_url('WeiSite://footer/lists');?>">底部菜单配置</a></li>
                       <li><a href="<?php echo addons_url('WeiSite://footer/template');?>">底部菜单模板</a></li>-->
         </ul>
     </div><?php endif; ?>
@@ -328,6 +328,7 @@ var  UPLOAD_FILE = "<?php echo U('File/upload',array('session_id'=>session_id())
 	<!-- 底部 -->
 	<div class="wrap bottom" style="background:#fff; border-top:#ddd;">
     <!-- <p class="copyright">本系统由<a href="http://weiphp.cn" target="_blank">WeiPHP</a>强力驱动</p>-->
+    <p class="copyright">之味果鲜版权所有 七玥天使技术制作</p>
 </div>
 
 <script type="text/javascript">
