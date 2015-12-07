@@ -1,13 +1,13 @@
 <extend name="Base/no_side_common"/>
 <block name="body">
     <div class="span9 page_message">
-        <include file="Addons/_nav" />
+        <!--<include file="Addons/_nav" />-->
         <section id="contents">
             <div class="tab-content">
-                <!--<if condition="!empty($normal_tips)">
+                <if condition="!empty($normal_tips)">
                     <p class="normal_tips"><b class="fa fa-info-circle"></b> {$normal_tips}</p>
                     <br/>
-                </if>-->
+                </if>
                 <empty name="info">
                     <!-- 还没创建店铺 -->
                     <h3>

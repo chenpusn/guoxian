@@ -45,8 +45,8 @@ class ShopController extends BaseController {
 		}
 	}
 	function summary() {
-	    $normal_tips = '若出现“redirect_uri 参数错误”,请检查微信公众平台里的“网页授权获取用户基本信息”是否配置好“授权回调页面域名”';
-	    $this->assign ( 'normal_tips', $normal_tips );
+	    //$normal_tips = '若出现“redirect_uri 参数错误”,请检查微信公众平台里的“网页授权获取用户基本信息”是否配置好“授权回调页面域名”';
+	    //$this->assign ( 'normal_tips', $normal_tips );
 	    
 		$info = D ( 'Shop' )->getInfo ( $this->shop_id );
 		$this->assign ( 'info', $info );

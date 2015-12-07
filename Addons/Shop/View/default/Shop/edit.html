@@ -1,10 +1,9 @@
-<extend name="Base/common"/>
+<extend name="Base/no_side_common"/>
 <block name="body">
 
     <!-- 标签页导航 -->
     <div class="span9 page_message">
         <section id="contents">
-            <include file="Addons/_nav"/>
             <div class="tab-content">
                 <!-- 表单 -->
                 <php> $post_url || $post_url = U('edit?model='.$model['id'], $get_param);</php>
