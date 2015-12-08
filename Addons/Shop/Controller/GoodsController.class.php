@@ -2,7 +2,7 @@
 
 namespace Addons\Shop\Controller;
 
-use Addons\Shop\Controller\BaseController;
+//use Addons\Shop\Controller\BaseController;
 
 class GoodsController extends BaseController {
 	var $model;
