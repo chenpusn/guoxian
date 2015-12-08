@@ -173,6 +173,7 @@ class OrderController extends BaseController {
 		$map ['is_show'] = 1;
 		$map ['token'] = get_token ();
 		$list = M ( 'weisite_category' )->where ( $map )->select ();
+		$extra = '';
 		foreach ( $list as $v ) {
 			$extra .= $v ['id'] . ':' . $v ['title'] . "\r\n";
 		}
