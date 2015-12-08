@@ -1408,8 +1408,9 @@ function getPaymentOpenid($appId = "", $serect = "") { // echo '444';
 	}
 }
 // 获取当前用户的Token
+// TODO: 明白逻辑之后，此处修改硬编码设置stoken
 function get_token($token = NULL) {
-	$stoken = session ( 'token' );
+	$token = 'gh_386b39d0fa1a';//session ( 'token' );
 	$domain = explode ( '.', SITE_DOMAIN );
 	
 	if ($token !== NULL && $token != '-1') {
@@ -1617,7 +1618,7 @@ function getShort($str, $length = 40, $ext = '') {
 	$str = strip_tags ( $str );
 	$str = htmlspecialchars_decode ( $str );
 	$strlenth = 0;
-	$out = '';
+	$output = '';
 	preg_match_all ( "/[\x01-\x7f]|[\xc2-\xdf][\x80-\xbf]|[\xe0-\xef][\x80-\xbf]{2}|[\xf0-\xff][\x80-\xbf]{3}/", $str, $match );
 	foreach ( $match [0] as $v ) {
 		preg_match ( "/[\xe0-\xef][\x80-\xbf]{2}/", $v, $matchs );
