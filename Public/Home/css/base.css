@@ -4,7 +4,7 @@
  */
 
 body {
-	font: 14px/1.5 "microsoft yahei", Helvetica, Tahoma, Arial, "Microsoft jhengHei", sans-serif;
+	font: 14px/1.5 sans-serif, "microsoft yahei", Helvetica, Tahoma, Arial, "Microsoft jhengHei";
 	color:#404040;
 	background-color:#fff;
 }

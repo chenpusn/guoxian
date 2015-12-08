@@ -138,8 +138,8 @@ body{ background:#e7e8eb;}
 .top_nav li.dropdown .fa{ vertical-align:3px;}
 .top_nav li a:hover{ color:#ACD0CE; text-decoration: underline}
 .top_nav li.dropdown>a{ line-height:66px; width:120px; height:66px; overflow:hidden; padding:0 20px;}
-.top_nav li>a{line-height:66px;height:66px; overflow:hidden; padding:0 15px; font-size: 14px; color: #ECECEE}
-.top_nav li.active>a{ font-weight: bold; text-decoration: underline; color:#ACD0CE}
+.top_nav li>a{line-height:66px;height:66px; overflow:hidden; padding:0 15px; font-size: 16px; color: #ECECEE}
+.top_nav li.active>a{ text-decoration: underline; color:#FE4C40}
 .top_nav li>a img{ width:40px; height:40px; border:2px solid #ccc; border-radius:22px; vertical-align:-14px; margin-right:5px;}
 .top_nav li.admin_nav>a{ border-left:1px solid #e1e1e1;border-right:1px solid #e1e1e1;}
 .top_nav li.dropdown>a:hover,.top_nav li.dropdown>a.hover{ background:#ddd;color:#222}
