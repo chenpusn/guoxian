@@ -482,7 +482,7 @@ abstract class Controller {
 	// 初始化用户信息
 	private function initUser() {
 		if (isset ( $_GET ['is_stree'] )) {
-			$suid = $user ['uid'] = rand ( 1, 10000 );
+			$uid = $user ['uid'] = rand ( 1, 10000 );
 		} else {
 			$uid = session ( 'mid' );
 		}
