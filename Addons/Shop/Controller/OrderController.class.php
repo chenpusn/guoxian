@@ -2,8 +2,6 @@
 
 namespace Addons\Shop\Controller;
 
-use Addons\Shop\Controller\BaseController;
-
 class OrderController extends BaseController {
 	var $model;
 	function _initialize() {
@@ -79,7 +77,7 @@ class OrderController extends BaseController {
 			}
 			$addressInfo = D ( 'Addons://Shop/Address' )->getInfo ( $order['address_id'] );
 			//$vo ['uid'] = '<a target="_blank" href="' . addons_url ( 'UserCenter://UserCenter/detail', $param2 ) . '">' . $follow ['nickname'] . '</a>';
-			$vo ['uid'] =  $addressInfo['truename'].$addressInfo['mobile'];
+			$vo ['uid'] =  $addressInfo['truename'].'<br/>'.$addressInfo['mobile'];
 		}
 		// dump($list_data ['list_data'] );
 		$this->assign ( $list_data );

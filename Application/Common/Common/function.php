@@ -3358,3 +3358,125 @@ function replyVideo($mediaid='',$title,$description){
     $weObj = getWechatApiObj();
     $weObj->video($mediaid='',$title,$description)->reply();
 }
+
+/*
+ * 获取钱方接口token
+ * 2015-12-10 CHEN PU
+ * */
+// CHEN PU 2015-12-10 获取钱方接口token
+function getQianfangToken($out_user, $mobile)
+{
+	if(!session("QIANFANG_TOKEN")){
+		$caller = 'server';
+		$app_code = 'C921FF5C81381E203BAE6D9AC2E90C0F';
+
+		$data = array(	'caller'=> $caller,
+						'app_code' => $app_code,
+						'out_user' => $out_user,
+						'mobile'=> $mobile,
+						'sign'=>'');
+
+		$sign_str = getQianfangSign($data);
+
+		$data['sign'] = $sign_str;
+		while(list($key, $value) = each($data)){
+			$item[] = $key.'='.$value;
+		}
+		$token = implode('&', $item);
+
+		$server_url = 'https://qtapi.qfpay.com/auth/v1/token?'.$token;
+
+		$curl = curl_init();
+		curl_setopt($curl, CURLOPT_URL, $server_url);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+		$info_json = curl_exec($curl);
+		if(!curl_errno($curl)){
+			$info = json_decode($info_json);
+			$qianfang_token = $info->data->token;
+			session("QIANFANG_TOKEN", $qianfang_token);
+		}
+		else{
+			$err = '访问服务器出错:'.curl_error($curl);
+			$qianfang_token = 0;
+		}
+		curl_close($curl);
+	}
+	else{
+		$qianfang_token = session('QIANFANG_TOKEN');
+	}
+
+	return $qianfang_token;
+}
+
+// 钱方签名算法
+// https://support.qfpay.com/qiantai/develop.html#explain
+// 钱台签名算法都是MD5方式，MD5值格式为32位大写；在做MD5签名算法时，不需要编码转换
+//接口“sign”签名算法：
+//步骤1.  将所有参数按照参数名升序。
+//参数列表为 ： abc=value,bcd=value,bad=value
+//排序结果为 ： abc=value,bad=value,bcd=value
+//步骤2.  将所有参数用&连接。
+//abc=value&bad=value&bcd=value
+//步骤3.  将字符串和server_key拼起来。
+//abc=value&bad=value&bcd=valueServer_key
+//步骤4.  将拼接起来的字符串做MD5
+//MD5(abc=value&bad=value&bcd=valueServer_key)
+function getQianfangSign($data){
+
+	ksort($data);
+	while(list($key, $value) = each($data)){
+		if($key != 'sign'){
+			$item[] = $key.'='.$value;
+		}
+	}
+	$data_str = implode('&', $item);
+	$data_str .= 'FF5AF5B0AD31FDFAAB2E2534B44FBE53';
+	$data_str_MD5 = strtoupper(md5($data_str));
+
+	return $data_str_MD5;
+}
+
+/*
+ * 获取钱方接口order token
+ * 2015-12-10 CHEN PU
+ * */
+// CHEN PU 2015-12-10 获取钱方接口 order token
+function getQianFangOrderToken($total_amt, $out_sn)
+{
+	$caller = 'server';
+	$app_code = 'C921FF5C81381E203BAE6D9AC2E90C0F';
+
+	$data = array(	'caller'=> $caller,
+			'app_code' => $app_code,
+			'total_amt' => $total_amt,
+			'out_sn'=> $out_sn,
+			'sign'=>'');
+
+	$sign_str = getQianfangSign($data);
+	$data['sign'] = $sign_str;
+	while(list($key, $value) = each($data)){
+		$item[] = $key.'='.$value;
+	}
+	$token = implode('&', $item);
+
+	$server_url = 'https://qtapi.qfpay.com/order/v1/pre_create';
+	$curl = curl_init();
+	curl_setopt($curl, CURLOPT_URL, $server_url);
+	curl_setopt($curl, CURLOPT_POST, 1 );
+	curl_setopt($curl, CURLOPT_POSTFIELDS, $token);
+	curl_setopt ($curl, CURLOPT_HEADER, 0 );;
+	curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+	curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
+	curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
+	$info_json = curl_exec($curl);
+	if(!curl_errno($curl)){
+		$info = json_decode($info_json);
+		$qianfang_order_token = $info->data->order_token;	}
+	else{
+		$err = '访问服务器出错:'.curl_error($curl);
+		$qianfang_order_token = 0;
+	}
+	return $qianfang_order_token;
+}

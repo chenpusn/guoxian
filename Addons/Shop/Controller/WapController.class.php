@@ -351,6 +351,7 @@ class WapController extends AddonsController {
 			echo 0;
 		}
 	}
+
 	// 选择支付方式
 	function choose_pay() {
 		$openid = get_openid ();
@@ -421,6 +422,54 @@ class WapController extends AddonsController {
 		
 		redirect ( $url, 1, '您好,准备跳转到支付页面,请不要重复刷新页面,请耐心等待...' );
 	}
+
+
+	// 调用钱方支付
+	// https://support.qfpay.com/qiantai/H5/H5.html
+	// CHEN PU: 2015/12/09
+	function qianfang_pay(){
+
+		$order_id = $_GET ['order_id'];
+		$orderDao = D ( 'Addons://Shop/Order' );
+		$orderInfo = $orderDao->getInfo ( $order_id );
+		$customerId = $orderInfo['uid'];
+		$outUser  = $customerId?$customerId:'2';
+
+		$addressInfo = D ( 'Addons://Shop/Address' )->getInfo ( $orderInfo['address_id'] );
+		$mobile  = $addressInfo['mobile'];
+		$qianfangToken = getQianfangToken($outUser, $mobile);
+		// 如果正确，返回token值；如果错误，返回0
+		if(!$qianfangToken){
+			echo "付款失败";
+		}
+		else {
+			//$orderInfo['total_price']
+			$totalAmt = $orderInfo["total_price"]*100;
+			$orderNO = $orderInfo["order_number"];
+			$qianfangOrderToken = getQianFangOrderToken($totalAmt, $orderNO);
+			if(!$qianfangOrderToken){
+				$goods = json_decode ( $orderInfo ['goods_datas'], true );
+				$goodsName = "";
+				foreach ( $goods as $good ) {
+					$goodsName .= $good['title'];
+				}
+
+				$checkoutUrl =
+						sprintf("https://qtapi.qfpay.com/wap/v1/checkout/get_openid?".
+								"token=%s&order_token=%s&goods_name=%s&".
+								"mobile=%s&total_amt=%s&out_sn=%s&showwxpaytitle=1",
+								$qianfangToken, $qianfangOrderToken, $goodsName,
+								$mobile, $totalAmt, $orderNO);
+
+				redirect($checkoutUrl);
+			}
+			else{
+				echo "付款失败";
+			}
+		}
+	}
+
+
 	public function playok() {
 		// 支付成功后能得到的参数有：
 		$token = I ( 'token' );
