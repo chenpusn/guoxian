@@ -60,14 +60,14 @@ class OrderController extends BaseController {
 			$vo = array_merge ( $vo, $order );
 			$follow = get_followinfo ( $vo ['uid'] );
 			$param2 ['uid'] = $follow ['uid'];
-			$vo ['uid'] = '<a target="_blank" href="' . addons_url ( 'UserCenter://UserCenter/detail', $param2 ) . '">' . $follow ['nickname'] . '</a>';
+
 			$vo ['cate_id'] = intval ( $vo ['cate_id'] );
 			$vo ['cate_id'] = $cate [$vo ['cate_id']];
 			
 			$goods = json_decode ( $order ['goods_datas'], true );
 			foreach ( $goods as $vv ) {
 				//$vo ['goods'] .= '<img width="50" style="vertical-align:middle;margin:0 10px 0 0" src="' . get_cover_url ( $vv ['cover'] ) . '"/>' . $vv ['title'] . '<br><br>';
-				$vo ['goods'] .= $vv ['title']. $vv ['num']. '<br><br>';
+				$vo ['goods'] .= $vv ['title']. '数量:' .$vv ['num']. '<br/>';
 			}
 			$vo ['goods'] = rtrim ( $vo ['goods'], '<br><br>' );
 			
@@ -77,6 +77,9 @@ class OrderController extends BaseController {
 			if ($vo ['status_code'] == 1) {
 				$vo ['action'] .= '<br><br><a href="' . addons_url ( 'Shop://Order/set_confirm', $param ) . '">商家确认</a>';
 			}
+			$addressInfo = D ( 'Addons://Shop/Address' )->getInfo ( $order['address_id'] );
+			//$vo ['uid'] = '<a target="_blank" href="' . addons_url ( 'UserCenter://UserCenter/detail', $param2 ) . '">' . $follow ['nickname'] . '</a>';
+			$vo ['uid'] =  $addressInfo['truename'].$addressInfo['mobile'];
 		}
 		// dump($list_data ['list_data'] );
 		$this->assign ( $list_data );
