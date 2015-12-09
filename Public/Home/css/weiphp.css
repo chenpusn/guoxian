@@ -141,8 +141,8 @@ body{ background:#e7e8eb;}
 .top_nav li>a{line-height:66px;height:66px; overflow:hidden; padding:0 15px; font-size: 16px; color: #ECECEE}
 .top_nav li.active>a{ text-decoration: underline; color:#FE4C40}
 .top_nav li>a img{ width:40px; height:40px; border:2px solid #ccc; border-radius:22px; vertical-align:-14px; margin-right:5px;}
-.top_nav li.admin_nav>a{ border-left:1px solid #e1e1e1;border-right:1px solid #e1e1e1;}
-.top_nav li.dropdown>a:hover,.top_nav li.dropdown>a.hover{ background:#ddd;color:#222}
+.top_nav li.admin_nav>a{ border-left:1px solid #ACD0CE;}
+.top_nav li.dropdown>a:hover,.top_nav li.dropdown>a.hover{ background:#3B3E47;color:#ACD0CE}
 .top_nav li.dropdown ul{ position:absolute; width:100%; top:66px; left:0; background:#ddd;position: absolute;
 color:#222;
 float: none;
@@ -164,9 +164,9 @@ background-clip: none;
  border-bottom:2px solid #44b549}
 .top_nav li.dropdown ul li{ float:none}
 .top_nav li.dropdown ul a{ display:block; height:40px; line-height:40px; padding:0 20px;}
-.top_nav li.dropdown ul a:hover{ background:#fff;}
-.top_nav .dropdown-menu > li > a{ color:#222}
-.top_nav .dropdown-menu > li > a:hover{ color:#333;}
+.top_nav li.dropdown ul a:hover{ background:#3B3E47;}
+.top_nav .dropdown-menu > li > a{ color:#ECECEE}
+.top_nav .dropdown-menu > li > a:hover{ color:#ACD0CE;}
 .top_nav p{ line-height: 66px; padding: 0 20px;color: red}
 
 /* 侧栏 */
