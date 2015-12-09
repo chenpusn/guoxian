@@ -283,6 +283,7 @@ class WapController extends AddonsController {
 		// 订单信息
 		if (IS_POST) {
 			$dao = D ( 'Goods' );
+			$total_price = 0;
 			if (isset ( $_POST ['goods_ids'] )) {
 				$goods_ids = I ( 'post.goods_ids' );
 				$numArr = I ( 'post.buyCount' );

@@ -83,7 +83,11 @@
               <tr>
                 <if condition="$check_all"><th class="row-selected row-selected"> <input type="checkbox" id="checkAll" class="check-all regular-checkbox"><label for="checkAll"></label></th></if>
                 <volist name="list_grids" id="field">
-                  <th {<notempty name="field.width">width="{$field.width}%"</notempty>}>{$field.title}</th>
+                    <empty name="field.width">
+                      <th>{$field.title}</th>
+                    </else>
+                      <th width="{$field.width}%">{$field.title}</th>
+                    </empty>
                 </volist>
               </tr>
             </thead>

@@ -15,7 +15,7 @@ return array(
 		// 数据库配置
         'DB_TYPE'   => 'mysql', // 数据库类型
         'DB_HOST'   => 'mysql56.rdsmxaxdpurey85.rds.bj.baidubce.com', // 服务器地址
-        'DB_NAME'   => 'guoxian', // 数据库名
+        'DB_NAME'   => 'haozhixian', // 数据库名
         'DB_USER'   => 'pchen', // 用户名
         'DB_PWD'    => '1qazxsw2',  // 密码
         'DB_PORT'   => '3306', // 端口
@@ -25,7 +25,7 @@ return array(
 		),
 		
 		// 系统数据加密设置
-		'DATA_AUTH_KEY' => '&Da>4|BT`zugI:#,h1^8<(9xE@*d/6j_n3~vkZLq', // 默认数据加密KEY
+		'DATA_AUTH_KEY' => 'DT2!$r=7pZ`[Jc{_K^-A4FMR"ChO6]sx5b@~vqNd', // 默认数据加密KEY
 		                                                               
 		// 调试配置
 		'SHOW_PAGE_TRACE' => true,
