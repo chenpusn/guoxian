@@ -165,7 +165,7 @@ background-clip: none;
 .top_nav li.dropdown ul li{ float:none}
 .top_nav li.dropdown ul a{ display:block; height:40px; line-height:40px; padding:0 20px;}
 .top_nav li.dropdown ul a:hover{ background:#3B3E47;}
-.top_nav .dropdown-menu > li > a{ color:#ECECEE}
+.top_nav .dropdown-menu > li > a{ color:#ECECEE; background-color: #3B3E47; border-left:1px solid #ACD0CE;}
 .top_nav .dropdown-menu > li > a:hover{ color:#ACD0CE;}
 .top_nav p{ line-height: 66px; padding: 0 20px;color: red}
 
