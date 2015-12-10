@@ -9,9 +9,6 @@ class WapController extends AddonsController {
 	function _initialize() {
 		parent::_initialize ();
 
-		//if (_ACTION == 'show') {
-			$GLOBALS ['is_wap'] = true;
-		//}
 
 		if (! empty ( $_REQUEST ['shop_id'] )) {
 			$this->shop_id = I ( 'shop_id' );

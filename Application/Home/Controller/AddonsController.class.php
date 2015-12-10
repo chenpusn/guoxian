@@ -24,10 +24,13 @@ class AddonsController extends Controller {
 				'config',
 				'nulldeal' 
 		);
-		if (in_array ( _ACTION, $param ) && (empty ( $token ) || $token == '-1')) {
+
+		//TODO: 此处需弄清逻辑 暂时注掉
+		//
+		/*if (in_array ( _ACTION, $param ) && (empty ( $token ) || $token == '-1')) {
 			$url = U ( 'Public/add' );
 			redirect ( $url );
-		}
+		}*/
 		
 		C ( 'EDITOR_UPLOAD.rootPath', './Uploads/Editor/' . $token . '/' );
 		
