@@ -21,9 +21,9 @@ if (version_compare ( PHP_VERSION, '5.3.0', '<' ))
  * 项目正式部署后请设置为false
  */
 define ( 'APP_DEBUG', true );
-define ( 'SHOW_ERROR', false );
+define ( 'SHOW_ERROR', true );
 
-define ( 'IN_WEIXIN', false );
+define ( 'IN_WEIXIN', true );
 define ( 'DEFAULT_TOKEN', '-1' ); 
 
 /**

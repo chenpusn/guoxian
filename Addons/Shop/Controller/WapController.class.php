@@ -40,7 +40,7 @@ class WapController extends AddonsController {
 	// 首页
 	function index() {
 		$this->_getShopCategory ();
-		
+
 		// banner
 		$slideshow_list = D ( 'Slideshow' )->getShopList ( $this->shop_id );
 		// dump($slideshow_list);
@@ -60,7 +60,6 @@ class WapController extends AddonsController {
 		$goods_list = D ( 'Goods' )->getNewsList ( $this->shop_id );
 		// dump($goods_list);
 		$this->assign ( 'goods_list', $goods_list );
-		
 		$this->display ( CUSTOM_TEMPLATE_PATH . 'index.html' );
 	}
 	// 产品列表
