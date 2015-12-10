@@ -9,7 +9,6 @@ class WapController extends AddonsController {
 	function _initialize() {
 		parent::_initialize ();
 
-
 		if (! empty ( $_REQUEST ['shop_id'] )) {
 			$this->shop_id = I ( 'shop_id' );
 			session ( 'wap_shop_id', $this->shop_id );
@@ -41,9 +40,7 @@ class WapController extends AddonsController {
 	// 首页
 	function index() {
 
-		$token = get_token ();
-		$callback = GetCurUrl ();
-		OAuthWeixin ( $callback, $token );
+		$openID = get_openid();
 
 		$this->_getShopCategory ();
 

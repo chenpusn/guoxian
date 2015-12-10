@@ -29,6 +29,7 @@ return array(
 		                                                               
 		// 调试配置
 		'SHOW_PAGE_TRACE' => true,
+		'PAGE_TRACE_SAVE' => true,
 		
 		// 用户相关设置数
 		'USER_ADMINISTRATOR' => 1, // 管理员用户ID
@@ -89,5 +90,13 @@ return array(
 				'maxSize' => 5242880, // 5M 上传的文件大小限制 (0-不做限制)
 				'exts' => 'jpg,gif,png,jpeg,zip,rar,tar,gz,7z,doc,docx,txt,xml,xls,xlsx,csv,pem', // 允许上传的文件后缀
 				'rootPath' => './Uploads/Download/' 
-		) 
+		),
+
+		'TRACE_PAGE_TABS'=>array(
+			'base'=>'基本',
+			'file'=>'文件',
+			'think'=>'流程',
+			'error|debug|sql'=>'调试',
+			'user'=>'用户'
+		)
 );

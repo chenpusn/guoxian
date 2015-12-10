@@ -1346,6 +1346,8 @@ function GetCurUrl() {
 }
 // 获取当前用户的OpenId
 function get_openid($openid = NULL) {
+	trace('', '测试调试信息', 'user');
+
 	$token = get_token ();
 	if ($openid !== NULL && $openid != '-1') {
 		session ( 'openid_' . $token, $openid );
