@@ -1410,7 +1410,7 @@ function getPaymentOpenid($appId = "", $serect = "") { // echo '444';
 // 获取当前用户的Token
 // TODO: 明白逻辑之后，此处修改硬编码设置stoken
 function get_token($token = NULL) {
-	$token = 'gh_386b39d0fa1a';//session ( 'token' );
+	$token = session ( 'token' ); //'gh_386b39d0fa1a';//
 	$domain = explode ( '.', SITE_DOMAIN );
 	
 	if ($token !== NULL && $token != '-1') {
