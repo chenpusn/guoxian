@@ -575,10 +575,11 @@ abstract class Controller {
 		$config = getAddonConfig ( 'UserCenter' );
 		$userNeed = ($GLOBALS ['myinfo'] ['uid'] > 0 && $GLOBALS ['myinfo'] ['status'] < 2) || empty ( $GLOBALS ['myinfo'] );
 		$is_need_bind = $config ['need_bind'] == 1 && $config ['bind_start'] != 1 && strtolower ( $_REQUEST ['_addons'] ) != 'usercenter';
-		//if (IS_GET && ! (defined ( 'IN_WEIXIN' ) && IN_WEIXIN) && $is_need_bind && $userNeed && C ( 'USER_OAUTH' )) {
+		//if (IS_GET && ! (defined ( 'IN_WEIXIN' ) && IN_WEIXIN) && $is_need_bind && $userNeed && C ( 'USER_OAUTH' ))
+		if (strtolower ( $_REQUEST ['_addons'] ) != 'usercenter'){
 			Cookie ( '__forward__', $_SERVER ['REQUEST_URI'] );
 			redirect ( addons_url ( 'UserCenter://Wap/bind' ) );
-		//}
+		}
 	}
 	
 	// ***************************通用的模型数据操作 begin 凡星********************************/
