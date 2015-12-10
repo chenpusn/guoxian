@@ -506,7 +506,6 @@ abstract class Controller {
 		// 当前访问对象的uid
 		$GLOBALS ['uid'] = $this->uid = intval ( $_REQUEST ['uid'] == 0 ? $this->mid : $_REQUEST ['uid'] );
 
-		echo "uid:".$this->uid;
 		$this->assign ( 'mid', $this->mid ); // 登录者
 		$this->assign ( 'uid', $this->uid ); // 访问对象
 		$this->assign ( 'myinfo', $GLOBALS ['myinfo'] ); // 访问对象
