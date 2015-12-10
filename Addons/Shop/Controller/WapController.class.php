@@ -40,6 +40,9 @@ class WapController extends AddonsController {
 	}
 	// 首页
 	function index() {
+
+		get_openid();
+		
 		$this->_getShopCategory ();
 
 		// banner

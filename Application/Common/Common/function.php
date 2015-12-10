@@ -903,9 +903,9 @@ function get_table_name($model_id = null) {
 /**
  * 获取属性信息并缓存
  *
- * @param integer $id
+ * @param integer $model_id
  *        	属性ID
- * @param string $field
+ * @param boolean $field_sort
  *        	要获取的字段名
  * @return string 属性信息
  */
@@ -954,6 +954,7 @@ function get_model_attribute($model_id, $field_sort = false) {
  *        	格式 [模块名]/接口名/方法名
  * @param array|string $vars
  *        	参数
+ * @return callback
  */
 function api($name, $vars = array()) {
 	$array = explode ( '/', $name );
@@ -1408,7 +1409,7 @@ function getPaymentOpenid($appId = "", $serect = "") { // echo '444';
 	}
 }
 // 获取当前用户的Token
-// TODO: 明白逻辑之后，此处修改硬编码设置stoken
+// TODOCHENPU: 明白逻辑之后，此处修改硬编码设置stoken
 function get_token($token = NULL) {
 	$token = session ( 'token' ); //'gh_386b39d0fa1a';//
 	$domain = explode ( '.', SITE_DOMAIN );
