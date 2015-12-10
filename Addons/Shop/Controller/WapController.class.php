@@ -41,8 +41,10 @@ class WapController extends AddonsController {
 	// 首页
 	function index() {
 
-		get_openid();
-		
+		$token = get_token ();
+		$callback = GetCurUrl ();
+		OAuthWeixin ( $callback, $token );
+
 		$this->_getShopCategory ();
 
 		// banner
