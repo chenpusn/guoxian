@@ -267,18 +267,24 @@ class WapController extends AddonsController {
 	}
 	// 购物车
 	function cart() {
-		$list = D ( 'Cart' )->getMyCart ( $this->mid, true );
-		
-		$dao = D ( 'goods' );
-		foreach ( $list as &$v ) {
-			$v ['goods_data'] = $dao->getInfo ( $v ['goods_id'] );
+		if(!cookie("SHOP_USER")){
+			$this->redirect("choose_address", "请先绑定个人信息");
 		}
-		
-		// dump ( $list );
-		$this->assign ( 'lists', $list );
-		
-		$this->display ();
+		else{
+			$list = D ( 'Cart' )->getMyCart ( $this->mid, true );
+
+			$dao = D ( 'goods' );
+			foreach ( $list as &$v ) {
+				$v ['goods_data'] = $dao->getInfo ( $v ['goods_id'] );
+			}
+
+			// dump ( $list );
+			$this->assign ( 'lists', $list );
+
+			$this->display ();
+		}
 	}
+
 	function delCart() {
 		$ids = I ( 'ids' );
 		echo D ( 'Cart' )->delCart ( $ids );
@@ -428,7 +434,6 @@ class WapController extends AddonsController {
 		redirect ( $url, 1, '您好,准备跳转到支付页面,请不要重复刷新页面,请耐心等待...' );
 	}
 
-
 	// 调用钱方支付
 	// https://support.qfpay.com/qiantai/H5/H5.html
 	// CHEN PU: 2015/12/09
@@ -473,7 +478,6 @@ class WapController extends AddonsController {
 			}
 		}
 	}
-
 
 	public function playok() {
 		// 支付成功后能得到的参数有：
