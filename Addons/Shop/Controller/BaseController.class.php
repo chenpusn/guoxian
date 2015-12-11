@@ -14,7 +14,7 @@ class BaseController extends AddonsController
         // 获取当前登录的用户的商城
         $map ['token'] = 'gh_386b39d0fa1a';//get_token();
         //$map ['manamger_id'] = $this->mid;
-        trace($this->mid,"BaseController::mid","user");
+        //trace($this->mid,"BaseController::mid","user");
         $this->shop_id = 0;
 
         $currentShopInfo = M('shop')->where($map)->find();

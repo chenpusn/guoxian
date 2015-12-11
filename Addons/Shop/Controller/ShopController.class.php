@@ -33,7 +33,7 @@ class ShopController extends BaseController {
 			$data = D ( 'Shop' )->getInfo ( $id, true );
 			$data || $this->error ( '数据不存在！' );
 			
-			$token = get_token ();
+			$token = 'gh_386b39d0fa1a'; //get_token ();
 			if (isset ( $data ['token'] ) && $token != $data ['token'] && defined ( 'ADDON_PUBLIC_PATH' )) {
 				$this->error ( '非法访问！' );
 			}
