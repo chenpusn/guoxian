@@ -515,11 +515,14 @@ class WapController extends AddonsController
         $orderDao = D('Addons://Shop/Order');
         $orderInfo = $orderDao->getInfo($order_id);
         $customerId = $orderInfo['uid'];
-        $outUser = $customerId ? $customerId : '2';
+        $outUser = $customerId;
 
-        $addressInfo = D('Addons://Shop/Address')->getInfo($orderInfo['address_id']);
-        $mobile = $addressInfo['mobile'];
+        $accountInfo = D('Addons://Shop/ShopUser')->getAccount($this->mid);
+        $mobile = $accountInfo['mobile'];
+        trace($outUser, "outUser", 'user');
+        trace($mobile, "mobile", 'user');
         $qianfangToken = getQianfangToken($outUser, $mobile);
+        trace($qianfangToken, "qianfangToken", 'user');
         // 如果正确，返回token值；如果错误，返回0
         if (!$qianfangToken) {
             echo "付款失败";

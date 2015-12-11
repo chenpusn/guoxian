@@ -3485,6 +3485,7 @@ function getQianFangOrderToken($total_amt, $out_sn)
 	$info_json = curl_exec($curl);
 	if(!curl_errno($curl)){
 		$info = json_decode($info_json);
+		trace($info, "QianFang token info", 'user');
 		$qianfang_order_token = $info->data->order_token;	}
 	else{
 		$err = '访问服务器出错:'.curl_error($curl);
