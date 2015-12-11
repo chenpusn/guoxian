@@ -38,7 +38,9 @@ class WapController extends AddonsController
             $this->mid = cookie("SHOPUSERID".C('SITE_VERSION'));
         }
         else{
-            $this->mid = 0;
+            //$this->mid = 0;
+
+
         }
 
         $cart_count = 0;
@@ -205,45 +207,65 @@ class WapController extends AddonsController
     // 全部订单
     function myOrder()
     {
-        $map ['uid'] = $this->mid;
-        $myorders = D('Addons://Shop/Order')->getOrderList($map);
-        // dump('--全部订单--');
+        if($this->mid > 0){
+            $map ['uid'] = $this->mid;
+            $myorders = D('Addons://Shop/Order')->getOrderList($map);
+            // dump('--全部订单--');
 
-        $this->assign('allClass', 'current');
-        $this->assign('orderList', $myorders);
+            $this->assign('allClass', 'current');
+            $this->assign('orderList', $myorders);
 
-        D('Addons://Shop/Order')->autoSetFinish();
+            D('Addons://Shop/Order')->autoSetFinish();
 
-        $this->display('order_list');
+            $this->display('order_list');
+        }
+        else{
+            cookie('SHOPFORWARDURL'.C('SITE_VERSION'), 'myOrder');
+            $this->redirect("bind_account", "请先绑定个人信息");
+        }
+
     }
 
     // 获取待付款
     function unPayOrder()
     {
-        $map ['uid'] = $this->mid;
-        $map ['pay_status'] = 0;
-        $unPayOrders = D('Addons://Shop/Order')->getOrderList($map);
-        // dump('--待付款--');
-        // dump($unPayOrders);
-        $this->assign('unPayClass', 'current');
-        $this->assign('orderList', $unPayOrders);
-        $this->display('order_list');
+        if($this->mid > 0){
+            $map ['uid'] = $this->mid;
+            $map ['pay_status'] = 0;
+            $unPayOrders = D('Addons://Shop/Order')->getOrderList($map);
+            // dump('--待付款--');
+            // dump($unPayOrders);
+            $this->assign('unPayClass', 'current');
+            $this->assign('orderList', $unPayOrders);
+            $this->display('order_list');
+        }
+        else{
+            cookie('SHOPFORWARDURL'.C('SITE_VERSION'), 'unPayOrder');
+            $this->redirect("bind_account", "请先绑定个人信息");
+        }
     }
 
     // 配送中
     function shippingOrder()
     {
-        $map ['uid'] = $this->mid;
-        $map ['is_send'] = 1;
-        $unPayOrders = D('Addons://Shop/Order')->getOrderList($map);
-        // dump('--配送中--');
-        $this->assign('shippingClass', 'current');
-        $this->assign('orderList', $unPayOrders);
-        $this->display('order_list');
+        if($this->mid > 0){
+            $map ['uid'] = $this->mid;
+            $map ['is_send'] = 1;
+            $unPayOrders = D('Addons://Shop/Order')->getOrderList($map);
+            // dump('--配送中--');
+            $this->assign('shippingClass', 'current');
+            $this->assign('orderList', $unPayOrders);
+            $this->display('order_list');
+        }
+        else{
+            cookie('SHOPFORWARDURL'.C('SITE_VERSION'), 'shippingOrder');
+            $this->redirect("bind_account", "请先绑定个人信息");
+        }
     }
 
     function waitCommentOrder()
     {
+        if($this->mid > 0){
         $map ['uid'] = $this->mid;
         $map ['is_send'] = 2;
         $unPayOrders = D('Addons://Shop/Order')->getOrderList($map);
@@ -251,6 +273,11 @@ class WapController extends AddonsController
         $this->assign('waitClass', 'current');
         $this->assign('orderList', $unPayOrders);
         $this->display('order_list');
+        }
+        else{
+            cookie('SHOPFORWARDURL'.C('SITE_VERSION'), 'waitCommentOrder');
+            $this->redirect("bind_account", "请先绑定个人信息");
+        }
     }
 
     function orderDetail()
@@ -538,7 +565,7 @@ class WapController extends AddonsController
                 if (!$qianfangOrderToken) {
                     echo "付款失败";
                 } else {
-                    
+
                     $goods = json_decode($orderInfo ['goods_datas'], true);
                     $goodsName = "";
                     foreach ($goods as $good) {
