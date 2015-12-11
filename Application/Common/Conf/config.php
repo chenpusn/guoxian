@@ -98,5 +98,7 @@ return array(
 			'think'=>'流程',
 			'error|debug|sql'=>'调试',
 			'user'=>'用户'
-		)
+		),
+
+		'SITE_VERSION' => 'V0.1'
 );
