@@ -30,7 +30,7 @@ class WapController extends AddonsController {
 		
 		define ( 'CUSTOM_TEMPLATE_PATH', ONETHINK_ADDON_PATH . '/Shop/View/default/Wap/Template/' . $shop ['template'] . '/' );
 		$cart_count = 0;
-		trace ($this->mid, "Shop::WapController::_initialize::mid", 'user', 'debug');
+		trace ($this->mid, "Shop::WapController::_initialize::mid", 'user');
 		if($this->mid != 0){
 			$cart_count = count ( D ( 'Cart' )->getMyCart ( $this->mid, true ) );
 		}

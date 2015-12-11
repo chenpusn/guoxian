@@ -1357,7 +1357,7 @@ function get_openid($openid = NULL) {
 	$openid = session ( 'openid_' . $token );
 
 	$isWeixinBrowser = isWeixinBrowser ();
-	trace($isWeixinBrowser, "function::get_openid::isWeixinBrowser", "user", 'debug');
+	trace($isWeixinBrowser, "function::get_openid::isWeixinBrowser", "user");
 	if ((empty ( $openid ) || $openid == '-1') &&
 			$isWeixinBrowser &&
 		(!empty ( $_REQUEST ['openid'] ) && $_REQUEST ['openid'] != '-2') &&
