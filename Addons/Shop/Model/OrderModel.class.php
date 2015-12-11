@@ -69,7 +69,7 @@ class OrderModel extends Model {
 
 	function getInfoByOrderNumber($orderNumer){
 		$map["order_number"] = $orderNumer;
-		$orderInfo = $this->where($map)->select()[0];
+		$orderInfo = $this->where($map)->select();
 		return $orderInfo;
 	}
 

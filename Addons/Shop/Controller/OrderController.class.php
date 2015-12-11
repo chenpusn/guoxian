@@ -268,8 +268,8 @@ class OrderController extends BaseController {
 
 		$orderInfo = D ( 'Addons://Shop/Order' )->getInfoByOrderNumber($orderNumber);
 
-		$res = D ( 'Addons://Shop/Order' )->update ( $orderInfo["id"], $save );
-		D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo["id"], 5 );
+		$res = D ( 'Addons://Shop/Order' )->update ( $orderInfo[0]["id"], $save );
+		D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 5 );
 
 		echo '付款成功, 请到XXX取货';
 	}
