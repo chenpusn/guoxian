@@ -5,11 +5,9 @@
     <!-- 选择收货地址 -->
     <!-- <a class="choose_address" href="{:addons_url('Shop://Wap/choose_address')}">
         <empty name="address">
-            <!-- 没有 -->
             <span class="write"><em class="write_icon">&nbsp;</em>请选择收货地址</span>
             <input type="hidden" name="address_id" id="address_id" value=""/>
             <else/>
-            <!-- 已有收货地址 -->
             <div class="adress_item"><span class="label">送至</span> <span class="address">{$address.city_name} {$address.address}<br/>
     {$address.truename}  {$address.mobile}</span></div>
             <input type="hidden" name="address_id" id="address_id" value="{$address.id}"/>
