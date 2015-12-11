@@ -1355,9 +1355,13 @@ function get_openid($openid = NULL) {
 		session ( 'openid_' . $token, $_REQUEST ['openid'] );
 	}
 	$openid = session ( 'openid_' . $token );
-	
+
 	$isWeixinBrowser = isWeixinBrowser ();
-	if ((empty ( $openid ) || $openid == '-1') && $isWeixinBrowser && $_REQUEST ['openid'] != '-2' && IS_GET && ! IS_AJAX) {
+	trace($isWeixinBrowser, "function::get_openid::isWeixinBrowser", "user", 'debug');
+	if ((empty ( $openid ) || $openid == '-1') &&
+			$isWeixinBrowser &&
+		(!empty ( $_REQUEST ['openid'] ) && $_REQUEST ['openid'] != '-2') &&
+			IS_GET && ! IS_AJAX) {
 		$callback = GetCurUrl ();
 		OAuthWeixin ( $callback, $token );
 	}
@@ -2702,7 +2706,7 @@ function make_sign($paraMap = array(), $partner_key = '') {
 			$buff .= strtolower ( $k ) . "=" . $v . "&";
 		}
 	}
-	$reqPar;
+	$reqPar = '';
 	if (strlen ( $buff ) > 0) {
 		$reqPar = substr ( $buff, 0, strlen ( $buff ) - 1 );
 	}

@@ -61,7 +61,7 @@ class CartModel extends Model {
 		$map ['uid'] = $uid;
 		$res = $this->where ( $map )->delete ();
 		
-		$this->getMyCart ( $goods ['uid'], true );
+		$this->getMyCart ( $map ['uid'], true );
 		return $res;
 	}
 }

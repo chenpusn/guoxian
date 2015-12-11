@@ -29,10 +29,11 @@ class WapController extends AddonsController {
 		empty ( $shop ['template'] ) && $shop ['template'] = 'jd';
 		
 		define ( 'CUSTOM_TEMPLATE_PATH', ONETHINK_ADDON_PATH . '/Shop/View/default/Wap/Template/' . $shop ['template'] . '/' );
+		$cart_count = 0;
+		trace ($this->mid, "Shop::WapController::_initialize::mid", 'user', 'debug');
 		if($this->mid != 0){
-
+			$cart_count = count ( D ( 'Cart' )->getMyCart ( $this->mid, true ) );
 		}
-		$cart_count = count ( D ( 'Cart' )->getMyCart ( $this->mid, true ) );
 		$cart_count == 0 && $cart_count = '';
 		$this->assign ( 'cart_count', $cart_count );
 		$this->assign ( 'shop_id', $this->shop_id );
@@ -43,7 +44,7 @@ class WapController extends AddonsController {
 	function index() {
 
 		$openID = get_openid();
-
+		trace ($openID, "Shop::WapController::index::openID", 'user', 'debug');
 		$this->_getShopCategory ();
 
 		// banner
