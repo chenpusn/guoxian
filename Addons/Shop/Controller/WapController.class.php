@@ -32,6 +32,15 @@ class WapController extends AddonsController
         empty ($shop ['template']) && $shop ['template'] = 'jd';
 
         define('CUSTOM_TEMPLATE_PATH', ONETHINK_ADDON_PATH . '/Shop/View/default/Wap/Template/' . $shop ['template'] . '/');
+
+        if(cookie("SHOPUSERID".C('SITE_VERSION')))
+        {
+            $this->mid = cookie("SHOPUSERID".C('SITE_VERSION'));
+        }
+        else{
+            $this->mid = 0;
+        }
+
         $cart_count = 0;
         trace($this->mid, "Shop::WapController::_initialize::mid", 'user');
         if ($this->mid != 0) {
@@ -302,11 +311,12 @@ class WapController extends AddonsController
     // 购物车
     function cart()
     {
-        if (!cookie("SHOPUSERID".C('SITE_VERSION'))) {
+        if ($this->mid > 0) {
             cookie('SHOPFORWARDURL'.C('SITE_VERSION'), '/addon/Shop/Wap/cart');
             $this->redirect("bind_account", "请先绑定个人信息");
         } else {
-            /*$list = D ( 'Cart' )->getMyCart ( $this->mid, true );
+
+            $list = D ( 'Cart' )->getMyCart ( $this->mid, true );
 
             $dao = D ( 'goods' );
             foreach ( $list as &$v ) {
@@ -316,7 +326,7 @@ class WapController extends AddonsController
             // dump ( $list );
             $this->assign ( 'lists', $list );
 
-            $this->display ();*/
+            $this->display ();
         }
     }
 
