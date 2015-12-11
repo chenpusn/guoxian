@@ -1367,8 +1367,8 @@ function get_openid($openid = NULL) {
 		//(!empty ( $_REQUEST ['openid'] ) && $_REQUEST ['openid'] != '-2') &&
 			IS_GET && !IS_AJAX) {
 		trace("进入OAuthWeixin", "信息", "user");
-		$callback = GetCurUrl ();
-		OAuthWeixin ( $callback, $token );
+		//$callback = GetCurUrl ();
+		//OAuthWeixin ( $callback, $token );
 	}
 	if (empty ( $openid )) {
 		return '-1';
@@ -1549,9 +1549,9 @@ function OAuthWeixin($callback, $token = '') { // echo '444';
 		$callback .= '&';
 	}
 	
-	//if (! $isWeixinBrowser || ! C ( 'USER_OAUTH' ) || empty ( $info ['appid'] )) {
-	//	redirect ( $callback . 'openid=-2' );
-	//}
+	if (! $isWeixinBrowser || ! C ( 'USER_OAUTH' ) || empty ( $info ['appid'] )) {
+		redirect ( $callback . 'openid=-2' );
+	}
 	$param ['appid'] = $info ['appid'];
 	
 	if (! isset ( $_GET ['getOpenId'] )) {
@@ -1559,7 +1559,7 @@ function OAuthWeixin($callback, $token = '') { // echo '444';
 		$param ['response_type'] = 'code';
 		$param ['scope'] = 'snsapi_base';
 		$param ['state'] = 123;
-		
+
 		$url = 'https://open.weixin.qq.com/connect/oauth2/authorize?' . http_build_query ( $param ) . '#wechat_redirect';
 		redirect ( $url );
 	} elseif ($_GET ['state']) {
