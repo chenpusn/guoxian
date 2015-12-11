@@ -518,7 +518,7 @@ class WapController extends AddonsController
         $outUser = $customerId;
 
         $accountInfo = D('Addons://Shop/ShopUser')->getAccount($this->mid);
-        $mobile = $accountInfo['mobile'];
+        $mobile = $accountInfo->mobile;
         trace($outUser, "outUser", 'user');
         trace($mobile, "mobile", 'user');
         $qianfangToken = getQianfangToken($outUser, $mobile);
