@@ -324,7 +324,7 @@ class WapController extends AddonsController
 
             $this->display ();
         } else {
-            cookie('SHOPFORWARDURL'.C('SITE_VERSION'), '/addon/Shop/Wap/cart');
+            cookie('SHOPFORWARDURL'.C('SITE_VERSION'), 'cart');
             $this->redirect("bind_account", "请先绑定个人信息");
         }
     }
@@ -337,7 +337,7 @@ class WapController extends AddonsController
             $res = D('ShopUser')->bindAccount($accountInfo);
 
             cookie("SHOPUSERID".C('SITE_VERSION'), $res);
-            redirect(cookie('SHOPFORWARDURL'.C('SITE_VERSION')));
+            redirect(U(cookie('SHOPFORWARDURL'.C('SITE_VERSION'))));
         }
         else{
             $id = I('id');
