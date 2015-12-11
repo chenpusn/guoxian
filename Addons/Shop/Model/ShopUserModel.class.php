@@ -17,7 +17,7 @@ class ShopUserModel extends Model {
 
     function  getAccount($accountId){
         $map['id'] = $accountId;
-        $res = $this->where($map);
+        $res = $this->where($map)->select();
         return $res;
     }
 }

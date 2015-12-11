@@ -518,36 +518,42 @@ class WapController extends AddonsController
         $outUser = $customerId;
 
         $accountInfo = D('Addons://Shop/ShopUser')->getAccount($this->mid);
-        $mobile = $accountInfo->mobile;
-        trace($outUser, "outUser", 'user');
-        trace($mobile, "mobile", 'user');
-        $qianfangToken = getQianfangToken($outUser, $mobile);
-        trace($qianfangToken, "qianfangToken", 'user');
-        // 如果正确，返回token值；如果错误，返回0
-        if (!$qianfangToken) {
-            echo "付款失败";
-        } else {
-            //$orderInfo['total_price']
-            $totalAmt = $orderInfo["total_price"] * 100;
-            $orderNO = $orderInfo["order_number"];
-            $qianfangOrderToken = getQianFangOrderToken($totalAmt, $orderNO);
-            if (!$qianfangOrderToken) {
-                $goods = json_decode($orderInfo ['goods_datas'], true);
-                $goodsName = "";
-                foreach ($goods as $good) {
-                    $goodsName .= $good['title'];
-                }
-
-                $checkoutUrl =
-                    sprintf("https://qtapi.qfpay.com/wap/v1/checkout/get_openid?" .
-                        "token=%s&order_token=%s&goods_name=%s&" .
-                        "mobile=%s&total_amt=%s&out_sn=%s&showwxpaytitle=1",
-                        $qianfangToken, $qianfangOrderToken, $goodsName,
-                        $mobile, $totalAmt, $orderNO);
-
-                redirect($checkoutUrl);
-            } else {
+        if(!$accountInfo){
+            echo '信息错误';
+        }
+        else{
+            $mobile = $accountInfo[0]['mobile'];
+            trace($outUser, "outUser", 'user');
+            trace($mobile, "mobile", 'user');
+            $qianfangToken = getQianfangToken($outUser, $mobile);
+            trace($qianfangToken, "qianfangToken", 'user');
+            // 如果正确，返回token值；如果错误，返回0
+            if (!$qianfangToken) {
                 echo "付款失败";
+            } else {
+                //$orderInfo['total_price']
+                $totalAmt = $orderInfo["total_price"] * 100;
+                $orderNO = $orderInfo["order_number"];
+                $qianfangOrderToken = getQianFangOrderToken($totalAmt, $orderNO);
+                if (!$qianfangOrderToken) {
+                    echo "付款失败";
+                } else {
+                    
+                    $goods = json_decode($orderInfo ['goods_datas'], true);
+                    $goodsName = "";
+                    foreach ($goods as $good) {
+                        $goodsName .= $good['title'];
+                    }
+
+                    $checkoutUrl =
+                        sprintf("https://qtapi.qfpay.com/wap/v1/checkout/get_openid?" .
+                            "token=%s&order_token=%s&goods_name=%s&" .
+                            "mobile=%s&total_amt=%s&out_sn=%s&showwxpaytitle=1",
+                            $qianfangToken, $qianfangOrderToken, $goodsName,
+                            $mobile, $totalAmt, $orderNO);
+
+                    redirect($checkoutUrl);
+                }
             }
         }
     }
