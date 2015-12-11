@@ -337,7 +337,7 @@ class WapController extends AddonsController
             $res = D('ShopUser')->bindAccount($accountInfo);
 
             cookie("SHOPUSERID".C('SITE_VERSION'), $res);
-            redirect(cookie('SHOPFORWARD'.C('SITE_VERSION')));
+            redirect(cookie('SHOPFORWARDURL'.C('SITE_VERSION')));
         }
         else{
             $id = I('id');
