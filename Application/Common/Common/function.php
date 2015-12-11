@@ -1346,7 +1346,6 @@ function GetCurUrl() {
 }
 // 获取当前用户的OpenId
 function get_openid($openid = NULL) {
-	trace('', '测试调试信息', 'user');
 
 	$token = get_token ();
 	if ($openid !== NULL && $openid != '-1') {
@@ -1358,6 +1357,8 @@ function get_openid($openid = NULL) {
 
 	$isWeixinBrowser = isWeixinBrowser ();
 	trace($isWeixinBrowser, "function::get_openid::isWeixinBrowser", "user");
+	trace(IS_GET, "function::get_openid::IS_GET", "user");
+	trace(IS_AJAX, "function::get_openid::IS_AJAX", "user");
 	if ((empty ( $openid ) || $openid == '-1') &&
 			$isWeixinBrowser &&
 		(!empty ( $_REQUEST ['openid'] ) && $_REQUEST ['openid'] != '-2') &&
