@@ -128,11 +128,19 @@ class OrderModel extends Model {
 		
 		return $data;
 	}
+
 	function update($id, $save) {
 		$map ['id'] = $id;
 		$this->where ( $map )->save ( $save );
 		$this->getInfo ( $id, true );
 	}
+
+	function updateByOrderNumber($orderNmuber, $save) {
+		$map ['order_number'] = $orderNmuber;
+		$this->where ( $map )->save ( $save );
+		//$this->getInfo ( $orderNmuber, true );
+	}
+
 	function setStatusCode($id, $code) {
 		$save ['status_code'] = $code;
 		$res = $this->update ( $id, $save );
