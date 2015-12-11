@@ -389,16 +389,15 @@ class WapController extends AddonsController
         } else {
             $data = session('confirm_order');
         }
-        // dump(session('confirm_order'));
+
         $this->assign($data);
         // 收货地址
-        if (isset ($_GET ['address_id'])) {
+        /*if (isset ($_GET ['address_id'])) {
             $address = D('Address')->getInfo(I('get.address_id'));
         } else {
             $address = D('Address')->getMyAddress($this->mid);
         }
-        $this->assign('address', $address);
-        // dump($address);
+        $this->assign('address', $address);*/
 
         $this->display();
     }
@@ -406,7 +405,7 @@ class WapController extends AddonsController
     // 生成订单
     function add_order()
     {
-        $data ['address_id'] = I('address_id');
+        $data ['address_id'] = $this->mid; //I('address_id');
         $data ['remark'] = I('remark');
         $data ['uid'] = $this->mid;
 
@@ -512,7 +511,6 @@ class WapController extends AddonsController
     // CHEN PU: 2015/12/09
     function qianfang_pay()
     {
-
         $order_id = $_GET ['order_id'];
         $orderDao = D('Addons://Shop/Order');
         $orderInfo = $orderDao->getInfo($order_id);
