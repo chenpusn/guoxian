@@ -1359,10 +1359,12 @@ function get_openid($openid = NULL) {
 	trace($isWeixinBrowser, "function::get_openid::isWeixinBrowser", "user");
 	trace(IS_GET, "function::get_openid::IS_GET", "user");
 	trace(IS_AJAX, "function::get_openid::IS_AJAX", "user");
+	trace($token, "function::get_openid::token", "user");
+	trace($_REQUEST ['openid'], "function::get_openid::_REQUEST ['openid']", "user");
 	if ((empty ( $openid ) || $openid == '-1') &&
 			$isWeixinBrowser &&
 		(!empty ( $_REQUEST ['openid'] ) && $_REQUEST ['openid'] != '-2') &&
-			IS_GET && ! IS_AJAX) {
+			IS_GET && !IS_AJAX) {
 		$callback = GetCurUrl ();
 		OAuthWeixin ( $callback, $token );
 	}
