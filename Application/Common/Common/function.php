@@ -1362,10 +1362,11 @@ function get_openid($openid = NULL) {
 	trace($token, "function::get_openid::token", "user");
 	trace($openid, "function::get_openid::openid", "user");
 	trace($_REQUEST ['openid'], "function::get_openid::_REQUEST ['openid']", "user");
-	if ((empty ( $openid ) || $openid == '-1') &&
+	if (//(empty ( $openid ) || $openid == '-1') &&
 			$isWeixinBrowser &&
 		(!empty ( $_REQUEST ['openid'] ) && $_REQUEST ['openid'] != '-2') &&
 			IS_GET && !IS_AJAX) {
+		trace("进入OAuthWeixin", "信息", "user");
 		$callback = GetCurUrl ();
 		OAuthWeixin ( $callback, $token );
 	}
