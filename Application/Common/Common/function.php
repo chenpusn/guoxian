@@ -1364,7 +1364,7 @@ function get_openid($openid = NULL) {
 	trace($_REQUEST ['openid'], "function::get_openid::_REQUEST ['openid']", "user");
 	if (//(empty ( $openid ) || $openid == '-1') &&
 			$isWeixinBrowser &&
-		(!empty ( $_REQUEST ['openid'] ) && $_REQUEST ['openid'] != '-2') &&
+		//(!empty ( $_REQUEST ['openid'] ) && $_REQUEST ['openid'] != '-2') &&
 			IS_GET && !IS_AJAX) {
 		trace("进入OAuthWeixin", "信息", "user");
 		$callback = GetCurUrl ();

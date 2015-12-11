@@ -24,7 +24,7 @@ define ( 'APP_DEBUG', true );
 define ( 'SHOW_ERROR', false );
 
 define ( 'IN_WEIXIN', false );
-define ( 'DEFAULT_TOKEN', '-1' ); 
+define ( 'DEFAULT_TOKEN', 'gh_386b39d0fa1a' ); //TODOCHENPU
 
 /**
  * 官方远程同步服务器地址
