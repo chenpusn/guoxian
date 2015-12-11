@@ -1542,16 +1542,16 @@ function OAuthWeixin($callback, $token = '') { // echo '444';
 	$callback = urldecode ( $callback );
 	$isWeixinBrowser = isWeixinBrowser (); // echo '555';die();
 	$info = get_token_appinfo ( $token );
-	
+	dump($info);
 	if (strpos ( $callback, '?' ) === false) {
 		$callback .= '?';
 	} else {
 		$callback .= '&';
 	}
 	
-	if (! $isWeixinBrowser || ! C ( 'USER_OAUTH' ) || empty ( $info ['appid'] )) {
-		redirect ( $callback . 'openid=-2' );
-	}
+	//if (! $isWeixinBrowser || ! C ( 'USER_OAUTH' ) || empty ( $info ['appid'] )) {
+	//	redirect ( $callback . 'openid=-2' );
+	//}
 	$param ['appid'] = $info ['appid'];
 	
 	if (! isset ( $_GET ['getOpenId'] )) {
