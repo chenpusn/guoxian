@@ -1360,6 +1360,7 @@ function get_openid($openid = NULL) {
 	trace(IS_GET, "function::get_openid::IS_GET", "user");
 	trace(IS_AJAX, "function::get_openid::IS_AJAX", "user");
 	trace($token, "function::get_openid::token", "user");
+	trace($openid, "function::get_openid::openid", "user");
 	trace($_REQUEST ['openid'], "function::get_openid::_REQUEST ['openid']", "user");
 	if ((empty ( $openid ) || $openid == '-1') &&
 			$isWeixinBrowser &&
