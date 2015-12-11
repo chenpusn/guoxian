@@ -66,6 +66,13 @@ class OrderModel extends Model {
 		
 		return $info;
 	}
+
+	function getInfoByOrderNumber($orderNumer){
+		$map["order_number"] = $orderNumer;
+		$orderInfo = $this->where($map)->select()[0];
+		return $orderInfo;
+	}
+
 	function _status_code_name($code) {
 		$status_code = array (
 				0 => '待支付',
