@@ -312,10 +312,6 @@ class WapController extends AddonsController
     function cart()
     {
         if ($this->mid > 0) {
-            cookie('SHOPFORWARDURL'.C('SITE_VERSION'), '/addon/Shop/Wap/cart');
-            $this->redirect("bind_account", "请先绑定个人信息");
-        } else {
-
             $list = D ( 'Cart' )->getMyCart ( $this->mid, true );
 
             $dao = D ( 'goods' );
@@ -327,6 +323,9 @@ class WapController extends AddonsController
             $this->assign ( 'lists', $list );
 
             $this->display ();
+        } else {
+            cookie('SHOPFORWARDURL'.C('SITE_VERSION'), '/addon/Shop/Wap/cart');
+            $this->redirect("bind_account", "请先绑定个人信息");
         }
     }
 
