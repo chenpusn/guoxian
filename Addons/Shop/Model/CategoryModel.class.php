@@ -27,7 +27,10 @@ class CategoryModel extends Model {
 		}
 	}
 	function getShopCategory($shop_id) {
-		$map ['shop_id'] = $shop_id;
+		if($shop_id > 0){
+			$map ['shop_id'] = $shop_id;
+		}
+
 		$map ['is_show'] = 1;
 		$list = $this->where ( $map )->select ();
 		return $list;

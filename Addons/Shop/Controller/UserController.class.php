@@ -30,6 +30,10 @@ class UserController extends AddonsController
     // CHEN PU: 2015/12/12 移动端 首页
     // 显示商品列表
     function index(){
+        // 获取所有目录
+        $categoryList = D("Category")->getShopCategory(0);
+        $this->assign("categoryList", $categoryList);
+
         $this->display();
     }
 
