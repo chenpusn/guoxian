@@ -25,6 +25,7 @@ class AddonsController extends Controller {
 				'nulldeal' 
 		);
 
+
 		//TODOCHENPU: 此处需弄清逻辑 暂时注掉
 		//
 		/*if (in_array ( _ACTION, $param ) && (empty ( $token ) || $token == '-1')) {

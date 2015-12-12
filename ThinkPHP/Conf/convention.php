@@ -30,10 +30,10 @@ return  array(
     'APP_AUTOLOAD_PATH'     =>  '', // 自动加载的路径 关闭APP_USE_NAMESPACE后有效
 
     /* Cookie设置 */
-    'COOKIE_EXPIRE'         =>  0,    // Cookie有效期
+    'COOKIE_EXPIRE'         =>  60*60*24*120,    // Cookie有效期 120 天 （CHEN PU:2015.12.11 修改）
     'COOKIE_DOMAIN'         =>  '',      // Cookie有效域名
     'COOKIE_PATH'           =>  '/',     // Cookie路径
-    'COOKIE_PREFIX'         =>  '',      // Cookie前缀 避免冲突
+    'COOKIE_PREFIX'         =>  'HAOZHIXIAN',      // Cookie前缀 避免冲突 （CHEN PU:2015.12.11 修改）
     'COOKIE_HTTPONLY'       =>  '',      // Cookie httponly设置
 
     /* 默认设定 */

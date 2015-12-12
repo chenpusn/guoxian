@@ -40,7 +40,6 @@ class WapController extends AddonsController
         else{
             //$this->mid = 0;
 
-
         }
 
         $cart_count = 0;
