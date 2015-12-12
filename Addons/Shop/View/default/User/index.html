@@ -2,24 +2,124 @@
 
 <link href="{:ADDON_PUBLIC_PATH}/user/css/iconfont.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
 <body>
-    <!--<header class="mui-bar mui-bar-nav">
-        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+<!--<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 
-    </header>-->
-    <nav class="mui-bar mui-bar-tab">
-        <a class="mui-tab-item mui-active" href="#">
-            <span class="mui-icon mui-icon-home"></span>
-            <span class="mui-tab-label">果园</span>
-        </a>
-        <a class="mui-tab-item" href="#">
-            <span class="mui-icon iconfont icon-iconfontbasket"></span>
-            <span class="mui-tab-label">果篮</span>
-        </a>
-        <a class="mui-tab-item" href="#" style="width: 2%">
-            <span class="mui-icon iconfont icon-jiesuanfangshi"></span>
-            <span class="mui-tab-label">结算</span>
-        </a>
-    </nav>
-    <include file="./Addons/Shop/View/default/User/_footer.html"/>
+</header>-->
+<nav class="mui-bar mui-bar-tab">
+    <a class="mui-tab-item mui-active" href="#">
+        <span class="mui-icon mui-icon-home"></span>
+        <span class="mui-tab-label">果园</span>
+    </a>
+    <a class="mui-tab-item" href="#">
+        <span class="mui-icon iconfont icon-iconfontbasket"></span>
+        <span class="mui-tab-label">果篮</span>
+    </a>
+    <a class="mui-tab-item" href="#" style="width: 2%">
+        <span class="mui-icon iconfont icon-jiesuanfangshi"></span>
+        <span class="mui-tab-label">结算</span>
+    </a>
+</nav>
+<div class="mui-content">
+    <div id="slider" class="mui-slider mui-fullscreen">
+        <div id="sliderSegmentedControl"
+             class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+            <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+                <a class="mui-control-item mui-active" href="#item1mobile">
+                    草莓
+                </a>
+                <a class="mui-control-item" href="#item2mobile">
+                    苹果
+                </a>
+                <a class="mui-control-item" href="#item3mobile">
+                    梨
+                </a>
+                <a class="mui-control-item" href="#item4mobile">
+                    菠萝
+                </a>
+            </div>
+        </div>
+        <div class="mui-slider-group" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+            <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+                <div id="scroll1" class="mui-scroll-wrapper">
+                    <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"
+                         >
+                        <ul class="mui-table-view">
+                            <li class="mui-table-view-cell">
+                                第1个选项卡子项-1
+                            </li>
+
+                        </ul>
+                        <div class="mui-pull-bottom-tips">
+                            <div class="mui-pull-bottom-wrapper"><span class="mui-pull-loading">上拉显示更多</span></div>
+                        </div>
+                    </div>
+                    <div class="mui-scrollbar mui-scrollbar-vertical">
+                        <div class="mui-scrollbar-indicator"
+                             style="-webkit-transition: 0ms; transition: 0ms; display: block; height: 14px; -webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="item2mobile" class="mui-slider-item mui-control-content">
+                <div class="mui-scroll-wrapper">
+                    <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"
+                         data-pulltorefresh="10">
+                        <ul class="mui-table-view">
+                            <li class="mui-table-view-cell">
+                                第2个选项卡子项-1
+                            </li>
+                        </ul>
+                        <div class="mui-pull-bottom-tips">
+                            <div class="mui-pull-bottom-wrapper"><span class="mui-pull-loading">上拉显示更多</span></div>
+                        </div>
+                    </div>
+                    <div class="mui-scrollbar mui-scrollbar-vertical">
+                        <div class="mui-scrollbar-indicator"
+                             style="-webkit-transition: 0ms; transition: 0ms; display: block; height: 14px; -webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="item3mobile" class="mui-slider-item mui-control-content">
+                <div class="mui-scroll-wrapper">
+                    <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"
+                         >
+                        <ul class="mui-table-view">
+                            <li class="mui-table-view-cell">
+                                第3个选项卡子项-1
+                            </li>
+                        </ul>
+                        <div class="mui-pull-bottom-tips">
+                            <div class="mui-pull-bottom-wrapper"><span class="mui-pull-loading">上拉显示更多</span></div>
+                        </div>
+                    </div>
+                    <div class="mui-scrollbar mui-scrollbar-vertical">
+                        <div class="mui-scrollbar-indicator"
+                             style="-webkit-transition: 0ms; transition: 0ms; display: block; height: 14px; -webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="item4mobile" class="mui-slider-item mui-control-content">
+                <div class="mui-scroll-wrapper">
+                    <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"
+                         >
+                        <ul class="mui-table-view">
+                            <li class="mui-table-view-cell">
+                                第4个选项卡子项-1
+                            </li>
+                        </ul>
+                        <div class="mui-pull-bottom-tips">
+                            <div class="mui-pull-bottom-wrapper"><span class="mui-pull-loading">上拉显示更多</span></div>
+                        </div>
+                    </div>
+                    <div class="mui-scrollbar mui-scrollbar-vertical">
+                        <div class="mui-scrollbar-indicator"
+                             style="-webkit-transition: 0ms; transition: 0ms; display: block; height: 14px; -webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="./Addons/Shop/View/default/User/_footer.html"/>
 </body>
 </html>
