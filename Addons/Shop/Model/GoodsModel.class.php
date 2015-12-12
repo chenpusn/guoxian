@@ -103,4 +103,12 @@ class GoodsModel extends Model {
 		// lastsql ();
 		return $list;
 	}
+
+	function getGoodsByCategoryAndPage($categoryID, $pageIndex, $pageNumber){
+		if($categoryID > 0){
+			$map['category_id'] = $categoryID;
+		}
+		$goods = $this->page($pageIndex, $pageNumber)->select();
+		return $goods;
+	}
 }

@@ -34,6 +34,9 @@ class UserController extends AddonsController
         $categoryList = D("Category")->getShopCategory(0);
         $this->assign("categoryList", $categoryList);
 
+        $goodsList = D("Goods")->getGoodsByCategoryAndPage(1,1,10);
+        $this->assign("goodsList", $goodsList);
+
         $this->display();
     }
 
