@@ -1,6 +1,24 @@
 <include file="_head"></include>
+<link href="{:ADDON_PUBLIC_PATH}/user/css/iconfont.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
 <body>
-    <div>首页</div>
+    <!--<header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
+    </header>-->
+    <nav class="mui-bar mui-bar-tab">
+        <a class="mui-tab-item mui-active" href="#">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">果园</span>
+        </a>
+        <a class="mui-tab-item mui-active" href="#">
+            <span class="mui-icon iconfont icon-iconfontbasket"></span>
+            <span class="mui-tab-label">果篮</span>
+        </a>
+        <a class="mui-tab-item mui-active" href="#" style="width: 2%">
+            <span class="mui-icon iconfont icon-jiesuanfangshi"></span>
+            <span class="mui-tab-label">结算</span>
+        </a>
+    </nav>
     <include file="_footer"></include>
 </body>
 </html>
