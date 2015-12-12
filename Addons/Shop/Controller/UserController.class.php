@@ -7,7 +7,11 @@ use Home\Controller\AddonsController;
 class MobileController extends AddonsController
 {
     var $userInfo;
-    function _checkUserBindInfo(){
+
+    function _initialize()
+    {
+        parent::_initialize();
+
         // 本地未绑定用户信息 如果是需要用户信息的操作 则转至用户新绑定页面
         if(!cookie("HZXUSER".C('SITE_VERSION'))){
             $actionsNeedLogin = array('basket');
@@ -20,13 +24,6 @@ class MobileController extends AddonsController
             $userInfoJson = cookie("HZXUSER".C('SITE_VERSION'));
             $userInfo = json_decode ($userInfoJson);
         }
-    }
-
-    function _initialize()
-    {
-        parent::_initialize();
-
-        _checkUserBindInfo();
     }
 
 
