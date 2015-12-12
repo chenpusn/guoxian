@@ -74,9 +74,10 @@
         });
         $.ready(function() {
             //循环初始化所有下拉刷新，上拉加载。
-            $.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+            $.each(document.querySelectorAll('.mui-slider-group .mui-scroll'),
+                    function(index, pullRefreshEl) {
                 $(pullRefreshEl).pullToRefresh({
-                    down: {
+                    /*down: {
                         callback: function() {
                             var self = this;
                             setTimeout(function() {
@@ -85,7 +86,7 @@
                                 self.endPullDownToRefresh();
                             }, 1000);
                         }
-                    },
+                    },*/
                     up: {
                         callback: function() {
                             var self = this;
