@@ -26,20 +26,20 @@
              class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
             <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
                 <volist name="categoryList" id="goodsCategory">
-                    <a class="mui-control-item mui-active" href="#item{$vo.id}">
-                        {$vo.title}
+                    <a class="mui-control-item mui-active" href="#item{$goodsCategory.id}">
+                        {$goodsCategory.title}
                     </a>
                 </volist>
             </div>
         </div>
         <div class="mui-slider-group" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
             <volist name="categoryList" id="goodsCategory">
-                <div id="item{$vo.id}" class="mui-slider-item mui-control-content mui-active">
-                    <div id="scroll{$vo.id}" class="mui-scroll-wrapper">
+                <div id="item{$goodsCategory.id}" class="mui-slider-item mui-control-content mui-active">
+                    <div id="scroll{$goodsCategory.id}" class="mui-scroll-wrapper">
                         <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
                             <ul class="mui-table-view">
                                 <li class="mui-table-view-cell">
-                                    {$vo.title}
+                                    {$goodsCategory.title}
                                 </li>
 
                             </ul>
