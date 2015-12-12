@@ -4,7 +4,7 @@ namespace Addons\Shop\Controller;
 
 use Home\Controller\AddonsController;
 
-class MobileController extends AddonsController
+class UserController extends AddonsController
 {
     var $userInfo;
 
