@@ -25,101 +25,93 @@
         <div id="sliderSegmentedControl"
              class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
             <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
-                <a class="mui-control-item mui-active" href="#item1mobile">
-                    草莓
-                </a>
-                <a class="mui-control-item" href="#item2mobile">
-                    苹果
-                </a>
-                <a class="mui-control-item" href="#item3mobile">
-                    梨
-                </a>
-                <a class="mui-control-item" href="#item4mobile">
-                    菠萝
-                </a>
+                <volist name="goodsCategoryList" id="goodsCategory">
+                    <a class="mui-control-item mui-active" href="#item{$vo.id}">
+                        {$vo.title}
+                    </a>
+                </volist>
             </div>
         </div>
         <div class="mui-slider-group" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
-            <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
-                <div id="scroll1" class="mui-scroll-wrapper">
-                    <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"
-                         >
-                        <ul class="mui-table-view">
-                            <li class="mui-table-view-cell">
-                                第1个选项卡子项-1
-                            </li>
+            <volist name="goodsCategoryList" id="goodsCategory">
+                <div id="item{$vo.id}" class="mui-slider-item mui-control-content mui-active">
+                    <div id="scroll{$vo.id}" class="mui-scroll-wrapper">
+                        <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+                            <ul class="mui-table-view">
+                                <li class="mui-table-view-cell">
+                                    {$vo.title}
+                                </li>
 
-                        </ul>
-                        <div class="mui-pull-bottom-tips">
-                            <div class="mui-pull-bottom-wrapper"><span class="mui-pull-loading">上拉显示更多</span></div>
+                            </ul>
+                            <div class="mui-pull-bottom-tips">
+                                <div class="mui-pull-bottom-wrapper"><span class="mui-pull-loading">上拉显示更多</span></div>
+                            </div>
+                        </div>
+                        <div class="mui-scrollbar mui-scrollbar-vertical">
+                            <div class="mui-scrollbar-indicator"
+                                 style="-webkit-transition: 0ms; transition: 0ms; display: block; height: 14px; -webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
                         </div>
                     </div>
-                    <div class="mui-scrollbar mui-scrollbar-vertical">
-                        <div class="mui-scrollbar-indicator"
-                             style="-webkit-transition: 0ms; transition: 0ms; display: block; height: 14px; -webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
-                    </div>
                 </div>
-            </div>
-            <div id="item2mobile" class="mui-slider-item mui-control-content">
-                <div class="mui-scroll-wrapper">
-                    <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"
-                         data-pulltorefresh="10">
-                        <ul class="mui-table-view">
-                            <li class="mui-table-view-cell">
-                                第2个选项卡子项-1
-                            </li>
-                        </ul>
-                        <div class="mui-pull-bottom-tips">
-                            <div class="mui-pull-bottom-wrapper"><span class="mui-pull-loading">上拉显示更多</span></div>
-                        </div>
-                    </div>
-                    <div class="mui-scrollbar mui-scrollbar-vertical">
-                        <div class="mui-scrollbar-indicator"
-                             style="-webkit-transition: 0ms; transition: 0ms; display: block; height: 14px; -webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
-                    </div>
-                </div>
-            </div>
-            <div id="item3mobile" class="mui-slider-item mui-control-content">
-                <div class="mui-scroll-wrapper">
-                    <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"
-                         >
-                        <ul class="mui-table-view">
-                            <li class="mui-table-view-cell">
-                                第3个选项卡子项-1
-                            </li>
-                        </ul>
-                        <div class="mui-pull-bottom-tips">
-                            <div class="mui-pull-bottom-wrapper"><span class="mui-pull-loading">上拉显示更多</span></div>
-                        </div>
-                    </div>
-                    <div class="mui-scrollbar mui-scrollbar-vertical">
-                        <div class="mui-scrollbar-indicator"
-                             style="-webkit-transition: 0ms; transition: 0ms; display: block; height: 14px; -webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
-                    </div>
-                </div>
-            </div>
-            <div id="item4mobile" class="mui-slider-item mui-control-content">
-                <div class="mui-scroll-wrapper">
-                    <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"
-                         >
-                        <ul class="mui-table-view">
-                            <li class="mui-table-view-cell">
-                                第4个选项卡子项-1
-                            </li>
-                        </ul>
-                        <div class="mui-pull-bottom-tips">
-                            <div class="mui-pull-bottom-wrapper"><span class="mui-pull-loading">上拉显示更多</span></div>
-                        </div>
-                    </div>
-                    <div class="mui-scrollbar mui-scrollbar-vertical">
-                        <div class="mui-scrollbar-indicator"
-                             style="-webkit-transition: 0ms; transition: 0ms; display: block; height: 14px; -webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
-                    </div>
-                </div>
-            </div>
+            </volist>
         </div>
     </div>
 </div>
 <include file="./Addons/Shop/View/default/User/_footer.html"/>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.pullToRefresh.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.pullToRefresh.material.js?v={:SITE_VERSION}"></script>
+<script>
+
+    mui.init();
+    (function($) {
+        //阻尼系数
+        var deceleration = mui.os.ios?0.003:0.0009;
+        $('.mui-scroll-wrapper').scroll({
+            bounce: false,
+            indicators: true, //是否显示滚动条
+            deceleration:deceleration
+        });
+        $.ready(function() {
+            //循环初始化所有下拉刷新，上拉加载。
+            $.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+                $(pullRefreshEl).pullToRefresh({
+                    down: {
+                        callback: function() {
+                            var self = this;
+                            setTimeout(function() {
+                                var ul = self.element.querySelector('.mui-table-view');
+                                ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+                                self.endPullDownToRefresh();
+                            }, 1000);
+                        }
+                    },
+                    up: {
+                        callback: function() {
+                            var self = this;
+                            setTimeout(function() {
+                                var ul = self.element.querySelector('.mui-table-view');
+                                ul.appendChild(createFragment(ul, index, 5));
+                                self.endPullUpToRefresh();
+                            }, 1000);
+                        }
+                    }
+                });
+            });
+            var createFragment = function(ul, index, count, reverse) {
+                var length = ul.querySelectorAll('li').length;
+                var fragment = document.createDocumentFragment();
+                var li;
+                for (var i = 0; i < count; i++) {
+                    li = document.createElement('li');
+                    li.className = 'mui-table-view-cell';
+                    li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
+                    fragment.appendChild(li);
+                }
+                return fragment;
+            };
+        });
+    })(mui);
+</script>
 </body>
 </html>
