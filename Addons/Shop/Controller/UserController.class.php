@@ -30,13 +30,12 @@ class UserController extends AddonsController
     // CHEN PU: 2015/12/12 移动端 首页
     // 显示商品列表
     function index(){
-
+        $this->display();
     }
 
     // CHEN PU: 2015/12/12 绑定用户信息
     function bind_user(){
-
-
+        $this->display();
     }
 }
 
