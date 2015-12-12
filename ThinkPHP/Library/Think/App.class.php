@@ -86,6 +86,7 @@ class App {
 			
 			define ( 'ADDON_BASE_PATH', SITE_PATH . '/Addons/' . $_addons );
 			define ( 'ADDON_PUBLIC_PATH', __ROOT__ . '/Addons/' . $_addons . '/View/default/Public' );
+			define  ('ADDON_View_PATH', __ROOT__ . '/Addons/' . $_addons . '/View/default');
 			defined ( '_ADDONS' ) or define ( '_ADDONS', $_addons );
 			defined ( '_CONTROLLER' ) or define ( '_CONTROLLER', $_controller );
 			defined ( '_ACTION' ) or define ( '_ACTION', $_action );
