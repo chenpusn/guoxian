@@ -102,6 +102,15 @@
         font-size: 1rem;
     }
 
+    .banner-picture{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .banner-picture img{
+        width: 100%;
+    }
 </style>
 <body>
 <nav class="mui-bar mui-bar-tab">
@@ -128,16 +137,10 @@
                 <a class="mui-control-item" style="width: 50%" href="#itemChangXiao"><span class="header-title-text">畅销分类</span></a>
             </div>
         </div>
-        <div id="imageSlider" class="mui-slider">
-            <div class="mui-slider-group mui-slider-loop">
-                <volist name="slideShowList" id="slide">
-                    <div class="mui-slider-item">
-                        <a href="#">
-                            <img src="{$slide.img|get_cover_url}">
-                        </a>
-                    </div>
-                </volist>
-            </div>
+        <div class="banner-picture">
+            <volist name="slideShowList" id="slide">
+                <img src="{$slide.img|get_cover_url}">
+            </volist>
         </div>
         <div class="mui-slider-group" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
             <div id="itemJingPin" class="mui-slider-item mui-control-content">
@@ -201,10 +204,7 @@
             indicators: true, //是否显示滚动条
             deceleration: deceleration
         });
-        var slider = mui("#imageSlider");
-        slider.slider({
-            interval: 5000
-        });
+
 
         /*$(document).imageLazyload({
          placeholder:"http://imgcdn.xuxian.com/logo-3.jpg"
