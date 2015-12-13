@@ -79,13 +79,12 @@
         font-size: 100%;
         vertical-align: baseline;
     }
-
-    .header-title-text {
-        border-bottom: 0.125rem solid #e74c3c;
-        padding: 0 0 0.375rem 0;
-    }
 </style>
 <body>
+<!--<header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
+</header>-->
 <nav class="mui-bar mui-bar-tab">
     <a class="mui-tab-item mui-active" href="#">
         <span class="mui-icon mui-icon-home"></span>
@@ -104,59 +103,69 @@
     <div id="slider" class="mui-slider mui-fullscreen">
         <div id="sliderSegmentedControl"
              class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-            <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px); width: 100%">
-                <a class="mui-control-item" style="width: 50%" href="#itemJingPin"><span
-                        class="header-title-text">精品折扣</span></a>
-                <a class="mui-control-item" style="width: 50%" href="#itemChangXiao"><span class="header-title-text">畅销分类</span></a>
+            <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+                <volist name="categoryList" id="goodsCategory">
+                    <a class="mui-control-item" href="#item{$goodsCategory.id}">
+                        {$goodsCategory.title}
+                    </a>
+                </volist>
             </div>
         </div>
         <div class="mui-slider-group" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
-            <div id="itemJingPin" class="mui-slider-item mui-control-content">
-                <div id="scrollJinPin" class="mui-scroll-wrapper">
-                    <div class="mui-scroll"
-                         style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
-                        <ul class="mui-table-view mui-grid-view">
-                            <volist name="goodsList" id="goods">
-                                <li class="mui-table-view-cell mui-media" style="width: 50%">
-                                    <div class="goods-picture-wrapper">
-                                        <img class="mui-media-object"
-                                             src="{$goods.cover|get_cover_url}"/>
-                                        <i class="oblique-tag oblique-tag-presell">热卖</i>
-                                    </div>
-                                    <div class="mui-media-body">
-                                        {$goods.title}
-                                        <p class="mui-ellipsis">{$goods.content}</p>
-                                    </div>
-                                </li>
+            <volist name="categoryList" id="goodsCategory">
+                <div id="item{$goodsCategory.id}" class="mui-slider-item mui-control-content">
+                    <div id="scroll{$goodsCategory.id}" class="mui-scroll-wrapper">
+                        <div id="{$goodsCategory.id}" class="mui-scroll"
+                             style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+                            <ul class="mui-table-view mui-grid-view">
+                                <volist name="goodsList" id="goods">
+                                    <if condition="$goodsCategory.id eq 0">
+                                        <li class="mui-table-view-cell mui-media" style="width: 50%">
+                                            <div class="goods-picture-wrapper">
+                                                <img class="mui-media-object"
+                                                     src="{$goods.cover|get_cover_url}"/>
+                                                <i class="oblique-tag oblique-tag-presell">热卖</i>
+                                            </div>
+                                            <div class="mui-media-body">
+                                                {$goods.title}
+                                                <p class="mui-ellipsis">{$goods.content}</p>
+                                            </div>
+                                        </li>
+                                        <elseif condition="$goods.category_id eq $goodsCategory['id']"/>
+                                        <li class="mui-table-view-cell mui-media" style="width: 50%">
+                                            <div class="goods-picture-wrapper">
+                                                <img class="mui-media-object"
+                                                     src="{$goods.cover|get_cover_url}"/>
+                                                <i class="oblique-tag oblique-tag-presell">热卖</i>
+                                            </div>
+                                            <div class="mui-media-body">
+                                                {$goods.title}
+                                                <p class="mui-ellipsis">{$goods.content}</p>
+                                            </div>
 
-                            </volist>
-                        </ul>
-                        <!--<div class="mui-pull-bottom-tips">
-                             <div class="mui-pull-bottom-wrapper"><span class="mui-pull-loading">上拉显示更多</span></div>
-                         </div>-->
-                    </div>
-                    <div class="mui-scrollbar mui-scrollbar-vertical">
-                        <div class="mui-scrollbar-indicator"
-                             style="-webkit-transition: 0ms; transition: 0ms; display: block; height: 14px; -webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
-                    </div>
-                </div>
-            </div>
-            <div id="itemChangXiao" class="mui-slider-item mui-control-content">
-                <div id="scrollChangXiao" class="mui-scroll-wrapper">
-                    <div class="mui-scroll"
-                         style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
-                        畅销分类
+                                        </li>
+                                    </if>
+                                </volist>
+                            </ul>
+                            <!--<div class="mui-pull-bottom-tips">
+                                 <div class="mui-pull-bottom-wrapper"><span class="mui-pull-loading">上拉显示更多</span></div>
+                             </div>-->
+                        </div>
+                        <div class="mui-scrollbar mui-scrollbar-vertical">
+                            <div class="mui-scrollbar-indicator"
+                                 style="-webkit-transition: 0ms; transition: 0ms; display: block; height: 14px; -webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </volist>
         </div>
     </div>
 </div>
 <include file="./Addons/Shop/View/default/User/_footer.html"/>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
-<!--<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.lazyload.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.lazyload.js?v={:SITE_VERSION}"></script>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.lazyload.img.js?v={:SITE_VERSION}"></script>
-<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.pullToRefresh.js?v={:SITE_VERSION}"></script>
+<!--<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.pullToRefresh.js?v={:SITE_VERSION}"></script>
 <script type="text/javascript"
         src="{:ADDON_PUBLIC_PATH}/user/js/mui.pullToRefresh.material.js?v={:SITE_VERSION}"></script>-->
 <script>
@@ -172,9 +181,9 @@
         });
 
         /*$(document).imageLazyload({
-         placeholder:"http://imgcdn.xuxian.com/logo-3.jpg"
-         });
-         $.ready(function () {
+            placeholder:"http://imgcdn.xuxian.com/logo-3.jpg"
+        });
+        $.ready(function () {
          //循环初始化所有下拉刷新，上拉加载。
          $.each(document.querySelectorAll('.mui-slider-group .mui-scroll'),
          function (index, pullRefreshEl) {
