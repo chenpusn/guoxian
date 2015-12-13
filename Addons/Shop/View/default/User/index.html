@@ -3,9 +3,9 @@
 <link href="{:ADDON_PUBLIC_PATH}/user/css/iconfont.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
 <style type="text/css">
     .mui-table-view .mui-media-object {
-        line-height: 6rem;
-        height: 6rem;
-        max-width: 4rem;
+        line-height: 5.4375rem;
+        height: 5.4375rem;
+        max-width: 3.75rem;
     }
 
     .oblique-tag.oblique-tag-presell {
@@ -83,7 +83,7 @@
                                     <if condition="$goodsCategory.id eq 0">
                                         <li class="mui-table-view-cell mui-media">
                                             <a>
-                                                <div style="position: absolute">
+                                                <div style="position: relative">
                                                     <img class="mui-media-object mui-pull-left"
                                                          src="{$goods.cover|get_cover_url}"/>
                                                     <i class="oblique-tag oblique-tag-presell">热卖</i>
@@ -97,9 +97,12 @@
                                         <elseif condition="$goods.category_id eq $goodsCategory['id']"/>
                                         <li class="mui-table-view-cell mui-media">
                                             <a>
-                                                <img class="mui-media-object mui-pull-left"
-                                                     src="{$goods.cover|get_cover_url}"/>
+                                                <div style="position: relative">
+                                                    <img class="mui-media-object mui-pull-left"
+                                                         src="{$goods.cover|get_cover_url}"/>
+                                                    <i class="oblique-tag oblique-tag-presell">热卖</i>
 
+                                                </div>
                                                 <div class="mui-media-body">
                                                     {$goods.title}
                                                     <p class="mui-ellipsis">{$goods.content}</p>
