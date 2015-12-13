@@ -137,16 +137,16 @@
                 <a class="mui-control-item" style="width: 50%" href="#itemChangXiao"><span class="header-title-text">畅销分类</span></a>
             </div>
         </div>
-        <div class="banner-picture">
-            <volist name="slideShowList" id="slide">
-                <img src="{$slide.img|get_cover_url}">
-            </volist>
-        </div>
         <div class="mui-slider-group" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
             <div id="itemJingPin" class="mui-slider-item mui-control-content">
                 <div id="scrollJinPin" class="mui-scroll-wrapper">
                     <div class="mui-scroll"
                          style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+                        <div class="banner-picture">
+                            <volist name="slideShowList" id="slide">
+                                <img src="{$slide.img|get_cover_url}">
+                            </volist>
+                        </div>
                         <ul class="mui-table-view">
                             <volist name="goodsList" id="goods">
                                 <li class="mui-table-view-cell mui-media">
