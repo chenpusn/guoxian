@@ -7,7 +7,36 @@
         height: 6rem;
         max-width: 4rem;
     }
-
+    .oblique-tag.oblique-tag-presell {
+        background: #2c9eff;
+    }
+    .oblique-tag {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        color: #fff;
+        height: .75rem;
+        line-height: .8125rem;
+        width: 3.5rem;
+        font-size: .6875rem;
+        text-align: center;
+        vertical-align: baseline;
+        -webkit-transform: translate(-.6875rem,1.9375rem) rotate(-45deg);
+        transform: translate(-.6875rem,1.9375rem) rotate(-45deg);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+    }
+    i{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-weight: inherit;
+        font-style: inherit;
+        font-family: inherit;
+        font-size: 100%;
+        vertical-align: baseline;
+    }
 </style>
 <body>
 <!--<header class="mui-bar mui-bar-nav">
@@ -52,6 +81,7 @@
                                         <li class="mui-table-view-cell mui-media">
                                             <a>
                                                 <img class="mui-media-object mui-pull-left" src="{$goods.cover|get_cover_url}"/>
+                                                <i class="oblique-tag oblique-tag-presell">热卖</i>
                                                 <div class="mui-media-body">
                                                     {$goods.title}
                                                     <p class="mui-ellipsis">{$goods.content}</p>
