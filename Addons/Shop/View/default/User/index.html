@@ -26,7 +26,7 @@
              class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
             <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
                 <volist name="categoryList" id="goodsCategory">
-                    <a class="mui-control-item mui-active" href="#item{$goodsCategory.id}">
+                    <a class="mui-control-item" href="#item{$goodsCategory.id}">
                         {$goodsCategory.title}
                     </a>
                 </volist>
@@ -34,14 +34,21 @@
         </div>
         <div class="mui-slider-group" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
             <volist name="categoryList" id="goodsCategory">
-                <div id="item{$goodsCategory.id}" class="mui-slider-item mui-control-content mui-active">
+                <div id="item{$goodsCategory.id}" class="mui-slider-item mui-control-content">
                     <div id="scroll{$goodsCategory.id}" class="mui-scroll-wrapper">
-                        <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+                        <div id="{$goodsCategory.id}" class="mui-scroll"
+                             style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
                             <ul class="mui-table-view mui-grid-view">
                                 <volist name="goodsList" id="goods">
-                                    <li class="mui-table-view-cell mui-media" style="width: 50%">
-                                        <img src="{$goods.cover|get_cover_url}"/>
-                                    </li>
+                                    <if condition="$goodsCategory.id eq 0">
+                                        <li class="mui-table-view-cell mui-media" style="width: 50%">
+                                            <img src="{$goods.cover|get_cover_url}"/>
+                                        </li>
+                                    <elseif condition="$goods.category_id eq $goodsCategory.id"/>
+                                        <li class="mui-table-view-cell mui-media" style="width: 50%">
+                                            <img src="{$goods.cover|get_cover_url}"/>
+                                        </li>
+                                    </if>
                                 </volist>
                             </ul>
                             <div class="mui-pull-bottom-tips">
@@ -60,9 +67,9 @@
 </div>
 <include file="./Addons/Shop/View/default/User/_footer.html"/>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
-<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.pullToRefresh.js?v={:SITE_VERSION}"></script>
+<!--<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.pullToRefresh.js?v={:SITE_VERSION}"></script>
 <script type="text/javascript"
-        src="{:ADDON_PUBLIC_PATH}/user/js/mui.pullToRefresh.material.js?v={:SITE_VERSION}"></script>
+        src="{:ADDON_PUBLIC_PATH}/user/js/mui.pullToRefresh.material.js?v={:SITE_VERSION}"></script>-->
 <script>
 
     mui.init();
@@ -74,46 +81,58 @@
             indicators: true, //是否显示滚动条
             deceleration: deceleration
         });
-        $.ready(function () {
-            //循环初始化所有下拉刷新，上拉加载。
-            $.each(document.querySelectorAll('.mui-slider-group .mui-scroll'),
-                    function (index, pullRefreshEl) {
-                        $(pullRefreshEl).pullToRefresh({
-                            /*down: {
-                             callback: function() {
-                             var self = this;
-                             setTimeout(function() {
-                             var ul = self.element.querySelector('.mui-table-view');
-                             ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
-                             self.endPullDownToRefresh();
-                             }, 1000);
-                             }
-                             },*/
-                            up: {
-                                callback: function () {
-                                    var self = this;
-                                    setTimeout(function () {
-                                        var ul = self.element.querySelector('.mui-table-view');
-                                        ul.appendChild(createFragment(ul, index, 5));
-                                        self.endPullUpToRefresh();
-                                    }, 1000);
-                                }
-                            }
-                        });
-                    });
-            var createFragment = function (ul, index, count, reverse) {
-                var length = ul.querySelectorAll('li').length;
-                var fragment = document.createDocumentFragment();
-                var li;
-                for (var i = 0; i < count; i++) {
-                    li = document.createElement('li');
-                    li.className = 'mui-table-view-cell';
-                    li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
-                    fragment.appendChild(li);
-                }
-                return fragment;
-            };
-        });
+        /*$.ready(function () {
+         //循环初始化所有下拉刷新，上拉加载。
+         $.each(document.querySelectorAll('.mui-slider-group .mui-scroll'),
+         function (index, pullRefreshEl) {
+         $(pullRefreshEl).pullToRefresh({
+         down: {
+         callback: function() {
+         var self = this;
+         setTimeout(function() {
+         var ul = self.element.querySelector('.mui-table-view');
+         ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+         self.endPullDownToRefresh();
+         }, 1000);
+         }
+         },
+         up: {
+         callback: function () {
+         var self = this;
+         setTimeout(function () {
+         var ul = self.element.querySelector('.mui-table-view');
+         ul.appendChild(createFragment(ul, index, 5));
+         self.endPullUpToRefresh();
+         }, 1000);
+         getMoreGoods();
+         }
+         }
+         });
+         });
+
+         function getMoreGoods($categoryID, ul){
+         var length = ul.querySelectorAll('li').length;
+         var fragment = document.createDocumentFragment();
+         var fecthCount = 10;
+         var li;
+         for (var i = 0; i < fecthCount; i++) {
+
+         }
+         }
+
+         /!*var createFragment = function (ul, index, count, reverse) {
+         var length = ul.querySelectorAll('li').length;
+         var fragment = document.createDocumentFragment();
+         var li;
+         for (var i = 0; i < count; i++) {
+         li = document.createElement('li');
+         li.className = 'mui-table-view-cell';
+         li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
+         fragment.appendChild(li);
+         }
+         return fragment;
+         };*!/
+         });*/
     })(mui);
 </script>
 </body>

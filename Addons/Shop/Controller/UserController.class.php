@@ -31,10 +31,16 @@ class UserController extends AddonsController
     // 显示商品列表
     function index(){
         // 获取所有目录
-        $categoryList = D("Category")->getShopCategory(0);
-        $this->assign("categoryList", $categoryList);
 
-        $goodsList = D("Goods")->getGoodsByCategoryAndPage(1,1,10);
+        $categoryList = D("Category")->getShopCategory(0);
+        $categoryListWithAll[] = array("id"=>0, "title"=>"所有");
+        foreach($categoryList as $key => $value){
+            $categoryListWithAll[] = $value;
+        }
+
+        $this->assign("categoryList", $categoryListWithAll);
+
+        $goodsList = D("Goods")->getGoodsByCategory(0);
         $this->assign("goodsList", $goodsList);
 
         $this->display();

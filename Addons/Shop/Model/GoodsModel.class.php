@@ -104,10 +104,20 @@ class GoodsModel extends Model {
 		return $list;
 	}
 
+	function getGoodsByCategory($categoryID){
+		if($categoryID > 0){
+			$map['category_id'] = $categoryID;
+		}
+		$map ['is_show'] = 1;
+		$goods = $this->where($map)->select();
+		return $goods;
+	}
+
 	function getGoodsByCategoryAndPage($categoryID, $pageIndex, $pageNumber){
 		if($categoryID > 0){
 			$map['category_id'] = $categoryID;
 		}
+		$map ['is_show'] = 1;
 		$goods = $this->page($pageIndex, $pageNumber)->select();
 		return $goods;
 	}
