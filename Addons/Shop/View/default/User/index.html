@@ -131,7 +131,7 @@
                             <ul class="mui-table-view">
                                 <volist name="goodsList" id="goods">
                                     <if condition="$goodsCategory.id eq 0">
-                                        <li class="mui-table-view-cell mui-media">
+                                        <li class="mui-table-view-cell mui-media" style="width: 50%">
                                             <div class="goods-picture-wrapper">
                                                 <img class="mui-media-object"
                                                      data-lazyload="{$goods.cover|get_cover_url}"/>
@@ -143,10 +143,10 @@
                                             </div>
                                         </li>
                                         <elseif condition="$goods.category_id eq $goodsCategory['id']"/>
-                                        <li class="mui-table-view-cell mui-media">
+                                        <li class="mui-table-view-cell mui-media" style="width: 50%">
                                             <div class="goods-picture-wrapper">
                                                 <img class="mui-media-object"
-                                                     data-lazyload=="{$goods.cover|get_cover_url}"/>
+                                                     data-lazyload="{$goods.cover|get_cover_url}"/>
                                                 <i class="oblique-tag oblique-tag-presell">热卖</i>
                                             </div>
                                             <div class="mui-media-body">
@@ -192,7 +192,7 @@
         });
 
         $(document).imageLazyload({
-            
+
         });
         /*$.ready(function () {
          //循环初始化所有下拉刷新，上拉加载。
