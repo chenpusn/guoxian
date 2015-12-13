@@ -3,6 +3,11 @@
  * 在实际项目开发时，建议为App单独写一个css文件，从而实现项目的自定义皮肤功能；
  * 
  * */
+
+html{
+	font-family: san-serif, "Microsoft JhengHei", Arial;
+}
+
 .mui-android header.mui-bar{
 	display: none;
 }
