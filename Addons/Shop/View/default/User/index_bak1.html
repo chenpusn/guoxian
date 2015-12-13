@@ -109,18 +109,41 @@
         padding-bottom: 0;
     }
 
+    .footer{
+        display: none;
+        position: fixed;
+        bottom: 0;
+        height: 3rem;
+        width: 100%;
+        left: 0;
+        padding: 0 0;
+        background-color: rgba(93,15,5,.88);
+        z-index: 999;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        transition: .4s ease;
+        -webkit-transition: .4s ease;
+    }
+
+    .footer .tab-item{
+        width: 32.6%;
+        height: 3rem;
+        line-height: 3rem;
+        text-align: center;
+        display: inline-block;
+    }
 </style>
 <body>
-<nav class="mui-bar mui-bar-tab">
-    <a class="mui-tab-item mui-active" href="#">
+<nav class="footer" style="display:block; -webkit-transform-origin: 0px 0px; opacity: 1; -webkit-transform: scale(1, 1); background-color: rgba(93,15,5,.88)">
+    <a class="tab-item" href="#" >
         <span class="mui-icon mui-icon-home"></span>
         <span class="mui-tab-label">果园</span>
     </a>
-    <a class="mui-tab-item" href="#">
+    <a class="tab-item" href="#">
         <span class="mui-icon iconfont icon-iconfontbasket"></span>
         <span class="mui-tab-label">果篮</span>
     </a>
-    <a class="mui-tab-item" href="#" style="width: 2%">
+    <a class="tab-item" href="#">
         <span class="mui-icon iconfont icon-jiesuanfangshi"></span>
         <span class="mui-tab-label">结算</span>
     </a>
