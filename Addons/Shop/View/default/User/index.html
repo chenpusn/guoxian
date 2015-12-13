@@ -100,10 +100,26 @@
         padding: 0.375rem 0 0 0;
         font-size:1rem;
     }
+
+    .mui-bar{
+        display: none;
+        position: fixed;
+        bottom: -1px;
+        height: 47px;
+        width: 100%;
+        left: 0;
+        padding: 5px 10px;
+        background-color: rgba(0,0,0,.68);
+        z-index: 999;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        transition: .4s ease;
+        -webkit-transition: .4s ease;
+    }
 </style>
 <body>
-<nav class="mui-bar mui-bar-tab" style="-webkit-transform-origin: 0px 0px; opacity: 0.8; -webkit-transform: scale(1, 1); background-color: rgba(0,0,0,.68)">
-    <a class="mui-tab-item mui-active" href="#">
+<nav class="mui-bar mui-bar-tab" style="display:block; -webkit-transform-origin: 0px 0px; opacity: 0.8; -webkit-transform: scale(1, 1); background-color: rgba(0,0,0,.68)">
+    <!--<a class="mui-tab-item mui-active" href="#">
         <span class="mui-icon mui-icon-home"></span>
         <span class="mui-tab-label">果园</span>
     </a>
@@ -113,7 +129,7 @@
     </a>
     <a class="mui-tab-item" href="#" style="width: 2%">
         <span class="mui-icon iconfont icon-jiesuanfangshi"></span>
-        <span class="mui-tab-label">结算</span>
+        <span class="mui-tab-label">结算</span>-->
     </a>
 </nav>
 <div class="mui-content">
