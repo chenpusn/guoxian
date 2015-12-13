@@ -30,6 +30,14 @@
         transform-origin: 0 0;
     }
 
+    .goods-picture-wrapper {
+        position: relative;
+        width: 3.75rem;
+        height: 5.4375rem;
+        background-color: #e1e1e1;
+        overflow: hidden;
+    }
+
     i {
         margin: 0;
         padding: 0;
@@ -83,7 +91,7 @@
                                     <if condition="$goodsCategory.id eq 0">
                                         <li class="mui-table-view-cell mui-media">
                                             <a>
-                                                <div style="position: relative">
+                                                <div class="goods-picture-wrapper">
                                                     <img class="mui-media-object mui-pull-left"
                                                          src="{$goods.cover|get_cover_url}"/>
                                                     <i class="oblique-tag oblique-tag-presell">热卖</i>
@@ -97,7 +105,7 @@
                                         <elseif condition="$goods.category_id eq $goodsCategory['id']"/>
                                         <li class="mui-table-view-cell mui-media">
                                             <a>
-                                                <div style="position: relative">
+                                                <div class="goods-picture-wrapper">
                                                     <img class="mui-media-object mui-pull-left"
                                                          src="{$goods.cover|get_cover_url}"/>
                                                     <i class="oblique-tag oblique-tag-presell">热卖</i>
