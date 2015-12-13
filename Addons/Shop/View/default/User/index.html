@@ -44,7 +44,7 @@
                                         <li class="mui-table-view-cell mui-media" style="width: 50%">
                                             <img src="{$goods.cover|get_cover_url}"/>
                                         </li>
-                                    <elseif condition="$goods.category_id eq 1"/>
+                                    <elseif condition="$goods.category_id eq $goodsCategory['id']"/>
                                         <li class="mui-table-view-cell mui-media" style="width: 50%">
                                             <img src="{$goods.cover|get_cover_url}"/>
                                         </li>
