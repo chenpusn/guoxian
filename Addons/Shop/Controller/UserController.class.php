@@ -43,6 +43,10 @@ class UserController extends AddonsController
         $goodsList = D("Goods")->getGoodsByCategory(0);
         $this->assign("goodsList", $goodsList);
 
+        // banner
+        $slideshow_list = D('Slideshow')->getShopList(0);
+        $this->assign('slideShowList', $slideshow_list);
+
         $this->display();
     }
 

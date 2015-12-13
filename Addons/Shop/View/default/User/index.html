@@ -9,7 +9,7 @@
         height: auto;
     }
 
-    .mui-table-view .mui-media-object{
+    .mui-table-view .mui-media-object {
         height: auto;
         line-height: normal;
     }
@@ -23,10 +23,10 @@
         background: transparent;
     }
 
-    .mui-segmented-control.mui-scroll-wrapper .mui-control-item.mui-active{
-       color:#e74c3c;
-       font-weight: 700;
-       border-bottom: .125rem solid #e74c3c;
+    .mui-segmented-control.mui-scroll-wrapper .mui-control-item.mui-active {
+        color: #e74c3c;
+        font-weight: 700;
+        border-bottom: .125rem solid #e74c3c;
     }
 
     /*.mui-slider-indicator{
@@ -96,10 +96,10 @@
         padding: 0 0 0.375rem 0;
     }
 
-    .goods-title{
+    .goods-title {
         font-weight: 700;
         padding: 0.375rem 0 0 0;
-        font-size:1rem;
+        font-size: 1rem;
     }
 
 </style>
@@ -126,6 +126,17 @@
                 <a class="mui-control-item mui-active" style="width: 50%" href="#itemJingPin"><span
                         class="header-title-text">精品折扣</span></a>
                 <a class="mui-control-item" style="width: 50%" href="#itemChangXiao"><span class="header-title-text">畅销分类</span></a>
+            </div>
+        </div>
+        <div id="imageSlider" class="mui-slider">
+            <div class="mui-slider-group mui-slider-loop">
+                <volist name="slideShowList" id="slide">
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="{$slide.img|get_cover_url}">
+                        </a>
+                    </div>
+                </volist>
             </div>
         </div>
         <div class="mui-slider-group" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
@@ -189,6 +200,10 @@
             bounce: false,
             indicators: true, //是否显示滚动条
             deceleration: deceleration
+        });
+        var slider = mui("#imageSlider");
+        slider.slider({
+            interval: 5000
         });
 
         /*$(document).imageLazyload({
