@@ -110,6 +110,7 @@
                                 <volist name="goodsList" id="goods">
                                     <if condition="$goodsCategory.id eq 0">
                                         <li class="mui-table-view-cell mui-media">
+                                            <a>
                                                 <div class="goods-picture-wrapper">
                                                     <img class="mui-media-object mui-pull-left"
                                                          src="{$goods.cover|get_cover_url}"/>
@@ -119,10 +120,11 @@
                                                     {$goods.title}
                                                     <p class="mui-ellipsis">{$goods.content}</p>
                                                 </div>
+                                            </a>
                                         </li>
                                         <elseif condition="$goods.category_id eq $goodsCategory['id']"/>
                                         <li class="mui-table-view-cell mui-media">
-
+                                            <a>
                                                 <div class="goods-picture-wrapper">
                                                     <img class="mui-media-object mui-pull-left"
                                                          src="{$goods.cover|get_cover_url}"/>
@@ -133,7 +135,7 @@
                                                     {$goods.title}
                                                     <p class="mui-ellipsis">{$goods.content}</p>
                                                 </div>
-                                           
+                                            </a>
                                         </li>
                                     </if>
                                 </volist>
