@@ -101,14 +101,22 @@
         font-size:1rem;
     }
 
-    .mui-bar{
+    .mui-icon{
+        top: 3px;
+        width: 24px;
+        height: 24px;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .footer{
         display: none;
         position: fixed;
-        bottom: -1px;
-        height: 47px;
+        bottom: 0;
+        height: 2.5rem;
         width: 100%;
         left: 0;
-        padding: 5px 10px;
+        padding: 0.3125rem 0;
         background-color: rgba(0,0,0,.68);
         z-index: 999;
         box-sizing: border-box;
@@ -116,20 +124,27 @@
         transition: .4s ease;
         -webkit-transition: .4s ease;
     }
+
+    .footer .tab-item{
+        width: 33%;
+        line-height: 2.5rem;
+        text-align: center;
+        display: inline-block;
+    }
 </style>
 <body>
-<nav class="mui-bar mui-bar-tab" style="display:block; -webkit-transform-origin: 0px 0px; opacity: 0.8; -webkit-transform: scale(1, 1); background-color: rgba(0,0,0,.68)">
-    <!--<a class="mui-tab-item mui-active" href="#">
+<nav class="footer" style="display:block; -webkit-transform-origin: 0px 0px; opacity: 1; -webkit-transform: scale(1, 1); background-color: rgba(0,0,0,.68)">
+    <a class="tab-item" href="#" >
         <span class="mui-icon mui-icon-home"></span>
         <span class="mui-tab-label">果园</span>
     </a>
-    <a class="mui-tab-item" href="#">
+    <a class="tab-item" href="#">
         <span class="mui-icon iconfont icon-iconfontbasket"></span>
         <span class="mui-tab-label">果篮</span>
     </a>
-    <a class="mui-tab-item" href="#" style="width: 2%">
+    <a class="tab-item" href="#">
         <span class="mui-icon iconfont icon-jiesuanfangshi"></span>
-        <span class="mui-tab-label">结算</span>-->
+        <span class="mui-tab-label">结算</span>
     </a>
 </nav>
 <div class="mui-content">
