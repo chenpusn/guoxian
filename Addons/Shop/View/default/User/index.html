@@ -9,13 +9,6 @@
         height: auto;
     }
 
-    .mui-table-view .mui-media-object {
-        max-width: 60px;
-        width: 60px;
-        height: 5rem;
-        line-height: normal;
-    }
-
     .mui-table-view .mui-media-body {
         padding: 0 .625rem;
     }
@@ -130,7 +123,7 @@
                                         <li class="mui-table-view-cell mui-media" style="width: 50%">
                                             <div class="goods-picture-wrapper">
                                                 <img class="mui-media-object"
-                                                     data-lazyload="{$goods.cover|get_cover_url}"/>
+                                                     src="{$goods.cover|get_cover_url}"/>
                                                 <i class="oblique-tag oblique-tag-presell">热卖</i>
                                             </div>
                                             <div class="mui-media-body">
@@ -142,7 +135,7 @@
                                         <li class="mui-table-view-cell mui-media" style="width: 50%">
                                             <div class="goods-picture-wrapper">
                                                 <img class="mui-media-object"
-                                                     data-lazyload="{$goods.cover|get_cover_url}"/>
+                                                     src="{$goods.cover|get_cover_url}"/>
                                                 <i class="oblique-tag oblique-tag-presell">热卖</i>
                                             </div>
                                             <div class="mui-media-body">
@@ -187,10 +180,10 @@
             deceleration: deceleration
         });
 
-        $(document).imageLazyload({
+        /*$(document).imageLazyload({
             placeholder:"http://imgcdn.xuxian.com/logo-3.jpg"
         });
-        /*$.ready(function () {
+        $.ready(function () {
          //循环初始化所有下拉刷新，上拉加载。
          $.each(document.querySelectorAll('.mui-slider-group .mui-scroll'),
          function (index, pullRefreshEl) {
