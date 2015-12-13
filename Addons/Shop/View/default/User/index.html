@@ -54,7 +54,6 @@
         height: 5.4375rem;
         background-color: #e1e1e1;
         overflow: hidden;
-        float: left;
 
     }
 
@@ -111,8 +110,8 @@
                                     <if condition="$goodsCategory.id eq 0">
                                         <li class="mui-table-view-cell mui-media">
 
-                                                <div class="goods-picture-wrapper">
-                                                    <img class="mui-media-object mui-pull-left"
+                                                <div class="goods-picture-wrapper mui-pull-left">
+                                                    <img class="mui-media-object"
                                                          src="{$goods.cover|get_cover_url}"/>
                                                     <i class="oblique-tag oblique-tag-presell">热卖</i>
                                                 </div>
@@ -124,18 +123,16 @@
                                         </li>
                                         <elseif condition="$goods.category_id eq $goodsCategory['id']"/>
                                         <li class="mui-table-view-cell mui-media">
-
-                                                <div class="goods-picture-wrapper">
+                                                <div class="goods-picture-wrapper mui-pull-left">
                                                     <img class="mui-media-object mui-pull-left"
                                                          src="{$goods.cover|get_cover_url}"/>
                                                     <i class="oblique-tag oblique-tag-presell">热卖</i>
-
                                                 </div>
                                                 <div class="mui-media-body">
                                                     {$goods.title}
                                                     <p class="mui-ellipsis">{$goods.content}</p>
                                                 </div>
-                                         
+
                                         </li>
                                     </if>
                                 </volist>
