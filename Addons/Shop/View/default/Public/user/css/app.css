@@ -8,6 +8,10 @@ html{
 	font-family: san-serif, "Microsoft JhengHei", Arial;
 }
 
+body{
+	font-family: san-serif, "Microsoft JhengHei", Arial;
+}
+
 .mui-android header.mui-bar{
 	display: none;
 }
