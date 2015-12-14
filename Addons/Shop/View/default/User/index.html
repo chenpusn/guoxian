@@ -191,7 +191,9 @@
     <a class="mui-tab-item my-basket" href="#">
         <span class="mui-icon iconfont icon-shuiguo"></span>
         <span class="mui-tab-label">我的果盘</span>
-        <span class="mui-badge mui-badge-success mui-badge-inverted">3</span>
+        <if condition="$cartCount gt 0">
+            <span class="mui-badge" style="color: #cc044d" id="cartCountSpan">{$cartCount}</span>
+        </if>
     </a>
     <a class="mui-tab-item one-key-pay" href="#">
         <span class="mui-icon iconfont icon-jiesuanfangshi"></span>
@@ -345,13 +347,13 @@
         if(userInfo.getAttribute('value')){
             mui.ajax('http://haozhixian.cn/index.php?s=/addon/Shop/User/addToCart',{
                data:{
-                   goodsID: goodsId
+                   goodsId: goodsId
                },
                dataType:'json',
                type:'post',
                timeout:10000, //10秒
                success: function (response) {
-                   mui.toast(response);
+                   mui("#cartCountSpan")[0].innerText = response;
                },
                error:function(xhr,type,errorThrown){
                    console.log(type);

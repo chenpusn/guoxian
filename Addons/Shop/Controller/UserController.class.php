@@ -49,6 +49,10 @@ class UserController extends AddonsController
 
         // User info
         $this->assign("userInfo", $this->userID);
+
+        // cart num
+        $cartCount = D('Cart')->getMyCartCount($this->userID);
+        $this->assign("cartCount", $cartCount);
         $this->display();
     }
 

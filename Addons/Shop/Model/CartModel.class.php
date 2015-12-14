@@ -64,4 +64,9 @@ class CartModel extends Model {
 		$this->getMyCart ( $map ['uid'], true );
 		return $res;
 	}
+
+	function getMyCartCount($uid){
+		$map['uid'] = $uid;
+		return count($this->where($map)->select());
+	}
 }
