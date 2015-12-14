@@ -227,7 +227,7 @@
                                             <i class="oblique-tag oblique-tag-presell">热卖</i>
                                         </dt>
                                         <dd class="operation-wrapper mui-pull-right">
-                                            <p class="operation"><span class="mui-icon iconfont icon-shuiguo" style="color: #FF840D; font-size: 1.5rem; display: block"></span><span style="display: inline">加入果盘</span></p>
+                                            <p class="operation" onclick="addToCart('{$goods.id}')"><span class="mui-icon iconfont icon-shuiguo" style="color: #FF840D; font-size: 1.5rem; display: block"></span><span style="display: inline">加入果盘</span></p>
                                         </dd>
                                         <dd class="mui-media-body">
                                             <div class="goods-title">{$goods.title}</div>
@@ -271,7 +271,6 @@
 <script type="text/javascript"
         src="{:ADDON_PUBLIC_PATH}/user/js/mui.pullToRefresh.material.js?v={:SITE_VERSION}"></script>-->
 <script>
-
     mui.init();
     (function ($) {
         //阻尼系数
@@ -339,6 +338,10 @@
          };*!/
          });*/
     })(mui);
+
+    function addToCart(goodsID){
+        mui.toast(goodsID);
+    }
 </script>
 </body>
 </html>
