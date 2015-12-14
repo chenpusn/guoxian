@@ -58,7 +58,7 @@ class UserController extends AddonsController
             $accountInfo = I('post.');
             $res = D('ShopUser')->bindAccount($accountInfo);
 
-            cookie("SHOPUSERID".C('SITE_VERSION'), $res);
+            cookie("HZXUSER".C('SITE_VERSION'), $res);
             redirect(U('index'));
         }
         else{
