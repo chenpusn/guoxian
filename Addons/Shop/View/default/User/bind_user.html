@@ -25,9 +25,9 @@
                    data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
         </div>
         <div class="mui-button-row">
-            <button type="button" class="mui-btn mui-btn-danger" onclick="return false;">返回首页</button>
+            <button type="button" class="mui-btn mui-btn-danger" onclick="javascript:history.go(-1)">返回首页</button>
             &nbsp;&nbsp;
-            <button type="button" class="mui-btn mui-btn-primary" onclick="return false;">绑定账号</button>
+            <button type="submit" class="mui-btn mui-btn-primary">绑定账号</button>
         </div>
     </form>
 </div>
@@ -35,7 +35,6 @@
 
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js?v={:SITE_VERSION}"></script>
 <script type="text/javascript">
-    mui.init({});
     function tgSubmit() {
         var userName = $('#truename').val();
         if ($.trim(userName) == "") {
