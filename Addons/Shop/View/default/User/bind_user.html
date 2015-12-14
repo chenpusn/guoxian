@@ -11,25 +11,30 @@
 <body>
 <div class="mui-bar mui-bar-nav">
     <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
     <h1 class="mui-title">绑定账号</h1>
 </div>
 <div class="mui-content">
-    <form class="mui-input-group" action="{:U('bind_user')}" method="post" onSubmit="return tgSubmit()">
-        <div class="mui-input-row">
-            <label for="truename">联系人:</label>
-            <input type="text" id="truename" name="truename" value="{$info.truename}" placeholder="请输入联系人姓名，用作取货身份凭证">
-        </div>
-        <div class="mui-input-row">
-            <label for="mobile">手机号:</label>
-            <input type="text" id="mobile" name="mobile" class="mui-input-clear" placeholder="请输入手机号码" value="{$info.mobile}"
-                   data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
-        </div>
-        <div class="mui-button-row">
-            <button type="button" class="mui-btn mui-btn-danger" onclick="javascript:history.go(-1)">返回首页</button>
-            &nbsp;&nbsp;
-            <button type="submit" class="mui-btn mui-btn-primary">绑定账号</button>
-        </div>
-    </form>
+    <div class="mui-content-padded" style="margin: 5px;">
+        <form class="mui-input-group" action="{:U('bind_user')}" method="post" onSubmit="return tgSubmit()">
+            <div class="mui-input-row">
+                <label for="truename">联系人:</label>
+                <input type="text" id="truename" name="truename" value="{$info.truename}"
+                       placeholder="请输入联系人姓名，用作取货身份凭证">
+            </div>
+            <div class="mui-input-row">
+                <label for="mobile">手机号:</label>
+                <input type="text" id="mobile" name="mobile" class="mui-input-clear" placeholder="请输入手机号码"
+                       value="{$info.mobile}"
+                       data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+            </div>
+            <div class="mui-button-row">
+                <button type="button" class="mui-btn mui-btn-danger" onclick="javascript:history.go(-1)">返回首页</button>
+                &nbsp;&nbsp;
+                <button type="submit" class="mui-btn mui-btn-primary">绑定账号</button>
+            </div>
+        </form>
+    </div>
 </div>
 <include file="./Addons/Shop/View/default/User/_footer.html"/>
 
