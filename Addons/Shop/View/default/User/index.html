@@ -344,7 +344,8 @@
         if(userInfo.getAttribute('value')){
             mui.toast(goodsID);
         }else{
-            mui.toast('请先绑定用户信息');
+            window.location.assign("http://haozhixian.cn/index.php?s=/addon/Shop/User/bind_user");
+            mui.toast('尚未绑定用户信息，请先绑定用户信息');
         }
     }
 </script>
