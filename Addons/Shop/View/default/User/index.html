@@ -140,6 +140,12 @@
         text-decoration: line-through;
     }
 
+    .operation-wrapper{
+        border-left: 0.1rem black solid;
+        width: 3rem;
+        padding: 0;
+        margin: 0;
+    }
 </style>
 <body>
 <!--<nav class="mui-bar mui-bar-tab">
@@ -185,8 +191,9 @@
                                                  src="{$goods.cover|get_cover_url}"/>
                                             <i class="oblique-tag oblique-tag-presell">热卖</i>
                                         </dt>
-                                        <dd class="mui-media-body mui-pull-right" style="width: 3rem">
-                                            放入果盘
+                                        <dd class="operation-wrapper mui-pull-right">
+                                            <p>放入果盘</p>
+                                            <p>立即购买</p>
                                         </dd>
                                         <dd class="mui-media-body">
                                             <div class="goods-title">{$goods.title}</div>
