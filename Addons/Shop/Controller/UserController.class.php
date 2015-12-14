@@ -47,6 +47,8 @@ class UserController extends AddonsController
         $slideshow_list = D('Slideshow')->getShopList(0);
         $this->assign('slideShowList', $slideshow_list);
 
+        // User info
+        $this->assign("userInfo", $this->userInfo);
         $this->display();
     }
 

@@ -340,7 +340,11 @@
     })(mui);
 
     function addToCart(goodsID){
-        mui.toast(goodsID);
+        if($userInfo){
+            mui.toast(goodsID);
+        }else{
+            mui.toast('请先绑定用户信息');
+        }
     }
 </script>
 </body>
