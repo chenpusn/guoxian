@@ -268,6 +268,7 @@
 </div>
 <input type="hidden" value="{$userInfo}" id="userInfoHF">
 <include file="./Addons/Shop/View/default/User/_footer.html"/>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
 <!--<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.lazyload.js?v={:SITE_VERSION}"></script>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.lazyload.img.js?v={:SITE_VERSION}"></script>
@@ -353,7 +354,10 @@
                type:'post',
                timeout:10000, //10秒
                success: function (response) {
-                   mui("#cartCountSpan")[0].innerText = response;
+                   cartCountSpan = mui("#cartCountSpan")[0];
+                   cartCountSpan.innerText = response;
+                   cartCountSpan.fadeIn("slow");
+                   cartCountSpan.fadeIn(3000)
                },
                error:function(xhr,type,errorThrown){
                    console.log(type);

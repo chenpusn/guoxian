@@ -40,7 +40,7 @@ class CartModel extends Model {
 			$goods ['openid'] = get_openid ();
 			$this->add ( $goods );
 		}
-		return count ( $this->getMyCart ( $goods ['uid'], true ) );
+		return $this->getMyCartCount ( $goods ['uid'] );
 	}
 	function delCart($ids) {
 		$ids = array_filter ( explode ( ',', $ids ) );
@@ -67,6 +67,6 @@ class CartModel extends Model {
 
 	function getMyCartCount($uid){
 		$map['uid'] = $uid;
-		return count($this->where($map)->select());
+		return $this->where($map)->sum('num');
 	}
 }
