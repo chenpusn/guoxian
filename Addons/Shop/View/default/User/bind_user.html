@@ -17,11 +17,11 @@
     <form class="mui-input-group" action="{:U('bind_user')}" method="post" onSubmit="return tgSubmit()">
         <div class="mui-input-row">
             <label for="truename">联系人:</label>
-            <input type="text" id="truename" name="truename" placeholder="请输入联系人姓名，用作取货身份凭证">
+            <input type="text" id="truename" name="truename" value="{$info.truename}" placeholder="请输入联系人姓名，用作取货身份凭证">
         </div>
         <div class="mui-input-row">
             <label for="mobile">手机号:</label>
-            <input type="text" id="mobile" name="mobile" class="mui-input-clear" placeholder="请输入手机号码"
+            <input type="text" id="mobile" name="mobile" class="mui-input-clear" placeholder="请输入手机号码" value="{$info.mobile}"
                    data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
         </div>
         <div class="mui-button-row">
@@ -45,12 +45,12 @@
         }
         var userPhone = $("#mobile").val();
         if ($.trim(userPhone) == "") {
-            $.Dialog.fail('请填写您的手机号码');
+            mui.toast("请填写手机号");
             return false;
         }
         var patrn = /^0?(13[0-9]|15[0123456789]|18[0123456789]|14[0123456789])[0-9]{8}$/;
         if (!patrn.exec($.trim(userPhone))) {
-            $.Dialog.fail('手机号格式错误');
+            mui.toast('手机号格式不正确，请确认填写了正确的号码');
             return false;
         }
         return true;
