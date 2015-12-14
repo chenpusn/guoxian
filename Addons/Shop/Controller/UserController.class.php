@@ -88,7 +88,7 @@ class UserController extends AddonsController
         echo D('Cart')->addToCart($goods);
     }
 
-    function myCart(){
+    function cart(){
         if ($this->userID > 0) {
             $list = D ( 'Cart' )->getMyCart ( $this->mid, true );
 
