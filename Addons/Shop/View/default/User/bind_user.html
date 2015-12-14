@@ -14,7 +14,7 @@
     <h1 class="mui-title">绑定账号</h1>
 </div>
 <div class="mui-content">
-    <!--<form class="mui-input-group" action="{:U('bind_account')}" method="post" onSubmit="return tgSubmit()">
+    <form class="mui-input-group" action="{:U('bind_account')}" method="post" onSubmit="return tgSubmit()">
         <div class="mui-input-row">
             <label for="truename">联系人:</label>
             <input type="text" id="truename" name="truename" placeholder="请输入联系人姓名，用作取货身份凭证">
@@ -29,13 +29,13 @@
             &nbsp;&nbsp;
             <button type="button" class="mui-btn mui-btn-primary" onclick="return false;">绑定账号</button>
         </div>
-    </form>-->
+    </form>
 </div>
 <include file="./Addons/Shop/View/default/User/_footer.html"/>
 
-<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js?v={:SITE_VERSION}"></script>
 <script type="text/javascript">
-    /*mui.init({});
+    mui.init({});
     function tgSubmit() {
         var userName = $('#truename').val();
         if ($.trim(userName) == "") {
@@ -53,7 +53,7 @@
             return false;
         }
         return true;
-    }*/
+    }
 </script>
 </body>
 </html>
