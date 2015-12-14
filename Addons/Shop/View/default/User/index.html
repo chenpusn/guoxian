@@ -344,13 +344,13 @@
         if(userInfo.getAttribute('value')){
             mui.ajax('http://haozhixian.cn/index.php?s=/addon/Shop/User/addToCart',{
                data:{
-                   goodsID: goodsID
+                   goodsID: goodsId
                },
                dataType:'json',
                type:'post',
                timeout:10000, //10秒
                success: function (response) {
-                   mui.toast('已加入购物车');
+                   mui.toast(response);
                },
                error:function(xhr,type,errorThrown){
                    console.log(type);

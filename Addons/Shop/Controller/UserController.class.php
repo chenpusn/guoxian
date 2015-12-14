@@ -72,13 +72,13 @@ class UserController extends AddonsController
     }
 
     function addToCart(){
-        $goods ['goods_id'] = I('goods_id');
+        $goods ['goods_id'] = I('goodsId');
         $info = D('goods')->getInfo($goods ['goods_id']);
 
         $goods ['price'] = $info ['price'];
         $goods ['shop_id'] = $info ['shop_id'];
 
-        $goods ['uid'] = $this->mid;
+        $goods ['uid'] = $this->userID;
         $goods ['num'] = 1;
 
         echo D('Cart')->addToCart($goods);
