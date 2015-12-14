@@ -5,11 +5,11 @@
  * */
 
 html{
-	font-family: san-serif, "Microsoft JhengHei", Arial;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
 }
 
 body{
-	font-family: san-serif, "Microsoft JhengHei", Arial;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .mui-android header.mui-bar{
