@@ -3,12 +3,14 @@
 <link href="{:ADDON_PUBLIC_PATH}/user/css/iconfont.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
 <style type="text/css">
     .mui-table-view .mui-media {
-        padding: .75rem 1.25rem;
+        padding: .3125rem 0.5rem;
         position: relative;
         overflow: hidden;
         height: auto;
         background: #f3f4f9;
         margin: 0.25rem 0 0 0;
+        border-bottom: 0.1rem solid #d6d6db;
+        border-top: 0.1rem solid #fbfcfd;
     }
 
     .mui-table-view .mui-media-body {
@@ -157,7 +159,7 @@
                         <ul class="mui-table-view">
                             <volist name="goodsList" id="goods">
                                 <li class="mui-table-view-cell mui-media">
-                                    <dl>
+                                    <dl style="margin: 0">
                                         <dt class="goods-picture-wrapper mui-pull-left">
                                             <img class="mui-media-object" style="width: 100%; max-width: 100%"
                                                  src="{$goods.cover|get_cover_url}"/>
