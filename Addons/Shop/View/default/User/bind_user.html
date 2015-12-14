@@ -36,6 +36,7 @@
 
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
 <script type="text/javascript">
+    mui.init({});
     function tgSubmit() {
         var userName = $('#truename').val();
         if ($.trim(userName) == "") {
