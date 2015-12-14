@@ -7,21 +7,21 @@ use Home\Controller\AddonsController;
 class UserController extends AddonsController
 {
     var $userID;
-
+    var $SHOP_COOKIE_NAME = 'HZXUSER';
     function _initialize()
     {
         parent::_initialize();
 
         // 本地未绑定用户信息 如果是需要用户信息的操作 则转至用户新绑定页面
-        if(!cookie("HZXUSER".C('SITE_VERSION'))){
-            $actionsNeedLogin = array('basket');
+        if(!cookie($this->SHOP_COOKIE_NAME.C('SITE_VERSION'))){
+            $actionsNeedLogin = array('myCart');
             if (in_array(_ACTION, $actionsNeedLogin)){
                 $this->redirect("bindUser");
             }
         }
         // 获取用户信息
         else{
-            $userInfoJson = cookie("HZXUSER".C('SITE_VERSION'));
+            $userInfoJson = cookie($this->SHOP_COOKIE_NAME.C('SITE_VERSION'));
             $this->userID = json_decode ($userInfoJson);
         }
     }
@@ -62,7 +62,7 @@ class UserController extends AddonsController
             $accountInfo = I('post.');
             $res = D('ShopUser')->bindAccount($accountInfo);
 
-            cookie("HZXUSER".C('SITE_VERSION'), $res);
+            cookie($this->SHOP_COOKIE_NAME.C('SITE_VERSION'), $res);
             redirect(U('index'));
         }
         else{
@@ -86,6 +86,25 @@ class UserController extends AddonsController
         $goods ['num'] = 1;
 
         echo D('Cart')->addToCart($goods);
+    }
+
+    function myCart(){
+        if ($this->userID > 0) {
+            $list = D ( 'Cart' )->getMyCart ( $this->mid, true );
+
+            $dao = D ( 'goods' );
+            foreach ( $list as &$v ) {
+                $v ['goods_data'] = $dao->getInfo ( $v ['goods_id'] );
+            }
+
+            // dump ( $list );
+            $this->assign ( 'lists', $list );
+
+            $this->display ();
+        } else {
+            //cookie($this->SHOP_COOKIE_NAME.C('SITE_VERSION'), 'cart');
+            $this->redirect("bindUser", "请先绑定个人信息");
+        }
     }
 }
 

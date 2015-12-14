@@ -1,19 +1,25 @@
-<include file="Public/mobile_head"/>
-<link href="{:ADDON_PUBLIC_PATH}/mobile/common.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/mobile/shop.js?v={:SITE_VERSION}"></script>
+<include file="./Addons/Shop/View/default/User/_head.html"/>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/shop.js?v={:SITE_VERSION}"></script>
+
+<style type="text/css">
+
+</style>
 <body>
-<div class="container">
+<div class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
+    <h1 class="mui-title">我的果盘</h1>
+</div>
+<div class="mui-content" style="padding-top: 3.75rem">
     <empty name="lists">
         <div class="cart_empty">
             <img src="{:ADDON_PUBLIC_PATH}/mobile/cart.png"/>
 
-            <p>购物车还是空的</p>
+            <p>果盘还是空的</p>
 
-            <p><a href="{:U('lists',array('shop_id'=>$shop_id))}">去店里逛逛吧</a></p>
+            <p><a href="{:U('index')}">去果园转转吧</a></p>
         </div>
 
-        <!-- 底部导航 -->
-        <include file="_footer"/>
         <else/>
         <div class="cart_list_top">
             <a class="fr orange" href="javascript:void(0);" onClick="deleteCartItem()">删除商品</a>
@@ -34,6 +40,7 @@
                                 <div class="goods_desc">
                                     <a class="name"
                                        href="{:U('detail',array('shop_id'=>$vo['shop_id'],'id'=>$vo['goods_id']))}">{$vo.goods_data.title}</a>
+
                                     <p class="info"><span class="colorless">单价:</span><span class="orange">￥<span
                                             class="singlePrice">{$vo.goods_data.price|wp_money_format}</span></span></p>
 
@@ -66,9 +73,6 @@
         </form>
     </empty>
 </div>
-
-</body>
-</html>
 <script type="text/javascript">
     $(function () {
         updatePriceAndCount();
@@ -95,3 +99,5 @@
         }
     }
 </script>
+</body>
+</html>
