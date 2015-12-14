@@ -34,11 +34,13 @@
 <include file="./Addons/Shop/View/default/User/_footer.html"/>
 
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
 <script type="text/javascript">
+    mui.init({});
     function tgSubmit() {
         var userName = $('#truename').val();
         if ($.trim(userName) == "") {
-            $.Dialog.fail('请填写姓名');
+            mui.toast("请填写姓名");
             return false;
         }
         var userPhone = $("#mobile").val();
