@@ -191,9 +191,7 @@
     <a class="mui-tab-item my-basket" href="#">
         <span class="mui-icon iconfont icon-shuiguo"></span>
         <span class="mui-tab-label">我的果盘</span>
-        <if condition="$cartCount gt 0">
-            <span class="mui-badge" style="color: #cc044d" id="cartCountSpan">{$cartCount}</span>
-        </if>
+        <span class="mui-badge" style="color: #cc044d" id="cartCountSpan">{$cartCount}</span>
     </a>
     <a class="mui-tab-item one-key-pay" href="#">
         <span class="mui-icon iconfont icon-jiesuanfangshi"></span>
@@ -346,7 +344,7 @@
     var userInfo = document.getElementById("userInfoHF");
     function addToCart(goodsId){
         if(userInfo.getAttribute('value')){
-            mui.ajax('http://haozhixian.cn/index.php?s=/addon/Shop/User/addToCart',{
+            mui.ajax('index.php?s=/addon/Shop/User/addToCart',{
                data:{
                    goodsId: goodsId
                },
@@ -354,7 +352,7 @@
                type:'post',
                timeout:10000, //10秒
                success: function (response) {
-                   var cartCountSpan = mui("#cartCountSpan")[0];
+                   var cartCountSpan = $("#cartCountSpan");
                    cartCountSpan.innerText = response;
                    cartCountSpan.fadeIn("slow");
                    cartCountSpan.fadeIn(3000);
@@ -364,7 +362,7 @@
                }
             });
         }else{
-            window.location.assign("http://haozhixian.cn/index.php?s=/addon/Shop/User/bindUser");
+            window.location.assign("index.php?s=/addon/Shop/User/bindUser");
             mui.toast('尚未绑定用户信息，请先绑定用户信息');
         }
     }

@@ -16,7 +16,7 @@ class ShopUserModel extends Model {
         if(!$user){
             $res = $this->add($accountInfo);
         }else{
-            $user->save($accountInfo);
+            $this->where($map)->save($accountInfo);
             $res = $user['id'];
         }
         return $res;
