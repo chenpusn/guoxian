@@ -37,7 +37,7 @@ class CartModel extends Model {
 			$map ['id'] = $myList [$goods ['goods_id']] ['id'];
 			$this->where ( $map )->setField ( 'num', $num );
 		} else {
-			$goods ['openid'] = get_openid ();
+			//$goods ['openid'] = get_openid ();
 			$this->add ( $goods );
 		}
 		return $this->getMyCartCount ( $goods ['uid'] );

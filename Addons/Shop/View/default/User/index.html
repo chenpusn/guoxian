@@ -354,10 +354,10 @@
                type:'post',
                timeout:10000, //10秒
                success: function (response) {
-                   cartCountSpan = mui("#cartCountSpan")[0];
+                   var cartCountSpan = mui("#cartCountSpan")[0];
                    cartCountSpan.innerText = response;
                    cartCountSpan.fadeIn("slow");
-                   cartCountSpan.fadeIn(3000)
+                   cartCountSpan.fadeIn(3000);
                },
                error:function(xhr,type,errorThrown){
                    console.log(type);
