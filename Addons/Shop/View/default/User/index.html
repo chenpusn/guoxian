@@ -122,6 +122,7 @@
         color: #5a5959;
         border-bottom: 0.1rem solid #e1e3ea;
         line-height: 1.5rem;
+        width: 100%;
     }
 
     .goods-price {
@@ -189,7 +190,7 @@
                                         </dd>
                                         <dd class="mui-media-body">
                                             <div class="goods-title">{$goods.title}</div>
-                                            <div class="mui-ellipsis" style="line-height: 2.5rem; white-space: normal; vertical-align: middle">{$goods.content}</div>
+                                            <div class="mui-ellipsis" style="max-height: 2rem; line-height: 1rem; white-space: normal; vertical-align: middle; overflow: hidden">{$goods.content}</div>
                                             <div class="goods-price">
                                                 <strong class="price">¥{$goods.price|wp_money_format}</strong><span
                                                     class="old-price">¥{$goods.old_price|wp_money_format}</span>
