@@ -90,7 +90,7 @@ class UserController extends AddonsController
 
     function cart(){
         if ($this->userID > 0) {
-            $list = D ( 'Cart' )->getMyCart ( $this->mid, true );
+            $list = D ( 'Cart' )->getMyCart ( $this->userID, true );
 
             $dao = D ( 'goods' );
             foreach ( $list as &$v ) {
