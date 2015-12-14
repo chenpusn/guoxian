@@ -22,7 +22,7 @@ class UserController extends AddonsController
         // 获取用户信息
         else{
             $userInfoJson = cookie("HZXUSER".C('SITE_VERSION'));
-            $userInfo = json_decode ($userInfoJson);
+            $this->userInfo = json_decode ($userInfoJson);
         }
     }
 
