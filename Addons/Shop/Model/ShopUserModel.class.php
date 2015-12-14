@@ -11,7 +11,14 @@ class ShopUserModel extends Model {
     protected $tableName = 'shop_address';
 
     function bindAccount($accountInfo){
-        $res = $this->add($accountInfo);
+        $map['mobile'] = $accountInfo['mobile'];
+        $user = $this->where($map)->find();
+        if(!$user){
+            $res = $this->add($accountInfo);
+        }else{
+            $user->save($accountInfo);
+            $res = $user['id'];
+        }
         return $res;
     }
 

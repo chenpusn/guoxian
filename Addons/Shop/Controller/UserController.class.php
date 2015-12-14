@@ -6,7 +6,7 @@ use Home\Controller\AddonsController;
 
 class UserController extends AddonsController
 {
-    var $userInfo;
+    var $userID;
 
     function _initialize()
     {
@@ -22,7 +22,7 @@ class UserController extends AddonsController
         // 获取用户信息
         else{
             $userInfoJson = cookie("HZXUSER".C('SITE_VERSION'));
-            $this->userInfo = json_decode ($userInfoJson);
+            $this->userID = json_decode ($userInfoJson);
         }
     }
 
@@ -48,7 +48,7 @@ class UserController extends AddonsController
         $this->assign('slideShowList', $slideshow_list);
 
         // User info
-        $this->assign("userInfo", $this->userInfo);
+        $this->assign("userInfo", $this->userID);
         $this->display();
     }
 
