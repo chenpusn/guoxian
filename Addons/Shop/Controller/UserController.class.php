@@ -54,7 +54,21 @@ class UserController extends AddonsController
 
     // CHEN PU: 2015/12/12 绑定用户信息
     function bind_user(){
-        $this->display();
+        if (IS_POST) {
+            $accountInfo = I('post.');
+            $res = D('ShopUser')->bindAccount($accountInfo);
+
+            cookie("SHOPUSERID".C('SITE_VERSION'), $res);
+            redirect(U(cookie('SHOPFORWARDURL'.C('SITE_VERSION'))));
+        }
+        else{
+            $id = I('id');
+            if ($id) {
+                $info = D('ShopUser')->getAccount($id);
+                $this->assign('info', $info);
+            }
+            $this->display();
+        }
     }
 }
 

@@ -1,6 +1,40 @@
-<include file="_head"></include>
+<include file="./Addons/Shop/View/default/User/_head.html"/>
 <body>
-<div>绑定用户</div>
-<include file="_footer"></include>
+<form class="mui-input-group" action="{:U('bind_account')}" method="post" onSubmit="return tgSubmit()">
+    <div class="mui-input-row">
+        <label for="truename">联系人:</label>
+        <input type="text" id="truename"  name="truename" placeholder="请输入联系人姓名，用作取货身份凭证">
+    </div>
+    <div class="mui-input-row">
+        <label for="mobile">手机号:</label>
+        <input type="text" id="mobile" name="mobile" class="mui-input-clear" placeholder="请输入联系人手机号码，用作取货身份凭证" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+    </div>
+    <div class="mui-button-row">
+        <button type="button" class="mui-btn mui-btn-danger" onclick="return false;">返回首页</button>&nbsp;&nbsp;
+        <button type="button" class="mui-btn mui-btn-primary" onclick="return false;">绑定账号</button>
+    </div>
+</form>
+<include file="./Addons/Shop/View/default/User/_footer.html"/>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript">
+    function tgSubmit() {
+        var userName = $('#truename').val();
+        if ($.trim(userName) == "") {
+            $.Dialog.fail('请填写姓名');
+            return false;
+        }
+        var userPhone = $("#mobile").val();
+        if ($.trim(userPhone) == "") {
+            $.Dialog.fail('请填写您的手机号码');
+            return false;
+        }
+        var patrn = /^0?(13[0-9]|15[0123456789]|18[0123456789]|14[0123456789])[0-9]{8}$/;
+        if (!patrn.exec($.trim(userPhone))) {
+            $.Dialog.fail('手机号格式错误');
+            return false;
+        }
+        return true;
+    }
+</script>
 </body>
 </html>
