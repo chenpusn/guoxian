@@ -16,7 +16,7 @@ class UserController extends AddonsController
         if(!cookie("HZXUSER".C('SITE_VERSION'))){
             $actionsNeedLogin = array('basket');
             if (in_array(_ACTION, $actionsNeedLogin)){
-                $this->redirect("bind_user");
+                $this->redirect("bindUser");
             }
         }
         // 获取用户信息
@@ -53,7 +53,7 @@ class UserController extends AddonsController
     }
 
     // CHEN PU: 2015/12/12 绑定用户信息
-    function bind_user(){
+    function bindUser(){
         if (IS_POST) {
             $accountInfo = I('post.');
             $res = D('ShopUser')->bindAccount($accountInfo);
@@ -69,6 +69,19 @@ class UserController extends AddonsController
             }
             $this->display();
         }
+    }
+
+    function addToCart(){
+        $goods ['goods_id'] = I('goods_id');
+        $info = D('goods')->getInfo($goods ['goods_id']);
+
+        $goods ['price'] = $info ['price'];
+        $goods ['shop_id'] = $info ['shop_id'];
+
+        $goods ['uid'] = $this->mid;
+        $goods ['num'] = 1;
+
+        echo D('Cart')->addToCart($goods);
     }
 }
 

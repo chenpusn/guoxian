@@ -342,9 +342,22 @@
     var userInfo = document.getElementById("userInfoHF");
     function addToCart(goodsID){
         if(userInfo.getAttribute('value')){
-            mui.toast(goodsID);
+            mui.ajax('http://haozhixian.cn/index.php?s=/addon/Shop/User/addToCart',{
+               data:{
+                   goodsID: goodsID
+               },
+               dataType:json,
+               type:'post',
+               timeout:10000, //10秒
+               success: function (response) {
+                   mui.toast('已加入购物车');
+               },
+               error:function(xhr,type,errorThrown){
+                   console.log(type);
+               }
+            });
         }else{
-            window.location.assign("http://haozhixian.cn/index.php?s=/addon/Shop/User/bind_user");
+            window.location.assign("http://haozhixian.cn/index.php?s=/addon/Shop/User/bindUser");
             mui.toast('尚未绑定用户信息，请先绑定用户信息');
         }
     }
