@@ -339,9 +339,9 @@
          };*!/
          });*/
     })(mui);
-
+    var userInfo = document.getElementById("userInfoHF");
     function addToCart(goodsID){
-        if(plus.navigator.getcookie("http://haozhixian.cn/")){
+        if(userInfo.getAttribute('value')){
             mui.toast(goodsID);
         }else{
             mui.toast('请先绑定用户信息');
