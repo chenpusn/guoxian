@@ -3,15 +3,15 @@ $(function(){
 	//购物添加数量
 	$('.buy_count .add').click(function(){
 		var val = parseInt($(this).siblings('input').val());
-		$(this).siblings('input').val(val+1);
+		//$(this).siblings('input').val(val+1);
 		updatePriceAndCount();
 	})
 	$('.buy_count .reduce').click(function(){
 		var val = parseInt($(this).siblings('input').val());
-		if(val>1){
-			$(this).siblings('input').val(val-1);
+		//if(val>1){
+			//$(this).siblings('input').val(val-1);
 			updatePriceAndCount();
-		}
+		//}
 	})
 	$('.buy_count input[type="text"]').keyup(function(){
 		if($(this).val()==0){

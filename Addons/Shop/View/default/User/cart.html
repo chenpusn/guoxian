@@ -51,9 +51,6 @@
         </div>
 
         <else/>
-        <div class="mui-content-padded cart_list_top">
-            <a class="fr orange" href="javascript:void(0);" onClick="deleteCartItem()">删除商品</a>
-        </div>
         <ul class="mui-table-view cart_list">
             <form action="{:addons_url('Shop://Wap/confirm_order')}" method="post" onSubmit="return checkCartSubmit()">
                 <volist name="lists" id="vo">
@@ -70,22 +67,25 @@
                                 <img class="mui-media-object goods_img"
                                      src="{$vo.goods_data.cover|get_cover_url}" style="width: 80%; max-width: 80%"/>
                             </dt>
-                            <dd class="operation-wrapper mui-pull-right" style="width: 8rem">
-                                <div class="buy_count mui-numbox" data-numbox-min="1">
-                                    <button class="mui-btn mui-btn-numbox-minus reduce" type="button">-</button>
-                                    <input class="mui-input-numbox" type="number" name="buyCount[{$vo.goods_id}]"
-                                           value="{$vo.num|intval}" rel="buyCount">
-                                    <button class="mui-btn mui-btn-numbox-plus add" type="button">+</button>
-                                </div>
+                            <dd class="operation-wrapper mui-pull-right">
+                                <p class="operation" id="{$goods.id}"><span class="mui-icon mui-icon-trash" style="color: #FF840D; font-size: 1.5rem; display: block"></span><span style="display: inline">删除</span></p>
                             </dd>
                             <dd class="mui-media-body goods_desc">
                                 <div class="goods-title name">
                                     {$vo.goods_data.title}
                                 </div>
 
-                                <p class="info"><span class="colorless">单价:</span><span class="orange">￥<span
+                                <div class="info goods-price"><span class="colorless">单价:</span><span class="orange">￥<span
                                         class="singlePrice">{$vo.goods_data.price|wp_money_format}</span></span>
-                                </p>
+                                </div>
+
+                                <div class="buy_count mui-numbox" data-numbox-min="1" data-numbox-step="1">
+                                    <button class="mui-btn mui-btn-numbox-minus reduce" type="button">-</button>
+                                    <input class="mui-input-numbox" type="number" name="buyCount[{$vo.goods_id}]"
+                                           value="{$vo.num|intval}" rel="buyCount">
+                                    <button class="mui-btn mui-btn-numbox-plus add" type="button">+</button>
+                                </div>
+
                             </dd>
                         </dl>
                     </li>
@@ -106,6 +106,33 @@
     $(function () {
         updatePriceAndCount();
     });
+
+    mui('.operation-wrapper').on('tap', 'p', function(){
+        var goodsId = this.getAttribute('id');
+        //addToCart(goodsId);
+        var btnArray = ['是', '否'];
+        mui.confirm('确认要从购物车删除该水果吗？', '确认', btnArray, function(e) {
+            if (e.index == 0) {
+                $.ajax({
+                    url: "{:U('delCart')}",
+                    data: {ids: goodsId},
+                    dataType: "json",
+                    type: "post",
+                    success: function (data) {
+                        if(data > 0){
+                            mui.toast('已成功删除');
+                        }
+                        else{
+                            mui.toast('删除出错，请稍候尝试');
+                        }
+                        window.location.reload();
+                    }
+                })
+            } else {
+            }
+        })
+    });
+
     //删除沟通车的商品
     function deleteCartItem() {
         if ($('input[name="goods_ids[]"]:checked').size() == 0) {

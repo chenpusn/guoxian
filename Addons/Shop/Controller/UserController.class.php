@@ -106,6 +106,12 @@ class UserController extends AddonsController
             $this->redirect("bindUser", "请先绑定个人信息");
         }
     }
+
+    function delCart()
+    {
+        $ids = I('ids');
+        echo D('Cart')->delCart($ids);
+    }
 }
 
 ?>
