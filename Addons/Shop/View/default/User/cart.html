@@ -120,11 +120,11 @@
                 type:'post',
                 timeout:10000, //10秒
                 success: function (response) {
-                    if(data > 0){
+                    if(response > 0){
                         mui.toast('已成功删除');
                     }
                     else{
-                        mui.toast('删除出错，请稍候尝试'.response);
+                        mui.toast('删除出错，请稍候尝试');
                     }
                     //window.location.reload();
                 },
