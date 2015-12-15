@@ -68,7 +68,7 @@
                                      src="{$vo.goods_data.cover|get_cover_url}" style="width: 80%; max-width: 80%"/>
                             </dt>
                             <dd class="operation-wrapper mui-pull-right">
-                                <p class="operation" id="{vo.id}"><span class="mui-icon mui-icon-trash" style="color: #FF840D; font-size: 1.5rem; display: block"></span><span style="display: inline">删除</span></p>
+                                <p class="operation" id="{$vo.id}"><span class="mui-icon mui-icon-trash" style="color: #FF840D; font-size: 1.5rem; display: block"></span><span style="display: inline">删除</span></p>
                             </dd>
                             <dd class="mui-media-body goods_desc">
                                 <div class="goods-title name">
@@ -107,7 +107,7 @@
         updatePriceAndCount();
     });
 
-    mui('.operation-wrapper').on('click', 'p', function(){
+    mui('.operation-wrapper').on('tap', 'p', function(){
         var goodsId = this.getAttribute('id');
         //addToCart(goodsId);
         if(confirm('确认要从购物车删除该水果吗？')){
@@ -126,7 +126,7 @@
                     else{
                         mui.toast('删除出错，请稍候尝试');
                     }
-                    //window.location.reload();
+                    window.location.reload();
                 },
                 error:function(xhr,type,errorThrown){
                     console.log(type);
