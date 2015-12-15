@@ -1,52 +1,27 @@
-<include file="./Addons/Shop/View/default/User/_head.html"/>
-<style type="text/css">
-    .clear{
-        clear: both;
-    }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        <php>echo empty($page_title) ? C('WEB_SITE_TITLE') : $page_title;</php>
+    </title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+          name="viewport">
+    <meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+    <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+    <meta content="no-cache" http-equiv="pragma">
+    <meta content="0" http-equiv="expires">
+    <meta content="telephone=no, address=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    .buy_count {
-        clear: both;
-        border: 1px solid #ccc;
-        height: 30px;
-        display: inline-block;
-        margin: 5px 0;
-        box-sizing: content-box;
-        font-size: 14px;
-    }
+    <link href="{:ADDON_PUBLIC_PATH}/user/css/mui.min-2.4.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+    <link href="{:ADDON_PUBLIC_PATH}/user/css/app.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
 
-    .buy_count .add, .buy_count .reduce {
-        height: 30px;
-        width: 30px;
-        text-align: center;
-        line-height: 30px;
-        background: #ccc;
-        font-size: 20px;
-        font-weight: bold;
-        display: inline-block;
-        margin: 0;
-        outline: 0;
-        padding: 0;
-        list-style: none;
-        font-family: Arial;
-        font-size: 14px;
-    }
-
-    .buy_count input {
-        height: 20px;
-        width: 40px;
-        text-align: center;
-        border: none;
-        display: inline-block;
-        border-radius: 3px;
-        background: #fff;
-        -webkit-box-sizing: border-box;
-        color: #444444;
-        -webkit-appearance: none;
-        font-family: Arial;
-        font-size: 14px;
-        line-height: normal;
-    }
-</style>
+    <style type="text/css">
+    </style>
+</head>
 <body>
 <div class="mui-bar mui-bar-nav">
     <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
@@ -80,11 +55,11 @@
                                      src="{$vo.goods_data.cover|get_cover_url}" style="width: 100%; max-width: 100%"/>
                             </dt>
                             <dd class="operation-wrapper mui-pull-right" style="width: 8rem">
-                                <div class="buy_count">
-                                    <a class="reduce" href="javascript:;">-</a>
-                                    <input type="text" name="buyCount[{$vo.goods_id}]" value="{$vo.num|intval}"
-                                           rel="buyCount"/>
-                                    <a class="add" href="javascript:;">+</a>
+                                <div class="mui-numbox buy_count">
+                                    <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+                                    <input class="mui-input-numbox" type="number" name="buyCount[{$vo.goods_id}]"
+                                           rel="buyCount">
+                                    <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
                                 </div>
                             </dd>
                             <dd class="mui-media-body goods_desc">
@@ -120,7 +95,8 @@
 </div>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
 <!--<script type="text/javascript" src="http://yaotv.qq.com/shake_tv/include/js/lib/zepto.1.1.4.min.js"></script>-->
-<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="http://www.dcloud.io/hellomui/js/mui-2.7.js"></script>
+
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/shop.js?v={:SITE_VERSION}"></script>
 
 <script type="text/javascript">
