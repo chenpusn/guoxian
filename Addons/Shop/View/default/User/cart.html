@@ -1,7 +1,6 @@
 <include file="./Addons/Shop/View/default/User/_head.html"/>
-<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/shop.js?v={:SITE_VERSION}"></script>
-
 <style type="text/css">
+
 
 </style>
 <body>
@@ -21,59 +20,68 @@
         </div>
 
         <else/>
-        <div class="cart_list_top">
+        <div class="mui-content-padded cart_list_top">
             <a class="fr orange" href="javascript:void(0);" onClick="deleteCartItem()">删除商品</a>
         </div>
-        <form action="{:addons_url('Shop://Wap/confirm_order')}" method="post" onSubmit="return checkCartSubmit()">
-            <div class="cart_list">
-                <ul>
-                    <volist name="lists" id="vo">
-                        <li class="cart_item">
-                            <input class="custom_check" id="item_{$vo.id}" rel="{$vo.id}" name="goods_ids[]"
-                                   type="checkbox" value="{$vo.goods_id}" checked="checked"/>
-                            <label for="item_{$vo.id}"><em>&nbsp;</em></label>
-
-                            <div class="goods_item">
-                                <a href="{:U('detail',array('shop_id'=>$vo['shop_id'],'id'=>$vo['goods_id']))}">
-                                    <img class="goods_img" src="{$vo.goods_data.cover|get_cover_url}"/></a>
-
-                                <div class="goods_desc">
-                                    <a class="name"
-                                       href="{:U('detail',array('shop_id'=>$vo['shop_id'],'id'=>$vo['goods_id']))}">{$vo.goods_data.title}</a>
-
-                                    <p class="info"><span class="colorless">单价:</span><span class="orange">￥<span
-                                            class="singlePrice">{$vo.goods_data.price|wp_money_format}</span></span></p>
-
-                                    <div class="buy_count">
-                                        <a class="reduce" href="javascript:;">-</a>
-                                        <input type="text" name="buyCount[{$vo.goods_id}]" value="{$vo.num|intval}"
-                                               rel="buyCount"/>
-                                        <a class="add" href="javascript:;">+</a>
-                                    </div>
+        <ul class="mui-table-view cart_list">
+            <form action="{:addons_url('Shop://Wap/confirm_order')}" method="post" onSubmit="return checkCartSubmit()">
+                <volist name="lists" id="vo">
+                    <li class="mui-table-view-cell mui-media cart_item">
+                        <!--<input class="custom_check" id="item_{$vo.id}" rel="{$vo.id}" name="goods_ids[]"
+                               type="checkbox" value="{$vo.goods_id}" checked="checked"/>
+                        <label for="item_{$vo.id}"><em>&nbsp;</em></label>-->
+                        <dl class="goods_item" style="margin:0">
+                            <dt class="goods-picture-wrapper mui-pull-left">
+                                <img class="mui-media-object mui-pull-left goods_img"
+                                     src="{$vo.goods_data.cover|get_cover_url}" style="width: 100%; max-width: 100%"/>
+                            </dt>
+                            <dd class="operation-wrapper mui-pull-right" style="width: 8rem">
+                                <div class="mui-numbox buy_count">
+                                    <button class="mui-btn mui-btn-numbox-minus" type="button" style="position: absolute">-</button>
+                                    <input class="mui-input-numbox" type="number" name="buyCount[{$vo.goods_id}]"
+                                           value="{$vo.num|intval}"
+                                           rel="buyCount"/>
+                                    <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
                                 </div>
-                            </div>
-                        </li>
-                    </volist>
-                </ul>
-            </div>
-            <!-- cart_list end -->
-            <div class="cartBottom">
-                <div class="check_all">
-                    <input class="custom_check check_all" id="checkAll" name="checkAll" type="checkbox"
-                           checked="checked"/>
-                    <label for="checkAll"><em>&nbsp;</em>全选</label>
-                </div>
-                <div class="total">
-                    <p>总结：<span class="orange">￥<span id="totalPrice">00.00</span></span></p>
+                            </dd>
+                            <dd class="mui-media-body goods_desc">
+                                <div class="goods-title name">
+                                    {$vo.goods_data.title}
+                                </div>
 
-                    <p class="count">(共<span id="totalCount">12</span>件。不含运费)</p>
-                </div>
-                <button class="settlement" type="submit">去结算</button>
+                                <p class="info"><span class="colorless">单价:</span><span class="orange">￥<span
+                                        class="singlePrice">{$vo.goods_data.price|wp_money_format}</span></span>
+                                </p>
+                            </dd>
+                        </dl>
+                    </li>
+                </volist>
+            </form>
+        </ul>
+        <!-- cart_list end -->
+        <div class="cartBottom">
+            <div class="check_all">
+                <input class="custom_check check_all" id="checkAll" name="checkAll" type="checkbox"
+                       checked="checked"/>
+                <label for="checkAll"><em>&nbsp;</em>全选</label>
             </div>
-        </form>
+            <div class="total">
+                <p>总结：<span class="orange">￥<span id="totalPrice">00.00</span></span></p>
+
+                <p class="count">(共<span id="totalCount">12</span>件。不含运费)</p>
+            </div>
+            <button class="settlement" type="submit">去结算</button>
+        </div>
+
     </empty>
 </div>
+<!--<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>-->
+<script type="text/javascript" src="http://yaotv.qq.com/shake_tv/include/js/lib/zepto.1.1.4.min.js"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/shop.js?v={:SITE_VERSION}"></script>
+
 <script type="text/javascript">
+    mui.init();
     $(function () {
         updatePriceAndCount();
     });
