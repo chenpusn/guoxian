@@ -218,7 +218,7 @@
                                 <img src="{$slide.img|get_cover_url}">
                             </volist>
                         </div>
-                        <ul class="mui-table-view">
+                        <ul id="goodList" class="mui-table-view">
                             <volist name="goodsList" id="goods">
                                 <li class="mui-table-view-cell mui-media">
                                     <dl style="margin: 0">
@@ -228,7 +228,7 @@
                                             <i class="oblique-tag oblique-tag-presell">热卖</i>
                                         </dt>
                                         <dd class="operation-wrapper mui-pull-right">
-                                            <p class="operation" onclick="addToCart('{$goods.id}')"><span class="mui-icon iconfont icon-shuiguo" style="color: #FF840D; font-size: 1.5rem; display: block"></span><span style="display: inline">加入果盘</span></p>
+                                            <p class="operation" id="{$goods.id}"><span class="mui-icon iconfont icon-shuiguo" style="color: #FF840D; font-size: 1.5rem; display: block"></span><span style="display: inline">加入果盘</span></p>
                                         </dd>
                                         <dd class="mui-media-body">
                                             <div class="goods-title">{$goods.title}</div>
@@ -377,6 +377,11 @@
         {
             window.location.assign("index.php?s=/addon/Shop/User/bindUser");
         }
+    });
+
+    mui('.operation-wrapper').on('tap', 'operation', function(){
+        var goodsId = this.getAttribute('id');
+        addToCart(goodsId);
     });
 </script>
 </body>
