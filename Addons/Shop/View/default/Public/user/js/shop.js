@@ -53,8 +53,8 @@ function updatePriceAndCount(){
 		totalCount += count;
 		totalPrice += count*price
 	});
-	$('#totalCount').text(totalCount);
-	$('#totalPrice').text(totalPrice);
+	$('#totalCount').text(totalCount.toFixed(2));
+	$('#totalPrice').text(totalPrice.toFixed(2));
 }
 //提交检查
 function checkCartSubmit(){
