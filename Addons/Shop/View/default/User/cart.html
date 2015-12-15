@@ -30,7 +30,7 @@
                checked="checked" style="position: relative; top: 0; right: 0"/>
         <span class="mui-tab-label">全选</span>
     </div>
-    <div id="myCartTab" class="mui-tab-item my-basket" style="width: 3%; color: #F8FAFA">
+    <div id="myCartTab" class="mui-tab-item my-basket" style="color: #F8FAFA">
         共<span id="totalCount">12</span>件, 总计<span class="goods-price">￥<span id="totalPrice">00.00</span></span>
     </div>
     <div class="mui-tab-item one-key-pay">
@@ -74,11 +74,11 @@
                                      src="{$vo.goods_data.cover|get_cover_url}" style="width: 80%; max-width: 80%"/>
                             </dt>
                             <dd class="operation-wrapper mui-pull-right" style="width: 8rem">
-                                <div class="mui-numbox buy_count">
-                                    <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+                                <div class="buy_count mui-numbox">
+                                    <button class="mui-btn mui-btn-numbox-minus reduce" type="button">-</button>
                                     <input class="mui-input-numbox" type="number" name="buyCount[{$vo.goods_id}]"
                                            value="{$vo.num|intval}" rel="buyCount">
-                                    <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+                                    <button class="mui-btn mui-btn-numbox-plus add" type="button">+</button>
                                 </div>
                             </dd>
                             <dd class="mui-media-body goods_desc">
