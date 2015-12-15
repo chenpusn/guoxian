@@ -110,34 +110,29 @@
     mui('.operation-wrapper').on('tap', 'p', function(){
         var goodsId = this.getAttribute('id');
         //addToCart(goodsId);
-        var btnArray = ['是', '否'];
-        mui.confirm('确认要从购物车删除该水果吗？', '确认', btnArray, function(e) {
-            if (e.index == 0) {
+        if(confirm('确认要从购物车删除该水果吗？')){
 
-                mui.ajax('index.php?s=/addon/Shop/User/delCart',{
-                    data:{
-                        ids: goodsId
-                    },
-                    dataType:'json',
-                    type:'post',
-                    timeout:10000, //10秒
-                    success: function (response) {
-                        if(data > 0){
-                            mui.toast('已成功删除');
-                        }
-                        else{
-                            mui.toast('删除出错，请稍候尝试'.response);
-                        }
-                        //window.location.reload();
-                    },
-                    error:function(xhr,type,errorThrown){
-                        console.log(type);
+            mui.ajax('index.php?s=/addon/Shop/User/delCart',{
+                data:{
+                    ids: goodsId
+                },
+                dataType:'json',
+                type:'post',
+                timeout:10000, //10秒
+                success: function (response) {
+                    if(data > 0){
+                        mui.toast('已成功删除');
                     }
-                });
-            } else {
-                //取消删除
-            }
-        })
+                    else{
+                        mui.toast('删除出错，请稍候尝试'.response);
+                    }
+                    //window.location.reload();
+                },
+                error:function(xhr,type,errorThrown){
+                    console.log(type);
+                }
+            });
+        }
     });
 
     //删除沟通车的商品
