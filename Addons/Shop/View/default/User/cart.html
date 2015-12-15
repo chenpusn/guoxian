@@ -71,7 +71,7 @@
                                      src="{$vo.goods_data.cover|get_cover_url}" style="width: 80%; max-width: 80%"/>
                             </dt>
                             <dd class="operation-wrapper mui-pull-right" style="width: 8rem">
-                                <div class="buy_count mui-numbox">
+                                <div class="buy_count mui-numbox" data-numbox-min="1">
                                     <button class="mui-btn mui-btn-numbox-minus reduce" type="button">-</button>
                                     <input class="mui-input-numbox" type="number" name="buyCount[{$vo.goods_id}]"
                                            value="{$vo.num|intval}" rel="buyCount">
