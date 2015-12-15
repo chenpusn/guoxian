@@ -1,7 +1,51 @@
 <include file="./Addons/Shop/View/default/User/_head.html"/>
 <style type="text/css">
+    .clear{
+        clear: both;
+    }
 
+    .buy_count {
+        clear: both;
+        border: 1px solid #ccc;
+        height: 30px;
+        display: inline-block;
+        margin: 5px 0;
+        box-sizing: content-box;
+        font-size: 14px;
+    }
 
+    .buy_count .add, .buy_count .reduce {
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        line-height: 30px;
+        background: #ccc;
+        font-size: 20px;
+        font-weight: bold;
+        display: inline-block;
+        margin: 0;
+        outline: 0;
+        padding: 0;
+        list-style: none;
+        font-family: Arial;
+        font-size: 14px;
+    }
+
+    .buy_count input {
+        height: 20px;
+        width: 40px;
+        text-align: center;
+        border: none;
+        display: inline-block;
+        border-radius: 3px;
+        background: #fff;
+        -webkit-box-sizing: border-box;
+        color: #444444;
+        -webkit-appearance: none;
+        font-family: Arial;
+        font-size: 14px;
+        line-height: normal;
+    }
 </style>
 <body>
 <div class="mui-bar mui-bar-nav">
@@ -36,12 +80,11 @@
                                      src="{$vo.goods_data.cover|get_cover_url}" style="width: 100%; max-width: 100%"/>
                             </dt>
                             <dd class="operation-wrapper mui-pull-right" style="width: 8rem">
-                                <div class="mui-numbox buy_count">
-                                    <button class="mui-btn mui-btn-numbox-minus" type="button" style="position: absolute">-</button>
-                                    <input class="mui-input-numbox" type="number" name="buyCount[{$vo.goods_id}]"
-                                           value="{$vo.num|intval}"
+                                <div class="buy_count">
+                                    <a class="reduce" href="javascript:;">-</a>
+                                    <input type="text" name="buyCount[{$vo.goods_id}]" value="{$vo.num|intval}"
                                            rel="buyCount"/>
-                                    <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+                                    <a class="add" href="javascript:;">+</a>
                                 </div>
                             </dd>
                             <dd class="mui-media-body goods_desc">
@@ -75,9 +118,9 @@
 
     </empty>
 </div>
-<!--<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>-->
-<script type="text/javascript" src="http://yaotv.qq.com/shake_tv/include/js/lib/zepto.1.1.4.min.js"></script>
-<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
+<!--<script type="text/javascript" src="http://yaotv.qq.com/shake_tv/include/js/lib/zepto.1.1.4.min.js"></script>-->
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/shop.js?v={:SITE_VERSION}"></script>
 
 <script type="text/javascript">
