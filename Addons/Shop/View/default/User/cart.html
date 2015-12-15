@@ -20,9 +20,24 @@
     <link href="{:ADDON_PUBLIC_PATH}/user/css/app.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
 
     <style type="text/css">
+
     </style>
 </head>
 <body>
+<nav class="mui-bar mui-bar-tab">
+    <div class="mui-tab-item mui-active mui-checkbox" style="background-color: #F8FAFA; padding-left: 0.5rem; text-align: left">
+        <input class="custom_check check_all" id="checkAll" name="checkAll" type="checkbox"
+               checked="checked" style="position: relative; top: 0; right: 0"/>
+        <span class="mui-tab-label">全选</span>
+    </div>
+    <div id="myCartTab" class="mui-tab-item my-basket" style="width: 3%; color: #F8FAFA">
+        共<span id="totalCount">12</span>件, 总计<span class="goods-price">￥<span id="totalPrice">00.00</span></span>
+    </div>
+    <div class="mui-tab-item one-key-pay">
+        <span class="mui-icon iconfont icon-jiesuanfangshi"></span>
+        <button class="settlement" type="submit" style="background: transparent; border: 0; color: #F8FAFA">结算</button>
+    </div>
+</nav>
 <div class="mui-bar mui-bar-nav">
     <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 
@@ -46,13 +61,17 @@
             <form action="{:addons_url('Shop://Wap/confirm_order')}" method="post" onSubmit="return checkCartSubmit()">
                 <volist name="lists" id="vo">
                     <li class="mui-table-view-cell mui-media cart_item">
-                        <!--<input class="custom_check" id="item_{$vo.id}" rel="{$vo.id}" name="goods_ids[]"
-                               type="checkbox" value="{$vo.goods_id}" checked="checked"/>
-                        <label for="item_{$vo.id}"><em>&nbsp;</em></label>-->
+                        <!---->
                         <dl class="goods_item" style="margin:0">
+                            <dt class="goods-check-wrapper mui-checkbox">
+                                <input class="custom_check" id="item_{$vo.id}" rel="{$vo.id}" name="goods_ids[]"
+                                       type="checkbox" value="{$vo.goods_id}" checked="checked"
+                                       style="position: relative; top:0; right: 0"/>
+
+                            </dt>
                             <dt class="goods-picture-wrapper mui-pull-left">
-                                <img class="mui-media-object mui-pull-left goods_img"
-                                     src="{$vo.goods_data.cover|get_cover_url}" style="width: 100%; max-width: 100%"/>
+                                <img class="mui-media-object goods_img"
+                                     src="{$vo.goods_data.cover|get_cover_url}" style="width: 80%; max-width: 80%"/>
                             </dt>
                             <dd class="operation-wrapper mui-pull-right" style="width: 8rem">
                                 <div class="mui-numbox buy_count">
@@ -76,20 +95,6 @@
                 </volist>
             </form>
         </ul>
-        <!-- cart_list end -->
-        <div class="cartBottom">
-            <div class="check_all">
-                <input class="custom_check check_all" id="checkAll" name="checkAll" type="checkbox"
-                       checked="checked"/>
-                <label for="checkAll"><em>&nbsp;</em>全选</label>
-            </div>
-            <div class="total">
-                <p>总结：<span class="orange">￥<span id="totalPrice">00.00</span></span></p>
-
-                <p class="count">(共<span id="totalCount">12</span>件。不含运费)</p>
-            </div>
-            <button class="settlement" type="submit">去结算</button>
-        </div>
 
     </empty>
 </div>

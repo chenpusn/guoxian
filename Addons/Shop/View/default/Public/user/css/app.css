@@ -198,3 +198,21 @@ i {
 	background-color: #FF4683;
 	color:#FFF7EB
 }
+
+/*购物车*/
+.goods-check-wrapper{
+	margin: 0;
+	padding: 0;
+
+	width: 1.75rem;
+	max-width: 1.75rem;
+	float: left;
+	padding: 0 0.3125rem 0 0;
+
+	height: 5.625rem;
+	line-height: 5.625rem;
+	vertical-align: middle;
+
+	position: relative;
+}
+
