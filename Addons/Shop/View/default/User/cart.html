@@ -113,22 +113,29 @@
         var btnArray = ['是', '否'];
         mui.confirm('确认要从购物车删除该水果吗？', '确认', btnArray, function(e) {
             if (e.index == 0) {
-                $.ajax({
-                    url: "{:U('delCart')}",
-                    data: {ids: goodsId},
-                    dataType: "json",
-                    type: "post",
-                    success: function (data) {
+
+                mui.ajax('index.php?s=/addon/Shop/User/delCart',{
+                    data:{
+                        ids: goodsId
+                    },
+                    dataType:'json',
+                    type:'post',
+                    timeout:10000, //10秒
+                    success: function (response) {
                         if(data > 0){
                             mui.toast('已成功删除');
                         }
                         else{
-                            mui.toast('删除出错，请稍候尝试');
+                            mui.toast('删除出错，请稍候尝试'.response);
                         }
-                        window.location.reload();
+                        //window.location.reload();
+                    },
+                    error:function(xhr,type,errorThrown){
+                        console.log(type);
                     }
-                })
+                });
             } else {
+                //取消删除
             }
         })
     });
