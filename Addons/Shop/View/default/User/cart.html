@@ -110,7 +110,7 @@
     mui('.operation-wrapper').on('tap', 'p', function(){
         var goodsId = this.getAttribute('id');
         //addToCart(goodsId);
-        if(confirm('确认要从购物车删除该水果吗？')){
+        //if(confirm('确认要从购物车删除该水果吗？')){
 
             mui.ajax('index.php?s=/addon/Shop/User/delCart',{
                 data:{
@@ -132,7 +132,7 @@
                     console.log(type);
                 }
             });
-        }
+        //}
     });
 
     //删除沟通车的商品
