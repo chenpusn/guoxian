@@ -58,7 +58,7 @@
                                 <div class="mui-numbox buy_count">
                                     <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
                                     <input class="mui-input-numbox" type="number" name="buyCount[{$vo.goods_id}]"
-                                           rel="buyCount">
+                                           value="{$vo.num|intval}" rel="buyCount">
                                     <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
                                 </div>
                             </dd>
@@ -95,7 +95,7 @@
 </div>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
 <!--<script type="text/javascript" src="http://yaotv.qq.com/shake_tv/include/js/lib/zepto.1.1.4.min.js"></script>-->
-<script type="text/javascript" src="http://www.dcloud.io/hellomui/js/mui-2.7.js"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui-2.7.js"></script>
 
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/shop.js?v={:SITE_VERSION}"></script>
 
