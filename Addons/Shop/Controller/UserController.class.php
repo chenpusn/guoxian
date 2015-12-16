@@ -177,12 +177,12 @@ class UserController extends AddonsController
         if ($info ['order_from_type']) {
             $data ['order_from_type'] = $info ['order_from_type'];
         }
-        $data ['shop_id'] = $this->shop_id;
+        $data ['shop_id'] = 1; //TODOCHENPU: 需改为用户在终端选择的分店提货点//$this->shop_id;
         $id = D('Addons://Shop/Order')->add($data);
         if ($id) {
             // 删除购物车消息
             $goods_ids = getSubByKey($info ['lists'], 'id');
-            D('Cart')->delUserCart($this->mid, $goods_ids);
+            D('Cart')->delUserCart($this->userID, $goods_ids);
             echo $id;
         } else {
             echo 0;
