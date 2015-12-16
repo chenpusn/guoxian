@@ -170,7 +170,7 @@ class UserController extends AddonsController
         $data ['cTime'] = NOW_TIME;
         $data ['openid'] = get_openid();
         $data ['pay_status'] = 0;
-        $info = session('confirm_order');
+        $info = session($this->SHOP_SESSION_CONFIRM_ORdER );
 
         $data ['total_price'] = $info ['total_price'];
         $data ['goods_datas'] = json_encode($info ['lists']);
