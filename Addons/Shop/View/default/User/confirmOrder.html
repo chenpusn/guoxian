@@ -59,8 +59,7 @@
          }*/
         var remark = $('#remark').val();
         var createorderUrl = "{:U('createOrder')}";
-        confirm('测试');
-        /*mui.ajax(createorderUrl,{
+        mui.ajax(createorderUrl,{
             data:{
                 address_id: '',
                 remark:remark
@@ -78,9 +77,10 @@
                 }
             },
             error:function(xhr,type,errorThrown){
+                mui.toast('提交订单失败，请重新尝试');
                 console.log(type);
             }
-        });*/
+        });
     });
 </script>
 </body>
