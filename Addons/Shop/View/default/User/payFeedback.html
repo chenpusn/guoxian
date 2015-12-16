@@ -12,16 +12,18 @@
 
     <h1 class="mui-title">好之鲜水果超市</h1>
 </div>
-<div class="mui-card" style="margin-top: 5rem">
-    <span style="margin: 0.625rem">{$feedback}</span>
+<div class="mui-card" style="margin-top: 5rem; padding: 2rem">
+    <span>{$feedback}</span>
 </div>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
+
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js"></script>
 
 <script type="text/javascript">
     mui.init();
     var goHomeTab = document.getElementById("goHomeTab");
     goHomeTab.addEventListener("tap", function(){
-        window.location.assign("index.php/addon/Shop/User/cart");
+        window.location.assign("index.php/addon/Shop/User/index");
     });
 </script>
 </body>
