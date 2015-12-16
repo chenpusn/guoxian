@@ -70,14 +70,14 @@
             success: function (response) {
                 var orderid = parseInt(response);
                 if (orderid == 0) {
-                    mui.toast('提交订单失败，请重新尝试');
+                    mui.toast('提交订单失败，请重新尝试'+response);
                 } else {
                     var payUrl = "{:U('qianfangPay')}&order_id=" + orderid;
                     window.location.href = payUrl;
                 }
             },
             error:function(xhr,type,errorThrown){
-                mui.toast('提交订单失败，请重新尝试');
+                mui.toast('提交订单失败，请重新尝试'+xhr);
                 console.log(type);
             }
         });
