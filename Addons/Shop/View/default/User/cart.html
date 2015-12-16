@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-<form action="{:addons_url('Shop://User/confirmOrder')}" method="post" onSubmit="return checkCartSubmit()">
+<form id="orderForm" action="{:addons_url('Shop://User/confirmOrder')}" method="post" onSubmit="return checkCartSubmit()">
     <nav class="mui-bar mui-bar-tab">
         <div class="mui-tab-item mui-active mui-checkbox"
              style="background-color: #F8FAFA; padding-left: 0.5rem; text-align: left; width: 3%; font-size: 0.875rem">
@@ -33,9 +33,9 @@
             <span class="mui-tab-label">全选</span>
             共<span id="totalCount">12</span>件, 总计<span class="goods-price">￥<span id="totalPrice">00.00</span></span>
         </div>
-        <div class="mui-tab-item one-key-pay">
-            <button class="settlement" type="submit" style="background: transparent; border: 0; color: #F8FAFA">去结算
-            </button>
+        <div id="goToConfirmOrderTab" class="mui-tab-item one-key-pay">
+            <span class="settlement" style="background: transparent; border: 0; color: #F8FAFA">去结算
+            </span>
         </div>
     </nav>
     <div class="mui-bar mui-bar-nav">
@@ -114,6 +114,11 @@
     });
 
     mui('.operation-wrapper').on('tap', 'p', deleteGoods);
+
+    var goToConfirmOrderTab = document.getElementById("goToConfirmOrderTab");
+    goToConfirmOrderTab.addEventListener("tap", function(){
+        document.getElementById("orderForm").submit();
+    });
 
     function deleteGoods() {
         var goodsId = this.getAttribute('id');
