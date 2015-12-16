@@ -7,13 +7,22 @@
         <span class="mui-tab-label">返回果园</span>
     </a>
 </nav>
-<div class="mui-bar mui-bar-nav">
+<div class="mui-bar mui-bar-nav" id="goHomeTab">
     <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 
     <h1 class="mui-title">好之鲜水果超市</h1>
 </div>
 <div class="mui-card" style="margin-top: 5rem">
-    您已成功预定，请于明日中午12点前到一食堂三楼好之味餐厅领取。{$feedback}
+    <span style="margin: 0.625rem">{$feedback}</span>
 </div>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js"></script>
+
+<script type="text/javascript">
+    mui.init();
+    var goHomeTab = document.getElementById("goHomeTab");
+    goHomeTab.addEventListener("tap", function(){
+        window.location.assign("index.php/addon/Shop/User/cart");
+    });
+</script>
 </body>
 </html>
