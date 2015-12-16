@@ -22,8 +22,8 @@
 <script type="text/javascript">
     mui.init();
     var goHomeTab = document.getElementById("goHomeTab");
-    goHomeTab.addEventListener("tap", function(){
-        window.location.assign("index.php/addon/Shop/User/index");
+    goHomeTab.addEventListener("click", function(){
+        window.location.assign("{:addons_url('Shop://User/index')}");
     });
 </script>
 </body>

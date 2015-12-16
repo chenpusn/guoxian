@@ -163,7 +163,7 @@
     var userInfo = document.getElementById("userInfoHF");
     function addToCart(goodsId){
         if(userInfo.getAttribute('value')){
-            mui.ajax('index.php/addon/Shop/User/addToCart',{
+            mui.ajax("{:addons_url('Shop://User/addToCart')}",{
                data:{
                    goodsId: goodsId
                },
@@ -181,7 +181,7 @@
                }
             });
         }else{
-            window.location.assign("index.php/addon/Shop/User/bindUser");
+            window.location.assign("{:addons_url('Shop://User/bindUser')}");
             mui.toast('尚未绑定用户信息，请先绑定用户信息');
         }
     }
@@ -189,11 +189,11 @@
     var myCartTab = document.getElementById("myCartTab");
     myCartTab.addEventListener("tap", function(){
         if(userInfo.getAttribute('value')){
-            window.location.assign("index.php/addon/Shop/User/cart");
+            window.location.assign("{:addons_url('Shop://User/cart')}");
         }
         else
         {
-            window.location.assign("index.php/addon/Shop/User/bindUser");
+            window.location.assign("{:addons_url('Shop://User/bindUser')}");
         }
     });
 
