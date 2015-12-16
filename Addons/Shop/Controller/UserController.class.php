@@ -268,7 +268,7 @@ class UserController extends AddonsController
         D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 5 );
         trace(I('?status'), "status", 'user');
         trace(I('status'), "status", 'user');
-        trace($_GET('status'), "status", 'user');
+        trace($_GET['status'], "status", 'user');
         trace($this->_get('status'), "status", 'user');
         $this->assign('feedback', I('?status'));
         $this->display();
