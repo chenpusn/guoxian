@@ -266,7 +266,7 @@ class UserController extends AddonsController
 
         $res = D ( 'Addons://Shop/Order' )->update ( $orderInfo[0]["id"], $save );
         D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 5 );
-        $this->assign("feedback", $feedback);
+        $this->assign('feedback', I( 'status' ));
         $this->display();
     }
 }
