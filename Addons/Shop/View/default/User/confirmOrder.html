@@ -8,8 +8,8 @@
 
         <span class="mui-tab-label">实付款:</span><span class="goods-price">￥<span id="totalPrice">{$total_price|wp_money_format}</span></span>
     </div>
-    <div class="mui-tab-item one-key-pay" id="submitOrderTab">
-        <span class="settlement" style="background: transparent; border: 0; color: #F8FAFA">提交订单</span>
+    <div id="submitOrderTab" class="mui-tab-item one-key-pay">
+        <button class="settlement" type="submit" style="background: transparent; border: 0; color: #F8FAFA">提交订单</button>
     </div>
 </nav>
 <div class="mui-bar mui-bar-nav">
@@ -45,7 +45,11 @@
         <li class="mui-table-view-cell mui-media cart_item">提货地址:华北电力大学1食堂三楼好之味餐厅前台</li>
     </ul>
 </div>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js"></script>
 <script type="text/javascript">
+    mui.init();
+
     var submitOrderTab = document.getElementById("submitOrderTab");
     submitOrderTab.addEventListener("tap", function(){
         /*var address_id = $('#address_id').val();
