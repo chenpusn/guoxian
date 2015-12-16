@@ -51,7 +51,7 @@
     mui.init();
 
     var submitOrderTab = document.getElementById("submitOrderTab");
-    submitOrderTab.addEventListener("tap", function(){
+    submitOrderTab.addEventListener("click", function(){
         /*var address_id = $('#address_id').val();
          if (address_id == '') {
          $.Dialog.fail("请选择收货地址");
@@ -77,7 +77,7 @@
                 }
             },
             error:function(xhr,type,errorThrown){
-                mui.toast('提交订单失败，请重新尝试'+xhr);
+                mui.toast('提交订单失败，请重新尝试'+errorThrown);
                 console.log(type);
             }
         });
