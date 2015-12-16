@@ -247,7 +247,7 @@ class UserController extends AddonsController
         $orderNumber = I ( 'out_sn' );
         $feedback = '';
         // Qian Fang: 1 未支付 2 完成(已支付) 3 关闭
-        switch(I( 'status' )){
+        switch(I('?status')){
             case '1':
                 $save ['pay_status'] = 3;
                 $feedback = '您的订单尚未支付，请尽快付款';
@@ -266,8 +266,8 @@ class UserController extends AddonsController
 
         $res = D ( 'Addons://Shop/Order' )->update ( $orderInfo[0]["id"], $save );
         D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 5 );
-        trace(I( 'status' ), "status", 'user');
-        $this->assign('feedback', I( 'status' ));
+        trace(I('?status'), "status", 'user');
+        $this->assign('feedback', I('?status'));
         $this->display();
     }
 }
