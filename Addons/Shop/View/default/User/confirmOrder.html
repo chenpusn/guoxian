@@ -59,8 +59,8 @@
          }*/
         var remark = $('#remark').val();
         var createorderUrl = "{:U('createOrder')}";
-        
-        mui.ajax(createorderUrl,{
+        confirm('测试');
+        /*mui.ajax(createorderUrl,{
             data:{
                 address_id: '',
                 remark:remark
@@ -80,7 +80,7 @@
             error:function(xhr,type,errorThrown){
                 console.log(type);
             }
-        });
+        });*/
     });
 </script>
 </body>
