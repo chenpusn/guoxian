@@ -152,11 +152,17 @@ class OrderModel extends Model {
 		$save ['status_code'] = $code;
 		$res = $this->update ( $id, $save );
 		
+
+		
+		return true;
+	}
+
+	function add_order_log($id, $code, $extend, $remark){
 		$data ['order_id'] = $id;
 		$data ['status_code'] = $code;
 		$data ['cTime'] = NOW_TIME;
-		
-		$info = $this->getInfo ( $id );
+
+		/*$info = $this->getInfo ( $id );
 		switch ($code) {
 			case '1' :
 				$data ['remark'] = '您提交了订单，请等待商家确认';
@@ -180,12 +186,12 @@ class OrderModel extends Model {
 			case '7' :
 				$data ['remark'] = '评论完成，欢迎下次再来';
 				break;
-		}
-		
+		}*/
+		$data ['remark'] = $remark;
+		$data['extend'] = $extend;
 		M ( 'shop_order_log' )->add ( $data );
-		
-		return true;
 	}
+
 	function autoSetFinish() {
 		$over_time = NOW_TIME - 15 * 24 * 3600; // 15天后自动设置为已收货
 		

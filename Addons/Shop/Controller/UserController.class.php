@@ -261,13 +261,17 @@ class UserController extends AddonsController
                 $feedback = '您的订单已关闭';
                 break;
         }
-
+        $save['pay_number'] = I('order_id');
+        $save['pay_type'] = I('pay_type');
+        $save['pay_time'] = I('pay_time');
         $orderInfo = D ( 'Addons://Shop/Order' )->getInfoByOrderNumber($orderNumber);
 
         $res = D ( 'Addons://Shop/Order' )->update ( $orderInfo[0]["id"], $save );
         if(I('status') == 2){
-            D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 5 );
+            D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 5);
+            D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], 5, I('get.'), '订单状态');
         }
+        D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], I('status'), I('get.'), '支付状态');
 
         /*trace(I('?status'), "status", 'user');
         trace(I('status'), "status", 'user');
