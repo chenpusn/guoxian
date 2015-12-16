@@ -247,16 +247,16 @@ class UserController extends AddonsController
         $orderNumber = I ( 'out_sn' );
         $feedback = '';
         // Qian Fang: 1 未支付 2 完成(已支付) 3 关闭
-        switch(I('?status')){
-            case '1':
+        switch(I('status')){
+            case 1:
                 $save ['pay_status'] = 3;
                 $feedback = '您的订单尚未支付，请尽快付款';
                 break;
-            case '2':
+            case 2:
                 $save ['pay_status'] = 1;
                 $feedback = '您的订单已支付，请准时到选定取货点取货';
                 break;
-            case '3':
+            case 3:
                 $save ['pay_status'] = 2;
                 $feedback = '您的订单已关闭';
                 break;
@@ -265,15 +265,17 @@ class UserController extends AddonsController
         $orderInfo = D ( 'Addons://Shop/Order' )->getInfoByOrderNumber($orderNumber);
 
         $res = D ( 'Addons://Shop/Order' )->update ( $orderInfo[0]["id"], $save );
-        D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 5 );
-        trace(I('?status'), "status", 'user');
+        if(I('status') == 2){
+            D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 5 );
+        }
+
+        /*trace(I('?status'), "status", 'user');
         trace(I('status'), "status", 'user');
         trace($_GET['status'], "status", 'user');
         trace(I('get.status'), "status", 'user');
-        trace(I('get.'), "status", 'user');
-        trace(I('_URL_'), "URL", 'user');
-        trace($_GET['_URL_'], "URL", 'user');
-        $this->assign('feedback', I('?status'));
+        trace(I('get.'), "status", 'user');*/
+
+        $this->assign('feedback', $feedback);
         $this->display();
     }
 }
