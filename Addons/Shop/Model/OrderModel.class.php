@@ -139,7 +139,11 @@ class OrderModel extends Model {
 	function update($id, $save) {
 		$map ['id'] = $id;
 		$order = M('shop_order');
-		$res = $order->where ( $map )->save($save);
+		//$test = $order->where ( $map )->select();
+		$res = $order->where ( $map )->save ( $save );
+		//$test['qianfang_number'] = $save['qianfang_number'];
+		//$res = $order->where ( $map )->setField('qianfang_number', $save['qianfang_number']);
+		//$err = $order->getLastSql();
 		$this->getInfo ( $id, true );
 		return $res;
 	}
