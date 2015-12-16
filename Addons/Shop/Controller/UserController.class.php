@@ -245,16 +245,23 @@ class UserController extends AddonsController
     //CHENPU:2015-12-16 接受钱方支付平台的反馈信息
     function payFeedback(){
         $orderNumber = I ( 'out_sn' );
+        $orderInfo = D ( 'Addons://Shop/Order' )->getInfoByOrderNumber($orderNumber);
+        $goods = json_decode($orderInfo ['goods_datas'], true);
+        $goodsName = "";
+        foreach ($goods as $good) {
+            $goodsName .= $good['title'];
+        }
+
         $feedback = '';
         // Qian Fang: 1 未支付 2 完成(已支付) 3 关闭
         switch(I('status')){
             case 1:
                 $save ['pay_status'] = 3;
-                $feedback = '您的订单尚未支付，请尽快付款';
+                $feedback = '您的订单尚未支付，请尽快付款，以免影响配货。';
                 break;
             case 2:
                 $save ['pay_status'] = 1;
-                $feedback = '您的订单已支付，请准时到选定取货点取货';
+                $feedback = '您预定的'.$goodsName.'已成功付款，我们将尽快为您配货，请在明日12点前到指定提货点取货。';
                 break;
             case 3:
                 $save ['pay_status'] = 2;
@@ -264,7 +271,6 @@ class UserController extends AddonsController
         $save['pay_number'] = I('order_id');
         $save['pay_type'] = I('pay_type');
         $save['pay_time'] = I('pay_time');
-        $orderInfo = D ( 'Addons://Shop/Order' )->getInfoByOrderNumber($orderNumber);
 
         $res = D ( 'Addons://Shop/Order' )->update ( $orderInfo[0]["id"], $save );
         if(I('status') == 2){
