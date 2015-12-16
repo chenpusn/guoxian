@@ -246,7 +246,7 @@ class UserController extends AddonsController
     function payFeedback(){
         $orderNumber = I ( 'out_sn' );
         $orderInfo = D ( 'Addons://Shop/Order' )->getInfoByOrderNumber($orderNumber);
-        $goods = json_decode($orderInfo ['goods_datas'], true);
+        $goods = json_decode($orderInfo[0]['goods_datas'], true);
         $goodsName = "";
         foreach ($goods as $good) {
             $goodsName .= $good['title'];
@@ -268,16 +268,18 @@ class UserController extends AddonsController
                 $feedback = '您的订单已关闭';
                 break;
         }
-        $save['pay_number'] = I('order_id');
+
         $save['pay_type'] = I('pay_type');
-        $save['pay_time'] = I('pay_time');
+        $save['qianfang_number'] = I('order_id');
+        $pay_time = strtotime (I('pay_time'));
+        $save['pay_time'] = $pay_time;
 
         $res = D ( 'Addons://Shop/Order' )->update ( $orderInfo[0]["id"], $save );
         if(I('status') == 2){
             D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 5);
             D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], 5, I('get.'), '订单状态');
         }
-        D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], I('status'), I('get.'), '支付状态');
+        D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], I('status'), json_encode(I('get.')), '支付状态');
 
         /*trace(I('?status'), "status", 'user');
         trace(I('status'), "status", 'user');

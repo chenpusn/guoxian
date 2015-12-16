@@ -138,8 +138,11 @@ class OrderModel extends Model {
 
 	function update($id, $save) {
 		$map ['id'] = $id;
-		$this->where ( $map )->save ( $save );
+		$order = M('shop_order');
+		$test = $order->where ( $map )->save($save);
+		$err = $order->getDbError();
 		$this->getInfo ( $id, true );
+		return $res;
 	}
 
 	function updateByOrderNumber($orderNmuber, $save) {
@@ -151,10 +154,7 @@ class OrderModel extends Model {
 	function setStatusCode($id, $code) {
 		$save ['status_code'] = $code;
 		$res = $this->update ( $id, $save );
-		
-
-		
-		return true;
+		return $res;
 	}
 
 	function add_order_log($id, $code, $extend, $remark){
