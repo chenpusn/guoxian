@@ -200,7 +200,7 @@ class UserController extends AddonsController
         $customerId = $orderInfo['uid'];
         $outUser = $customerId;
 
-        $accountInfo = D('Addons://Shop/ShopUser')->getAccount($this->mid);
+        $accountInfo = D('Addons://Shop/ShopUser')->getAccount($this->userID);
         if(!$accountInfo){
             echo '信息错误';
         }
