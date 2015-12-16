@@ -250,6 +250,31 @@ class OrderController extends BaseController {
 		echo 1;
 	}
 
+	//https://support.qfpay.com/qiantai/H5/H5.html
+	function qianfang_payfeedback(){
+		$orderNumber = I ( 'out_sn' );
+		// Qian Fang: 1 未支付 2 完成(已支付) 3 关闭
+		switch(I( 'status' )){
+			case 1:
+				$save ['pay_status'] = 3;
+				break;
+			case 2:
+				$save ['pay_status'] = 1;
+				break;
+			case 3:
+				$save ['pay_status'] = 2;
+				break;
+		}
+
+		$orderInfo = D ( 'Addons://Shop/Order' )->getInfoByOrderNumber($orderNumber);
+
+		$res = D ( 'Addons://Shop/Order' )->update ( $orderInfo[0]["id"], $save );
+		D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 5 );
+
+		echo '付款成功, 请到XXX取货';
+	}
+
+
 	function set_confirm() {
 		$id = I ( 'id' );
 		$res = D ( 'Addons://Shop/Order' )->setStatusCode ( $id, 2 );

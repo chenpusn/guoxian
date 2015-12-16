@@ -100,5 +100,5 @@ return array(
 			'user'=>'用户'
 		),
 
-		'SITE_VERSION' => '0.2'
+		'SITE_VERSION' => '0.3'
 );
