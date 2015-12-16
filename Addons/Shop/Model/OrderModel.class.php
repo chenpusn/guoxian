@@ -139,8 +139,7 @@ class OrderModel extends Model {
 	function update($id, $save) {
 		$map ['id'] = $id;
 		$order = M('shop_order');
-		$test = $order->where ( $map )->save($save);
-		$err = $order->getDbError();
+		$res = $order->where ( $map )->save($save);
 		$this->getInfo ( $id, true );
 		return $res;
 	}
