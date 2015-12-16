@@ -1,0 +1,70 @@
+<include file="./Addons/Shop/View/default/User/_head.html"/>
+<link href="{:ADDON_PUBLIC_PATH}/user/css/iconfont.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+<body>
+
+<nav class="mui-bar mui-bar-tab">
+    <div class="mui-tab-item mui-active mui-checkbox"
+         style="background-color: #F8FAFA; padding-left: 0.5rem; text-align: center; width: 3%; font-size: 0.875rem">
+
+        <span class="mui-tab-label">实付款:</span><span class="goods-price">￥<span id="totalPrice">{$total_price|wp_money_format}</span></span>
+    </div>
+    <div class="mui-tab-item one-key-pay">
+        <button class="settlement" type="submit" style="background: transparent; border: 0; color: #F8FAFA">提交订单</button>
+    </div>
+</nav>
+<div class="mui-bar mui-bar-nav" id="submitOrderTab">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">确认订单</h1>
+</div>
+<div class="mui-content" style="padding-top: 2rem">
+    <ul class="mui-table-view cart_list">
+        <volist name="lists" id="vo">
+            <li class="mui-table-view-cell mui-media cart_item">
+                <dl class="goods_item" style="margin:0">
+                    <dt class="goods-picture-wrapper mui-pull-left">
+                        <img class="mui-media-object goods_img"
+                             src="{$vo.goods_data.cover|get_cover_url}" style="width: 80%; max-width: 80%"/>
+                    </dt>
+                    <dd class="mui-media-body goods_desc">
+                        <div class="goods-title name">
+                            {$vo.title}
+                        </div>
+                        <div class="info">
+                            <span class="colorless">单价：</span><span
+                                class="singlePrice goods-price">￥{$vo.price|wp_money_format}</span></span>
+                            <span style="margin-left: 1rem">数量：</span><span>{$vo.num|intval}</span>
+                        </div>
+                    </dd>
+                </dl>
+            </li>
+        </volist>
+        <li class="mui-table-view-cell mui-media cart_item">
+            <textarea name="remark" id="remark" rows="5" style="margin: 0"
+                      placeholder="欢迎给我们留言，提供您的意见和建议，我们将竭诚为您提供最优服务。"></textarea>
+        </li>
+        <li class="mui-table-view-cell mui-media cart_item">提货地址:华北电力大学1食堂三楼好之味餐厅前台</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    var submitOrderTab = document.getElementById("submitOrderTab");
+    submitOrderTab.addEventListener("tap", function(){
+        /*var address_id = $('#address_id').val();
+         if (address_id == '') {
+         $.Dialog.fail("请选择收货地址");
+         return false;
+         }*/
+        var remark = $('#remark').val();
+        var createorderUrl = "{:U('createOrder')}";
+        $.post(createorderUrl, {'address_id': '', 'remark': remark}, function (res) {
+            var orderid = parseInt(res);
+            if (orderid == 0) {
+                mui.toast('提交订单失败，请重新尝试');
+            } else {
+                var payUrl = "{:U('qianfangPay')}&order_id=" + orderid;
+                window.location.href = payUrl;
+            }
+        });
+    });
+</script>
+</body>
+</html>

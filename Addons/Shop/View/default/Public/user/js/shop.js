@@ -15,7 +15,8 @@ $(function(){
 	})
 	$('.buy_count input[type="text"]').keyup(function(){
 		if($(this).val()==0){
-			$.Dialog.fail("购物数量不能小于1件");
+			//$.Dialog.fail("购物数量不能小于1件");
+			mui.toast('购物数量不能小于1件');
 			$(this).val(1);
 		}else{
 			updatePriceAndCount();
@@ -55,11 +56,15 @@ function updatePriceAndCount(){
 	});
 	$('#totalCount').text(totalCount.toFixed(2));
 	$('#totalPrice').text(totalPrice.toFixed(2));
+
+	// TODOCHENPU:这里应该更新服务器上购物车的数据
+
 }
 //提交检查
 function checkCartSubmit(){
 	if($('input[name="goods_ids[]"]:checked').size()==0){
-		$.Dialog.fail("请先选择要购买的商品");
+		//$.Dialog.fail("请先选择要购买的商品");
+		mui.toast('您未选择购买任何水果');
 		return false;
 	}
 }

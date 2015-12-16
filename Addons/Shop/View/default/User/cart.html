@@ -24,35 +24,38 @@
     </style>
 </head>
 <body>
-<nav class="mui-bar mui-bar-tab">
-    <div class="mui-tab-item mui-active mui-checkbox" style="background-color: #F8FAFA; padding-left: 0.5rem; text-align: left; width: 3%; font-size: 0.875rem">
-        <input class="custom_check check_all" id="checkAll" name="checkAll" type="checkbox"
-               checked="checked" style="position: relative; top: 0; right: 0"/>
-        <span class="mui-tab-label">全选</span>
-        共<span id="totalCount">12</span>件, 总计<span class="goods-price">￥<span id="totalPrice">00.00</span></span>
-    </div>
-    <div class="mui-tab-item one-key-pay">
-        <button class="settlement" type="submit" style="background: transparent; border: 0; color: #F8FAFA">结算</button>
-    </div>
-</nav>
-<div class="mui-bar mui-bar-nav">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-
-    <h1 class="mui-title">我的果盘</h1>
-</div>
-<div class="mui-content" style="padding-top: 3.75rem">
-    <empty name="lists">
-        <div class="cart_empty">
-            <img src="{:ADDON_PUBLIC_PATH}/mobile/cart.png"/>
-
-            <p>果盘还是空的</p>
-
-            <p><a href="index.php?s=/addon/Shop/User/index">去果园转转吧</a></p>
+<form action="{:addons_url('Shop://User/confirmOrder')}" method="post" onSubmit="return checkCartSubmit()">
+    <nav class="mui-bar mui-bar-tab">
+        <div class="mui-tab-item mui-active mui-checkbox"
+             style="background-color: #F8FAFA; padding-left: 0.5rem; text-align: left; width: 3%; font-size: 0.875rem">
+            <input class="custom_check check_all" id="checkAll" name="checkAll" type="checkbox"
+                   checked="checked" style="position: relative; top: 0; right: 0"/>
+            <span class="mui-tab-label">全选</span>
+            共<span id="totalCount">12</span>件, 总计<span class="goods-price">￥<span id="totalPrice">00.00</span></span>
         </div>
+        <div class="mui-tab-item one-key-pay">
+            <button class="settlement" type="submit" style="background: transparent; border: 0; color: #F8FAFA">去结算
+            </button>
+        </div>
+    </nav>
+    <div class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 
-        <else/>
-        <ul class="mui-table-view cart_list">
-            <form action="{:addons_url('Shop://Wap/confirm_order')}" method="post" onSubmit="return checkCartSubmit()">
+        <h1 class="mui-title">我的果盘</h1>
+    </div>
+    <div class="mui-content" style="padding-top: 2rem">
+        <empty name="lists">
+            <div class="cart_empty">
+                <img src="{:ADDON_PUBLIC_PATH}/mobile/cart.png"/>
+
+                <p>果盘还是空的</p>
+
+                <p><a href="index.php?s=/addon/Shop/User/index">去果园转转吧</a></p>
+            </div>
+
+            <else/>
+
+            <ul class="mui-table-view cart_list">
                 <volist name="lists" id="vo">
                     <li class="mui-table-view-cell mui-media cart_item">
                         <!---->
@@ -68,14 +71,17 @@
                                      src="{$vo.goods_data.cover|get_cover_url}" style="width: 80%; max-width: 80%"/>
                             </dt>
                             <dd class="operation-wrapper mui-pull-right">
-                                <p class="operation" id="{$vo.id}"><span class="mui-icon mui-icon-trash" style="color: #FF840D; font-size: 1.5rem; display: block"></span><span style="display: inline">删除</span></p>
+                                <p class="operation" id="{$vo.id}"><span class="mui-icon mui-icon-trash"
+                                                                         style="color: #FF840D; font-size: 1.5rem; display: block"></span><span
+                                        style="display: inline">删除</span></p>
                             </dd>
                             <dd class="mui-media-body goods_desc">
                                 <div class="goods-title name">
                                     {$vo.goods_data.title}
                                 </div>
 
-                                <div class="info goods-price"><span class="colorless">单价:</span><span class="orange">￥<span
+                                <div class="info goods-price"><span class="colorless">单价:</span><span
+                                        class="orange">￥<span
                                         class="singlePrice">{$vo.goods_data.price|wp_money_format}</span></span>
                                 </div>
 
@@ -90,11 +96,11 @@
                         </dl>
                     </li>
                 </volist>
-            </form>
-        </ul>
+            </ul>
+        </empty>
+    </div>
+</form>
 
-    </empty>
-</div>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
 <!--<script type="text/javascript" src="http://yaotv.qq.com/shake_tv/include/js/lib/zepto.1.1.4.min.js"></script>-->
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui-2.7.js"></script>
@@ -107,57 +113,35 @@
         updatePriceAndCount();
     });
 
-    mui('.operation-wrapper').on('tap', 'p', function(){
-        var goodsId = this.getAttribute('id');
-        //addToCart(goodsId);
-        if(confirm('确认要从购物车删除该水果吗？')){
+    mui('.operation-wrapper').on('tap', 'p', deleteGoods);
 
-            mui.ajax('index.php?s=/addon/Shop/User/delCart',{
-                data:{
+    function deleteGoods() {
+        var goodsId = this.getAttribute('id');
+        if (confirm('确认要从购物车删除该水果吗？')) {
+            mui.ajax('index.php?s=/addon/Shop/User/delCart', {
+                data: {
                     ids: goodsId
                 },
-                dataType:'json',
-                type:'post',
-                timeout:10000, //10秒
+                dataType: 'json',
+                type: 'post',
+                timeout: 10000, //10秒
                 success: function (response) {
-                    if(response > 0){
+                    if (response > 0) {
                         mui.toast('已成功删除');
                     }
-                    else{
+                    else {
                         mui.toast('删除出错，请稍候尝试');
                     }
                     window.location.reload();
                 },
-                error:function(xhr,type,errorThrown){
+                error: function (xhr, type, errorThrown) {
+                    mui.toast('删除出错，请稍候尝试');
                     console.log(type);
                 }
             });
         }
-    });
-
-
-
-    //删除沟通车的商品
-    function deleteCartItem() {
-        if ($('input[name="goods_ids[]"]:checked').size() == 0) {
-            $.Dialog.fail("请选择要删除的购物车物品");
-        } else if (confirm('确认删除？')) {
-            var cartIds = "";
-            $('input[name="goods_ids[]"]:checked').each(function (index, element) {
-                cartIds += $(this).attr('rel') + ",";
-            });
-            $.Dialog.loading();
-            $.ajax({
-                url: "{:U('delCart',array('shop_id'=>$shop_id))}",
-                data: {ids: cartIds},
-                dataType: "json",
-                type: "post",
-                success: function (data) {
-                    window.location.reload();
-                }
-            })
-        }
     }
+
 </script>
 </body>
 </html>
