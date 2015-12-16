@@ -271,6 +271,8 @@ class UserController extends AddonsController
         trace($_GET['status'], "status", 'user');
         trace(I('get.status'), "status", 'user');
         trace(I('get.'), "status", 'user');
+        trace(I('_URL_'), "URL", 'user');
+        trace($_GET['_URL_'], "URL", 'user');
         $this->assign('feedback', I('?status'));
         $this->display();
     }
