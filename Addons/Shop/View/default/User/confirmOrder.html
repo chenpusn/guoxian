@@ -9,7 +9,7 @@
         <span class="mui-tab-label">实付款:</span><span class="goods-price">￥<span id="totalPrice">{$total_price|wp_money_format}</span></span>
     </div>
     <div id="submitOrderTab" class="mui-tab-item one-key-pay">
-        <button class="settlement" type="submit" style="background: transparent; border: 0; color: #F8FAFA">提交订单</button>
+        <span class="settlement" style="background: transparent; border: 0; color: #F8FAFA">提交订单</span>
     </div>
 </nav>
 <div class="mui-bar mui-bar-nav">
@@ -59,13 +59,26 @@
          }*/
         var remark = $('#remark').val();
         var createorderUrl = "{:U('createOrder')}";
-        $.post(createorderUrl, {'address_id': '', 'remark': remark}, function (res) {
-            var orderid = parseInt(res);
-            if (orderid == 0) {
-                mui.toast('提交订单失败，请重新尝试');
-            } else {
-                var payUrl = "{:U('qianfangPay')}&order_id=" + orderid;
-                window.location.href = payUrl;
+        
+        mui.ajax(createorderUrl,{
+            data:{
+                address_id: '',
+                remark:remark
+            },
+            dataType:'json',
+            type:'post',
+            timeout:10000, //10秒
+            success: function (response) {
+                var orderid = parseInt(response);
+                if (orderid == 0) {
+                    mui.toast('提交订单失败，请重新尝试');
+                } else {
+                    var payUrl = "{:U('qianfangPay')}&order_id=" + orderid;
+                    window.location.href = payUrl;
+                }
+            },
+            error:function(xhr,type,errorThrown){
+                console.log(type);
             }
         });
     });
