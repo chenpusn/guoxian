@@ -19,7 +19,7 @@ class OrderModel extends Model {
 				
 				$info ['order_from_type'] = $info ['order_from_type'] == 0 ? '商城' : '电视购物';
 				switch ($info ['pay_type']) {
-					case 0 : // 微信支付
+					/*case 0 : // 微信支付
 						$info ['common'] = '微信支付';
 						break;
 					case 1 : // 支付宝
@@ -36,6 +36,27 @@ class OrderModel extends Model {
 						break;
 					case 10 :
 						$info ['common'] = '货到付款';
+						break;*/
+
+				    //钱方支付返回类型
+					//https://support.qfpay.com/qiantai/API/OnlinePayAPI.html
+					case 2 : // 微信支付
+						$info ['common'] = '微信支付';
+						break;
+					case 1 : // 支付宝
+						$info ['common'] = '支付宝';
+						break;
+					case 3 : // 银联
+						$info ['common'] = '银联';
+						break;
+					case 4 : // QPOS线下付款
+						$info ['common'] = 'QPOS线下付款';
+						break;
+					case 5 :
+						$info ['common'] = '货到付款';
+						break;
+					case 6 :
+						$info ['common'] = '无';
 						break;
 				}
 				$code = array (

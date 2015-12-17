@@ -15,6 +15,9 @@ class OrderController extends BaseController {
 		$this->assign ( 'add_button', false );
 		$this->assign ( 'del_button', false );
 		$this->assign ( 'check_all', false );
+		$this->assign('search_button', true);
+		$this->assign('muti_search', true);
+
 		$map ['token'] = get_token ();
 		$map ['shop_id'] = $this->shop_id;
 		$search=$_REQUEST['order_number'];
@@ -75,7 +78,7 @@ class OrderController extends BaseController {
 			if ($vo ['status_code'] == 1) {
 				$vo ['action'] .= '<br><br><a href="' . addons_url ( 'Shop://Order/set_confirm', $param ) . '">商家确认</a>';
 			}
-			$addressInfo = D ( 'Addons://Shop/Address' )->getInfo ( $order['address_id'] );
+			$addressInfo = D ( 'Addons://Shop/Address' )->getInfo ( $order['uid'] );
 			//$vo ['uid'] = '<a target="_blank" href="' . addons_url ( 'UserCenter://UserCenter/detail', $param2 ) . '">' . $follow ['nickname'] . '</a>';
 			$vo ['uid'] =  $addressInfo['truename'].'<br/>'.$addressInfo['mobile'];
 		}
