@@ -14,7 +14,7 @@
                                placeholder="2015-12-11">
                         <span>客户信息</span>
                         <input type="text" name="search_keyword"
-                               class="search-input date input-small" value="{$search_keyword}"
+                               class="search-input input-small" value="{$search_keyword}"
                                placeholder="请输入客户手机号码 或者 姓名" style="width: 12rem">
                         <!-- <a class="sort " href="#" title="排序">排序:高->低</a> -->
                         <button type="submit" class="sch-btn btn" id="searchBtn"
@@ -64,7 +64,21 @@
     </div>
 </block>
 <block name="script">
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+    <php>if(C('COLOR_STYLE')=='blue_color') echo '
+        <link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+        ';</php>
+    <link href="__STATIC__/datetimepicker/css/dropdown.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js?v={:SITE_VERSION}" charset="UTF-8"></script>
     <script type="text/javascript">
-
+        $(function(){
+            $('.date').datetimepicker({
+                format: 'yyyy-mm-dd',
+                language:"zh-CN",
+                minView:2,
+                autoclose:true
+            });
+        });
     </script>
 </block>
