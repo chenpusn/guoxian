@@ -23,7 +23,7 @@ class OrderController extends BaseController {
 				redirect('index.php/addon/Shop/Order/lists.html?'.'search_date='.$searchDate.$searchKeyword);*/
 			}
 			else{
-				$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
+				/*$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
 				$searchKeyword = I('search_keyword');
 				$user_ids_arrary = '';
 				if(!empty($searchKeyword)){
@@ -48,10 +48,10 @@ class OrderController extends BaseController {
 
 				}else{
 					$order_lists = $orderDao->where($filter_order)->select();
-				}
+				}*/
 			}
 
-			foreach ( $order_lists as &$vo ) {
+			/*foreach ( $order_lists as &$vo ) {
 				$param ['id'] = $vo ['id'];
 
 				$order = $orderDao->getInfo ( $vo ['id'] );
@@ -79,13 +79,13 @@ class OrderController extends BaseController {
 				$addressInfo = D ( 'Addons://Shop/Address' )->getInfo ( $order['uid'] );
 				//$vo ['uid'] = '<a target="_blank" href="' . addons_url ( 'UserCenter://UserCenter/detail', $param2 ) . '">' . $follow ['nickname'] . '</a>';
 				$vo ['uid'] =  $addressInfo['truename'].'<br/>'.$addressInfo['mobile'];
-			}
+			}*/
 			// dump($list_data ['list_data'] );
 
 			$title_list = array('订单编号','下单商品','下单人','总价','下单时间','支付类型','订单跟踪');
 
 			$this->assign ( 'title_lists',$title_list );
-			$this->assign ( 'order_lists',$order_lists );
+/*			$this->assign ( 'order_lists',$order_lists );*/
 
 			//$templateFile = $this->model ['template_list'] ? $this->model ['template_list'] : '';
 			$this->display ();
