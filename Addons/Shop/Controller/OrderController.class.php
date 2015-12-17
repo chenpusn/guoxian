@@ -11,19 +11,11 @@ class OrderController extends BaseController {
 	// 通用插件的列表模型
 	public function lists() {
 		D ( 'Addons://Shop/Order' )->autoSetFinish ();
-		
-		$this->assign ( 'add_button', false );
-		$this->assign ( 'del_button', false );
-		$this->assign ( 'check_all', false );
-		$this->assign('search_button', false);
-		//$this->assign('check_all', true);
-		$search_item['type'] = "datetime";
-		$search_item['title'] = "下单时间";
-		$search_item['start_time'] = "2015-12-15";
-		$search_item['end_time'] = "2015-12-17";
-		$muti_search[] = $search_item;
 
-		$this->assign('muti_search', $muti_search);
+
+		$seachDate = new \DateTime();
+
+		$this->assign('searchDate', $seachDate);
 
 		//$map ['token'] = get_token ();
 		//$map ['shop_id'] = $this->shop_id;
@@ -54,12 +46,12 @@ class OrderController extends BaseController {
 		//session ( 'common_condition', $map );
 		$list_data = $this->_get_model_list ( $this->model );
 		// 分类数据
-		$map ['is_show'] = 1;
-		$list = M ( 'weisite_category' )->where ( $map )->field ( 'id,title' )->select ();
-		$cate [0] = '';
-		foreach ( $list as $vo ) {
-			$cate [$vo ['id']] = $vo ['title'];
-		}
+		//$map ['is_show'] = 1;
+		//$list = M ( 'weisite_category' )->where ( $map )->field ( 'id,title' )->select ();
+		//$cate [0] = '';
+		//foreach ( $list as $vo ) {
+		//	$cate [$vo ['id']] = $vo ['title'];
+		//}
 		$orderDao = D ( 'Addons://Shop/Order' );
 		// dump($list_data ['list_data']);
 		foreach ( $list_data ['list_data'] as &$vo ) {
@@ -71,8 +63,8 @@ class OrderController extends BaseController {
 			$follow = get_followinfo ( $vo ['uid'] );
 			$param2 ['uid'] = $follow ['uid'];
 
-			$vo ['cate_id'] = intval ( $vo ['cate_id'] );
-			$vo ['cate_id'] = $cate [$vo ['cate_id']];
+			//$vo ['cate_id'] = intval ( $vo ['cate_id'] );
+			//$vo ['cate_id'] = $cate [$vo ['cate_id']];
 			
 			$goods = json_decode ( $order ['goods_datas'], true );
 			foreach ( $goods as $vv ) {
