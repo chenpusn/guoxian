@@ -15,14 +15,14 @@ class OrderController extends BaseController {
 		try{
 			/*D ( 'Addons://Shop/Order' )->autoSetFinish ();*/
 			$orderDao = D ( 'Addons://Shop/Order' );
-			/*if(IS_POST){
+			if(IS_POST){
 				$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
 				$searchKeyword = empty(I('search_keyword'))?'':'&search_keyword='.I('search_keyword');
 
 
 				redirect('index.php/addon/Shop/Order/lists.html?'.'search_date='.$searchDate.$searchKeyword);
 			}
-			else{*/
+			else{
 				/*$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
 				$searchKeyword = I('search_keyword');
 				$user_ids_arrary = '';*/
@@ -89,7 +89,7 @@ class OrderController extends BaseController {
 
 			//$templateFile = $this->model ['template_list'] ? $this->model ['template_list'] : '';
 			$this->display ();
-//			}
+			}
 		}
 		catch(Exception $e)
 		{
