@@ -12,18 +12,17 @@ class OrderController extends BaseController {
 	}
 	// 通用插件的列表模型
 	public function lists() {
-		try{
 			D ( 'Addons://Shop/Order' )->autoSetFinish ();
 			$orderDao = D ( 'Addons://Shop/Order' );
 			if(IS_POST){
-				$searchDate = I('search_date')? date('Y-n-d'): I('search_date');
+				$searchDate = I('search_date')?  I('search_date') : date('Y-n-d');
 				$searchKeyword = I('search_keyword')?'':'&search_keyword='.I('search_keyword');
 
 
 				redirect('index.php/addon/Shop/Order/lists.html?'.'search_date='.$searchDate.$searchKeyword);
 			}
 			else{
-				$searchDate = I('search_date')? date('Y-n-d'): I('search_date');
+				$searchDate = I('search_date')?  I('search_date'): date('Y-n-d');
 
 				$searchKeyword = I('search_keyword');
 				$user_ids_arrary = '';
@@ -45,8 +44,8 @@ class OrderController extends BaseController {
 					$this->assign('search_date', $searchDate);
 				}
 
-				if(!empty($searchKeyword) && empty($user_ids_arrary)){					// 按关键字查询无结果
-
+				if(!empty($searchKeyword) && empty($user_ids_arrary)){
+					// 按关键字查询无结果
 				}else{
 					$order_lists = $orderDao->where($filter_order)->select();
 				}
@@ -86,15 +85,10 @@ class OrderController extends BaseController {
 			$title_list = array('订单编号','下单商品','下单人','总价','下单时间','支付类型','订单跟踪');
 
 			$this->assign ( 'title_lists',$title_list );
-/*			$this->assign ( 'order_lists',$order_lists );*/
+			$this->assign ( 'order_lists',$order_lists );
 
 			//$templateFile = $this->model ['template_list'] ? $this->model ['template_list'] : '';
 			$this->display ();
-		}
-		catch(Exception $e)
-		{
-			echo $e->getMessage();
-		}
 	}
 
 	// 通用插件的编辑模型
