@@ -13,7 +13,7 @@ class OrderController extends BaseController {
 	// 通用插件的列表模型
 	public function lists() {
 		try{
-			D ( 'Addons://Shop/Order' )->autoSetFinish ();
+			/*D ( 'Addons://Shop/Order' )->autoSetFinish ();*/
 			$orderDao = D ( 'Addons://Shop/Order' );
 			if(IS_POST){
 				$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
