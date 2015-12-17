@@ -16,11 +16,11 @@ class OrderController extends BaseController {
 			/*D ( 'Addons://Shop/Order' )->autoSetFinish ();*/
 			$orderDao = D ( 'Addons://Shop/Order' );
 			if(IS_POST){
-				$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
+				/*$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
 				$searchKeyword = empty(I('search_keyword'))?'':'&search_keyword='.I('search_keyword');
 
 
-				redirect('index.php/addon/Shop/Order/lists.html?'.'search_date='.$searchDate.$searchKeyword);
+				redirect('index.php/addon/Shop/Order/lists.html?'.'search_date='.$searchDate.$searchKeyword);*/
 			}
 			else{
 				/*$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
