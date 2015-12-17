@@ -82,9 +82,9 @@ class OrderController extends BaseController {
 			}*/
 			// dump($list_data ['list_data'] );
 
-			$title_list = array('订单编号','下单商品','下单人','总价','下单时间','支付类型','订单跟踪');
+			/*$title_list = array('订单编号','下单商品','下单人','总价','下单时间','支付类型','订单跟踪');
 
-			$this->assign ( 'title_lists',$title_list );
+			$this->assign ( 'title_lists',$title_list );*/
 			//$this->assign ( 'order_lists',$order_lists );
 
 			//$templateFile = $this->model ['template_list'] ? $this->model ['template_list'] : '';
