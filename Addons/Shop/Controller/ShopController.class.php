@@ -11,10 +11,22 @@ class ShopController extends BaseController {
 		parent::_initialize ();
 	}
 	function lists() {
+
+		$map['id'] = array('GT', 1);
+		$fetchGoodsAddress = D ( 'Shop' )->where($map)->select();
+
+		$this->assign('list_data', $fetchGoodsAddress);
+
 		$this->display ();
 	}
 	function edit() {
-		$id = $this->shop_id;
+		if(I('id')){
+			$id = I('id');
+		}
+		else{
+			$id = $this->shop_id;
+		}
+
 		$model = $this->getModel ();
 		if (IS_POST) {
 			// $_POST ['update_time'] = NOW_TIME;

@@ -3546,3 +3546,36 @@ function getNamebyOrderStatus($statusCode){
 	}
 	return $statusName;
 }
+
+function getZeraNameByID($zeraID){
+	switch ($zeraID) {
+		case 1 :
+			$zeraName = '华北';
+			break;
+		case 2 :
+			$zeraName = '西北';
+			break;
+		case 1 :
+			$zeraName = '华北';
+			break;
+		case 3 :
+			$zeraName = '东北';
+			break;
+	}
+	return $zeraName;
+}
+
+function getCityNameByID($cityID){
+	switch($cityID){
+		case 1:
+			$cityName = '北京';
+			break;
+		case 2:
+			$cityName = '天津';
+			break;
+		case 3:
+			$cityName = '石家庄';
+			break;
+	}
+	return $cityName;
+}

@@ -7,30 +7,27 @@
     	<a href="{$vo.url}">{$vo.title}</a>
     </volist>
     <div class="tab-content"> 
-    	<h3 class="mb10">提货点</h3>
+    	<h3 class="mb10">全部店铺</h3>
       	<div class="shop_manage">
         	<ul class="shop_list">
         	<volist name="list_data" id="vo">
-            <li><div class="s_i" style="padding: 1rem; width: auto; height: auto">
-            	<!--<img src="{$vo.logo|get_cover_url}">-->
+            <li><div class="s_i">
+            	<img src="{$vo.logo|get_cover_url}">
                 <p class="s_d">
                 	<span class="name">{$vo.title}</span>
-                    <span class="zera">{$vo.zone|getZeraNameByID} {$vo.city|getCityNameByID} {$vo.school}</span>
-                    <span class="address">{$vo.intro}</span>
                     <span class="wechat">微信：{$vo.wechat}</span>
                     <span class="phone">电话：{$vo.mobile}</span>
-                    <span class="qq">QQ：{$vo.qq}</span>
                 </p>
                 <p class="s_action">
-                	<a class="btn" href="{:U('edit?model='.$model['id'], array('id'=>$vo['id']));}">编辑</a>
-                	<a class="btn delShopBtn" href="{:U('del?model='.$model['id'], array('id'=>$vo['id']));}">删除</a>
+                	<a class="btn" href="{:U('edit?model='.$model['id'], array('id'=>$vo['id']));}">管理店铺</a>
+                	<a class="btn delShopBtn" href="{:U('del?model='.$model['id'], array('id'=>$vo['id']));}">删除店铺</a>
                 </p>
             </div>
             </li>
             </volist>
             <php> $add_url || $add_url = U('add?model='.$model['id'], $get_param);</php>
             <li>
-            <a class="s_add" href="{$add_url}">+新增提货点</a>
+            <a class="s_add" href="{$add_url}">+添加店铺</a>
             </li>
             </ul>
         </div>
