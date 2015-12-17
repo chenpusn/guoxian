@@ -24,6 +24,12 @@ class OrderController extends BaseController {
 			}
 			else{
 				$searchDate = empty(I('search_date'))? '':'';//date('Y-n-d'): I('search_date');
+				if(empty(I('search_date'))){
+					$searchDate = date('Y-n-d');
+				}
+				else{
+					$searchDate = I('search_date');
+				}
 				/*$searchKeyword = I('search_keyword');
 				$user_ids_arrary = '';
 				if(!empty($searchKeyword)){
