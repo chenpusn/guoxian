@@ -23,7 +23,7 @@ class OrderController extends BaseController {
 				redirect('index.php/addon/Shop/Order/lists.html?'.'search_date='.$searchDate.$searchKeyword);*/
 			}
 			else{
-				/*$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
+				$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
 				$searchKeyword = I('search_keyword');
 				$user_ids_arrary = '';
 				if(!empty($searchKeyword)){
@@ -33,7 +33,7 @@ class OrderController extends BaseController {
 					$user_ids_arrary = D ( 'Common/shop_address' )->where ( $fileter )->getFields ( 'id' );
 					$this->assign('search_keyword', $searchKeyword);
 				}
-				if(!empty($user_ids_arrary)){
+				/*if(!empty($user_ids_arrary)){
 					$filter_order['uid'] = array('IN', $user_ids_arrary);
 				}
 
