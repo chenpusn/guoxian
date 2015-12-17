@@ -15,13 +15,13 @@ class OrderController extends BaseController {
 
 		$seachDate = new \DateTime();
 
-		$this->assign('searchDate', $seachDate);
+		$this->assign('search_date', $seachDate);
 
 		//$map ['token'] = get_token ();
 		//$map ['shop_id'] = $this->shop_id;
-		$search=$_REQUEST['order_number'];
+		/*$search=$_REQUEST['order_number'];
 		if ($search) {
-		    /*$this->assign ( 'search', $search );
+		    $this->assign ( 'search', $search );
 		    $map1 ['nickname'] = array (
 		        'like',
 		        '%' . htmlspecialchars ( $search ) . '%'
@@ -39,10 +39,8 @@ class OrderController extends BaseController {
 		          '%' . htmlspecialchars ( $search ) . '%'
 		        );
 		    }
-		    unset ( $_REQUEST ['order_number'] );*/
-
-
-		}
+		    unset ( $_REQUEST ['order_number'] );
+		}*/
 		//session ( 'common_condition', $map );
 		$list_data = $this->_get_model_list ( $this->model );
 		// 分类数据
