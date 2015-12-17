@@ -23,7 +23,7 @@ class OrderController extends BaseController {
 		$search_item['end_time'] = "2015-12-17";
 		$muti_search[] = $search_item;
 
-		$this->assign('muti_search', true);
+		$this->assign('muti_search', $muti_search);
 
 		$map ['token'] = get_token ();
 		$map ['shop_id'] = $this->shop_id;
