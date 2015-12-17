@@ -14,8 +14,8 @@ class OrderController extends BaseController {
 	public function lists() {
 		try{
 			/*D ( 'Addons://Shop/Order' )->autoSetFinish ();*/
-			/*$orderDao = D ( 'Addons://Shop/Order' );
-			if(IS_POST){
+			$orderDao = D ( 'Addons://Shop/Order' );
+			/*if(IS_POST){
 				$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
 				$searchKeyword = empty(I('search_keyword'))?'':'&search_keyword='.I('search_keyword');
 
