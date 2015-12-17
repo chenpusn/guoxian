@@ -28,17 +28,17 @@
                             </div>
                         </empty>
                     </div>
+                    <php> $get_param[model]=$model['name']; $search_url || $search_url =
+                        addons_url($_REQUEST ['_addons'].'://'.$_REQUEST ['_controller'].'/lists',
+                        $get_param);
+                    </php>
+                    <php>empty($search_key) && $search_key=$model['search_key'];empty($search_key) &&
+                        $search_key='title';
+                    </php>
                     <!-- 高级搜索 -->
                     <if condition="$search_button">
                         <div class="search-form fr cf">
                             <div class="sleft">
-                                <php> $get_param[model]=$model['name']; $search_url || $search_url =
-                                    addons_url($_REQUEST ['_addons'].'://'.$_REQUEST ['_controller'].'/lists',
-                                    $get_param);
-                                </php>
-                                <php>empty($search_key) && $search_key=$model['search_key'];empty($search_key) &&
-                                    $search_key='title';
-                                </php>
                                 <input type="text" name="{$search_key}" class="search-input" value="{:I($search_key)}"
                                        placeholder="{$placeholder}">
                                 <a class="sch-btn" href="javascript:;" id="search" url="{$search_url}"><i
@@ -94,7 +94,7 @@
                                 </volist>
 
                                 <!-- <a class="sort " href="#" title="排序">排序:高->低</a> -->
-                                <button type="button" class="sch-btn btn" href="javascript:;" id="search">搜索</button>
+                                <button type="button" class="sch-btn btn" href="javascript:;" id="search" url="{$search_url}">搜索</button>
                             </div>
                         </form>
                     </notempty>
