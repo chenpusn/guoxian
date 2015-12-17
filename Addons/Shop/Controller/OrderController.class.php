@@ -31,7 +31,7 @@ class OrderController extends BaseController {
 				$this->assign('search_keyword', $searchKeyword);
 			}*/
 
-			if(!empty($user_ids_arrary)){
+			/*if(!empty($user_ids_arrary)){
 				$filter_order['uid'] = array('IN', $user_ids_arrary);
 			}
 
@@ -47,7 +47,7 @@ class OrderController extends BaseController {
 
 			}else{
 				$order_lists = $orderDao->where($filter_order)->select();
-			}
+			}*/
 		}
 
 		foreach ( $order_lists as &$vo ) {
