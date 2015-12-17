@@ -16,7 +16,7 @@ class OrderController extends BaseController {
 		$this->assign ( 'del_button', false );
 		$this->assign ( 'check_all', false );
 		$this->assign('search_button', true);
-
+		$this->assign('check_all', true);
 		$search_item['type'] = "datetime";
 		$search_item['title'] = "下单时间";
 		$search_item['start_time'] = "2015-12-15";
