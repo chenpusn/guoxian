@@ -5,26 +5,25 @@
             <include file="Addons/_nav"/>
             <div class="table-bar">
                 <!-- 多维过滤 -->
-                <notempty name="muti_search">
-                    <form class="muti_search cf" style="text-align: right " method="post" action="{:addons_url('Shop://Order/lists')}">
-                        <div class="" style="line-height: 30px;">
-                            <span>订单日期</span>
-                            <input type="datetime" name="search_date"
-                                   class="search-input date input-small" value="{$search_date}"
-                                   placeholder="2015-12-11">
-                            <span>客户信息</span>
-                            <input type="text" name="search_key"
-                                   class="search-input date input-small" value="{$search_keyword}"
-                                   placeholder="请输入客户姓名 或者 手机号码">
+                <form class="muti_search cf" style="text-align: right " method="post"
+                      action="{:addons_url('Shop://Order/lists')}">
+                    <div class="" style="line-height: 30px;">
+                        <span>订单日期</span>
+                        <input type="datetime" name="search_date"
+                               class="search-input date input-small" value="{$search_date}"
+                               placeholder="2015-12-11">
+                        <span>客户信息</span>
+                        <input type="text" name="search_key"
+                               class="search-input date input-small" value="{$search_keyword}"
+                               placeholder="请输入客户姓名 或者 手机号码">
 
 
-                            <!-- <a class="sort " href="#" title="排序">排序:高->低</a> -->
-                            <button type="submit" class="sch-btn btn" id="searchBtn"
-                                    style="width: 5rem">搜索
-                            </button>
-                        </div>
-                    </form>
-                </notempty>
+                        <!-- <a class="sort " href="#" title="排序">排序:高->低</a> -->
+                        <button type="submit" class="sch-btn btn" id="searchBtn"
+                                style="width: 5rem">搜索
+                        </button>
+                    </div>
+                </form>
             </div>
 
             <!-- 数据列表 -->
