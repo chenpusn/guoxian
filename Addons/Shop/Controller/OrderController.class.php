@@ -16,6 +16,13 @@ class OrderController extends BaseController {
 		$this->assign ( 'del_button', false );
 		$this->assign ( 'check_all', false );
 		$this->assign('search_button', true);
+
+		$search_item['type'] = "datetime";
+		$search_item['title'] = "下单时间";
+		$search_item['start_time'] = "2015-12-15";
+		$search_item['end_time'] = "2015-12-17";
+		$muti_search[] = $search_item;
+
 		$this->assign('muti_search', true);
 
 		$map ['token'] = get_token ();
