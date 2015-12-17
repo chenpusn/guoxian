@@ -2,6 +2,8 @@
 
 namespace Addons\Shop\Controller;
 
+use Think\Exception;
+
 class OrderController extends BaseController {
 	var $model;
 	function _initialize() {
@@ -10,85 +12,89 @@ class OrderController extends BaseController {
 	}
 	// 通用插件的列表模型
 	public function lists() {
-		D ( 'Addons://Shop/Order' )->autoSetFinish ();
-		$orderDao = D ( 'Addons://Shop/Order' );
-		if(IS_POST){
-			$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
-			$searchKeyword = empty(I('search_keyword'))?'':'&search_keyword='.I('search_keyword');
+		try{
+			D ( 'Addons://Shop/Order' )->autoSetFinish ();
+			$orderDao = D ( 'Addons://Shop/Order' );
+			if(IS_POST){
+				$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
+				$searchKeyword = empty(I('search_keyword'))?'':'&search_keyword='.I('search_keyword');
 
 
-			redirect('index.php/addon/Shop/Order/lists.html?'.'search_date='.$searchDate.$searchKeyword);
+				redirect('index.php/addon/Shop/Order/lists.html?'.'search_date='.$searchDate.$searchKeyword);
+			}
+			else{
+				$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
+				$searchKeyword = I('search_keyword');
+				$user_ids_arrary = '';
+				if(!empty($searchKeyword)){
+					$fileter['true_name'] = array('like', '%' . htmlspecialchars ( $searchKeyword ) . '%');
+					$fileter['mobile'] = array('like', '%' . htmlspecialchars ( $searchKeyword ) . '%');
+					$fileter['_logic'] = 'OR';
+					$user_ids_arrary = D ( 'Common/shop_address' )->where ( $fileter )->getFields ( 'id' );
+					$this->assign('search_keyword', $searchKeyword);
+				}
+				if(!empty($user_ids_arrary)){
+					$filter_order['uid'] = array('IN', $user_ids_arrary);
+				}
+
+				if(!empty($searchDate)){
+					$search_date_timestamp = strtotime($searchDate);
+					$search_date_add_day_timestamp = strtotime('+1 day', $search_date_timestamp);
+					$filter_order['cTime'] = array('between', array($search_date_timestamp, $search_date_add_day_timestamp));
+					$this->assign('search_date', $searchDate);
+				}
+
+				if(!empty($searchKeyword) && empty($user_ids_arrary)){
+					// 按关键字查询无结果
+
+				}else{
+					$order_lists = $orderDao->where($filter_order)->select();
+				}
+			}
+			foreach ( $order_lists as &$vo ) {
+				$param ['id'] = $vo ['id'];
+
+				$order = $orderDao->getInfo ( $vo ['id'] );
+				// dump($order);
+				$vo = array_merge ( $vo, $order );
+				$follow = get_followinfo ( $vo ['uid'] );
+				$param2 ['uid'] = $follow ['uid'];
+
+				//$vo ['cate_id'] = intval ( $vo ['cate_id'] );
+				//$vo ['cate_id'] = $cate [$vo ['cate_id']];
+
+				$goods = json_decode ( $order ['goods_datas'], true );
+				foreach ( $goods as $vv ) {
+					//$vo ['goods'] .= '<img width="50" style="vertical-align:middle;margin:0 10px 0 0" src="' . get_cover_url ( $vv ['cover'] ) . '"/>' . $vv ['title'] . '<br><br>';
+					$vo ['goods'] .= $vv ['title']. '数量:' .$vv ['num']. '<br/>';
+				}
+				$vo ['goods'] = rtrim ( $vo ['goods'], '<br><br>' );
+
+				$vo ['order_number'] = '<a href="' . addons_url ( 'Shop://Order/detail', $param ) . '">' . $vo ['order_number'] . '</a>';
+
+				$vo ['action'] = '<a href="' . addons_url ( 'Shop://Order/detail', $param ) . '">详情</a>';
+				if ($vo ['status_code'] == 1) {
+					$vo ['action'] .= '<br><br><a href="' . addons_url ( 'Shop://Order/set_confirm', $param ) . '">商家确认</a>';
+				}
+				$addressInfo = D ( 'Addons://Shop/Address' )->getInfo ( $order['uid'] );
+				//$vo ['uid'] = '<a target="_blank" href="' . addons_url ( 'UserCenter://UserCenter/detail', $param2 ) . '">' . $follow ['nickname'] . '</a>';
+				$vo ['uid'] =  $addressInfo['truename'].'<br/>'.$addressInfo['mobile'];
+			}
+			// dump($list_data ['list_data'] );
+
+			$title_list = array('订单编号','下单商品','下单人','总价','下单时间','支付类型','订单跟踪');
+
+			$this->assign ( 'title_lists',$title_list );
+			$this->assign ( 'order_lists',$order_lists );
+			// dump ( $list_data );
+
+			//$templateFile = $this->model ['template_list'] ? $this->model ['template_list'] : '';
+			$this->display ();
 		}
-		else{
-			/*$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
-			$searchKeyword = I('search_keyword');
-			$user_ids_arrary = '';
-			if(!empty($searchKeyword)){
-				$fileter['true_name'] = array('like', '%' . htmlspecialchars ( $searchKeyword ) . '%');
-				$fileter['mobile'] = array('like', '%' . htmlspecialchars ( $searchKeyword ) . '%');
-				$fileter['_logic'] = 'OR';
-				$user_ids_arrary = D ( 'Common/shop_address' )->where ( $fileter )->getFields ( 'id' );
-				$this->assign('search_keyword', $searchKeyword);
-			}*/
-
-			/*if(!empty($user_ids_arrary)){
-				$filter_order['uid'] = array('IN', $user_ids_arrary);
-			}
-
-			if(!empty($searchDate)){
-				$search_date_timestamp = strtotime($searchDate);
-				$search_date_add_day_timestamp = strtotime('+1 day', $search_date_timestamp);
-				$filter_order['cTime'] = array('between', array($search_date_timestamp, $search_date_add_day_timestamp));
-				$this->assign('search_date', $searchDate);
-			}
-
-			if(!empty($searchKeyword) && empty($user_ids_arrary)){
-				// 按关键字查询无结果
-
-			}else{
-				$order_lists = $orderDao->where($filter_order)->select();
-			}*/
+		catch(Exception $e)
+		{
+			echo $e->getMessage();
 		}
-		$order_lists = $orderDao->where()->select();
-		foreach ( $order_lists as &$vo ) {
-			$param ['id'] = $vo ['id'];
-			
-			$order = $orderDao->getInfo ( $vo ['id'] );
-			// dump($order);
-			$vo = array_merge ( $vo, $order );
-			$follow = get_followinfo ( $vo ['uid'] );
-			$param2 ['uid'] = $follow ['uid'];
-
-			//$vo ['cate_id'] = intval ( $vo ['cate_id'] );
-			//$vo ['cate_id'] = $cate [$vo ['cate_id']];
-			
-			$goods = json_decode ( $order ['goods_datas'], true );
-			foreach ( $goods as $vv ) {
-				//$vo ['goods'] .= '<img width="50" style="vertical-align:middle;margin:0 10px 0 0" src="' . get_cover_url ( $vv ['cover'] ) . '"/>' . $vv ['title'] . '<br><br>';
-				$vo ['goods'] .= $vv ['title']. '数量:' .$vv ['num']. '<br/>';
-			}
-			$vo ['goods'] = rtrim ( $vo ['goods'], '<br><br>' );
-			
-			$vo ['order_number'] = '<a href="' . addons_url ( 'Shop://Order/detail', $param ) . '">' . $vo ['order_number'] . '</a>';
-			
-			$vo ['action'] = '<a href="' . addons_url ( 'Shop://Order/detail', $param ) . '">详情</a>';
-			if ($vo ['status_code'] == 1) {
-				$vo ['action'] .= '<br><br><a href="' . addons_url ( 'Shop://Order/set_confirm', $param ) . '">商家确认</a>';
-			}
-			$addressInfo = D ( 'Addons://Shop/Address' )->getInfo ( $order['uid'] );
-			//$vo ['uid'] = '<a target="_blank" href="' . addons_url ( 'UserCenter://UserCenter/detail', $param2 ) . '">' . $follow ['nickname'] . '</a>';
-			$vo ['uid'] =  $addressInfo['truename'].'<br/>'.$addressInfo['mobile'];
-		}
-		// dump($list_data ['list_data'] );
-
-		$title_list = array('订单编号','下单商品','下单人','总价','下单时间','支付类型','订单跟踪');
-
-		$this->assign ( 'title_lists',$title_list );
-		$this->assign ( 'order_lists',$order_lists );
-		// dump ( $list_data );
-		
-		//$templateFile = $this->model ['template_list'] ? $this->model ['template_list'] : '';
-		$this->display ();
 	}
 
 	// 通用插件的编辑模型
