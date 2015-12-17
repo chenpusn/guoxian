@@ -49,7 +49,7 @@ class OrderController extends BaseController {
 				$order_lists = $orderDao->where($filter_order)->select();
 			}*/
 		}
-
+		$order_lists = $orderDao->where()->select();
 		foreach ( $order_lists as &$vo ) {
 			$param ['id'] = $vo ['id'];
 			
