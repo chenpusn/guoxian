@@ -10,7 +10,7 @@ class OrderController extends BaseController {
 	}
 	// 通用插件的列表模型
 	public function lists() {
-		D ( 'Addons://Shop/Order' )->autoSetFinish ();
+		/*D ( 'Addons://Shop/Order' )->autoSetFinish ();
 		$orderDao = D ( 'Addons://Shop/Order' );
 		if(IS_POST){
 			$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
@@ -84,7 +84,7 @@ class OrderController extends BaseController {
 		$title_list = array('订单编号','下单商品','下单人','总价','下单时间','支付类型','订单跟踪');
 
 		$this->assign ( 'title_lists',$title_list );
-		$this->assign ( 'order_lists',$order_lists );
+		$this->assign ( 'order_lists',$order_lists );*/
 		// dump ( $list_data );
 		
 		//$templateFile = $this->model ['template_list'] ? $this->model ['template_list'] : '';
