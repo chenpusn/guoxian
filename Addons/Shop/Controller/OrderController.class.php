@@ -15,7 +15,7 @@ class OrderController extends BaseController {
 		$this->assign ( 'add_button', false );
 		$this->assign ( 'del_button', false );
 		$this->assign ( 'check_all', false );
-		//$this->assign('search_button', true);
+		$this->assign('search_button', false);
 		//$this->assign('check_all', true);
 		$search_item['type'] = "datetime";
 		$search_item['title'] = "下单时间";
@@ -51,7 +51,7 @@ class OrderController extends BaseController {
 
 
 		}
-		session ( 'common_condition', $map );
+		//session ( 'common_condition', $map );
 		$list_data = $this->_get_model_list ( $this->model );
 		// 分类数据
 		$map ['is_show'] = 1;
