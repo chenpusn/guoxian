@@ -13,24 +13,19 @@ class OrderController extends BaseController {
 	// 通用插件的列表模型
 	public function lists() {
 		try{
-			/*D ( 'Addons://Shop/Order' )->autoSetFinish ();*/
+			D ( 'Addons://Shop/Order' )->autoSetFinish ();
 			$orderDao = D ( 'Addons://Shop/Order' );
 			if(IS_POST){
-				/*$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
-				$searchKeyword = empty(I('search_keyword'))?'':'&search_keyword='.I('search_keyword');
+				$searchDate = I('search_date')? date('Y-n-d'): I('search_date');
+				$searchKeyword = I('search_keyword')?'':'&search_keyword='.I('search_keyword');
 
 
-				redirect('index.php/addon/Shop/Order/lists.html?'.'search_date='.$searchDate.$searchKeyword);*/
+				redirect('index.php/addon/Shop/Order/lists.html?'.'search_date='.$searchDate.$searchKeyword);
 			}
 			else{
 				$searchDate = I('search_date')? date('Y-n-d'): I('search_date');
-				//if(I('search_date')){
-					//$searchDate = date('Y-n-d');
-				//}
-				//else{
-					//$searchDate = I('search_date');
-				//}
-				/*$searchKeyword = I('search_keyword');
+
+				$searchKeyword = I('search_keyword');
 				$user_ids_arrary = '';
 				if(!empty($searchKeyword)){
 					$fileter['true_name'] = array('like', '%' . htmlspecialchars ( $searchKeyword ) . '%');
@@ -54,10 +49,10 @@ class OrderController extends BaseController {
 
 				}else{
 					$order_lists = $orderDao->where($filter_order)->select();
-				}*/
+				}
 			}
 
-			/*foreach ( $order_lists as &$vo ) {
+			foreach ( $order_lists as &$vo ) {
 				$param ['id'] = $vo ['id'];
 
 				$order = $orderDao->getInfo ( $vo ['id'] );
@@ -85,7 +80,7 @@ class OrderController extends BaseController {
 				$addressInfo = D ( 'Addons://Shop/Address' )->getInfo ( $order['uid'] );
 				//$vo ['uid'] = '<a target="_blank" href="' . addons_url ( 'UserCenter://UserCenter/detail', $param2 ) . '">' . $follow ['nickname'] . '</a>';
 				$vo ['uid'] =  $addressInfo['truename'].'<br/>'.$addressInfo['mobile'];
-			}*/
+			}
 			// dump($list_data ['list_data'] );
 
 			$title_list = array('订单编号','下单商品','下单人','总价','下单时间','支付类型','订单跟踪');
