@@ -3493,3 +3493,56 @@ function getQianFangOrderToken($total_amt, $out_sn)
 	}
 	return $qianfang_order_token;
 }
+
+function getNamebyPayStatus($statusCode){
+	switch ($statusCode) {
+		//钱方支付返回类型
+		//https://support.qfpay.com/qiantai/API/OnlinePayAPI.html
+		case 1 : // 支付宝
+			$statusName = '支付宝';
+			break;
+		case 2 : // 微信支付
+			$statusName = '微信支付';
+			break;
+		case 3 : // 银联
+			$statusName = '银联';
+			break;
+		case 4 : // QPOS线下付款
+			$statusName = 'QPOS线下付款';
+			break;
+		case 5 :
+			$statusName = '货到付款';
+			break;
+		default:
+			$statusName = '未支付';
+			break;
+	}
+	return $statusName;
+}
+
+function getNamebyOrderStatus($statusCode){
+	switch ($statusCode) {
+		case 1 :
+			$statusName = '新建';
+			break;
+		case 2 :
+			$statusName = '已付款->待配货';
+			break;
+		case 3 :
+			$statusName = '已配货';
+			break;
+		case 4 :
+			$statusName = '已到货->待取货';
+			break;
+		case 5 :
+			$statusName = '已取货->待评价';
+			break;
+		case 6 :
+			$statusName = '已评价';
+			break;
+		case -1 :
+			$statusName = '取消';
+			break;
+	}
+	return $statusName;
+}

@@ -275,17 +275,23 @@ class UserController extends AddonsController
         $save['pay_time'] = $pay_time;
 
         $res = D ( 'Addons://Shop/Order' )->update ( $orderInfo[0]["id"], $save );
-        if(I('status') == 2){
-            D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 5);
-            D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], 5, I('get.'), '订单状态');
+        switch(I('status')){
+            case 2:
+                D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 2);
+                D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], 2, I('get.'), '订单状态'.getNamebyOrderStatus(2));
+                break;
+            case 3:
+                D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], -1);
+                D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], -1, I('get.'), '订单状态'.getNamebyOrderStatus(-1));
+                break;
+            case 1:
+                D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 1);
+                D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], 1, I('get.'), '订单状态'.getNamebyOrderStatus(1));
+                break;
         }
-        D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], I('status'), json_encode(I('get.')), '支付状态');
 
-        /*trace(I('?status'), "status", 'user');
-        trace(I('status'), "status", 'user');
-        trace($_GET['status'], "status", 'user');
-        trace(I('get.status'), "status", 'user');
-        trace(I('get.'), "status", 'user');*/
+        D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], I('status'), json_encode(I('get.')), '支付状态'.getNamebyPayStatus(I('status')));
+
 
         $this->assign('feedback', $feedback);
         $this->display();

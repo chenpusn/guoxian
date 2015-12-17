@@ -11,48 +11,46 @@ class OrderController extends BaseController {
 	// 通用插件的列表模型
 	public function lists() {
 		D ( 'Addons://Shop/Order' )->autoSetFinish ();
-
-
-		$seachDate = new \DateTime();
-
-		$this->assign('search_date', $seachDate);
-
-		//$map ['token'] = get_token ();
-		//$map ['shop_id'] = $this->shop_id;
-		/*$search=$_REQUEST['order_number'];
-		if ($search) {
-		    $this->assign ( 'search', $search );
-		    $map1 ['nickname'] = array (
-		        'like',
-		        '%' . htmlspecialchars ( $search ) . '%'
-		    );
-		    $nickname_follow_ids = D ( 'Common/User' )->where ( $map1 )->getFields ( 'uid' );
-		    $nickname_follow_ids = implode ( ',', $nickname_follow_ids );
-		    if (! empty ( $nickname_follow_ids )) {
-		        $map ['uid'] = array (
-		            'exp',
-		            ' in (' . $nickname_follow_ids . ') '
-		        );
-		    } else {
-		        $map ['order_number'] = array (
-		          'like',
-		          '%' . htmlspecialchars ( $search ) . '%'
-		        );
-		    }
-		    unset ( $_REQUEST ['order_number'] );
-		}*/
-		//session ( 'common_condition', $map );
-		$list_data = $this->_get_model_list ( $this->model );
-		// 分类数据
-		//$map ['is_show'] = 1;
-		//$list = M ( 'weisite_category' )->where ( $map )->field ( 'id,title' )->select ();
-		//$cate [0] = '';
-		//foreach ( $list as $vo ) {
-		//	$cate [$vo ['id']] = $vo ['title'];
-		//}
 		$orderDao = D ( 'Addons://Shop/Order' );
-		// dump($list_data ['list_data']);
-		foreach ( $list_data ['list_data'] as &$vo ) {
+		if(IS_POST){
+			$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
+			$searchKeyword = empty(I('search_keyword'))?'':'&search_keyword='.I('search_keyword');
+
+
+			redirect('index.php/addon/Shop/Order/lists.html?'.'search_date='.$searchDate.$searchKeyword);
+		}
+		else{
+			$searchDate = empty(I('search_date'))? date('Y-n-d'): I('search_date');
+			$searchKeyword = I('search_keyword');
+			$user_ids_arrary = '';
+			if(!empty($searchKeyword)){
+				$fileter['true_name'] = array('like', '%' . htmlspecialchars ( $searchKeyword ) . '%');
+				$fileter['mobile'] = array('like', '%' . htmlspecialchars ( $searchKeyword ) . '%');
+				$fileter['_logic'] = 'OR';
+				$user_ids_arrary = D ( 'Common/shop_address' )->where ( $fileter )->getFields ( 'id' );
+				$this->assign('search_keyword', $searchKeyword);
+			}
+
+			if(!empty($user_ids_arrary)){
+				$filter_order['uid'] = array('IN', $user_ids_arrary);
+			}
+
+			if(!empty($searchDate)){
+				$search_date_timestamp = strtotime($searchDate);
+				$search_date_add_day_timestamp = strtotime('+1 day', $search_date_timestamp);
+				$filter_order['cTime'] = array('between', array($search_date_timestamp, $search_date_add_day_timestamp));
+				$this->assign('search_date', $searchDate);
+			}
+
+			if(!empty($searchKeyword) && empty($user_ids_arrary)){
+				// 按关键字查询无结果
+
+			}else{
+				$order_lists = $orderDao->where($filter_order)->select();
+			}
+		}
+
+		foreach ( $order_lists as &$vo ) {
 			$param ['id'] = $vo ['id'];
 			
 			$order = $orderDao->getInfo ( $vo ['id'] );
@@ -82,12 +80,17 @@ class OrderController extends BaseController {
 			$vo ['uid'] =  $addressInfo['truename'].'<br/>'.$addressInfo['mobile'];
 		}
 		// dump($list_data ['list_data'] );
-		$this->assign ( $list_data );
+
+		$title_list = array('订单编号','下单商品','下单人','总价','下单时间','支付类型','订单跟踪');
+
+		$this->assign ( 'title_lists',$title_list );
+		$this->assign ( 'order_lists',$order_lists );
 		// dump ( $list_data );
 		
 		$templateFile = $this->model ['template_list'] ? $this->model ['template_list'] : '';
 		$this->display ( $templateFile );
 	}
+
 	// 通用插件的编辑模型
 	public function edit() {
 		$model = $this->model;
