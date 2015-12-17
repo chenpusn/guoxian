@@ -87,8 +87,8 @@ class OrderController extends BaseController {
 		$this->assign ( 'order_lists',$order_lists );
 		// dump ( $list_data );
 		
-		$templateFile = $this->model ['template_list'] ? $this->model ['template_list'] : '';
-		$this->display ( $templateFile );
+		//$templateFile = $this->model ['template_list'] ? $this->model ['template_list'] : '';
+		$this->display ();
 	}
 
 	// 通用插件的编辑模型
