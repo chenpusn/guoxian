@@ -16,7 +16,7 @@ class OrderController extends BaseController {
 			$orderDao = D ( 'Addons://Shop/Order' );
 			if(IS_POST){
 				$searchDate = I('search_date')?  I('search_date') : date('Y-n-d');
-				$searchKeyword = I('search_keyword')?'':'&search_keyword='.I('search_keyword');
+				$searchKeyword = I('search_keyword')?'&search_keyword='.I('search_keyword'):'';
 
 
 				redirect('index.php/addon/Shop/Order/lists.html?'.'search_date='.$searchDate.$searchKeyword);
