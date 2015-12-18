@@ -3411,6 +3411,8 @@ function getQianfangToken($out_user, $mobile)
 		}
 		else{
 			$err = '访问服务器出错:'.curl_error($curl);
+			trace($err, "qianfangToken error", 'user');
+
 			$qianfang_token = 0;
 		}
 		curl_close($curl);

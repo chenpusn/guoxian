@@ -253,7 +253,7 @@ class UserController extends AddonsController
             echo '信息错误';
         }
         else{
-            $mobile = $accountInfo[0]['mobile'];
+            $mobile = $accountInfo['mobile'];
             trace($outUser, "outUser", 'user');
             trace($mobile, "mobile", 'user');
             $qianfangToken = getQianfangToken($outUser, $mobile);
