@@ -14,6 +14,7 @@
 </nav>
 <div class="mui-bar mui-bar-nav">
     <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
     <h1 class="mui-title">确认订单</h1>
 </div>
 <div class="mui-content" style="padding-top: 2rem">
@@ -42,45 +43,63 @@
             <textarea name="remark" id="remark" rows="5" style="margin: 0"
                       placeholder="欢迎给我们留言，提供您的意见和建议，我们将竭诚为您提供最优服务。"></textarea>
         </li>
-        <li class="mui-table-view-cell mui-media cart_item">提货地址:华北电力大学1食堂三楼好之味餐厅前台</li>
     </ul>
+    <div class="mui-card">
+        <div class="mui-input-group">
+            <volist name="fetch_address" id="address">
+                <div class="mui-input-row mui-radio">
+                    <label>{$address.school} {$address.intro}</label>
+                    <input name="{$address.id}" type="radio">
+                </div>
+            </volist>
+        </div>
+    </div>
 </div>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js"></script>
 <script type="text/javascript">
     mui.init();
+    var seletedAddressId;
+    document.querySelector('.mui-input-group.mui-radio').addEventListener('selected',function(e){
+        seletedAddressId = e.detail.el.id;
+    });
 
     var submitOrderTab = document.getElementById("submitOrderTab");
-    submitOrderTab.addEventListener("tap", function(){
+    submitOrderTab.addEventListener("tap", function () {
         /*var address_id = $('#address_id').val();
          if (address_id == '') {
          $.Dialog.fail("请选择收货地址");
          return false;
          }*/
-        var remark = $('#remark').val();
-        var createorderUrl = "{:U('createOrder')}";
-        mui.ajax(createorderUrl,{
-            data:{
-                address_id: '',
-                remark:remark
-            },
-            dataType:'json',
-            type:'post',
-            timeout:10000, //10秒
-            success: function (response) {
-                var orderid = parseInt(response);
-                if (orderid == 0) {
-                    mui.toast('提交订单失败，请重新尝试'+response);
-                } else {
-                    var payUrl = "{:U('qianfangPay')}&order_id=" + orderid;
-                    window.location.href = payUrl;
+
+        if(seletedAddressId > 0){
+            var remark = $('#remark').val();
+            var createorderUrl = "{:U('createOrder')}";
+            mui.ajax(createorderUrl, {
+                data: {
+                    address_id: seletedAddressId,
+                    remark: remark
+                },
+                dataType: 'json',
+                type: 'post',
+                timeout: 10000, //10秒
+                success: function (response) {
+                    var orderid = parseInt(response);
+                    if (orderid == 0) {
+                        mui.toast('提交订单失败，请重新尝试' + response);
+                    } else {
+                        var payUrl = "{:U('qianfangPay')}&order_id=" + orderid;
+                        window.location.href = payUrl;
+                    }
+                },
+                error: function (xhr, type, errorThrown) {
+                    mui.toast('提交订单失败，请重新尝试' + errorThrown);
+                    console.log(type);
                 }
-            },
-            error:function(xhr,type,errorThrown){
-                mui.toast('提交订单失败，请重新尝试'+errorThrown);
-                console.log(type);
-            }
-        });
+            });
+        }else{
+            mui.alert('请就近选择一个提货点','提示',function(){});
+        }
     });
 </script>
 </body>

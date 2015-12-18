@@ -148,6 +148,12 @@ class UserController extends AddonsController
         }
 
         $this->assign($data);
+
+        $map['id'] = array('GT', 1);
+        $fetchGoodsAddress = D ( 'Shop' )->where($map)->select();
+
+        $this->assign('fetch_address', $fetchGoodsAddress);
+
         // 收货地址
         /*if (isset ($_GET ['address_id'])) {
             $address = D('Address')->getInfo(I('get.address_id'));
@@ -163,7 +169,7 @@ class UserController extends AddonsController
     function createOrder()
     {
         if($this->userID){
-            $data ['address_id'] = 1; // TODOCHENPU: 需改为用户在终端选择的分店提货点//$this->mid; //I('address_id');
+            $data ['address_id'] = I('address_id'); // TODOCHENPU: 需改为用户在终端选择的分店提货点//$this->mid; //I('address_id');
             $data ['remark'] = I('remark');
             $data ['uid'] = $this->userID;
 
