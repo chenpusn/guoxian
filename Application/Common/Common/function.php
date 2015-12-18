@@ -3494,6 +3494,8 @@ function getQianFangOrderToken($total_amt, $out_sn)
 	return $qianfang_order_token;
 }
 
+// 2015-12-17: CHEN PU
+// 支付状态
 function getNamebyPayStatus($statusCode){
 	switch ($statusCode) {
 		//钱方支付返回类型
@@ -3520,6 +3522,8 @@ function getNamebyPayStatus($statusCode){
 	return $statusName;
 }
 
+// 2015-12-17: CHEN PU
+// 订单状态
 function getNamebyOrderStatus($statusCode){
 	switch ($statusCode) {
 		case 1 :
@@ -3547,6 +3551,8 @@ function getNamebyOrderStatus($statusCode){
 	return $statusName;
 }
 
+// 2015-12-18: CHEN PU
+// 提货点所在区域
 function getZeraNameByID($zeraID){
 	switch ($zeraID) {
 		case 1 :
@@ -3565,6 +3571,8 @@ function getZeraNameByID($zeraID){
 	return $zeraName;
 }
 
+// 2015-12-18：CHEN PU
+// 提货点所在城市
 function getCityNameByID($cityID){
 	switch($cityID){
 		case 1:
@@ -3580,6 +3588,8 @@ function getCityNameByID($cityID){
 	return $cityName;
 }
 
+// 2015-12-18: CHEN PU
+// 商品属性
 function getGoodsPropertyByID($propertyID){
 	switch($propertyID){
 		case 0:
@@ -3597,3 +3607,4 @@ function getGoodsPropertyByID($propertyID){
 	}
 	return $propertyName;
 }
+
