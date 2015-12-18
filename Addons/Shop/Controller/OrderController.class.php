@@ -245,7 +245,6 @@ class OrderController extends BaseController {
 		echo $html;
 	}
 
-
 	function set_pay_status() {
 		$id = I ( 'id' );
 		$save ['pay_status'] = 1;

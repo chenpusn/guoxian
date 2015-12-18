@@ -3608,3 +3608,19 @@ function getGoodsPropertyByID($propertyID){
 	return $propertyName;
 }
 
+// 2015-12-18： CHEN PU
+// 商品规格
+function getSpecUnitByID($specID){
+	switch($specID){
+		case 1:
+			$specName = "个";
+			break;
+		case 2:
+			$specName = "两";
+			break;
+		case 3:
+			$specName = "斤";
+			break;
+	}
+	return $specName;
+}
