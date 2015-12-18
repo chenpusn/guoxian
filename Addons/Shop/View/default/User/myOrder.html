@@ -1,0 +1,33 @@
+<include file="./Addons/Shop/View/default/User/_head.html"/>
+<style type="text/css">
+
+
+</style>
+<body>
+<div class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
+    <h1 class="mui-title">我的订单</h1>
+</div>
+<div class="mui-content" style="padding-top: 3.75rem">
+    <ul class="mui-table-view">
+       <li class="mui-table-view-cell mui-media">
+           <div class="mui-table">
+               <div class="mui-table-cell">
+                   {$lists['order_number']}
+               </div>
+           </div>
+       </li>
+    </ul>
+</div>
+<include file="./Addons/Shop/View/default/User/_footer.html"/>
+
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript">
+    mui.init({});
+
+
+</script>
+</body>
+</html>

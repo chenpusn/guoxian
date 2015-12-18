@@ -15,8 +15,8 @@ class UserController extends AddonsController
 
         // 本地未绑定用户信息 如果是需要用户信息的操作 则转至用户新绑定页面
         if(!cookie($this->SHOP_COOKIE_NAME.C('SITE_VERSION'))){
-            $actionsNeedLogin = array('myCart');
-            if (in_array(_ACTION, $actionsNeedLogin)){
+            $actionsNotNeedLogin = array('index', 'bindUser');
+            if (!in_array(_ACTION, $actionsNotNeedLogin)){
                 $this->redirect("bindUser");
             }
         }
@@ -57,9 +57,13 @@ class UserController extends AddonsController
         $this->display();
     }
 
+    #region 账号信息
+    // 2015-12-19 CHEN PU
+    // 个人信息页
     function me(){
+        $user = D('ShopUser')->getAccount($this->userID);
 
-
+        $this->assign('user', $user);
 
         $this->display();
     }
@@ -83,6 +87,15 @@ class UserController extends AddonsController
         }
     }
 
+    // CHEN PU: 2015/12/19 解除绑定用户信息
+    function unbind(){
+        if(IS_POST){
+            cookie(null);
+        }
+    }
+    #endregion
+
+    #region 购物车
     function addToCart(){
         $goods ['goods_id'] = I('goodsId');
         $info = D('goods')->getInfo($goods ['goods_id']);
@@ -119,6 +132,26 @@ class UserController extends AddonsController
     {
         $ids = I('ids');
         echo D('Cart')->delCart($ids);
+    }
+    #endregion
+
+    #region 订单支付
+    function myOrder(){
+        $map['uid'] = $this->userID;
+        $orderLists = D('Order')->where($map)->order('id desc')->select();
+
+        foreach($orderLists as $order){
+            $result['order_id'] = $order['id'];
+            $result['order_number'] = $order['order_number'];
+            $result['order_date'] = time_format($order['cTime']);
+            $result['order_paystatus'] = getNamebyPayStatus($order['pay_status']);
+            $result['order_status'] = getNamebyOrderStatus($order['status_code']);
+            $result['goods'] = json_decode($order['goods_datas'], true);
+        }
+
+        $this->assign('lists', $result);
+
+        $this->display();
     }
 
     function confirmOrder()
@@ -175,7 +208,7 @@ class UserController extends AddonsController
     // 生成订单
     function createOrder()
     {
-        if($this->userID){
+        if(IS_POST){
             $data ['address_id'] = I('address_id'); // TODOCHENPU: 需改为用户在终端选择的分店提货点//$this->mid; //I('address_id');
             $data ['remark'] = I('remark');
             $data ['uid'] = $this->userID;
@@ -311,6 +344,7 @@ class UserController extends AddonsController
         $this->assign('feedback', $feedback);
         $this->display();
     }
+    #endregion
 }
 
 ?>

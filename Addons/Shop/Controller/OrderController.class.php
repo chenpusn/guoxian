@@ -12,7 +12,7 @@ class OrderController extends BaseController {
 	}
 	// 通用插件的列表模型
 	public function lists() {
-			D ( 'Addons://Shop/Order' )->autoSetFinish ();
+			//D ( 'Addons://Shop/Order' )->autoSetFinish ();
 			$orderDao = D ( 'Addons://Shop/Order' );
 			if(IS_POST){
 				$searchDate = I('search_date')?  I('search_date') : date('Y-n-d');
@@ -333,4 +333,5 @@ class OrderController extends BaseController {
 			$this->display();
 		}
 	}
+
 }

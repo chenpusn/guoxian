@@ -1,12 +1,14 @@
 <include file="./Addons/Shop/View/default/User/_head.html"/>
 <style type="text/css">
-    .mui-input-row label {
-        width: 25%;
+    .mui-input-group .mui-input-row {
+        height: auto;
+        padding: 0.625rem 1.25rem;
+    }
+    .mui-input-group .mui-button-row{
+        height: auto;
+        padding: 0.625rem 1.25rem;
     }
 
-    .mui-input-row label ~ input {
-        width: 75%;
-    }
 </style>
 <body>
 <div class="mui-bar mui-bar-nav">
@@ -16,21 +18,21 @@
 </div>
 <div class="mui-content" style="padding-top: 3.75rem">
     <div class="mui-content-padded" style="margin: 5px;">
-        <form class="mui-input-group" action="{:U('unbind')}" method="get">
+        <div class="mui-input-group">
             <div class="mui-input-row">
                 <span>联系人:</span>
-                <span>{$truename}</span>
+                <span>{$user.truename}</span>
             </div>
             <div class="mui-input-row">
                 <span>手机号:</span>
-                <span>{$mobile}</span>
+                <span>{$user.mobile}</span>
             </div>
             <div class="mui-button-row">
                 <button type="button" class="mui-btn mui-btn-danger" onclick="javascript:history.go(-1)">返回首页</button>
                 &nbsp;&nbsp;
-                <button type="submit" class="mui-btn mui-btn-primary">解除绑定</button>
+                <button id="unbindBtn" type="button" class="mui-btn mui-btn-primary">解除绑定</button>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 <include file="./Addons/Shop/View/default/User/_footer.html"/>
@@ -39,6 +41,23 @@
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
 <script type="text/javascript">
     mui.init({});
+
+    var unbindBtn = document.getElementById("unbindBtn");
+    unbindBtn.addEventListener("tap", function(){
+        mui.ajax("{:addons_url('Shop://User/unbind')}",{
+            data:{
+            },
+            dataType:'json',
+            type:'post',
+            timeout:10000, //10秒
+            success: function (response) {
+                window.location.assign("{:addons_url('Shop://User/index')}");
+            },
+            error:function(xhr,type,errorThrown){
+                mui.toast('操作失败，请稍后重试。');
+            }
+        });
+    });
 </script>
 </body>
 </html>

@@ -2,18 +2,18 @@
 <link href="{:ADDON_PUBLIC_PATH}/user/css/iconfont.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
 <body>
 <nav class="mui-bar mui-bar-tab">
-    <a class="mui-tab-item mui-active" href="#" style="background-color: #F8FAFA">
+    <a id="meTab" class="mui-tab-item mui-active" style="background-color: #F8FAFA">
         <span class="mui-icon mui-icon-person"></span>
         <span class="mui-tab-label">我的信息</span>
     </a>
-    <a id="myCartTab" class="mui-tab-item my-basket" href="index.php?s=/addon/Shop/User/cart">
+    <a id="myCartTab" class="mui-tab-item my-basket">
         <span class="mui-icon iconfont icon-shuiguo"></span>
         <span class="mui-tab-label">我的果盘</span>
         <span class="mui-badge" style="color: #cc044d" id="cartCountSpan">{$cartCount}</span>
     </a>
-    <a class="mui-tab-item one-key-pay" href="#">
+    <a id="myOrder" class="mui-tab-item one-key-pay">
         <span class="mui-icon iconfont icon-jiesuanfangshi"></span>
-        <span class="mui-tab-label">一键买单</span>
+        <span class="mui-tab-label">我的订单</span>
     </a>
 </nav>
 <div class="mui-content">
@@ -103,67 +103,11 @@
             indicators: true, //是否显示滚动条
             deceleration: deceleration
         });
-
-
-        /*$(document).imageLazyload({
-         placeholder:"http://imgcdn.xuxian.com/logo-3.jpg"
-         });
-         $.ready(function () {
-         //循环初始化所有下拉刷新，上拉加载。
-         $.each(document.querySelectorAll('.mui-slider-group .mui-scroll'),
-         function (index, pullRefreshEl) {
-         $(pullRefreshEl).pullToRefresh({
-         down: {
-         callback: function() {
-         var self = this;
-         setTimeout(function() {
-         var ul = self.element.querySelector('.mui-table-view');
-         ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
-         self.endPullDownToRefresh();
-         }, 1000);
-         }
-         },
-         up: {
-         callback: function () {
-         var self = this;
-         setTimeout(function () {
-         var ul = self.element.querySelector('.mui-table-view');
-         ul.appendChild(createFragment(ul, index, 5));
-         self.endPullUpToRefresh();
-         }, 1000);
-         getMoreGoods();
-         }
-         }
-         });
-         });
-
-         function getMoreGoods($categoryID, ul){
-         var length = ul.querySelectorAll('li').length;
-         var fragment = document.createDocumentFragment();
-         var fecthCount = 10;
-         var li;
-         for (var i = 0; i < fecthCount; i++) {
-
-         }
-         }
-
-         /!*var createFragment = function (ul, index, count, reverse) {
-         var length = ul.querySelectorAll('li').length;
-         var fragment = document.createDocumentFragment();
-         var li;
-         for (var i = 0; i < count; i++) {
-         li = document.createElement('li');
-         li.className = 'mui-table-view-cell';
-         li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
-         fragment.appendChild(li);
-         }
-         return fragment;
-         };*!/
-         });*/
     })(mui);
+
     var userInfo = document.getElementById("userInfoHF");
     function addToCart(goodsId){
-        if(userInfo.getAttribute('value')){
+        //if(userInfo.getAttribute('value')){
             mui.ajax("{:addons_url('Shop://User/addToCart')}",{
                data:{
                    goodsId: goodsId
@@ -181,27 +125,55 @@
                    console.log(type);
                }
             });
-        }else{
-            window.location.assign("{:addons_url('Shop://User/bindUser')}");
-            mui.toast('尚未绑定用户信息，请先绑定用户信息');
-        }
+        //}else{
+        //    window.location.assign("{:addons_url('Shop://User/bindUser')}");
+        //    mui.toast('尚未绑定用户信息，请先绑定用户信息');
+        //}
     }
 
+    // 点击我的果盘按钮触发
     var myCartTab = document.getElementById("myCartTab");
     myCartTab.addEventListener("tap", function(){
-        if(userInfo.getAttribute('value')){
+        //if(userInfo.getAttribute('value')){
             window.location.assign("{:addons_url('Shop://User/cart')}");
-        }
-        else
-        {
+        //}
+        //else
+        //{
             window.location.assign("{:addons_url('Shop://User/bindUser')}");
-        }
+        //}
     });
 
+    // 点击个人信息按钮触发
+    var meTab = document.getElementById("meTab");
+    meTab.addEventListener("tap", function(){
+        //if(userInfo.getAttribute('value')){
+            window.location.assign("{:addons_url('Shop://User/me')}");
+        //}
+        //else
+        //{
+        //    window.location.assign("{:addons_url('Shop://User/bindUser')}");
+        //}
+    })
+
+    // 点击我的订单按钮触发
+    var myOrder = document.getElementById("myOrder");
+    myOrder.addEventListener("tap", function(){
+        //if(userInfo.getAttribute('value')){
+        window.location.assign("{:addons_url('Shop://User/myOrder')}");
+        //}
+        //else
+        //{
+        //    window.location.assign("{:addons_url('Shop://User/bindUser')}");
+        //}
+    });
+
+    // 点击加入果盘按钮图标触发
     mui('.operation-wrapper').on('tap', 'p', function(){
         var goodsId = this.getAttribute('id');
         addToCart(goodsId);
     });
+
+
 </script>
 </body>
 </html>

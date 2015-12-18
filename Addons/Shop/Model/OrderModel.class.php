@@ -107,6 +107,7 @@ class OrderModel extends Model {
 		);
 		return $status_code [$code];
 	}
+
 	function getOrderList($map) {
 		$list = ( array ) $this->where ( $map )->order ( 'id desc' )->select ();
 		foreach ( $list as &$v ) {
@@ -131,6 +132,7 @@ class OrderModel extends Model {
 		
 		return $list;
 	}
+
 	function getSendInfo($id) {
 		$info = $this->getInfo ( $id );
 		$map ['id'] = $info ['shop_id'];
