@@ -3582,16 +3582,16 @@ function getCityNameByID($cityID){
 
 function getGoodsPropertyByID($propertyID){
 	switch($propertyID){
-		case 1:
+		case 0:
 			$propertyName = '正常';
 			break;
-		case 2:
+		case 1:
 			$propertyName = '买一赠一';
 			break;
-		case 3:
+		case 2:
 			$propertyName = '买一赠二';
 			break;
-		case 4:
+		case 3:
 			$propertyName = '推广尝鲜';
 			break;
 	}
