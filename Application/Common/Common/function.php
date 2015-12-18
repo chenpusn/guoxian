@@ -3610,10 +3610,16 @@ function getSpecUnitByID($specID){
 			$specName = "个";
 			break;
 		case 2:
-			$specName = "两";
+			$specName = "克";
 			break;
 		case 3:
-			$specName = "斤";
+			$specName = "包";
+			break;
+		case 4:
+			$specName = "瓶";
+			break;
+		case 5:
+			$specName = "罐";
 			break;
 	}
 	return $specName;
