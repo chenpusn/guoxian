@@ -57,6 +57,13 @@ class UserController extends AddonsController
         $this->display();
     }
 
+    function me(){
+
+
+
+        $this->display();
+    }
+
     // CHEN PU: 2015/12/12 绑定用户信息
     function bindUser(){
         if (IS_POST) {
