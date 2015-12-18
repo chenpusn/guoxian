@@ -3530,18 +3530,12 @@ function getNamebyOrderStatus($statusCode){
 			$statusName = '新建';
 			break;
 		case 2 :
-			$statusName = '已付款->待配货';
+			$statusName = '已付款->待取货';
 			break;
 		case 3 :
-			$statusName = '已配货';
-			break;
-		case 4 :
-			$statusName = '已到货->待取货';
-			break;
-		case 5 :
 			$statusName = '已取货->待评价';
 			break;
-		case 6 :
+		case 4 :
 			$statusName = '已评价';
 			break;
 		case -1 :

@@ -291,32 +291,46 @@ class OrderController extends BaseController {
 	// 2015-12-18: CHEN PU
 	// 配货单
 	function orderSheet(){
-		$filterDate = I('date')?strtotime(I('date')):date('Y-n-d');
+		$filterDate = I('date')?I('date'):date('Y-n-d');
 		$orderDao = D ( 'Addons://Shop/Order' );
+		if(IS_POST){
+			redirect('index.php/addon/Shop/Order/orderSheet.html?'.'date='.$filterDate);
+		}
+		else{
+			$search_date_timestamp = strtotime($filterDate);
+			$search_date_add_day_timestamp = strtotime('+1 day', $search_date_timestamp);
+			$filter_order['cTime'] = array('between', array($search_date_timestamp, $search_date_add_day_timestamp));
+			$filter_order['pay_status'] = '1';
+			$orderLists = $orderDao->where($filter_order)->select();
 
-		$search_date_timestamp = strtotime($filterDate);
-		$search_date_add_day_timestamp = strtotime('+1 day', $search_date_timestamp);
-		$filter_order['cTime'] = array('between', array($search_date_timestamp, $search_date_add_day_timestamp));
-		$filter_order['pay_status'] = '1';
-		$orderLists = $orderDao->where($filter_order)->select();
+			foreach ( $orderLists as &$order ) {
 
-		foreach ( $orderLists as &$order ) {
+				$orderGoods = json_decode ( $order ['goods_datas'], true );
 
-			$orderGoods = json_decode ( $order ['goods_datas'], true );
+				foreach($orderGoods as $goods){
+					if(array_key_exists($goods['id'])){
+						$orderSheet[$goods['id']]['num'] =+ $goods['num']*$goods['spec_num'];
+					}
+					else{
 
-			foreach($orderGoods as $goods){
-				if(array_key_exists($goods['id'])){
-					$orderSheet[$goods['id']]['num'] =+ $goods['num']*$goods['spec_num'];
-				}
-				else{
-					$orderSheet[] = array($goods['id']=>
-							array('title'=>$goods['title'], 'unit'=>$goods['spec_unit'], 'num'=>$goods['num']*$goods['spec_num']));
+						$orderSheet[] = array($goods['id']=>
+								array('title'=>$goods['title'], 'unit'=>$goods['spec_unit'], 'num'=>$goods['num']*$goods['spec_num']));
+					}
 				}
 			}
+			$titleLists = array('水果名称', '订货数量', '规格单位');
+			$this->assign('filter_date', $filterDate);
+			$this->assign('title_lists', $titleLists);
+
+
+			foreach($orderSheet as $sheet){
+				foreach($sheet as $sheetData){
+					$sheets[] = $sheetData;
+				}
+			}
+
+			$this->assign('goods_lists', $sheets);
+			$this->display();
 		}
-		$titleLists = array('水果名称', '已订数量', '规格单位');
-		$this->assign('title_lists', $titleLists);
-		$this->assign('goods_lists', $orderSheet);
-		$this->display();
 	}
 }
