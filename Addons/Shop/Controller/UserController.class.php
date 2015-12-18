@@ -162,30 +162,32 @@ class UserController extends AddonsController
     // 生成订单
     function createOrder()
     {
-        $data ['address_id'] = 1; // TODOCHENPU: 需改为用户在终端选择的分店提货点//$this->mid; //I('address_id');
-        $data ['remark'] = I('remark');
-        $data ['uid'] = $this->userID;
+        if($this->userID){
+            $data ['address_id'] = 1; // TODOCHENPU: 需改为用户在终端选择的分店提货点//$this->mid; //I('address_id');
+            $data ['remark'] = I('remark');
+            $data ['uid'] = $this->userID;
 
-        $data ['order_number'] = date('YmdHis') . substr(uniqid(), 4);
-        $data ['cTime'] = NOW_TIME;
-        $data ['openid'] = get_openid();
-        $data ['pay_status'] = 0;
-        $info = session($this->SHOP_SESSION_CONFIRM_ORdER );
+            $data ['order_number'] = date('YmdHis') . substr(uniqid(), 4);
+            $data ['cTime'] = NOW_TIME;
+            $data ['openid'] = get_openid();
+            $data ['pay_status'] = 0;
+            $info = session($this->SHOP_SESSION_CONFIRM_ORdER );
 
-        $data ['total_price'] = $info ['total_price'];
-        $data ['goods_datas'] = json_encode($info ['lists']);
-        if ($info ['order_from_type']) {
-            $data ['order_from_type'] = $info ['order_from_type'];
-        }
-        $data ['shop_id'] = 1; //TODOCHENPU: 需改为用户在终端选择的分店提货点//$this->shop_id;
-        $id = D('Addons://Shop/Order')->add($data);
-        if ($id) {
-            // 删除购物车消息
-            $goods_ids = getSubByKey($info ['lists'], 'id');
-            D('Cart')->delUserCart($this->userID, $goods_ids);
-            echo $id;
-        } else {
-            echo 0;
+            $data ['total_price'] = $info ['total_price'];
+            $data ['goods_datas'] = json_encode($info ['lists']);
+            if ($info ['order_from_type']) {
+                $data ['order_from_type'] = $info ['order_from_type'];
+            }
+            $data ['shop_id'] = 1; //TODOCHENPU: 需改为用户在终端选择的分店提货点//$this->shop_id;
+            $id = D('Addons://Shop/Order')->add($data);
+            if ($id) {
+                // 删除购物车消息
+                $goods_ids = getSubByKey($info ['lists'], 'id');
+                D('Cart')->delUserCart($this->userID, $goods_ids);
+                echo $id;
+            } else {
+                echo 0;
+            }
         }
     }
 

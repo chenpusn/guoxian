@@ -431,30 +431,32 @@ class WapController extends AddonsController
     // 生成订单
     function add_order()
     {
-        $data ['address_id'] = $this->mid; //I('address_id');
-        $data ['remark'] = I('remark');
-        $data ['uid'] = $this->mid;
+        if($this->mid){
+            $data ['address_id'] = $this->mid; //I('address_id');
+            $data ['remark'] = I('remark');
+            $data ['uid'] = $this->mid;
 
-        $data ['order_number'] = date('YmdHis') . substr(uniqid(), 4);
-        $data ['cTime'] = NOW_TIME;
-        $data ['openid'] = get_openid();
-        $data ['pay_status'] = 0;
-        $info = session('confirm_order');
+            $data ['order_number'] = date('YmdHis') . substr(uniqid(), 4);
+            $data ['cTime'] = NOW_TIME;
+            $data ['openid'] = get_openid();
+            $data ['pay_status'] = 0;
+            $info = session('confirm_order');
 
-        $data ['total_price'] = $info ['total_price'];
-        $data ['goods_datas'] = json_encode($info ['lists']);
-        if ($info ['order_from_type']) {
-            $data ['order_from_type'] = $info ['order_from_type'];
-        }
-        $data ['shop_id'] = $this->shop_id;
-        $id = D('Addons://Shop/Order')->add($data);
-        if ($id) {
-            // 删除购物车消息
-            $goods_ids = getSubByKey($info ['lists'], 'id');
-            D('Cart')->delUserCart($this->mid, $goods_ids);
-            echo $id;
-        } else {
-            echo 0;
+            $data ['total_price'] = $info ['total_price'];
+            $data ['goods_datas'] = json_encode($info ['lists']);
+            if ($info ['order_from_type']) {
+                $data ['order_from_type'] = $info ['order_from_type'];
+            }
+            $data ['shop_id'] = $this->shop_id;
+            $id = D('Addons://Shop/Order')->add($data);
+            if ($id) {
+                // 删除购物车消息
+                $goods_ids = getSubByKey($info ['lists'], 'id');
+                D('Cart')->delUserCart($this->mid, $goods_ids);
+                echo $id;
+            } else {
+                echo 0;
+            }
         }
     }
 

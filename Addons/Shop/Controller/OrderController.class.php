@@ -278,7 +278,6 @@ class OrderController extends BaseController {
 		echo '付款成功, 请到XXX取货';
 	}
 
-
 	function set_confirm() {
 		$id = I ( 'id' );
 		$res = D ( 'Addons://Shop/Order' )->setStatusCode ( $id, 2 );
@@ -287,5 +286,37 @@ class OrderController extends BaseController {
 		} else {
 			$this->success ( '设置失败' );
 		}
+	}
+
+	// 2015-12-18: CHEN PU
+	// 配货单
+	function orderSheet(){
+		$filterDate = I('date')?strtotime(I('date')):date('Y-n-d');
+		$orderDao = D ( 'Addons://Shop/Order' );
+
+		$search_date_timestamp = strtotime($filterDate);
+		$search_date_add_day_timestamp = strtotime('+1 day', $search_date_timestamp);
+		$filter_order['cTime'] = array('between', array($search_date_timestamp, $search_date_add_day_timestamp));
+		$filter_order['pay_status'] = '1';
+		$orderLists = $orderDao->where($filter_order)->select();
+
+		foreach ( $orderLists as &$order ) {
+
+			$orderGoods = json_decode ( $order ['goods_datas'], true );
+
+			foreach($orderGoods as $goods){
+				if(array_key_exists($goods['id'])){
+					$orderSheet[$goods['id']]['num'] =+ $goods['num']*$goods['spec_num'];
+				}
+				else{
+					$orderSheet[] = array($goods['id']=>
+							array('title'=>$goods['title'], 'unit'=>$goods['spec_unit'], 'num'=>$goods['num']*$goods['spec_num']));
+				}
+			}
+		}
+		$titleLists = array('水果名称', '已订数量', '规格单位');
+		$this->assign('title_lists', $titleLists);
+		$this->assign('goods_lists', $orderSheet);
+		$this->display();
 	}
 }
