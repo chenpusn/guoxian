@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="info">
                                         <span class="colorless">单价：</span><span
-                                            class="singlePrice goods-price">￥{$goods.price|wp_money_format}</span></span>
+                                            class="singlePrice">￥{$goods.price|wp_money_format}</span></span>
                                         <span style="margin-left: 1rem">数量：</span><span>{$goods.num|intval}</span>
                                     </div>
                                 </dd>
@@ -49,8 +49,8 @@
                     </div>
                 </volist>
                 <div class="mui-table">
-                    <div class="mui-table-cell">
-                        <span>总额:￥</span><span class="singlePrice">{$order['total_price']}</span>
+                    <div class="mui-table-cell" style="text-align: right; border-top: 0.0625rem solid #e0e0e0">
+                        <span>总额:￥</span><span class="goods-price">{$order['total_price']}</span>
                     </div>
                 </div>
                 <notempty name="order['fetch_address']">
