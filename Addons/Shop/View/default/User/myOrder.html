@@ -25,9 +25,10 @@
                         <span>下单时间:{$order['order_date']}</span><span style="padding:0 0 0 1.625rem">{$order['order_status']}</span>
                     </div>
                 </div>
-                <div class="mui-table">
-                    <div class="mui-table-cell">
-                        <volist name="order.goods" id="goods">
+                <volist name="order.goods" id="goods">
+                    <div class="mui-table">
+
+                        <div class="mui-table-cell">
                             <dl class="goods_item" style="margin:0">
                                 <dt class="goods-picture-wrapper mui-pull-left">
                                     <img class="mui-media-object goods_img"
@@ -44,9 +45,9 @@
                                     </div>
                                 </dd>
                             </dl>
-                        </volist>
+                        </div>
                     </div>
-                </div>
+                </volist>
                 <div class="mui-table">
                     <div class="mui-table-cell">
                         <span>总额:￥</span><span class="singlePrice">{$order['total_price']}</span>
