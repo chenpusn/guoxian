@@ -1,6 +1,8 @@
 <include file="./Addons/Shop/View/default/User/_head.html"/>
 <style type="text/css">
-
+    .mui-table {
+        padding: 0.625rem 1.25rem;
+    }
 
 </style>
 <body>
@@ -11,13 +13,60 @@
 </div>
 <div class="mui-content" style="padding-top: 3.75rem">
     <ul class="mui-table-view">
-       <li class="mui-table-view-cell mui-media">
-           <div class="mui-table">
-               <div class="mui-table-cell">
-                   {$lists['order_number']}
-               </div>
-           </div>
-       </li>
+        <volist name="lists" id="order">
+            <li class="mui-table-view-cell mui-media">
+                <div class="mui-table">
+                    <div class="mui-table-cell">
+                        订单号码:{$order['order_number']}
+                    </div>
+                </div>
+                <div class="mui-table">
+                    <div class="mui-table-cell">
+                        <span>下单时间:{$order['order_date']}</span><span style="padding:0 0 0 1.625rem">{$order['order_status']}</span>
+                    </div>
+                </div>
+                <div class="mui-table">
+                    <div class="mui-table-cell">
+                        <volist name="order.goods" id="goods">
+                            <dl class="goods_item" style="margin:0">
+                                <dt class="goods-picture-wrapper mui-pull-left">
+                                    <img class="mui-media-object goods_img"
+                                         src="{goods.cover|get_cover_url}" style="width: 80%; max-width: 80%"/>
+                                </dt>
+                                <dd class="mui-media-body goods_desc">
+                                    <div class="goods-title name">
+                                        {$goods.title}
+                                    </div>
+                                    <div class="info">
+                                        <span class="colorless">单价：</span><span
+                                            class="singlePrice goods-price">￥{$goods.price|wp_money_format}</span></span>
+                                        <span style="margin-left: 1rem">数量：</span><span>{$goods.num|intval}</span>
+                                    </div>
+                                </dd>
+                            </dl>
+                        </volist>
+                    </div>
+                </div>
+                <div class="mui-table">
+                    <div class="mui-table-cell">
+                        <span>总额:￥</span><span class="singlePrice">{$order['total_price']}</span>
+                    </div>
+                </div>
+                <notempty name="order['fetch_address']">
+                    <div class="mui-table">
+                        <div class="mui-table-cell">
+                            <span>取货地址:{$order['fetch_address']}</span>
+                        </div>
+                    </div>
+                    <div class="mui-table">
+                        <div class="mui-table-cell">
+                            <span>客服电话:{$order['fetch_contact']}</span>
+                        </div>
+                    </div>
+                </notempty>
+
+            </li>
+        </volist>
     </ul>
 </div>
 <include file="./Addons/Shop/View/default/User/_footer.html"/>

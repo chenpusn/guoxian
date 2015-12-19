@@ -144,12 +144,22 @@ class UserController extends AddonsController
             $result['order_id'] = $order['id'];
             $result['order_number'] = $order['order_number'];
             $result['order_date'] = time_format($order['cTime']);
-            $result['order_paystatus'] = getNamebyPayStatus($order['pay_status']);
-            $result['order_status'] = getNamebyOrderStatus($order['status_code']);
+            // 如果尚未付款，显示付款状态；如果已经付款，显示订单跟踪状态
+            if($order['pay_status'] != 1){
+                $result['order_status'] = getNamebyPayStatus($order['pay_status']);
+            }else{
+                $result['order_status'] = getNamebyOrderStatus($order['status_code']);
+            }
+
             $result['goods'] = json_decode($order['goods_datas'], true);
+            $result['total_price'] = $order['total_price'];
+            $address_info = D('Address')->getInfo($order['address_id']);
+            $result['fetch_address'] = $address_info['intro'];
+            $result['fetch_contact'] = $address_info['mobile'];
+            $results[] = $result;
         }
 
-        $this->assign('lists', $result);
+        $this->assign('lists', $results);
 
         $this->display();
     }
