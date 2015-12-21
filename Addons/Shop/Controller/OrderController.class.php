@@ -303,12 +303,13 @@ class OrderController extends BaseController {
 			$filter_order['pay_status'] = '1';
 			$orderLists = $orderDao->where($filter_order)->select();
 
+			$orderSheet = array();
 			foreach ( $orderLists as &$order ) {
 
 				$orderGoods = json_decode ( $order ['goods_datas'], true );
 
 				foreach($orderGoods as $goods){
-					if(array_key_exists($goods['id'])){
+					if(array_key_exists($goods['id'], $orderSheet)){
 						$orderSheet[$goods['id']]['num'] =+ $goods['num']*$goods['spec_num'];
 					}
 					else{
