@@ -284,6 +284,7 @@ class UserController extends AddonsController
                     $goodsName = "";
                     foreach ($goods as $good) {
                         $goodsName .= $good['title'];
+                        break;
                     }
 
                     $checkoutUrl =
