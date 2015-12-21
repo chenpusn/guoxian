@@ -3623,6 +3623,9 @@ function getSpecUnitByID($specID){
 		case 5:
 			$specName = "罐";
 			break;
+		case 6:
+			$specName = "盒";
+			break;
 	}
 	return $specName;
 }

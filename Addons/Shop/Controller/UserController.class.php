@@ -319,7 +319,7 @@ class UserController extends AddonsController
                 break;
             case 2:
                 $save ['pay_status'] = 1;
-                $feedback = '您预定的'.$goodsName.'已成功付款，我们将尽快为您配货，请在明日12点前到指定提货点取货。';
+                $feedback = '您预定的'.$goodsName.'已成功付款，我们将尽快为您配货，请在明日10点后到您选定的提货点取货。';
                 break;
             case 3:
                 $save ['pay_status'] = 2;
