@@ -108,6 +108,10 @@ body{
 	height: 5.625rem;
 }
 
+.goods-category{
+	color:#e74c3c;
+}
+
 .mui-table-view .mui-media-object {
 	height: 5.625rem;
 	line-height: 5.625rem;
