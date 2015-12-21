@@ -36,9 +36,13 @@
                                 <img src="{$slide.img|get_cover_url}">
                             </volist>
                         </div>
-                        <div class="category">
-
-                        </div>
+                        <ul class="mui-table-view mui-grid-view mui-grid-9">
+                            <volist name="categoryList" id="goodsCategory">
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="{:addons_url('Shop://User/index', array('cid'=>$goodsCategory['id']))}">
+                                    <!--<span class="mui-icon mui-icon-home"></span>-->
+                                    <div class="mui-media-body goods-category" style="color: #e74c3c;">{$goodsCategory.title}</div></a></li>
+                            </volist>
+                        </ul>
                         <ul id="goodList" class="mui-table-view">
                             <volist name="goodsList" id="goods">
                                 <li class="mui-table-view-cell mui-media">

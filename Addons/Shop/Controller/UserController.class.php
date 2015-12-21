@@ -9,58 +9,65 @@ class UserController extends AddonsController
     var $userID;
     var $SHOP_COOKIE_NAME = 'HZXUSER';
     var $SHOP_SESSION_CONFIRM_ORdER = 'CONFIRMORDER';
+
     function _initialize()
     {
         parent::_initialize();
 
         // 本地未绑定用户信息 如果是需要用户信息的操作 则转至用户新绑定页面
-        if(!cookie($this->SHOP_COOKIE_NAME.C('SITE_VERSION'))){
+        if (!cookie($this->SHOP_COOKIE_NAME . C('SITE_VERSION'))) {
             $actionsNotNeedLogin = array('index', 'bindUser');
-            if (!in_array(_ACTION, $actionsNotNeedLogin)){
+            if (!in_array(_ACTION, $actionsNotNeedLogin)) {
                 $this->redirect("bindUser");
             }
-        }
-        // 获取用户信息
-        else{
-            $userInfoJson = cookie($this->SHOP_COOKIE_NAME.C('SITE_VERSION'));
-            $this->userID = json_decode ($userInfoJson);
+        } // 获取用户信息
+        else {
+            $userInfoJson = cookie($this->SHOP_COOKIE_NAME . C('SITE_VERSION'));
+            $this->userID = json_decode($userInfoJson);
         }
     }
 
 
     // CHEN PU: 2015/12/12 移动端 首页
     // 显示商品列表
-    function index(){
+    function index()
+    {
         // 获取所有目录
+        if (IS_GET) {
 
-        $categoryList = D("Category")->getShopCategory(0);
-        $categoryListWithAll[] = array("id"=>0, "title"=>"所有");
-        foreach($categoryList as $key => $value){
-            $categoryListWithAll[] = $value;
+            $categoryId = I('cid')?I('cid'):0;
+
+            $categoryList = D("Category")->getShopCategory(0);
+            $categoryListWithAll[] = array("id" => 0, "title" => "所有品类");
+            foreach ($categoryList as $key => $value) {
+                $categoryListWithAll[] = $value;
+            }
+
+            $this->assign("categoryList", $categoryListWithAll);
+
+            $goodsList = D("Goods")->getGoodsByCategory($categoryId);
+            $this->assign("goodsList", $goodsList);
+
+            // banner
+            $slideshow_list = D('Slideshow')->getShopList(0);
+            $this->assign('slideShowList', $slideshow_list);
+
+            // User info
+            $this->assign("userInfo", $this->userID);
+
+            // cart num
+            $cartCount = D('Cart')->getMyCartCount($this->userID);
+            $this->assign("cartCount", $cartCount);
+            $this->display();
         }
 
-        $this->assign("categoryList", $categoryListWithAll);
-
-        $goodsList = D("Goods")->getGoodsByCategory(0);
-        $this->assign("goodsList", $goodsList);
-
-        // banner
-        $slideshow_list = D('Slideshow')->getShopList(0);
-        $this->assign('slideShowList', $slideshow_list);
-
-        // User info
-        $this->assign("userInfo", $this->userID);
-
-        // cart num
-        $cartCount = D('Cart')->getMyCartCount($this->userID);
-        $this->assign("cartCount", $cartCount);
-        $this->display();
     }
 
     #region 账号信息
     // 2015-12-19 CHEN PU
     // 个人信息页
-    function me(){
+    function me()
+    {
         $user = D('ShopUser')->getAccount($this->userID);
 
         $this->assign('user', $user);
@@ -69,15 +76,15 @@ class UserController extends AddonsController
     }
 
     // CHEN PU: 2015/12/12 绑定用户信息
-    function bindUser(){
+    function bindUser()
+    {
         if (IS_POST) {
             $accountInfo = I('post.');
             $res = D('ShopUser')->bindAccount($accountInfo);
 
-            cookie($this->SHOP_COOKIE_NAME.C('SITE_VERSION'), $res);
+            cookie($this->SHOP_COOKIE_NAME . C('SITE_VERSION'), $res);
             redirect(U('index'));
-        }
-        else{
+        } else {
             $id = I('id');
             if ($id) {
                 $info = D('ShopUser')->getAccount($id);
@@ -88,15 +95,17 @@ class UserController extends AddonsController
     }
 
     // CHEN PU: 2015/12/19 解除绑定用户信息
-    function unbind(){
-        if(IS_POST){
+    function unbind()
+    {
+        if (IS_POST) {
             cookie(null);
         }
     }
     #endregion
 
     #region 购物车
-    function addToCart(){
+    function addToCart()
+    {
         $goods ['goods_id'] = I('goodsId');
         $info = D('goods')->getInfo($goods ['goods_id']);
 
@@ -109,19 +118,20 @@ class UserController extends AddonsController
         echo D('Cart')->addToCart($goods);
     }
 
-    function cart(){
+    function cart()
+    {
         if ($this->userID > 0) {
-            $list = D ( 'Cart' )->getMyCart ( $this->userID, true );
+            $list = D('Cart')->getMyCart($this->userID, true);
 
-            $dao = D ( 'goods' );
-            foreach ( $list as &$v ) {
-                $v ['goods_data'] = $dao->getInfo ( $v ['goods_id'] );
+            $dao = D('goods');
+            foreach ($list as &$v) {
+                $v ['goods_data'] = $dao->getInfo($v ['goods_id']);
             }
 
             // dump ( $list );
-            $this->assign ( 'lists', $list );
+            $this->assign('lists', $list);
 
-            $this->display ();
+            $this->display();
         } else {
             //cookie($this->SHOP_COOKIE_NAME.C('SITE_VERSION'), 'cart');
             $this->redirect("bindUser", "请先绑定个人信息");
@@ -136,18 +146,19 @@ class UserController extends AddonsController
     #endregion
 
     #region 订单支付
-    function myOrder(){
+    function myOrder()
+    {
         $map['uid'] = $this->userID;
         $orderLists = D('Order')->where($map)->order('id desc')->select();
 
-        foreach($orderLists as $order){
+        foreach ($orderLists as $order) {
             $result['order_id'] = $order['id'];
             $result['order_number'] = $order['order_number'];
             $result['order_date'] = time_format($order['cTime']);
             // 如果尚未付款，显示付款状态；如果已经付款，显示订单跟踪状态
-            if($order['pay_status'] != 1){
+            if ($order['pay_status'] != 1) {
                 $result['order_status'] = getNamebyPayStatus($order['pay_status']);
-            }else{
+            } else {
                 $result['order_status'] = getNamebyOrderStatus($order['status_code']);
             }
 
@@ -200,7 +211,7 @@ class UserController extends AddonsController
         $this->assign($data);
 
         $map['id'] = array('GT', 1);
-        $fetchGoodsAddress = D ( 'Shop' )->where($map)->select();
+        $fetchGoodsAddress = D('Shop')->where($map)->select();
 
         $this->assign('fetch_address', $fetchGoodsAddress);
 
@@ -218,7 +229,7 @@ class UserController extends AddonsController
     // 生成订单
     function createOrder()
     {
-        if(IS_POST){
+        if (IS_POST) {
             $data ['address_id'] = I('address_id'); // TODOCHENPU: 需改为用户在终端选择的分店提货点//$this->mid; //I('address_id');
             $data ['remark'] = I('remark');
             $data ['uid'] = $this->userID;
@@ -227,7 +238,7 @@ class UserController extends AddonsController
             $data ['cTime'] = NOW_TIME;
             $data ['openid'] = get_openid();
             $data ['pay_status'] = 0;
-            $info = session($this->SHOP_SESSION_CONFIRM_ORdER );
+            $info = session($this->SHOP_SESSION_CONFIRM_ORdER);
 
             $data ['total_price'] = $info ['total_price'];
             $data ['goods_datas'] = json_encode($info ['lists']);
@@ -259,10 +270,9 @@ class UserController extends AddonsController
         $outUser = $customerId;
 
         $accountInfo = D('Addons://Shop/ShopUser')->getAccount($this->userID);
-        if(!$accountInfo){
+        if (!$accountInfo) {
             echo '信息错误';
-        }
-        else{
+        } else {
             $mobile = $accountInfo['mobile'];
             trace($outUser, "outUser", 'user');
             trace($mobile, "mobile", 'user');
@@ -302,9 +312,10 @@ class UserController extends AddonsController
 
     //https://support.qfpay.com/qiantai/H5/H5.html
     //CHENPU:2015-12-16 接受钱方支付平台的反馈信息
-    function payFeedback(){
-        $orderNumber = I ( 'out_sn' );
-        $orderInfo = D ( 'Addons://Shop/Order' )->getInfoByOrderNumber($orderNumber);
+    function payFeedback()
+    {
+        $orderNumber = I('out_sn');
+        $orderInfo = D('Addons://Shop/Order')->getInfoByOrderNumber($orderNumber);
         $goods = json_decode($orderInfo[0]['goods_datas'], true);
         $goodsName = "";
         foreach ($goods as $good) {
@@ -313,14 +324,14 @@ class UserController extends AddonsController
 
         $feedback = '';
         // Qian Fang: 1 未支付 2 完成(已支付) 3 关闭
-        switch(I('status')){
+        switch (I('status')) {
             case 1:
                 $save ['pay_status'] = 3;
                 $feedback = '您的订单尚未支付，请尽快付款，以免影响配货。';
                 break;
             case 2:
                 $save ['pay_status'] = 1;
-                $feedback = '您预定的'.$goodsName.'已成功付款，我们将尽快为您配货，请在明日10点后到您选定的提货点取货。';
+                $feedback = '您预定的' . $goodsName . '已成功付款，我们将尽快为您配货，请在明日10点后到您选定的提货点取货。';
                 break;
             case 3:
                 $save ['pay_status'] = 2;
@@ -330,26 +341,26 @@ class UserController extends AddonsController
 
         $save['pay_type'] = I('pay_type');
         $save['qianfang_number'] = I('order_id');
-        $pay_time = strtotime (I('pay_time'));
+        $pay_time = strtotime(I('pay_time'));
         $save['pay_time'] = $pay_time;
 
-        $res = D ( 'Addons://Shop/Order' )->update ( $orderInfo[0]["id"], $save );
-        switch(I('status')){
+        $res = D('Addons://Shop/Order')->update($orderInfo[0]["id"], $save);
+        switch (I('status')) {
             case 2:
-                D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 2);
-                D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], 2, I('get.'), '订单状态'.getNamebyOrderStatus(2));
+                D('Addons://Shop/Order')->setStatusCode($orderInfo[0]["id"], 2);
+                D('Addons://Shop/Order')->add_order_log($orderInfo[0]["id"], 2, I('get.'), '订单状态' . getNamebyOrderStatus(2));
                 break;
             case 3:
-                D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], -1);
-                D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], -1, I('get.'), '订单状态'.getNamebyOrderStatus(-1));
+                D('Addons://Shop/Order')->setStatusCode($orderInfo[0]["id"], -1);
+                D('Addons://Shop/Order')->add_order_log($orderInfo[0]["id"], -1, I('get.'), '订单状态' . getNamebyOrderStatus(-1));
                 break;
             case 1:
-                D ( 'Addons://Shop/Order' )->setStatusCode ( $orderInfo[0]["id"], 1);
-                D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], 1, I('get.'), '订单状态'.getNamebyOrderStatus(1));
+                D('Addons://Shop/Order')->setStatusCode($orderInfo[0]["id"], 1);
+                D('Addons://Shop/Order')->add_order_log($orderInfo[0]["id"], 1, I('get.'), '订单状态' . getNamebyOrderStatus(1));
                 break;
         }
 
-        D ( 'Addons://Shop/Order' )->add_order_log ( $orderInfo[0]["id"], I('status'), json_encode(I('get.')), '支付状态'.getNamebyPayStatus(I('status')));
+        D('Addons://Shop/Order')->add_order_log($orderInfo[0]["id"], I('status'), json_encode(I('get.')), '支付状态' . getNamebyPayStatus(I('status')));
 
 
         $this->assign('feedback', $feedback);
