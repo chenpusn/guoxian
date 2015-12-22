@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title><?php echo ($meta_title); ?>|WeiPHP管理平台</title>
-    <link href="/Public/favicon.ico" type="image/x-icon" rel="shortcut icon">
-    <link rel="stylesheet" type="text/css" href="/Public/Admin/css/base.css?v=<?php echo SITE_VERSION;?>" media="all">
-    <link rel="stylesheet" type="text/css" href="/Public/Admin/css/common.css?v=<?php echo SITE_VERSION;?>" media="all">
-    <link rel="stylesheet" type="text/css" href="/Public/Admin/css/module.css?v=<?php echo SITE_VERSION;?>" />
-    <link rel="stylesheet" type="text/css" href="/Public/Admin/css/style.css?v=<?php echo SITE_VERSION;?>" media="all">
-    <link rel="stylesheet" type="text/css" href="/Public/Admin/css/store.css?v=<?php echo SITE_VERSION;?>" media="all">
-	<link rel="stylesheet" type="text/css" href="/Public/Admin/css/<?php echo (C("COLOR_STYLE")); ?>.css?v=<?php echo SITE_VERSION;?>" media="all">
+    <link href="/zhiguoxian/Public/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="/zhiguoxian/Public/Admin/css/base.css?v=<?php echo SITE_VERSION;?>" media="all">
+    <link rel="stylesheet" type="text/css" href="/zhiguoxian/Public/Admin/css/common.css?v=<?php echo SITE_VERSION;?>" media="all">
+    <link rel="stylesheet" type="text/css" href="/zhiguoxian/Public/Admin/css/module.css?v=<?php echo SITE_VERSION;?>" />
+    <link rel="stylesheet" type="text/css" href="/zhiguoxian/Public/Admin/css/style.css?v=<?php echo SITE_VERSION;?>" media="all">
+    <link rel="stylesheet" type="text/css" href="/zhiguoxian/Public/Admin/css/store.css?v=<?php echo SITE_VERSION;?>" media="all">
+	<link rel="stylesheet" type="text/css" href="/zhiguoxian/Public/Admin/css/<?php echo (C("COLOR_STYLE")); ?>.css?v=<?php echo SITE_VERSION;?>" media="all">
      <!--[if lt IE 9]>
-    <script type="text/javascript" src="/Public/static/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/zhiguoxian/Public/static/jquery-1.10.2.min.js"></script>
     <![endif]--><!--[if gte IE 9]><!-->
-    <script type="text/javascript" src="/Public/static/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="/Public/Admin/js/jquery.mousewheel.js?v=<?php echo SITE_VERSION;?>"></script>
+    <script type="text/javascript" src="/zhiguoxian/Public/static/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="/zhiguoxian/Public/Admin/js/jquery.mousewheel.js?v=<?php echo SITE_VERSION;?>"></script>
     <!--<![endif]-->
     
 </head>
@@ -101,24 +101,24 @@
     </div>
     <!-- /内容区 -->
     <script type="text/javascript">
-	var  IMG_PATH = "/Public/Admin/images";
-	var  STATIC = "/Public/static";
-	var  ROOT = "";
+	var  IMG_PATH = "/zhiguoxian/Public/Admin/images";
+	var  STATIC = "/zhiguoxian/Public/static";
+	var  ROOT = "/zhiguoxian";
 	var  UPLOAD_PICTURE = "<?php echo U('home/File/uploadPicture',array('session_id'=>session_id()));?>";
 	var  UPLOAD_FILE = "<?php echo U('File/upload',array('session_id'=>session_id()));?>";
     (function(){
         var ThinkPHP = window.Think = {
-            "ROOT"   : "", //当前网站地址
-            "APP"    : "/index.php?s=", //当前项目地址
-            "PUBLIC" : "/Public", //项目公共目录地址
+            "ROOT"   : "/zhiguoxian", //当前网站地址
+            "APP"    : "/zhiguoxian/index.php?s=", //当前项目地址
+            "PUBLIC" : "/zhiguoxian/Public", //项目公共目录地址
             "DEEP"   : "<?php echo C('URL_PATHINFO_DEPR');?>", //PATHINFO分割符
             "MODEL"  : ["<?php echo C('URL_MODEL');?>", "<?php echo C('URL_CASE_INSENSITIVE');?>", "<?php echo C('URL_HTML_SUFFIX');?>"],
             "VAR"    : ["<?php echo C('VAR_MODULE');?>", "<?php echo C('VAR_CONTROLLER');?>", "<?php echo C('VAR_ACTION');?>"]
         }
     })();
     </script>
-    <script type="text/javascript" src="/Public/static/think.js?v=<?php echo SITE_VERSION;?>"></script>
-    <script type="text/javascript" src="/Public/Admin/js/common.js?v=<?php echo SITE_VERSION;?>"></script>
+    <script type="text/javascript" src="/zhiguoxian/Public/static/think.js?v=<?php echo SITE_VERSION;?>"></script>
+    <script type="text/javascript" src="/zhiguoxian/Public/Admin/js/common.js?v=<?php echo SITE_VERSION;?>"></script>
     <script type="text/javascript">
         +function(){
             var $window = $(window), $subnav = $("#subnav"), url;
