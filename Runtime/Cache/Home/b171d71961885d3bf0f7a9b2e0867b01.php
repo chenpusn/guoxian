@@ -6,32 +6,32 @@
 <meta content="<?php echo C('WEB_SITE_DESCRIPTION');?>" name="description"/>
 <link rel="shortcut icon" href="<?php echo SITE_URL;?>/favicon.ico">
 <title><?php echo empty($page_title) ? C('WEB_SITE_TITLE') : $page_title; ?></title>
-<link href="/Public/static/font-awesome/css/font-awesome.min.css?v=<?php echo SITE_VERSION;?>" rel="stylesheet">
-<link href="/Public/Home/css/base.css?v=<?php echo SITE_VERSION;?>" rel="stylesheet">
-<link href="/Public/Home/css/module.css?v=<?php echo SITE_VERSION;?>" rel="stylesheet">
-<link href="/Public/Home/css/weiphp.css?v=<?php echo SITE_VERSION;?>" rel="stylesheet">
+<link href="/zhiguoxian/Public/static/font-awesome/css/font-awesome.min.css?v=<?php echo SITE_VERSION;?>" rel="stylesheet">
+<link href="/zhiguoxian/Public/Home/css/base.css?v=<?php echo SITE_VERSION;?>" rel="stylesheet">
+<link href="/zhiguoxian/Public/Home/css/module.css?v=<?php echo SITE_VERSION;?>" rel="stylesheet">
+<link href="/zhiguoxian/Public/Home/css/weiphp.css?v=<?php echo SITE_VERSION;?>" rel="stylesheet">
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
-<script src="/Public/static/bootstrap/js/html5shiv.js?v=<?php echo SITE_VERSION;?>"></script>
+<script src="/zhiguoxian/Public/static/bootstrap/js/html5shiv.js?v=<?php echo SITE_VERSION;?>"></script>
 <![endif]-->
 
 <!--[if lt IE 9]>
-<script type="text/javascript" src="/Public/static/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/zhiguoxian/Public/static/jquery-1.10.2.min.js"></script>
 <![endif]-->
 <!--[if gte IE 9]><!-->
-<script type="text/javascript" src="/Public/static/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="/zhiguoxian/Public/static/jquery-2.0.3.min.js"></script>
 <!--<![endif]-->
-<script type="text/javascript" src="/Public/static/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/Public/static/uploadify/jquery.uploadify.min.js"></script>
-<script type="text/javascript" src="/Public/static/zclip/ZeroClipboard.min.js?v=<?php echo SITE_VERSION;?>"></script>
-<script type="text/javascript" src="/Public/Home/js/dialog.js?v=<?php echo SITE_VERSION;?>"></script>
-<script type="text/javascript" src="/Public/Home/js/admin_common.js?v=<?php echo SITE_VERSION;?>"></script>
-<script type="text/javascript" src="/Public/Home/js/admin_image.js?v=<?php echo SITE_VERSION;?>"></script>
-<script type="text/javascript" src="/Public/static/masonry/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="/zhiguoxian/Public/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/zhiguoxian/Public/static/uploadify/jquery.uploadify.min.js"></script>
+<script type="text/javascript" src="/zhiguoxian/Public/static/zclip/ZeroClipboard.min.js?v=<?php echo SITE_VERSION;?>"></script>
+<script type="text/javascript" src="/zhiguoxian/Public/Home/js/dialog.js?v=<?php echo SITE_VERSION;?>"></script>
+<script type="text/javascript" src="/zhiguoxian/Public/Home/js/admin_common.js?v=<?php echo SITE_VERSION;?>"></script>
+<script type="text/javascript" src="/zhiguoxian/Public/Home/js/admin_image.js?v=<?php echo SITE_VERSION;?>"></script>
+<script type="text/javascript" src="/zhiguoxian/Public/static/masonry/masonry.pkgd.min.js"></script>
 <script type="text/javascript">
-var  IMG_PATH = "/Public/Home/images";
-var  STATIC = "/Public/static";
-var  ROOT = "";
+var  IMG_PATH = "/zhiguoxian/Public/Home/images";
+var  STATIC = "/zhiguoxian/Public/static";
+var  ROOT = "/zhiguoxian";
 var  UPLOAD_PICTURE = "<?php echo U('home/File/uploadPicture',array('session_id'=>session_id()));?>";
 var  UPLOAD_FILE = "<?php echo U('File/upload',array('session_id'=>session_id()));?>";
 </script>
@@ -43,13 +43,13 @@ var  UPLOAD_FILE = "<?php echo U('File/upload',array('session_id'=>session_id())
 	
 	<!-- 主体 -->
 	
-    <script type="text/javascript" src="/Public/static/qrcode/qrcode.js"></script>
-    <script type="text/javascript" src="/Public/static/qrcode/jquery.qrcode.js"></script>
+    <script type="text/javascript" src="/zhiguoxian/Public/static/qrcode/qrcode.js"></script>
+    <script type="text/javascript" src="/zhiguoxian/Public/static/qrcode/jquery.qrcode.js"></script>
     <!-- 头部 -->
     <div class="login_header">
 
         <div class="log_wrap">
-            <a href="/" title="好之鲜"><img class="logo" src="/Public/Home/images/logo.png"/></a>
+            <a href="/" title="好之鲜"><img class="logo" src="/zhiguoxian/Public/Home/images/logo.png"/></a>
             <!--
             <div class="nav_r">
                 第一次使用WeiPHP？<a href="<?php echo U('User/register');?>">立即注册</a>
@@ -63,10 +63,10 @@ var  UPLOAD_FILE = "<?php echo U('File/upload',array('session_id'=>session_id())
     <div class="top_content">
         <div class="log_wrap">
             <div class="top_content_r">
-                <!--<img src="/Public/Home/images/about/img/banner_pic.png?20150723"/>-->
+                <!--<img src="/zhiguoxian/Public/Home/images/about/img/banner_pic.png?20150723"/>-->
             </div>
             <section class="login_box">
-                <form class="login-form" action="/index.php?s=/Home/User/login/from/1.html" method="post">
+                <form class="login-form" action="/zhiguoxian/index.php?s=/home/user/login/from/6.html" method="post">
                     <div class="form_body">
                         <h6>好之鲜后台管理系统!</h6>
 

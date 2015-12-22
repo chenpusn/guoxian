@@ -51,9 +51,11 @@
                         <div class="banner-picture">
                             <?php if(is_array($slideShowList)): $i = 0; $__LIST__ = $slideShowList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$slide): $mod = ($i % 2 );++$i;?><img src="<?php echo (get_cover_url($slide["img"])); ?>"><?php endforeach; endif; else: echo "" ;endif; ?>
                         </div>
-                        <div class="category">
-
-                        </div>
+                        <ul class="mui-table-view mui-grid-view mui-grid-9">
+                            <?php if(is_array($categoryList)): $i = 0; $__LIST__ = $categoryList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goodsCategory): $mod = ($i % 2 );++$i;?><li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4"><a href="<?php echo addons_url('Shop://User/index', array('cid'=>$goodsCategory['id']));?>">
+                                    <!--<span class="mui-icon mui-icon-home"></span>-->
+                                    <div class="mui-media-body goods-category" style="color: #e74c3c;"><?php echo ($goodsCategory["title"]); ?></div></a></li><?php endforeach; endif; else: echo "" ;endif; ?>
+                        </ul>
                         <ul id="goodList" class="mui-table-view">
                             <?php if(is_array($goodsList)): $i = 0; $__LIST__ = $goodsList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$goods): $mod = ($i % 2 );++$i;?><li class="mui-table-view-cell mui-media">
                                     <dl style="margin: 0">
@@ -122,7 +124,7 @@
 
     var userInfo = document.getElementById("userInfoHF");
     function addToCart(goodsId){
-        //if(userInfo.getAttribute('value')){
+        if(userInfo.getAttribute('value')){
             mui.ajax("<?php echo addons_url('Shop://User/addToCart');?>",{
                data:{
                    goodsId: goodsId
@@ -140,10 +142,9 @@
                    console.log(type);
                }
             });
-        //}else{
-        //    window.location.assign("<?php echo addons_url('Shop://User/bindUser');?>");
-        //    mui.toast('尚未绑定用户信息，请先绑定用户信息');
-        //}
+        }else{
+             window.location.assign("<?php echo addons_url('Shop://User/bindUser');?>");
+        }
     }
 
     // 点击我的果盘按钮触发

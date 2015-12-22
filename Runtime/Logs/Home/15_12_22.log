@@ -9649,3 +9649,1071 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000668s ]
 INFO: [ app_end ] --END-- [ RunTime:0.000840s ]
 
+[ 2015-12-22T09:24:40+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/index
+SQL: SELECT * FROM `wp_public` WHERE `token` = 'gh_386b39d0fa1a' LIMIT 1   [ RunTime:0.0150s ]
+SQL: SELECT * FROM `wp_user` WHERE `uid` = 1 LIMIT 1   [ RunTime:0.0400s ]
+SQL: SELECT `uid`,`has_public`,`headface_url`,`GammaAppId`,`GammaSecret`,`copy_right`,`tongji_code`,`website_logo` FROM `wp_manager` WHERE ( uid='1' ) LIMIT 1   [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0110s ]
+SQL: SELECT a.group_id,g.title,g.type,g.icon FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='1' and g.status='1' )  [ RunTime:0.0110s ]
+SQL: SELECT `openid`,`token` FROM `wp_public_follow` WHERE ( uid='1' )  [ RunTime:0.0110s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\UserModel.class.php 第 280 行.
+NOTIC: [8] Undefined index:  C:\wamp\www\zhiguoxian\Application\Common\Model\UserModel.class.php 第 293 行.
+SQL: SELECT `name`,type_0 as val FROM `wp_public_auth`  [ RunTime:0.0140s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0160s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0140s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0140s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0110s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0110s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: HTTP_REFERER C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 106 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0180s ]
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_goods_category` WHERE `is_show` = 1  [ RunTime:0.0620s ]
+SQL: SELECT * FROM `wp_shop_goods` WHERE `is_show` = 1  [ RunTime:0.3260s ]
+SQL: SELECT * FROM `wp_shop_slideshow` WHERE `is_show` = 1  [ RunTime:0.0370s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = null LIMIT 1   [ RunTime:0.0100s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.005000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.013001s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 28 LIMIT 1   [ RunTime:0.1920s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 30 LIMIT 1   [ RunTime:0.2400s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 31 LIMIT 1   [ RunTime:0.0750s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 32 LIMIT 1   [ RunTime:0.0720s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 33 LIMIT 1   [ RunTime:0.0230s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 34 LIMIT 1   [ RunTime:0.0110s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 35 LIMIT 1   [ RunTime:0.0660s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 36 LIMIT 1   [ RunTime:0.1190s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 37 LIMIT 1   [ RunTime:0.0310s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 38 LIMIT 1   [ RunTime:0.0500s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 39 LIMIT 1   [ RunTime:0.0450s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 29 LIMIT 1   [ RunTime:0.0260s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 40 LIMIT 1   [ RunTime:0.0390s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 41 LIMIT 1   [ RunTime:0.0170s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 42 LIMIT 1   [ RunTime:0.0100s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 43 LIMIT 1   [ RunTime:0.0170s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 44 LIMIT 1   [ RunTime:0.0430s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 46 LIMIT 1   [ RunTime:0.0620s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 47 LIMIT 1   [ RunTime:0.1390s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 48 LIMIT 1   [ RunTime:0.0260s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 49 LIMIT 1   [ RunTime:0.0180s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 50 LIMIT 1   [ RunTime:0.0690s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 51 LIMIT 1   [ RunTime:0.0140s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 52 LIMIT 1   [ RunTime:0.0110s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 53 LIMIT 1   [ RunTime:0.0400s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 54 LIMIT 1   [ RunTime:0.0450s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 55 LIMIT 1   [ RunTime:0.0150s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 56 LIMIT 1   [ RunTime:0.0270s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 57 LIMIT 1   [ RunTime:0.0170s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 58 LIMIT 1   [ RunTime:0.0300s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 59 LIMIT 1   [ RunTime:0.0170s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 60 LIMIT 1   [ RunTime:0.0110s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 61 LIMIT 1   [ RunTime:0.0160s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 62 LIMIT 1   [ RunTime:0.0140s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 63 LIMIT 1   [ RunTime:0.0250s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 64 LIMIT 1   [ RunTime:0.0180s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 65 LIMIT 1   [ RunTime:0.0120s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 66 LIMIT 1   [ RunTime:0.0190s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 67 LIMIT 1   [ RunTime:0.0210s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 68 LIMIT 1   [ RunTime:0.0180s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 69 LIMIT 1   [ RunTime:0.0210s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 70 LIMIT 1   [ RunTime:0.5490s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 71 LIMIT 1   [ RunTime:0.0190s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 72 LIMIT 1   [ RunTime:0.0310s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 73 LIMIT 1   [ RunTime:0.0470s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 74 LIMIT 1   [ RunTime:0.0090s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 75 LIMIT 1   [ RunTime:0.0130s ]
+SQL: SELECT * FROM `wp_picture` WHERE `status` = 1 AND `id` = 76 LIMIT 1   [ RunTime:0.0370s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:6.679382s ]
+INFO: [ view_parse ] --END-- [ RunTime:6.685382s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.006000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.017001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.008001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.023001s ]
+
+[ 2015-12-22T09:25:34+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/index
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0420s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0160s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0210s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0140s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0110s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: HTTP_REFERER C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 106 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_goods_category` WHERE `is_show` = 1  [ RunTime:0.0120s ]
+SQL: SELECT * FROM `wp_shop_goods` WHERE `is_show` = 1  [ RunTime:0.0420s ]
+SQL: SELECT * FROM `wp_shop_slideshow` WHERE `is_show` = 1  [ RunTime:0.0090s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = null LIMIT 1   [ RunTime:0.0110s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.004000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.010001s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:1.117064s ]
+INFO: [ view_parse ] --END-- [ RunTime:1.125064s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.007000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.014001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.009000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.017001s ]
+
+[ 2015-12-22T09:25:39+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/bindUser.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0090s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0260s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0110s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0140s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0130s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.003000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.009000s ]
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+NOTIC: [8] Undefined variable: info C:\wamp\www\zhiguoxian\Runtime\Cache\Home\31325b8833beaa4c36270c5f04c09d49.php 第 39 行.
+NOTIC: [8] Undefined variable: info C:\wamp\www\zhiguoxian\Runtime\Cache\Home\31325b8833beaa4c36270c5f04c09d49.php 第 45 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.245015s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.252015s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.010001s ]
+
+[ 2015-12-22T09:25:45+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/bindUser.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_address` WHERE `mobile` = '18210137695' LIMIT 1   [ RunTime:0.0110s ]
+SQL: UPDATE `wp_shop_address` SET `truename`='陈璞',`mobile`='18210137695' WHERE `mobile` = '18210137695' [ RunTime:0.0110s ]
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+
+[ 2015-12-22T09:25:54+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/index.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0100s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0090s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0130s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0150s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0080s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_goods_category` WHERE `is_show` = 1  [ RunTime:0.0410s ]
+SQL: SELECT * FROM `wp_shop_goods` WHERE `is_show` = 1  [ RunTime:0.0320s ]
+SQL: SELECT * FROM `wp_shop_slideshow` WHERE `is_show` = 1  [ RunTime:0.0150s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0140s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.006000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.014001s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:1.039060s ]
+INFO: [ view_parse ] --END-- [ RunTime:1.047060s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.005000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.006001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.033002s ]
+
+[ 2015-12-22T09:27:38+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/addToCart.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.018001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.026002s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006000s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_goods` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0160s ]
+SQL: SELECT * FROM `wp_shop_cart` WHERE `uid` = 36  [ RunTime:0.0190s ]
+SQL: SELECT * FROM `wp_shop` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0160s ]
+SQL: SELECT * FROM `wp_shop_goods` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0140s ]
+SQL: SELECT * FROM `wp_shop_goods` WHERE `id` = 7 LIMIT 1   [ RunTime:0.0310s ]
+SQL: UPDATE `wp_shop_cart` SET `num`='12' WHERE `id` = 709 [ RunTime:0.0120s ]
+SQL: SELECT * FROM `wp_shop_cart` WHERE `uid` = 36  [ RunTime:0.0150s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0110s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.010001s ]
+
+[ 2015-12-22T09:29:54+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/addToCart.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.002000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.016001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.026002s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006000s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: UPDATE `wp_shop_cart` SET `num`='13' WHERE `id` = 709 [ RunTime:0.0150s ]
+SQL: SELECT * FROM `wp_shop_cart` WHERE `uid` = 36  [ RunTime:0.0370s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Addons\Shop\Model\CartModel.class.php 第 21 行.
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.3420s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.005000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.009000s ]
+
+[ 2015-12-22T09:29:56+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/index.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0090s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0130s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0270s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0230s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0110s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_goods_category` WHERE `is_show` = 1  [ RunTime:0.0230s ]
+SQL: SELECT * FROM `wp_shop_goods` WHERE `is_show` = 1  [ RunTime:0.0330s ]
+SQL: SELECT * FROM `wp_shop_slideshow` WHERE `is_show` = 1  [ RunTime:0.4450s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0080s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.005000s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.428024s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.430024s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.009000s ]
+
+[ 2015-12-22T09:30:07+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/addToCart.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.012001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.016001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005000s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_cart` WHERE `uid` = 36  [ RunTime:0.0120s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Addons\Shop\Model\CartModel.class.php 第 21 行.
+NOTIC: [2] unlink(./Runtime/Temp/zhiguoxian_ecc703bc2d35c4cb2f6b4ae297f82bab.php): No such file or directory C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+NOTIC: [8] Undefined index: openid C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 1364 行.
+SQL: INSERT INTO `wp_shop_cart` (`goods_id`,`price`,`shop_id`,`uid`,`num`,`openid`) VALUES ('5','0.01','1','36','1','-1') [ RunTime:0.0340s ]
+SQL: SELECT * FROM `wp_shop_cart` WHERE `uid` = 36  [ RunTime:0.0660s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0240s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2015-12-22T09:31:00+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/addToCart.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.012001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.018001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005000s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+NOTIC: [8] Undefined index: openid C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 1364 行.
+SQL: INSERT INTO `wp_shop_cart` (`goods_id`,`price`,`shop_id`,`uid`,`num`,`openid`) VALUES ('5','0.01','1','36','1','-1') [ RunTime:6.4784s ]
+SQL: SELECT * FROM `wp_shop_cart` WHERE `uid` = 36  [ RunTime:0.0220s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0190s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004001s ]
+
+[ 2015-12-22T09:32:08+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/addToCart.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.009000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004001s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+NOTIC: [8] Undefined index: openid C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 1364 行.
+SQL: INSERT INTO `wp_shop_cart` (`goods_id`,`price`,`shop_id`,`uid`,`num`,`openid`) VALUES ('5','0.01','1','36','1','-1') [ RunTime:0.0100s ]
+SQL: SELECT * FROM `wp_shop_cart` WHERE `uid` = 36  [ RunTime:0.0160s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0330s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004001s ]
+
+[ 2015-12-22T09:57:03+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/addToCart.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.014001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.019001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005000s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+NOTIC: [8] Undefined offset: 5 xdebug://debug-eval 第 1 行.
+NOTIC: [8] Undefined offset: 716 xdebug://debug-eval 第 1 行.
+NOTIC: [8] Undefined offset: 36 xdebug://debug-eval 第 1 行.
+
+[ 2015-12-22T09:57:04+08:00 ] ::1 /zhiguoxian/?XDEBUG_SESSION_START=10634
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0350s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0280s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.4170s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0510s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0090s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: HTTP_REFERER C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 106 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+SQL: SELECT * FROM `wp_user` WHERE `uid` = -36214 LIMIT 1   [ RunTime:0.0250s ]
+
+[ 2015-12-22T09:57:07+08:00 ] ::1 /zhiguoxian/
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0150s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0100s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0230s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0180s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0120s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: HTTP_REFERER C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 106 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+SQL: SELECT * FROM `wp_user` WHERE `uid` = -36214 LIMIT 1   [ RunTime:0.0220s ]
+
+[ 2015-12-22T09:57:08+08:00 ] ::1 /zhiguoxian/index.php?s=/home/Public/add/from/2.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0140s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0140s ]
+
+[ 2015-12-22T09:57:09+08:00 ] ::1 /zhiguoxian/index.php?s=/home/user/login/from/6.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0260s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0100s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0300s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0100s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0080s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: HTTP_REFERER C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 106 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.004000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.116007s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.118007s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005001s ]
+
+[ 2015-12-22T10:12:01+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/index.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:7.0144s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0120s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.3210s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0460s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0310s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_goods_category` WHERE `is_show` = 1  [ RunTime:0.0260s ]
+SQL: SELECT * FROM `wp_shop_goods` WHERE `is_show` = 1  [ RunTime:1.3551s ]
+SQL: SELECT * FROM `wp_shop_slideshow` WHERE `is_show` = 1  [ RunTime:0.9081s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.3670s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.002000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.354021s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.356021s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005000s ]
+
+[ 2015-12-22T10:12:36+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/addToCart.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.010001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+NOTIC: [8] Undefined offset: 5 C:\wamp\www\zhiguoxian\Addons\Shop\Model\CartModel.class.php 第 40 行.
+SQL: UPDATE `wp_shop_cart` SET `num`='1' WHERE `id` = 716 [ RunTime:0.7560s ]
+SQL: SELECT * FROM `wp_shop_cart` WHERE `uid` = 36  [ RunTime:6.7504s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Addons\Shop\Model\CartModel.class.php 第 21 行.
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0170s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006000s ]
+
+[ 2015-12-22T10:13:14+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/index.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0370s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0510s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0920s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.3310s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0140s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_goods_category` WHERE `is_show` = 1  [ RunTime:0.2450s ]
+SQL: SELECT * FROM `wp_shop_goods` WHERE `is_show` = 1  [ RunTime:0.7270s ]
+SQL: SELECT * FROM `wp_shop_slideshow` WHERE `is_show` = 1  [ RunTime:0.2340s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.2760s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.372022s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.375022s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007001s ]
+
+[ 2015-12-22T10:15:21+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/index.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+ERR: SQLSTATE[HY000] [2002] �������ӷ���һ��ʱ���û����ȷ�𸴻����ӵ�����û�з�Ӧ�����ӳ���ʧ�ܡ�
+
+
+[ 2015-12-22T10:15:22+08:00 ] ::1 /zhiguoxian/?XDEBUG_SESSION_START=14695
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0100s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0190s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.3140s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0120s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0130s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: HTTP_REFERER C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 106 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+SQL: SELECT * FROM `wp_user` WHERE `uid` = -36214 LIMIT 1   [ RunTime:0.0210s ]
+
+[ 2015-12-22T10:15:23+08:00 ] ::1 /zhiguoxian/index.php?s=/home/Public/add/from/2.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0740s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0500s ]
+
+[ 2015-12-22T10:15:25+08:00 ] ::1 /zhiguoxian/index.php?s=/home/user/login/from/6.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0110s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0270s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.3520s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.9061s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0250s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: HTTP_REFERER C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 106 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.003000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.102006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.104006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005000s ]
+
+[ 2015-12-22T10:15:33+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/index.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0190s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0160s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0200s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.6890s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0130s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_goods_category` WHERE `is_show` = 1  [ RunTime:0.0190s ]
+SQL: SELECT * FROM `wp_shop_goods` WHERE `is_show` = 1  [ RunTime:0.0570s ]
+SQL: SELECT * FROM `wp_shop_slideshow` WHERE `is_show` = 1  [ RunTime:0.0170s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0100s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.388023s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.390023s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008001s ]
+
+[ 2015-12-22T10:15:53+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/addToCart.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001001s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.009000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_cart` WHERE `uid` = 36  [ RunTime:0.0230s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Addons\Shop\Model\CartModel.class.php 第 21 行.
+NOTIC: [2] unlink(./Runtime/Temp/zhiguoxian_ecc703bc2d35c4cb2f6b4ae297f82bab.php): No such file or directory C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Addons\Shop\Model\CartModel.class.php 第 38 行.
+NOTIC: [8] Undefined index: openid C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 1364 行.
+SQL: INSERT INTO `wp_shop_cart` (`goods_id`,`price`,`shop_id`,`uid`,`num`,`openid`) VALUES ('5','0.01','1','36','1','-1') [ RunTime:0.0300s ]
+SQL: SELECT * FROM `wp_shop_cart` WHERE `uid` = 36  [ RunTime:0.0140s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0190s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2015-12-22T10:16:18+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/addToCart.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.009000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.013001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+NOTIC: [8] Undefined offset: 5 C:\wamp\www\zhiguoxian\Addons\Shop\Model\CartModel.class.php 第 40 行.
+SQL: UPDATE `wp_shop_cart` SET `num`='1' WHERE `id` = 750 [ RunTime:0.0160s ]
+SQL: SELECT * FROM `wp_shop_cart` WHERE `uid` = 36  [ RunTime:0.0080s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0200s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006000s ]
+
+[ 2015-12-22T10:18:13+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/addToCart.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.009001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.014001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005000s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+NOTIC: [8] Undefined offset: 5 C:\wamp\www\zhiguoxian\Addons\Shop\Model\CartModel.class.php 第 40 行.
+NOTIC: [8] Undefined offset: 5 xdebug://debug-eval 第 1 行.
+SQL: UPDATE `wp_shop_cart` SET `num`='1' WHERE `id` = 750 [ RunTime:0.0090s ]
+SQL: SELECT * FROM `wp_shop_cart` WHERE `uid` = 36  [ RunTime:0.0110s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0070s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006000s ]
+
+[ 2015-12-22T10:18:18+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/index.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0100s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0390s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0110s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0120s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0090s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_goods_category` WHERE `is_show` = 1  [ RunTime:0.0120s ]
+SQL: SELECT * FROM `wp_shop_goods` WHERE `is_show` = 1  [ RunTime:0.0170s ]
+SQL: SELECT * FROM `wp_shop_slideshow` WHERE `is_show` = 1  [ RunTime:0.0110s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0060s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.003000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.006000s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.634036s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.637037s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006000s ]
+
+[ 2015-12-22T10:19:04+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/addToCart.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: Run Common\Behavior\InitHookBehavior [ RunTime:0.011001s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: UPDATE `wp_shop_cart` SET `num`='2' WHERE `id` = 750 [ RunTime:0.0100s ]
+SQL: SELECT * FROM `wp_shop_cart` WHERE `uid` = 36  [ RunTime:0.0120s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0080s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005000s ]
+
+[ 2015-12-22T10:30:29+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/index/cid/4.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0100s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0190s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0110s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0260s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0110s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_goods_category` WHERE `is_show` = 1  [ RunTime:0.0120s ]
+SQL: SELECT * FROM `wp_shop_goods` WHERE `category_id` = '4' AND `is_show` = 1  [ RunTime:0.0180s ]
+SQL: SELECT * FROM `wp_shop_slideshow` WHERE `is_show` = 1  [ RunTime:0.0110s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0090s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.272016s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.274016s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.007000s ]
+
+[ 2015-12-22T10:30:40+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/index/cid/5.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0120s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0130s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.2290s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0080s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0320s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_goods_category` WHERE `is_show` = 1  [ RunTime:0.0110s ]
+SQL: SELECT * FROM `wp_shop_goods` WHERE `category_id` = '5' AND `is_show` = 1  [ RunTime:0.0170s ]
+SQL: SELECT * FROM `wp_shop_slideshow` WHERE `is_show` = 1  [ RunTime:0.0330s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0070s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.262015s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.265015s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005000s ]
+
+[ 2015-12-22T10:30:44+08:00 ] ::1 /zhiguoxian/index.php?s=/addon/Shop/User/index/cid/7.html
+NOTIC: [8] Undefined index: uid C:\wamp\www\zhiguoxian\ThinkPHP\Library\Think\Controller.class.php 第 507 行.
+SQL: SHOW COLUMNS FROM `wp_auth_group_access` [ RunTime:0.0120s ]
+SQL: SELECT a.uid,a.group_id,g.title,g.rules FROM wp_auth_group_access a INNER JOIN wp_auth_group g on a.group_id=g.id  WHERE ( a.uid='-36214' and g.status='1' )  [ RunTime:0.0120s ]
+SQL: SELECT * FROM `wp_addons` WHERE `status` = 1  [ RunTime:0.0350s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = -36214 ORDER BY sort asc, id asc  [ RunTime:0.0120s ]
+SQL: SELECT * FROM `wp_manager_menu` WHERE `uid` = 1 ORDER BY sort asc, id asc  [ RunTime:0.0110s ]
+NOTIC: [8] Undefined variable: res C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 73 行.
+NOTIC: [8] Undefined index: core_side_menu C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 83 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\wamp\www\zhiguoxian\Application\Common\Model\ManagerMenuModel.class.php 第 143 行.
+NOTIC: [8] Undefined index: query C:\wamp\www\zhiguoxian\ThinkPHP\Common\functions.php 第 855 行.
+SQL: SELECT * FROM `wp_shop_goods_category` WHERE `is_show` = 1  [ RunTime:0.0250s ]
+SQL: SELECT * FROM `wp_shop_goods` WHERE `category_id` = '7' AND `is_show` = 1  [ RunTime:0.0110s ]
+SQL: SELECT * FROM `wp_shop_slideshow` WHERE `is_show` = 1  [ RunTime:0.0070s ]
+SQL: SELECT SUM(num) AS tp_sum FROM `wp_shop_cart` WHERE `uid` = 36 LIMIT 1   [ RunTime:0.0340s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.004001s ]
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+NOTIC: [8] Undefined variable: addons C:\wamp\www\zhiguoxian\Application\Common\Common\function.php 第 473 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.251015s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.253015s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006001s ]
+
