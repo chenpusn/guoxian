@@ -114,7 +114,7 @@
 
     var userInfo = document.getElementById("userInfoHF");
     function addToCart(goodsId){
-        //if(userInfo.getAttribute('value')){
+        if(userInfo.getAttribute('value')){
             mui.ajax("{:addons_url('Shop://User/addToCart')}",{
                data:{
                    goodsId: goodsId
@@ -132,10 +132,9 @@
                    console.log(type);
                }
             });
-        //}else{
-        //    window.location.assign("{:addons_url('Shop://User/bindUser')}");
-        //    mui.toast('尚未绑定用户信息，请先绑定用户信息');
-        //}
+        }else{
+             window.location.assign("{:addons_url('Shop://User/bindUser')}");
+        }
     }
 
     // 点击我的果盘按钮触发
