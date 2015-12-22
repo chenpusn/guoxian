@@ -306,17 +306,37 @@ class OrderController extends BaseController {
 			$orderSheet = array();
 			foreach ( $orderLists as &$order ) {
 
+				echo $order;
+
 				$orderGoods = json_decode ( $order ['goods_datas'], true );
 
 				foreach($orderGoods as $goods){
-					if(array_key_exists($goods['id'], $orderSheet)){
+					echo $goods;
+					$exits = false;
+					foreach($orderSheet as &$orderGood){
+						echo $orderGood;
+						if($orderGood['id'] == $goods['id']){
+							$orderGood['num'] += $goods['num']*$goods['spec_num'];
+							$exits = true;
+							break;
+						}
+					}
+					if(!$exits){
+						$orderSheet[] = array(
+								'id'=>$goods['id'],
+								'title'=>$goods['title'],
+								'unit'=>$goods['spec_unit'],
+								'num'=>$goods['num']*$goods['spec_num']);
+					}
+
+					/*if(array_key_exists($goods['id'], $orderSheet)){
 						$orderSheet[$goods['id']]['num'] =+ $goods['num']*$goods['spec_num'];
 					}
 					else{
 
 						$orderSheet[] = array($goods['id']=>
 								array('title'=>$goods['title'], 'unit'=>$goods['spec_unit'], 'num'=>$goods['num']*$goods['spec_num']));
-					}
+					}*/
 				}
 			}
 			$titleLists = array('水果名称', '订货数量', '规格单位');
@@ -324,13 +344,13 @@ class OrderController extends BaseController {
 			$this->assign('title_lists', $titleLists);
 
 
-			foreach($orderSheet as $sheet){
+			/*foreach($orderSheet as $sheet){
 				foreach($sheet as $sheetData){
 					$sheets[] = $sheetData;
 				}
-			}
+			}*/
 
-			$this->assign('goods_lists', $sheets);
+			$this->assign('goods_lists', $orderSheet);
 			$this->display();
 		}
 	}
