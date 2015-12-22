@@ -311,7 +311,6 @@ class OrderController extends BaseController {
 				foreach($orderGoods as $goods){
 					$exits = false;
 					foreach($orderSheet as &$orderGood){
-						echo $orderGood;
 						if($orderGood['id'] == $goods['id']){
 							$orderGood['num'] += $goods['num']*$goods['spec_num'];
 							$exits = true;
@@ -332,7 +331,7 @@ class OrderController extends BaseController {
 			$this->assign('filter_date', $filterDate);
 			$this->assign('title_lists', $titleLists);
 			$this->assign('goods_lists', $orderSheet);
-			
+
 			$this->display();
 		}
 	}
