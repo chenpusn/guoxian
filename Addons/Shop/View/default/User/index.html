@@ -174,7 +174,7 @@
     });
 
     // 点击加入果盘按钮图标触发
-    mui('.operation-wrapper').on('tap', 'p', function(){
+    mui('.operation-wrapper').on('click', 'p', function(){
         var goodsId = this.getAttribute('id');
         addToCart(goodsId);
     });

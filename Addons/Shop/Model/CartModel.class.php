@@ -30,16 +30,25 @@ class CartModel extends Model {
 		
 		return $info;
 	}
+
+	// 2015-12-22 CHEN PU： bug fix, 重复添加多个商品购物车未合并同类项
 	function addToCart($goods) {
 		$myList = $this->getMyCart ( $goods ['uid'] );
-		if (isset ( $myList [$goods ['goods_id']] )) {
-			$num = $myList [$goods ['goods_id']] ['num'] + $goods ['num'];
-			$map ['id'] = $myList [$goods ['goods_id']] ['id'];
-			$this->where ( $map )->setField ( 'num', $num );
-		} else {
+		$exits = false;
+		foreach($myList as $list) {
+			if($list['goods_id'] == $goods['goods_id']){
+				$num = $list['num'] + $goods ['num'];
+				$map ['id'] = $list['id'];
+				$this->where ( $map )->setField ( 'num', $num );
+				$exits = true;
+				break;
+			}
+		}
+		if(!$exits){
 			$goods ['openid'] = get_openid ();
 			$this->add ( $goods );
 		}
+
 		$this->getMyCart ( $goods ['uid'], true );
 		return $this->getMyCartCount($goods ['uid']);
 	}
