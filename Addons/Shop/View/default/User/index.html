@@ -33,7 +33,7 @@
                          style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
                         <div class="banner-picture">
                             <volist name="slideShowList" id="slide">
-                                <img src="{$slide.img|get_cover_url}">
+                                <img class="header-img" data-original="{$slide.img|get_cover_url}">
                             </volist>
                         </div>
                         <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -115,6 +115,11 @@
     })(mui);
 
     $(function() {
+
+        $("img.header-img").lazyload({
+            effect : "fadeIn"
+        });
+
         $("img.mui-media-object").lazyload({
             effect : "fadeIn"
         });
