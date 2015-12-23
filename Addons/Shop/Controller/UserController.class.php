@@ -369,7 +369,7 @@ class UserController extends AddonsController
 
     function asynNoticeFromQianFang(){
         if(IS_POST){
-            $postData = json_encode(I('post.'));
+            $postData = json_encode(I('post.'), true);
 
             $orderInfo = D('Addons://Shop/Order')->getInfoByOrderNumber($postData['out_sn']);
 
