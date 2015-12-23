@@ -369,9 +369,17 @@ class UserController extends AddonsController
 
     function asynNoticeFromQianFang(){
         if(IS_POST){
+            $postData = json_encode(I('post.'));
 
+            $orderInfo = D('Addons://Shop/Order')->getInfoByOrderNumber($postData['out_sn']);
 
-            D('Addons://Shop/Order')->add_order_log(0, '', json_encode(I('post.')), '钱方异步' );
+            if($orderInfo){
+                D('Addons://Shop/Order')->add_order_log($orderInfo[0]['id'], $postData['status'], json_encode(I('post.')), '钱方异步'.getNamebyPayStatus($postData['status']));
+            }
+            else{
+                D('Addons://Shop/Order')->add_order_log(0, $postData['status'], json_encode(I('post.')), '钱方异步'.getNamebyPayStatus($postData['status']) );
+            }
+
 
         }
     }
