@@ -374,10 +374,10 @@ class UserController extends AddonsController
             $orderInfo = D('Addons://Shop/Order')->getInfoByOrderNumber($postData['out_sn']);
 
             if($orderInfo){
-                D('Addons://Shop/Order')->add_order_log($orderInfo[0]['id'], $postData['status'], json_encode(I('post.')), '钱方异步'.getNamebyPayStatus($postData['status']));
+                D('Addons://Shop/Order')->add_order_log($orderInfo[0]['id'], $postData['status'], I('post.'), '钱方异步'.getNamebyPayStatus($postData['status']));
             }
             else{
-                D('Addons://Shop/Order')->add_order_log(0, $postData['status'], json_encode(I('post.')), '钱方异步'.getNamebyPayStatus($postData['status']) );
+                D('Addons://Shop/Order')->add_order_log(0, $postData['status'], I('post.'), '钱方异步'.getNamebyPayStatus($postData['status']) );
             }
 
 
