@@ -117,6 +117,14 @@ body{
 	line-height: 5.625rem;
 }
 
+.mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label{
+	font-size:0.875rem;
+}
+
+.mui-bar-tab .mui-tab-item{
+	color: white;
+}
+
 i {
 	margin: 0;
 	padding: 0;
