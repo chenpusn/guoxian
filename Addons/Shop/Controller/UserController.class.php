@@ -366,6 +366,15 @@ class UserController extends AddonsController
         $this->assign('feedback', $feedback);
         $this->display();
     }
+
+    function asynNoticeFromQianFang(){
+        if(IS_POST){
+
+
+            D('Addons://Shop/Order')->add_order_log(0, '', json_encode(I('post.')), '钱方异步' );
+
+        }
+    }
     #endregion
 }
 
