@@ -16,7 +16,7 @@ class UserController extends AddonsController
 
         // 本地未绑定用户信息 如果是需要用户信息的操作 则转至用户新绑定页面
         if (!cookie($this->SHOP_COOKIE_NAME . C('SITE_VERSION'))) {
-            $actionsNotNeedLogin = array('index', 'bindUser');
+            $actionsNotNeedLogin = array('index', 'bindUser', 'asynNoticeFromQianFang');
             if (!in_array(_ACTION, $actionsNotNeedLogin)) {
                 $this->redirect("bindUser");
             }
