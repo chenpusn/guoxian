@@ -39,7 +39,7 @@
         </div>
     </nav>
     <div class="mui-bar mui-bar-nav">
-        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <a id="backLnk" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 
         <h1 class="mui-title">我的果盘</h1>
     </div>
@@ -112,6 +112,12 @@
     $(function () {
         updatePriceAndCount();
     });
+
+    var backLnk = document.getElementById("backLnk");
+    backLnk.addEventListener("tap", function(){
+        window.location.assign("{:addons_url('Shop://User/index')}");
+    });
+
 
     mui('.operation-wrapper').on('tap', 'p', deleteGoods);
 
