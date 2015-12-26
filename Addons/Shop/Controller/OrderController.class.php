@@ -321,12 +321,14 @@ class OrderController extends BaseController {
 						$orderSheet[] = array(
 								'id'=>$goods['id'],
 								'title'=>$goods['title'],
-								'unit'=>$goods['spec_unit'],
-								'num'=>$goods['num']*$goods['spec_num']);
+								//'unit'=>$goods['spec_unit'],
+								//num'=>$goods['num']*$goods['spec_num']);
+								'num'=>$goods['num']);
 					}
 				}
 			}
-			$titleLists = array('水果名称', '订货数量', '规格单位');
+			//$titleLists = array('水果名称', '订货数量', '规格单位');
+			$titleLists = array('水果名称', '订货份数');
 
 			$this->assign('filter_date', $filterDate);
 			$this->assign('title_lists', $titleLists);
