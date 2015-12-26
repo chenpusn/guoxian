@@ -294,11 +294,12 @@ class OrderController extends BaseController {
 	// 根据miao sir 要求，配货单只统计订购份数，不显示规格
 	function orderSheet(){
 		$filterDate = I('date')?I('date'):date('Y-n-d');
-		$orderDao = D ( 'Addons://Shop/Order' );
+
 		if(IS_POST){
 			redirect('index.php/addon/Shop/Order/orderSheet.html?'.'date='.$filterDate);
 		}
 		else{
+			$orderDao = D ( 'Addons://Shop/Order' );
 			$search_date_timestamp = strtotime($filterDate);
 			$search_date_add_day_timestamp = strtotime('+1 day', $search_date_timestamp);
 			$filter_order['cTime'] = array('between', array($search_date_timestamp, $search_date_add_day_timestamp));
@@ -331,7 +332,7 @@ class OrderController extends BaseController {
 				}
 			}
 			//$titleLists = array('水果名称', '订货数量', '规格单位');
-			$titleLists = array('水果名称', '订货份数');
+			$titleLists = array('货品名称', '订货份数');
 
 			$this->assign('filter_date', $filterDate);
 			$this->assign('title_lists', $titleLists);
@@ -341,4 +342,54 @@ class OrderController extends BaseController {
 		}
 	}
 
+	function sales(){
+		$filterStartDate = I('start')?I('start'):date('Y-n-d');
+		$filterEndDate = I('end')?I('end'):date('Y-n-d');
+
+		if(IS_POST){
+			redirect('index.php/addon/Shop/Order/sales.html?'.'start='.$filterStartDate.'&end='.$filterEndDate);
+		}
+		else{
+			$orderDao = D ( 'Addons://Shop/Order' );
+			$filterStartDateTimeStamp = strtotime($filterStartDate);
+			$filterEndDateTimeStamp = strtotime($filterEndDate);
+			$filterEndDateAddOneDayTimeStapm =  strtotime('+1 day', $filterEndDateTimeStamp);
+
+			$filter_order['cTime'] = array('between', array($filterStartDateTimeStamp, $filterEndDateAddOneDayTimeStapm));
+			$filter_order['pay_status'] = '1';
+			$orderLists = $orderDao->where($filter_order)->select();
+
+			$orderSheet = array();
+			foreach ( $orderLists as &$order ) {
+
+				$orderGoods = json_decode ( $order ['goods_datas'], true );
+
+				foreach($orderGoods as $goods){
+					$exits = false;
+					foreach($orderSheet as &$orderGood){
+						if($orderGood['id'] == $goods['id']){
+							$orderGood['sales_amount'] += $goods['num']*$goods['price'];
+							$exits = true;
+							break;
+						}
+					}
+					if(!$exits){
+						$orderSheet[] = array(
+								'id'=>$goods['id'],
+								'title'=>$goods['title'],
+								'sales_amount'=>$goods['num']*$goods['price']);
+					}
+				}
+			}
+
+			$titleLists = array('货品名称', '销售金额');
+
+			$this->assign('filter_start_date', $filterStartDate);
+			$this->assign('filter_end_date', $filterEndDate);
+			$this->assign('title_lists', $titleLists);
+			$this->assign('goods_lists', $orderSheet);
+
+			$this->display();
+		}
+	}
 }

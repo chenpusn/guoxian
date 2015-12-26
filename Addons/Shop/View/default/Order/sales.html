@@ -1,0 +1,93 @@
+<extend name="Base/no_side_common"/>
+<block name="body">
+    <div class="span9 page_message">
+        <section id="contents">
+            <include file="Addons/_nav"/>
+            <div class="table-bar">
+                <!-- 多维过滤 -->
+                <form class="muti_search cf" style="text-align: right " method="post"
+                      action="{:addons_url('Shop://Order/orderSheet')}">
+                    <div class="" style="line-height: 30px;">
+                        <span>起始日期</span>
+                        <input type="datetime" name="start"
+                               class="search-input date input-small" value="{$filter_start_date}"
+                               placeholder="2015-12-11">
+                        <span>结束日期</span>
+                        <input type="datetime" name="end"
+                               class="search-input date input-small" value="{$filter_end_date}"
+                               placeholder="2015-12-11">
+                        <button type="submit" class="sch-btn btn" id="searchBtn"
+                                style="width: 5rem">开始统计
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 数据列表 -->
+            <div class="data-table" id="printSheetZone">
+                <div class="table-striped" style="text-align: center;">
+                    <p style="font-weight: bold; font-size: 18px;">好之鲜水果超市{$filter_start_date}日-{$filter_end_date}销售统计</p>
+                    <table cellspacing="1" style="width: 30rem; margin: 2rem auto">
+                        <!-- 表头 -->
+                        <thead>
+                        <tr>
+                            <volist name="title_lists" id="field">
+                                <th style="font-weight: bold; text-align: center">{$field}</th>
+                            </volist>
+                        </tr>
+                        </thead>
+
+                        <!-- 列表 -->
+                        <tbody>
+                        <volist name="goods_lists" id="goodsData">
+                            <tr>
+                                <td>{$goodsData['title']}</td>
+                                <td>{$goodsData['sales_amount']}</td>
+                                <!--<td>{$goodsData['unit']|getSpecUnitByID}</td>-->
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div style="text-align: center">
+                <p>
+                    <input id="btnPrint" type="button" class="pinrt-btn btn" value="打印" style="width: 5rem" />
+                </p>
+            </div>
+        </section>
+    </div>
+</block>
+<block name="script">
+
+    <link href="__STATIC__/datetimepicker/css/datetimepicker.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+    <php>if(C('COLOR_STYLE')=='blue_color') echo '
+        <link href="__STATIC__/datetimepicker/css/datetimepicker_blue.css?v={:SITE_VERSION}" rel="stylesheet"
+              type="text/css">
+        ';
+    </php>
+    <link href="__STATIC__/datetimepicker/css/dropdown.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="__STATIC__/jquery.PrintArea.js"></script>
+
+    <script type="text/javascript" src="__STATIC__/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript"
+            src="__STATIC__/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js?v={:SITE_VERSION}"
+            charset="UTF-8"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.date').datetimepicker({
+                format: 'yyyy-mm-dd',
+                language: "zh-CN",
+                minView: 2,
+                autoclose: true
+            });
+
+            $('input#btnPrint').click(function () {
+                $('div#printSheetZone').printArea({mode:'popup', popWd:600, popTitle:'好之鲜水果超市配货单打印'});
+            });
+        });
+
+
+    </script>
+</block>
