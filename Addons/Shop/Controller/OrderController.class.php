@@ -290,6 +290,8 @@ class OrderController extends BaseController {
 
 	// 2015-12-18: CHEN PU
 	// 配货单
+	// 2015-12-27: CHEN PU
+	// 根据miao sir 要求，配货单只统计订购份数，不显示规格
 	function orderSheet(){
 		$filterDate = I('date')?I('date'):date('Y-n-d');
 		$orderDao = D ( 'Addons://Shop/Order' );
@@ -312,7 +314,8 @@ class OrderController extends BaseController {
 					$exits = false;
 					foreach($orderSheet as &$orderGood){
 						if($orderGood['id'] == $goods['id']){
-							$orderGood['num'] += $goods['num']*$goods['spec_num'];
+							//$orderGood['num'] += $goods['num']*$goods['spec_num'];
+							$orderGood['num'] += $goods['num'];
 							$exits = true;
 							break;
 						}
