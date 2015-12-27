@@ -22,17 +22,22 @@
                 </div>
                 <div class="mui-table">
                     <div class="mui-table-cell">
-                        <span>下单时间:{$order['order_date']}</span><span style="padding:0 0 0 1.625rem">{$order['order_status']}</span>
+                        <span>下单时间:{$order['order_date']}</span>
+                    </div>
+
+                </div>
+                <div class="mui-table">
+                    <div class="mui-table-cell">
+                        <span>订单状态:{$order['order_status']}</span>
                     </div>
                 </div>
                 <volist name="order.goods" id="goods">
                     <div class="mui-table">
-
                         <div class="mui-table-cell">
                             <dl class="goods_item" style="margin:0">
                                 <dt class="goods-picture-wrapper mui-pull-left">
                                     <img class="mui-media-object goods_img"
-                                         src="{$goods.cover|get_cover_url}" style="width: 80%; max-width: 80%"/>
+                                         data-original="{$goods.cover|get_cover_url}" style="width: 80%; max-width: 80%"/>
                                 </dt>
                                 <dd class="mui-media-body goods_desc">
                                     <div class="goods-title name">
@@ -74,13 +79,24 @@
 
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.lazyload.min.js?v={:SITE_VERSION}"></script>
+
 <script type="text/javascript">
     mui.init({});
+
+    $(function() {
+
+        $("img.mui-media-object").lazyload({
+            effect : "fadeIn"
+        });
+
+    });
 
     var backLnk = document.getElementById("backLnk");
     backLnk.addEventListener("tap", function(){
         window.location.assign("{:addons_url('Shop://User/index')}");
     });
+
 </script>
 </body>
 </html>

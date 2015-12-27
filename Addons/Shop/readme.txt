@@ -4,3 +4,23 @@
 作者: CHEN　PU
 联系方式:
 QQ: 2858212885
+
+http://www.coolaf.com/
+// 管理员菜单
+{
+ 	"button":[
+ 	{
+    	"type":"view",
+    	"name":"客户侧",
+     	"url":"http://haozhixian.cn/index.php/addon/Shop/User/index"
+	},
+	{
+        	"type":"view",
+        	"name":"新闻",
+         	"url":"http://sohu.com"
+    	}
+	],
+"matchrule":{
+  "group_id":"100"
+  }
+}

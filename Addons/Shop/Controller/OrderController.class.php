@@ -389,7 +389,7 @@ class OrderController extends BaseController {
 				}
 			}
 
-			$titleLists = array('货品名称', '销售金额');
+			$titleLists = array('货品名称', '销售金额', '销售份数');
 
 			$this->assign('filter_start_date', $filterStartDate);
 			$this->assign('filter_end_date', $filterEndDate);
