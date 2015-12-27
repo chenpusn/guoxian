@@ -16,8 +16,8 @@ http://www.coolaf.com/
 	},
 	{
         	"type":"view",
-        	"name":"新闻",
-         	"url":"http://sohu.com"
+        	"name":"销售统计",
+         	"url":"http://haozhixian.cn/index.php/addon/Shop/Admin/sales"
     	}
 	],
 "matchrule":{
