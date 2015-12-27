@@ -317,7 +317,8 @@ class UserController extends AddonsController
         $orderNumber = I('out_sn');
         $orderInfo = D('Addons://Shop/Order')->getInfoByOrderNumber($orderNumber);
         $goods = json_decode($orderInfo[0]['goods_datas'], true);
-        $address_info = D('Shop')->getInfo($orderInfo['address_id']);
+        $map['id'] = $orderInfo[0]['address_id'];
+        $address_info = D('Shop')->where($map)->find();
 
 
         $goodsName = "";
