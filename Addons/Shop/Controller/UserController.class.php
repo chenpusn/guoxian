@@ -369,18 +369,45 @@ class UserController extends AddonsController
 
     function asynNoticeFromQianFang(){
         if(IS_POST){
-            $postData = json_decode(I('post.'), true);
-
             $orderInfo = D('Addons://Shop/Order')->getInfoByOrderNumber(I('post.out_sn'));
 
-            if($orderInfo){
-                D('Addons://Shop/Order')->add_order_log($orderInfo[0]['id'], I('post.out_sn'), json_encode(I('post.')), '钱方异步'.getNamebyPayStatus($postData['status']));
-            }
-            else{
-                D('Addons://Shop/Order')->add_order_log(0, $postData['status'], json_encode(I('post.')), '钱方异步'.getNamebyPayStatus($postData['status']) );
+            // Qian Fang: 1 未支付 2 完成(已支付) 3 关闭
+            switch (I('post.status')) {
+                case 1:
+                    $save ['pay_status'] = 3;
+                    break;
+                case 2:
+                    $save ['pay_status'] = 1;
+                    break;
+                case 3:
+                    $save ['pay_status'] = 2;
+                    break;
             }
 
+            $save['pay_type'] = I('post.pay_type');
+            $save['qianfang_number'] = I('post.order_id');
+            $pay_time = strtotime(I('post.pay_time'));
+            $save['pay_time'] = $pay_time;
 
+            $res = D('Addons://Shop/Order')->update($orderInfo[0]["id"], $save);
+            switch (I('post.status')) {
+                case 2:
+                    D('Addons://Shop/Order')->setStatusCode($orderInfo[0]["id"], 2);
+                    D('Addons://Shop/Order')->add_order_log($orderInfo[0]["id"], 2, json_encode(I('post.')), '钱方异步:订单状态' . getNamebyOrderStatus(2));
+                    break;
+                case 3:
+                    D('Addons://Shop/Order')->setStatusCode($orderInfo[0]["id"], -1);
+                    D('Addons://Shop/Order')->add_order_log($orderInfo[0]["id"], -1, json_encode(I('post.')), '钱方异步:订单状态' . getNamebyOrderStatus(-1));
+                    break;
+                case 1:
+                    D('Addons://Shop/Order')->setStatusCode($orderInfo[0]["id"], 1);
+                    D('Addons://Shop/Order')->add_order_log($orderInfo[0]["id"], 1, json_encode(I('post.')), '钱方异步:订单状态' . getNamebyOrderStatus(1));
+                    break;
+            }
+
+            D('Addons://Shop/Order')->add_order_log($orderInfo[0]["id"], I('post.status'), json_encode(I('post.')), '钱方异步:支付状态' . getNamebyPayStatus(I('post.status')));
+
+            echo 'SUCCESS';
         }
     }
     #endregion
