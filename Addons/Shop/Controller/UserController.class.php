@@ -164,7 +164,7 @@ class UserController extends AddonsController
 
             $result['goods'] = json_decode($order['goods_datas'], true);
             $result['total_price'] = $order['total_price'];
-            $address_info = D('Address')->getInfo($order['address_id']);
+            $address_info = D('Shop')->getInfo($order['address_id']);
             $result['fetch_address'] = $address_info['intro'];
             $result['fetch_contact'] = $address_info['mobile'];
             $results[] = $result;
@@ -317,9 +317,12 @@ class UserController extends AddonsController
         $orderNumber = I('out_sn');
         $orderInfo = D('Addons://Shop/Order')->getInfoByOrderNumber($orderNumber);
         $goods = json_decode($orderInfo[0]['goods_datas'], true);
+        $address_info = D('Shop')->getInfo($orderInfo['address_id']);
+
+
         $goodsName = "";
         foreach ($goods as $good) {
-            $goodsName .= $good['title'];
+            $goodsName .= $good['title']+' '+$good['num']+'份\n';
         }
 
         $feedback = '';
@@ -331,7 +334,7 @@ class UserController extends AddonsController
                 break;
             case 2:
                 $save ['pay_status'] = 1;
-                $feedback = '您预定的' . $goodsName . '已成功付款，我们将尽快为您配货，请在明日10点后到您选定的提货点取货。';
+                $feedback = '您预定的\n' . $goodsName . '已成功付款，我们将尽快为您配货，请在明日10点后到'+$address_info['intro']+'提货点取货, 客服电话'+$address_info['mobile'];
                 break;
             case 3:
                 $save ['pay_status'] = 2;
