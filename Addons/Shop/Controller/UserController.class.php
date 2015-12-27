@@ -322,7 +322,7 @@ class UserController extends AddonsController
 
         $goodsName = "";
         foreach ($goods as $good) {
-            $goodsName .= $good['title']+' '+$good['num']+'份\n';
+            $goodsName .= $good['title']+' '+$good['num']+'份,';
         }
 
         $feedback = '';
@@ -334,7 +334,7 @@ class UserController extends AddonsController
                 break;
             case 2:
                 $save ['pay_status'] = 1;
-                $feedback = '您预定的\n' . $goodsName . '已成功付款，我们将尽快为您配货，请在明日10点后到'+$address_info['intro']+'提货点取货, 客服电话'+$address_info['mobile'];
+                $feedback = '您预定的' . $goodsName . '已成功付款，我们将尽快为您配货，请在明日10点后到'+$address_info['intro']+'提货点取货, 客服电话'+$address_info['mobile'];
                 break;
             case 3:
                 $save ['pay_status'] = 2;
