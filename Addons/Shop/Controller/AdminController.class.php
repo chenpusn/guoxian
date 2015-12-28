@@ -12,7 +12,11 @@ use Home\Controller\AddonsController;
 
 class AdminController extends AddonsController
 {
-    function  sales(){
+    function sales(){
+        $this->display();
+    }
+
+    function salesDetail(){
         $this->display();
     }
 }

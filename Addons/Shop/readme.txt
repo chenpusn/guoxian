@@ -15,10 +15,15 @@ http://www.coolaf.com/
      	"url":"http://haozhixian.cn/index.php/addon/Shop/User/index"
 	},
 	{
-        	"type":"view",
-        	"name":"销售统计",
-         	"url":"http://haozhixian.cn/index.php/addon/Shop/Admin/sales"
-    	}
+        "type":"view",
+        "name":"销售统计",
+        "url":"http://haozhixian.cn/index.php/addon/Shop/Admin/sales"
+    },
+    {
+        "type":"view",
+        "name":"发货管理",
+        "url":"http://haozhixian.cn/index.php/addon/Shop/Admin/sales"
+    }
 	],
 "matchrule":{
   "group_id":"100"
