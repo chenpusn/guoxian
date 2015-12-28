@@ -22,7 +22,7 @@ http://www.coolaf.com/
     {
         "type":"view",
         "name":"发货管理",
-        "url":"http://haozhixian.cn/index.php/addon/Shop/Admin/sales"
+        "url":"http://haozhixian.cn/index.php/addon/Shop/Admin/send"
     }
 	],
 "matchrule":{

@@ -1,0 +1,32 @@
+<include file="./Addons/Shop/View/default/Admin/_head.html"/>
+<link href="{:ADDON_PUBLIC_PATH}/user/css/mui.picker.min.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+
+<div class="mui-bar mui-bar-nav">
+    <h1 class="mui-title">发货管理</h1>
+</div>
+<div class="mui-content" style="padding-top: 3.75rem">
+    <div class="mui-content-padded" style="margin: 5px;">
+        <h5 class="mui-content-padded">顾客手机</h5>
+        <input id="mobileInput" type="text" placeholder="请输入顾客手机号">
+        <button id="searchBtn" type="button" class="mui-btn mui-btn-danger mui-btn-block">查找订单</button>
+    </div>
+</div>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
+<script>
+    (function($) {
+        $.init();
+
+        var searchBtn = $('#searchBtn')[0];
+        var mobileInput = $('#mobileInput')[0];
+        searchBtn.addEventListener('tap', function(){
+            if(!mobileInput.value){
+                mui.toast('请输入手机号进行查询');
+            }
+            else{
+
+                window.location.assign("index.php/addon/Shop/Admin/sendDetail.html?mobile="+mobileInput.value);
+            }
+        });
+    })(mui);
+</script>

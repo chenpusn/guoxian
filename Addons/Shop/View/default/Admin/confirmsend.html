@@ -1,0 +1,28 @@
+<include file="./Addons/Shop/View/default/Admin/_head.html"/>
+<link href="{:ADDON_PUBLIC_PATH}/user/css/mui.picker.min.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+<style>
+    .mui-table {
+        padding: 0.625rem 1.25rem;
+    }
+</style>
+<div class="mui-bar mui-bar-nav">
+    <h1 class="mui-title">发货结果</h1>
+</div>
+<nav class="mui-bar mui-bar-tab" id="goSendTab">
+    <a class="mui-tab-item mui-active" href="{:addons_url('Shop://Admin/send')}" style="background-color: #F8FAFA">
+        <span class="mui-icon mui-icon-person"></span>
+        <span class="mui-tab-label">继续发货</span>
+    </a>
+</nav>
+<div class="mui-content" style="padding-top: 3.75rem">
+    <div class="mui-card" style="margin-top: 5rem; padding: 2rem">
+        <p>{$feedback}</p>
+    </div>
+</div>
+<script type="text/javascript">
+    mui.init();
+    var goSendTab = document.getElementById("goSendTab");
+    goSendTab.addEventListener("tap", function(){
+        window.location.assign("{:addons_url('Shop://Admin/Send')}");
+    });
+</script>

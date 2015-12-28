@@ -1,18 +1,23 @@
-<include file="./Addons/Shop/View/default/User/_head.html"/>
-<style type="text/css">
+<include file="./Addons/Shop/View/default/Admin/_head.html"/>
+<link href="{:ADDON_PUBLIC_PATH}/user/css/mui.picker.min.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+<style>
     .mui-table {
         padding: 0.625rem 1.25rem;
     }
-
 </style>
-<body>
 <div class="mui-bar mui-bar-nav">
-    <a id="backLnk" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-
-    <h1 class="mui-title">我的订单</h1>
+    <h1 class="mui-title">用户订单</h1>
 </div>
 <div class="mui-content" style="padding-top: 3.75rem">
     <ul class="mui-table-view">
+        <li>
+            <div class="mui-table">
+                <div class="mui-table-cell">客户姓名：{$userInfo['truename']}</div>
+            </div>
+            <div class="mui-table">
+                <div class="mui-table-cell">客户手机：{$userInfo['mobile']}</div>
+            </div>
+        </li>
         <volist name="lists" id="order">
             <li class="mui-table-view-cell mui-media">
                 <div class="mui-table">
@@ -37,66 +42,58 @@
                             <dl class="goods_item" style="margin:0">
                                 <dt class="goods-picture-wrapper mui-pull-left">
                                     <img class="mui-media-object goods_img"
-                                         data-original="{$goods.cover|get_cover_url}" style="width: 80%; max-width: 80%"/>
+                                         data-original="{$goods.cover|get_cover_url}"
+                                         style="width: 80%; max-width: 80%"/>
                                 </dt>
                                 <dd class="mui-media-body goods_desc">
                                     <div class="goods-title name">
-                                        {$goods.title}
-                                    </div>
-                                    <div class="info">
-                                        <span class="colorless">单价：</span><span
-                                            class="singlePrice">￥{$goods.price|wp_money_format}</span>
-                                        <span style="margin-left: 1rem">数量：</span><span>{$goods.num|intval}</span>
+                                        <span>{$goods.title}</span><span
+                                            style="margin-left: 1rem">{$goods.num|intval}份</span>
                                     </div>
                                 </dd>
                             </dl>
                         </div>
                     </div>
                 </volist>
-                <div class="mui-table">
-                    <div class="mui-table-cell" style="text-align: right; border-top: 0.0625rem solid #e0e0e0">
-                        <span>总额:￥</span><span class="goods-price">{$order['total_price']}</span>
-                    </div>
-                </div>
                 <notempty name="order['fetch_address']">
                     <div class="mui-table">
                         <div class="mui-table-cell">
                             <span>取货地址:{$order['fetch_address']}</span>
                         </div>
                     </div>
+                </notempty>
+                <if condition="$order['status_code'] eq 2">
                     <div class="mui-table">
                         <div class="mui-table-cell">
-                            <span>客服电话:{$order['fetch_contact']}</span>
+                            <button id="{$order['id']}" type="button" class="mui-btn mui-btn-danger mui-btn-block">
+                                确认发货
+                            </button>
                         </div>
                     </div>
-                </notempty>
-
+                </if>
             </li>
         </volist>
     </ul>
 </div>
-<include file="./Addons/Shop/View/default/User/_footer.html"/>
-
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
 <script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.lazyload.min.js?v={:SITE_VERSION}"></script>
 
-<script type="text/javascript">
+<script>
     mui.init({});
 
-    $(function() {
-
+    $(function () {
         $("img.mui-media-object").lazyload({
-            effect : "fadeIn"
+            effect: "fadeIn"
         });
 
+        var btns = $('.mui-btn');
+        btns.each(function (i, btn) {
+            btn.addEventListener('tap', function () {
+                if (confirm('此订单确认发货吗?')) {
+                    window.location.assign('confirmSend?number=' + this.getAttribute('id'));
+                }
+            });
+        });
     });
-
-    var backLnk = document.getElementById("backLnk");
-    backLnk.addEventListener("tap", function(){
-        window.location.assign("{:addons_url('Shop://User/index')}");
-    });
-
 </script>
-</body>
-</html>

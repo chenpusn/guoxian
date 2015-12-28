@@ -3498,7 +3498,7 @@ function getQianFangOrderToken($total_amt, $out_sn)
 
 // 2015-12-17: CHEN PU
 // 支付状态
-function getNamebyPayStatus($statusCode){
+function getNamebyPayType($statusCode){
 	switch ($statusCode) {
 		//钱方支付返回类型
 		//https://support.qfpay.com/qiantai/API/OnlinePayAPI.html
@@ -3519,6 +3519,23 @@ function getNamebyPayStatus($statusCode){
 			break;
 		default:
 			$statusName = '未支付';
+			break;
+	}
+	return $statusName;
+}
+
+function getNamebyPayStatus($statusCode){
+	switch ($statusCode) {
+		//钱方支付返回类型
+		//https://support.qfpay.com/qiantai/API/OnlinePayAPI.html
+		case 1 : // 未支付
+			$statusName = '未支付';
+			break;
+		case 2 : // 已支付
+			$statusName = '已支付';
+			break;
+		case 3 : // 关闭
+			$statusName = '关闭';
 			break;
 	}
 	return $statusName;
