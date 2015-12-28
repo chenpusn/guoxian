@@ -415,23 +415,16 @@ class UserController extends AddonsController
 
             // 支付成功，发送短信提醒
             if(I('post.status') == 2){
-                $goods = json_decode($orderInfo[0]['goods_datas'], true);
                 $map['id'] = $orderInfo[0]['address_id'];
                 $address_info = D('Shop')->where($map)->find();
 
-
-                $goodsName = "";
-                foreach ($goods as $good) {
-                    $goodsName .= $good['title'].' '.$good['num'].'份<br/>';
-                }
-
-                $customerId = $orderInfo['uid'];
+                $customerId = $orderInfo[0]['uid'];
                 $accountInfo = D('Addons://Shop/ShopUser')->getAccount($customerId);
                 $content = $accountInfo['truename'].'您已付款成功,请于明日10点以后,到'.$address_info['intro'].'根据手机号提货。【好之味鲜果超市】';
 
                 sendSMS($accountInfo['mobile'], $content);
 
-                D('Addons://Shop/Order')->add_order_log($orderInfo[0]["id"], I('post.status'), $content, '短信通知' . getNamebyPayStatus(I('post.status')));
+                D('Addons://Shop/Order')->add_order_log($orderInfo[0]["id"], I('post.status'), $content.$accountInfo['mobile'], '短信通知' . getNamebyPayStatus(I('post.status')));
 
             }
 
