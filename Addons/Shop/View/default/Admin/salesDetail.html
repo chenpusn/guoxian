@@ -1,15 +1,39 @@
 <include file="./Addons/Shop/View/default/Admin/_head.html"/>
 <link href="{:ADDON_PUBLIC_PATH}/user/css/mui.picker.min.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
-
+<style>
+    .mui-col {
+        margin-right: -4px;
+        display: inline-block;
+        line-height: 1.875rem;
+    }
+</style>
 <div class="mui-bar mui-bar-nav">
     <h1 class="mui-title">销售统计</h1>
 </div>
 <div class="mui-content" style="padding-top: 3.75rem">
-    <div class="mui-content-padded" style="margin: 5px;">
-        <h5 class="mui-content-padded">起始时间</h5>
-        <button id="start" data-options='{"type":"date","beginYear":2015,"endYear":2016}' class="btn mui-btn mui-btn-block">选择起始时间</button>
-        <h5 class="mui-content-padded">截止时间</h5>
-        <button id="end" data-options='{"type":"date","beginYear":2015,"endYear":2016}' class="btn mui-btn mui-btn-block">选择起始时间</button>
-        <button id="calBtn" type="button" class="mui-btn mui-btn-danger mui-btn-block">开始统计</button>
+    <!--<ul class="mui-table-view">
+        <volist name="goods_lists" id="goodsData">
+            <li class="mui-table-view-cell">
+                {$goodsData['title']} {$goodsData['sales_amount']}{$goodsData['sales_num']}
+            </li>
+        </volist>
+    </ul>-->
+    <div class="mui-col mui-col-xs-12" style="text-align: center">
+        {$filter_start_date}日 ~ {$filter_end_date}日
+    </div>
+    <div class="mui-col mui-col-xs-12">
+        <span class="mui-col mui-col-xs-6" style="padding: 0 0 0 0.625rem;"><b>商品名称</b></span>
+        <span class="mui-col mui-col-xs-3" style="color:#e74c3c; text-align: center"><b>销售额</b></span>
+        <span class="mui-col mui-col-xs-2" style="text-align: center;"><b>销量</b></span>
+    </div>
+    <volist name="goods_lists" id="goodsData">
+        <div class="mui-col mui-col-xs-12">
+            <span class="mui-col mui-col-xs-6"  style="padding: 0 0 0 0.625rem;">{$goodsData['title']} </span>
+            <span class="mui-col mui-col-xs-3" style="color:#e74c3c; text-align: center;">{$goodsData['sales_amount']}</span>
+            <span class="mui-col mui-col-xs-2" style="text-align: center;">{$goodsData['sales_num']}</span>
+        </div>
+    </volist>
+    <div class="mui-col mui-col-xs-12" style="text-align: center; padding: 0.625rem 0">
+        <span>销售总额</span><span style="padding: 0 0 0 0.625rem; color:#e74c3c;">{$total_amount}</span>
     </div>
 </div>
