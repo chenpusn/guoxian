@@ -3635,7 +3635,7 @@ function sendSMS($mobile, $content){
 	$post_data = array();
 	$post_data['userid'] = '6189';//企业ID
 	$post_data['timestamp']=date("YmdHis",$time);//当前时间戳
-	$post_data['sign']=strtolower(md5('54654213'.(date("YmdHis",$time))));//MD5（账号密码当前时间戳）
+	$post_data['sign']=strtolower(md5('a4042854654213'.(date("YmdHis",$time))));//MD5（账号密码当前时间戳）
 	$post_data['content'] = $content; //格式为：内容【签名】
 	$post_data['mobile'] = $mobile;//手机号
 	$post_data['sendtime'] = ''; //不定时发送，值为‘’，定时发送，输入格式YYYYMMDDHHmmss的日期值
