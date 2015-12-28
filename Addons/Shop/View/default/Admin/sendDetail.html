@@ -91,7 +91,7 @@
         btns.each(function (i, btn) {
             btn.addEventListener('tap', function () {
                 if (confirm('此订单确认发货吗?')) {
-                    window.location.assign('confirmSend?number=' + this.getAttribute('id'));
+                    window.location.assign('confirmsend?number=' + this.getAttribute('id'));
                 }
             });
         });
