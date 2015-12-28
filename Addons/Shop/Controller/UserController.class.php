@@ -420,7 +420,7 @@ class UserController extends AddonsController
 
                 $customerId = $orderInfo[0]['uid'];
                 $accountInfo = D('Addons://Shop/ShopUser')->getAccount($customerId);
-                $content = $accountInfo['truename'].'您已付款成功,请于明日10点以后,到'.$address_info['intro'].'根据手机号提货。【好之味鲜果超市】';
+                $content = $accountInfo['truename'].':您已付款成功,请于明日10点以后,到'.$address_info['intro'].'根据手机号提货。【好之味鲜果超市】';
 
                 $result = sendSMS($accountInfo['mobile'], $content);
 
