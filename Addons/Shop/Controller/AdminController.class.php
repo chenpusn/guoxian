@@ -109,7 +109,7 @@ class AdminController extends AddonsController
         }
     }
 
-    function confirmSend(){
+    function confirmsend(){
         if(IS_GET){
             $orderInfo = D('Addons://Shop/Order')->getInfoByOrderNumber(I('number'));
 
