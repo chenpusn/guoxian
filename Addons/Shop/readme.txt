@@ -11,7 +11,7 @@ http://www.coolaf.com/
  	"button":[
  	{
     	"type":"view",
-    	"name":"客户侧",
+    	"name":"之鲜果园",
      	"url":"http://haozhixian.cn/index.php/addon/Shop/User/index"
 	},
 	{

@@ -1,0 +1,191 @@
+<include file="./Addons/Shop/View/default/User/_head.html"/>
+<link href="{:ADDON_PUBLIC_PATH}/user/css/iconfont.css?v={:SITE_VERSION}" rel="stylesheet" type="text/css">
+<body>
+<nav class="mui-bar mui-bar-tab">
+    <a id="meTab" class="mui-tab-item mui-active" style="background-color: #F8FAFA">
+        <span class="mui-icon mui-icon-person"></span>
+        <span class="mui-tab-label">我的信息</span>
+    </a>
+    <a id="myCartTab" class="mui-tab-item my-basket">
+        <span class="mui-icon iconfont icon-shuiguo"></span>
+        <span class="mui-tab-label">我的果盘</span>
+        <span class="mui-badge" style="color: #cc044d" id="cartCountSpan">{$cartCount}</span>
+    </a>
+    <a id="myOrder" class="mui-tab-item one-key-pay">
+        <span class="mui-icon iconfont icon-jiesuanfangshi"></span>
+        <span class="mui-tab-label">我的订单</span>
+    </a>
+</nav>
+<div class="mui-content">
+    <div id="slider" class="mui-slider mui-fullscreen">
+        <div id="sliderSegmentedControl"
+             class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+            <div class="mui-scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px); width: 100%">
+                <a class="mui-control-item mui-active" style="width: 50%" href="#itemJingPin"><span
+                        class="header-title-text">好之鲜水果超市</span></a>
+            </div>
+        </div>
+        <div class="mui-slider-group" style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+            <div id="itemJingPin" class="mui-slider-item mui-control-content">
+                <div id="scrollJinPin" class="mui-scroll-wrapper">
+                    <div class="mui-scroll"
+                         style="-webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);">
+                        <div class="banner-picture">
+                            <volist name="slideShowList" id="slide">
+                                <img class="header-img" data-original="{$slide.img|get_cover_url}">
+                            </volist>
+                        </div>
+                        <ul class="mui-table-view mui-grid-view mui-grid-9">
+                            <volist name="categoryList" id="goodsCategory">
+                                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-4" style="padding: 0.1875rem 0.9375rem"><a href="{:addons_url('Shop://User/index', array('cid'=>$goodsCategory['id']))}">
+                                    <!--<span class="mui-icon mui-icon-home"></span>-->
+                                    <div class="mui-media-body goods-category" style="color: #e74c3c;">{$goodsCategory.title}</div></a></li>
+                            </volist>
+                        </ul>
+                        <ul id="goodList" class="mui-table-view">
+                            <volist name="goodsList" id="goods">
+                                <li class="mui-table-view-cell mui-media">
+                                    <dl style="margin: 0">
+                                        <dt class="goods-picture-wrapper mui-pull-left">
+                                            <img class="mui-media-object" style="width: 100%; max-width: 100%"
+                                                 data-original="{$goods.cover|get_cover_url}"/>
+                                            <i class="oblique-tag oblique-tag-presell">热卖</i>
+                                        </dt>
+                                        <dd class="operation-wrapper mui-pull-right">
+                                            <p class="operation" id="{$goods.id}"><span class="mui-icon iconfont icon-shuiguo" style="color: #FF840D; font-size: 1.5rem; display: block"></span><span style="display: inline">加入果盘</span></p>
+                                        </dd>
+                                        <dd class="mui-media-body">
+                                            <div class="goods-title">{$goods.title}</div>
+                                            <div class="mui-ellipsis" style="max-height: 2rem; line-height: 1rem; white-space: normal; vertical-align: middle; overflow: hidden; margin-top: 0.3125rem">{$goods.content}</div>
+                                            <div class="goods-price">
+                                                <strong class="price">¥{$goods.price|wp_money_format}</strong>/<span>{$goods.spec_num}{$goods.spec_unit|getSpecUnitByID}</span><span
+                                                    class="old-price">¥{$goods.old_price|wp_money_format}</span>
+                                                <span class="mui-badge mui-badge-danger">{$goods.goods_property|getGoodsPropertyByID}</span>
+                                            </div>
+                                        </dd>
+                                    </dl>
+                                </li>
+
+                            </volist>
+                        </ul>
+                        <!--<div class="mui-pull-bottom-tips">
+                             <div class="mui-pull-bottom-wrapper"><span class="mui-pull-loading">上拉显示更多</span></div>
+                         </div>-->
+                    </div>
+                    <div class="mui-scrollbar mui-scrollbar-vertical">
+                        <div class="mui-scrollbar-indicator"
+                             style="-webkit-transition: 0ms; transition: 0ms; display: block; height: 14px; -webkit-transform: translate3d(0px, 0px, 0px) translateZ(0px);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" value="{$userInfo}" id="userInfoHF">
+<include file="./Addons/Shop/View/default/User/_footer.html"/>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.lazyload.min.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/iscroll.js?v={:SITE_VERSION}"></script>
+<!--<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.lazyload.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.lazyload.img.js?v={:SITE_VERSION}"></script>-->
+<!--<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.pullToRefresh.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript"
+        src="{:ADDON_PUBLIC_PATH}/user/js/mui.pullToRefresh.material.js?v={:SITE_VERSION}"></script>-->
+<script type="text/javascript">
+    mui.init();
+
+    (function ($) {
+        //阻尼系数
+        var deceleration = mui.os.ios ? 0.003 : 0.0009;
+        $('.mui-scroll-wrapper').scroll({
+            bounce: false,
+            indicators: false, //是否显示滚动条
+            deceleration: deceleration
+        });
+
+    })(mui);
+
+    $(function() {
+
+        $("img.header-img").lazyload({
+            effect : "fadeIn"
+        });
+
+        $("img.mui-media-object").lazyload({
+            effect : "fadeIn"
+        });
+
+    });
+
+    var userInfo = document.getElementById("userInfoHF");
+    function addToCart(goodsId){
+        if(userInfo.getAttribute('value')){
+            mui.ajax("{:addons_url('Shop://User/addToCart')}",{
+               data:{
+                   goodsId: goodsId
+               },
+               dataType:'json',
+               type:'post',
+               timeout:10000, //10秒
+               success: function (response) {
+                   var cartCountSpan = $("#cartCountSpan")[0];
+                   cartCountSpan.innerText = response;
+                   cartCountSpan.fadeOut("slow");
+                   cartCountSpan.fadeOut(3000);
+               },
+               error:function(xhr,type,errorThrown){
+                   console.log(type);
+               }
+            });
+        }else{
+             window.location.assign("{:addons_url('Shop://User/bindUser')}");
+        }
+    }
+
+    // 点击我的果盘按钮触发
+    var myCartTab = document.getElementById("myCartTab");
+    myCartTab.addEventListener("tap", function(){
+        //if(userInfo.getAttribute('value')){
+            window.location.assign("{:addons_url('Shop://User/cart')}");
+        //}
+        //else
+        //{
+        //    window.location.assign("{:addons_url('Shop://User/bindUser')}");
+        //}
+    });
+
+    // 点击个人信息按钮触发
+    var meTab = document.getElementById("meTab");
+    meTab.addEventListener("tap", function(){
+        //if(userInfo.getAttribute('value')){
+            window.location.assign("{:addons_url('Shop://User/me')}");
+        //}
+        //else
+        //{
+        //    window.location.assign("{:addons_url('Shop://User/bindUser')}");
+        //}
+    });
+
+    // 点击我的订单按钮触发
+    var myOrder = document.getElementById("myOrder");
+    myOrder.addEventListener("tap", function(){
+        //if(userInfo.getAttribute('value')){
+        window.location.assign("{:addons_url('Shop://User/myOrder')}");
+        //}
+        //else
+        //{
+        //    window.location.assign("{:addons_url('Shop://User/bindUser')}");
+        //}
+    });
+
+    // 点击加入果盘按钮图标触发
+    mui('.operation-wrapper').on('tap', 'p', function(){
+        var goodsId = this.getAttribute('id');
+        addToCart(goodsId);
+    });
+
+
+</script>
+</body>
+</html>
