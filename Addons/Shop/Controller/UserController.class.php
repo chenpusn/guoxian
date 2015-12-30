@@ -107,7 +107,7 @@ class UserController extends AddonsController
     function addToCart()
     {
         $goods ['goods_id'] = I('goodsId');
-        $info = D('goods')->getInfo($goods ['goods_id']);
+        $info = D('goods')->getInfo($goods ['goods_id'], true);
 
         $goods ['price'] = $info ['price'];
         $goods ['shop_id'] = $info ['shop_id'];
