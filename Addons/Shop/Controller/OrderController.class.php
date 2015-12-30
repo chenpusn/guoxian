@@ -66,7 +66,7 @@ class OrderController extends BaseController {
 				$goods = json_decode ( $order ['goods_datas'], true );
 				foreach ( $goods as $vv ) {
 					//$vo ['goods'] .= '<img width="50" style="vertical-align:middle;margin:0 10px 0 0" src="' . get_cover_url ( $vv ['cover'] ) . '"/>' . $vv ['title'] . '<br><br>';
-					$vo ['goods'] .= $vv ['title']. '数量:' .$vv ['num']. '<br/>';
+					$vo ['goods'] .= $vv ['title']. ':' .$vv ['num']. '份*￥'.$vv ['price'].'<br/>';
 				}
 				$vo ['goods'] = rtrim ( $vo ['goods'], '<br><br>' );
 
