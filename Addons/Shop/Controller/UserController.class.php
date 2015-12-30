@@ -125,7 +125,7 @@ class UserController extends AddonsController
 
             $dao = D('goods');
             foreach ($list as &$v) {
-                $v ['goods_data'] = $dao->getInfo($v ['goods_id']);
+                $v ['goods_data'] = $dao->getInfo($v ['goods_id'], true);
             }
 
             // dump ( $list );
