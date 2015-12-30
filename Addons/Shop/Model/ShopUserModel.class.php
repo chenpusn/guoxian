@@ -14,7 +14,9 @@ class ShopUserModel extends Model {
         $map['mobile'] = $accountInfo['mobile'];
         $user = $this->where($map)->find();
         if(!$user){
-            $res = $this->add($accountInfo);
+            if($accountInfo['mobile'] && $accountInfo['truename']){
+                $res = $this->add($accountInfo);
+            }
         }else{
             $this->where($map)->save($accountInfo);
             $res = $user['id'];
