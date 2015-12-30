@@ -30,7 +30,7 @@
                     <p>
                         <volist name="goods_lists" id="goods">
                             <if condition="$goods['category_id'] eq $category['id'] AND $goods['num'] gt 0">
-                                <div style="width: 23%; padding: 10px 0; margin:10px 2px; display: inline-block; border: solid 1px">
+                                <div style="padding: 10px 0; margin:10px 2px; display: inline-block; border: solid 1px">
                                     <span style="padding: 10px">{$goods['title']}</span><span style="padding: 10px; color: red; font-size: 22px">[{$goods['num']}份]</span>
                                 </div>
                             </if>
