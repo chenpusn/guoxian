@@ -26,17 +26,20 @@
                 </div>
                 <volist name="category_lists" id="category">
                     <b>{$category['title']}:</b>
-                    <volist name="goods_lists" id="goods">
-                        <if condition="$goods['category_id'] eq $category['id']">
-                            <p><span>{$goods['title']}</span><span>[{$goods['num']}份]</span></p>
-                        </if>
-                    </volist>
+
+                    <p>
+                        <volist name="goods_lists" id="goods">
+                            <if condition="$goods['category_id'] eq $category['id'] AND $goods['num'] gt 0">
+                                <span>{$goods['title']}</span><span>[{$goods['num']}份]</span>
+                            </if>
+                        </volist>
+                    </p>
                 </volist>
             </div>
 
             <div style="text-align: center">
                 <p>
-                    <input id="btnPrint" type="button" class="pinrt-btn btn" value="打印" style="width: 5rem" />
+                    <input id="btnPrint" type="button" class="pinrt-btn btn" value="打印" style="width: 5rem"/>
                 </p>
             </div>
         </section>
@@ -67,7 +70,7 @@
             });
 
             $('input#btnPrint').click(function () {
-                $('div#printSheetZone').printArea({mode:'popup', popWd:600, popTitle:'好之鲜水果超市配货单打印'});
+                $('div#printSheetZone').printArea({mode: 'popup', popWd: 600, popTitle: '好之鲜水果超市配货单打印'});
             });
         });
 
