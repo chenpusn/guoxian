@@ -27,7 +27,7 @@
                 <volist name="category_lists" id="category">
                     <b>{$category['title']}:</b>
                     <volist name="goods_lists" id="goods">
-                        <if condition="{$goods['category_id'] eq $category['id']}">
+                        <if condition="$goods['category_id'] eq $category['id']">
                             <p><span>{$goods['title']}</span><span>[{$goods['num']}份]</span></p>
                         </if>
                     </volist>
