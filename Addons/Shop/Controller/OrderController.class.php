@@ -300,35 +300,49 @@ class OrderController extends BaseController {
 		}
 		else{
 			$orderDao = D ( 'Addons://Shop/Order' );
+			$categoryDao = D('Addons://Shop/Category');
+			$goodsDao = D('Addons://Shop/Goods');
+
 			$search_date_timestamp = strtotime($filterDate);
 			$search_date_add_day_timestamp = strtotime('+1 day', $search_date_timestamp);
 			$filter_order['cTime'] = array('between', array($search_date_timestamp, $search_date_add_day_timestamp));
 			$filter_order['pay_status'] = '1';
-			$orderLists = $orderDao->where($filter_order)->select();
 
 			$orderSheet = array();
+
+			$categoryList = $categoryDao->where()->select();
+			$goodsList = $goodsDao->where()->select();
+			foreach($goodsList as &$goods){
+				$orderSheet[] = array(
+						'id'=>$goods['id'],
+						'category_id'=>$goods['category_id'],
+						'title'=>$goods['title'],
+						'num'=>0);
+			}
+
+			$orderLists = $orderDao->where($filter_order)->select();
 			foreach ( $orderLists as &$order ) {
 
 				$orderGoods = json_decode ( $order ['goods_datas'], true );
 
 				foreach($orderGoods as $goods){
-					$exits = false;
+					//$exits = false;
 					foreach($orderSheet as &$orderGood){
 						if($orderGood['id'] == $goods['id']){
 							//$orderGood['num'] += $goods['num']*$goods['spec_num'];
 							$orderGood['num'] += $goods['num'];
-							$exits = true;
+							//$exits = true;
 							break;
 						}
 					}
-					if(!$exits){
+					/*if(!$exits){
 						$orderSheet[] = array(
 								'id'=>$goods['id'],
 								'title'=>$goods['title'],
 								//'unit'=>$goods['spec_unit'],
 								//num'=>$goods['num']*$goods['spec_num']);
 								'num'=>$goods['num']);
-					}
+					}*/
 				}
 			}
 			//$titleLists = array('水果名称', '订货数量', '规格单位');
@@ -337,6 +351,8 @@ class OrderController extends BaseController {
 			$this->assign('filter_date', $filterDate);
 			$this->assign('title_lists', $titleLists);
 			$this->assign('goods_lists', $orderSheet);
+			$this->assign('category_lists', $categoryList);
+
 
 			$this->display();
 		}

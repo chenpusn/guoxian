@@ -23,15 +23,28 @@
             <div class="data-table" id="printSheetZone">
                 <div class="table-striped" style="text-align: center;">
                     <p style="font-weight: bold; font-size: 18px;">好之鲜水果超市{$filter_date}日配货单</p>
+                    <table cellspacing="1" style="width: 30rem; margin: 2rem auto">
+                        <!-- 表头 -->
+                        <thead>
+                        <tr>
+                            <volist name="title_lists" id="field">
+                                <th style="font-weight: bold; text-align: center">{$field}</th>
+                            </volist>
+                        </tr>
+                        </thead>
+
+                        <!-- 列表 -->
+                        <tbody>
+                        <volist name="goods_lists" id="goodsData">
+                            <tr>
+                                <td>{$goodsData['title']}</td>
+                                <td>{$goodsData['num']}</td>
+                                <!--<td>{$goodsData['unit']|getSpecUnitByID}</td>-->
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
                 </div>
-                <volist name="category_lists" id="category">
-                    <b>{$category['title']}:</b>
-                    <volist name="goods_lists" id="goods">
-                        <if condition="{$goods['category_id'] eq $category['id']}">
-                            <p><span>{$goods['title']}</span><span>[{$goods['num']}份]</span></p>
-                        </if>
-                    </volist>
-                </volist>
             </div>
 
             <div style="text-align: center">
