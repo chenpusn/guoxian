@@ -126,11 +126,6 @@
         document.getElementById("orderForm").submit();
     });
 
-    var goToConfirmOrderSpan = document.getElementById("goToConfirmOrderSpan");
-    goToConfirmOrderSpan.addEventListener("tap", function(){
-        document.getElementById("orderForm").submit();
-    });
-
     function deleteGoods() {
         var goodsId = this.getAttribute('id');
         if (confirm('确认要从购物车删除该水果吗？')) {
