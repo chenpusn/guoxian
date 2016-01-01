@@ -34,7 +34,7 @@
             共<span id="totalCount">12</span>件, 总计<span class="goods-price">￥<span id="totalPrice">00.00</span></span>
         </div>
         <div id="goToConfirmOrderTab" class="mui-tab-item one-key-pay">
-            <span class="settlement" style="background: transparent; border: 0; color: #F8FAFA">去结算
+            <span id="goToConfirmOrderSpan" class="settlement" style="background: transparent; border: 0; color: #F8FAFA">去结算
             </span>
         </div>
     </nav>
@@ -125,6 +125,12 @@
     goToConfirmOrderTab.addEventListener("tap", function(){
         document.getElementById("orderForm").submit();
     });
+
+    var goToConfirmOrderSpan = document.getElementById("goToConfirmOrderSpan");
+    goToConfirmOrderSpan.addEventListener("tap", function(){
+        document.getElementById("orderForm").submit();
+    });
+
     function deleteGoods() {
         var goodsId = this.getAttribute('id');
         if (confirm('确认要从购物车删除该水果吗？')) {

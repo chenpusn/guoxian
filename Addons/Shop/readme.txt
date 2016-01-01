@@ -31,6 +31,24 @@ http://www.coolaf.com/
 }
 
 {
+ 	"button":[
+ 	{
+    	"type":"view",
+    	"name":"之鲜果园",
+     	"url":"http://haozhixian.cn/index.php/addon/Shop/User/index"
+	},
+    {
+        "type":"view",
+        "name":"发货管理",
+        "url":"http://haozhixian.cn/index.php/addon/Shop/Admin/send"
+    }
+	],
+"matchrule":{
+  "group_id":"100"
+  }
+}
+
+{
 "button": [
             {
                 "type": "view",
