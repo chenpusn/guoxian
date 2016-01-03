@@ -3606,7 +3606,7 @@ function getCityNameByID($cityID){
 function getGoodsPropertyByID($propertyID){
 	switch($propertyID){
 		case 0:
-			$propertyName = '正常';
+			$propertyName = '热销品种';
 			break;
 		case 1:
 			$propertyName = '买一赠一';
