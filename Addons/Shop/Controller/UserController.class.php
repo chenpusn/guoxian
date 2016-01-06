@@ -434,6 +434,10 @@ class UserController extends AddonsController
         }
     }
     #endregion
+
+    function prize(){
+        $this->display();
+    }
 }
 
 ?>
