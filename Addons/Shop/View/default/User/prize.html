@@ -1,0 +1,125 @@
+<include file="./Addons/Shop/View/default/User/_head.html"/>
+<style type="text/css">
+    .mui-input-row label {
+        width: 25%;
+    }
+
+    .mui-input-row label ~ input {
+        width: 75%;
+    }
+
+    #jq22{
+        position: relative;
+        width: 780px;
+        height: 390px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        background: url(images/ly-plate-c.gif) 20px 20px no-repeat;
+    }
+    .plate {
+        position: relative;
+        float: left;
+        width: 390px;
+        height: 390px;
+        background-image: url(images/lyplate.png);
+    }
+    .prize {
+        float: right;
+        width: 360px;
+        height: 390px;
+        font: 14px/1.5 "Microsoft Yahei";
+    }
+    .prize h4 {
+        margin: 80px 0 20px;
+        padding: 10px;
+        background-color: #eee;
+    }
+    .prize ul {
+        list-style-type: none;
+    }
+    .prize li {
+        margin: 10px;
+    }
+    #plateBtn {
+        position: absolute;
+        left: 88px;
+        top: 88px;
+        width: 214px;
+        height: 214px;
+        background-image: url(images/rotate-static.png);
+        text-indent: -9999px;
+        overflow: hidden;
+    }
+    #result {
+        display: none;
+        position: absolute;
+        left: 65px;
+        top: 155px;
+        width: 300px;
+        height: 120px;
+        background-color: rgba(0,0,0,0.75);
+        filter: alpha(opacity=90);
+    }
+    #resultTxt {
+        padding: 45px 15px 0;
+        font: 16px "Microsoft Yahei";
+        color: #fff;
+        text-align: center;
+    }
+    #resultTxt em {
+        color: #ffea76;
+        font-style: normal;
+    }
+    #resultBtn {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 25px;
+        height: 25px;
+        text-indent: -100px;
+        background-image: url(images/close.png);
+        overflow: hidden;
+    }
+</style>
+<body>
+<div class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
+    <h1 class="mui-title">抽奖</h1>
+</div>
+<div class="mui-content" style="padding-top: 3.75rem">
+    <div class="mui-content-padded" style="margin: 5px;">
+        <div id="jq22">
+            <div class="plate">
+                <a id="plateBtn" href="javascript:" title="开始抽奖">开始抽奖</a>
+            </div>
+
+            <div class="prize">
+                <h4>奖品设置</h4>
+                <ul>
+                    <li><strong>一等奖：</strong>iPhone 6 Plus（1名）</li>
+                    <li><strong>二等奖：</strong>iPhone 6（2名）</li>
+                    <li><strong>三等奖：</strong>iPad Air 2（5名）</li>
+                    <li><strong>参与奖：</strong>充电宝（20名）</li>
+                </ul>
+            </div>
+
+            <div id="result">
+                <p id="resultTxt"></p>
+                <a id="resultBtn" href="javascript:" title="关闭">关闭</a>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="./Addons/Shop/View/default/User/_footer.html"/>
+
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.rotate.js?v={:SITE_VERSION}"></script>
+
+<script type="text/javascript">
+    mui.init({});
+</script>
+</body>
+</html>
