@@ -438,6 +438,10 @@ class UserController extends AddonsController
     function prize(){
         $this->display();
     }
+
+    function egg(){
+        $this->display();
+    }
 }
 
 ?>

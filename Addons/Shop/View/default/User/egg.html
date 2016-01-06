@@ -1,0 +1,169 @@
+<include file="./Addons/Shop/View/default/User/_head.html"/>
+<style type="text/css">
+    .mui-input-row label {
+        width: 25%;
+    }
+
+    .mui-input-row label ~ input {
+        width: 75%;
+    }
+</style>
+<body>
+<div class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+
+    <h1 class="mui-title">砸金蛋</h1>
+</div>
+<div class="mui-content" style="padding-top: 3.75rem">
+    <div class="mui-content-padded" style="margin: 5px;">
+        <div class="egg">
+            <ul class="eggList">
+
+                <p class="hammer" id="hammer">锤子</p>
+
+                <p class="resultTip" id="resultTip"><b id="result"></b></p>
+
+                <li><span>1</span><sup></sup></li>
+
+                <li><span>2</span><sup></sup></li>
+
+                <li><span>3</span><sup></sup></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<include file="./Addons/Shop/View/default/User/_footer.html"/>
+
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/jquery.min.js"></script>
+<script type="text/javascript" src="{:ADDON_PUBLIC_PATH}/user/js/mui.min.js?v={:SITE_VERSION}"></script>
+<script type="text/javascript">
+
+    function eggClick(obj) {
+
+        var _this = obj;
+
+        if(_this.hasClass("curr")){
+
+            alert("蛋都碎了，别砸了！刷新再来.");
+
+            return false;
+
+        }
+
+        //_this.unbind('click');
+
+        $(".hammer").css({"top":_this.position().top-55,"left":_this.position().left+185});
+
+        $(".hammer").animate({
+
+                    "top":_this.position().top-25,
+
+                    "left":_this.position().left+125
+
+                },30,function(){
+
+                    _this.addClass("curr"); //蛋碎效果
+
+                    _this.find("sup").show(); //金花四溅
+
+                    $(".hammer").hide();
+
+                    $("#result").empty();
+
+                    $("#result").hide();
+
+                    $('.resultTip').css({display:'none',top:'100px',left:_this.position().left+45,opacity:0}).animate({top: '50px',opacity:1},300,function(){
+
+                        //中奖状态
+
+                        var award = [["神仙姐姐",1],["如花",2],["芙蓉姐姐",3],["凤姐",4]];
+
+                        var num = 0;
+
+                        //几率求和
+
+                        for(var i=0;i<award.length;i++){
+
+                            num+=award[i][1];
+
+                        }
+
+                        var r = 0;
+
+                        var award_k='';
+
+                        //概率
+
+                        for(var i=0;i<award.length;i++){
+
+                            r = randomNum(1,num);
+
+                            if(r<=award[i][1]){
+
+                                award_k=award[i];
+
+                                break;
+
+                            }else{
+
+                                num-=award[i][1];
+
+                            }
+
+                        }
+
+                        alert(award_k[0]);
+
+                    });
+
+                }
+
+        );
+
+
+
+    }
+
+    //指定范围的随机数
+
+    function randomNum(Min,Max){
+
+
+
+        var Range = Max - Min;
+
+
+
+        var Rand = Math.random();
+
+
+
+        return(Min + Math.round(Rand * Range));
+
+
+
+    }
+
+
+
+    $(".eggList li").click(function() {
+
+        $(this).children("span").hide();
+
+        eggClick($(this));
+
+    });
+
+
+
+    $(".eggList li").hover(function() {
+
+        var posL = $(this).position().left + $(this).width();
+
+        $("#hammer").show().css('left', posL);
+
+    })
+
+</script>
+</body>
+</html>
