@@ -442,6 +442,10 @@ class UserController extends AddonsController
     function egg(){
         $this->display();
     }
+
+    function red(){
+        $this->display();
+    }
 }
 
 ?>
