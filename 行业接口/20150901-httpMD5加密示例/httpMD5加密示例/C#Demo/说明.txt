@@ -1,0 +1,1 @@
+本目录下是基于c#的两个demo，分别是c# for asp.net和c# for winform，在vs2010下编译测试通过。

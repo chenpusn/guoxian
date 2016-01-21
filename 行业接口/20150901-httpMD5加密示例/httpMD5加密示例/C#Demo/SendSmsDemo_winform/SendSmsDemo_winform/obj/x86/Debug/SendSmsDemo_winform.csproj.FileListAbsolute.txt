@@ -1,0 +1,52 @@
+C:\Documents and Settings\Administrator\桌面\c#\SendSmsDemo_winform\SendSmsDemo_winform\bin\Debug\SendSmsDemo_winform.exe
+C:\Documents and Settings\Administrator\桌面\c#\SendSmsDemo_winform\SendSmsDemo_winform\bin\Debug\SendSmsDemo_winform.pdb
+C:\Documents and Settings\Administrator\桌面\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.Properties.Resources.resources
+C:\Documents and Settings\Administrator\桌面\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Administrator\桌面\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Administrator\桌面\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.exe
+C:\Documents and Settings\Administrator\桌面\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.pdb
+C:\Documents and Settings\Administrator\桌面\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo.Form1.resources
+E:\App\短信宝\demo\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.exe
+E:\App\短信宝\demo\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.pdb
+E:\App\短信宝\demo\c#\SendSmsDemo_winform\SendSmsDemo_winform\bin\Debug\SendSmsDemo_winform.exe
+E:\App\短信宝\demo\c#\SendSmsDemo_winform\SendSmsDemo_winform\bin\Debug\SendSmsDemo_winform.pdb
+E:\App\短信宝\demo\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\App\短信宝\demo\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo.Form1.resources
+E:\App\短信宝\demo\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.Properties.Resources.resources
+E:\App\短信宝\demo\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\App\短信宝\demo\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\Bin\短信宝\短信平台接口及示例\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.exe
+E:\Bin\短信宝\短信平台接口及示例\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.pdb
+E:\Bin\短信宝\短信平台接口及示例\c#\SendSmsDemo_winform\SendSmsDemo_winform\bin\Debug\SendSmsDemo_winform.exe
+E:\Bin\短信宝\短信平台接口及示例\c#\SendSmsDemo_winform\SendSmsDemo_winform\bin\Debug\SendSmsDemo_winform.pdb
+E:\Bin\短信宝\短信平台接口及示例\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\Bin\短信宝\短信平台接口及示例\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo.Form1.resources
+E:\Bin\短信宝\短信平台接口及示例\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.Properties.Resources.resources
+E:\Bin\短信宝\短信平台接口及示例\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\Bin\短信宝\短信平台接口及示例\c#\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\短信\短信接口—操作文档\软维开发接口文档\开发接口文档\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.exe
+F:\短信\短信接口—操作文档\软维开发接口文档\开发接口文档\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.pdb
+F:\短信\短信接口—操作文档\软维开发接口文档\开发接口文档\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\bin\Debug\SendSmsDemo_winform.exe
+F:\短信\短信接口—操作文档\软维开发接口文档\开发接口文档\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\bin\Debug\SendSmsDemo_winform.pdb
+F:\短信\短信接口—操作文档\软维开发接口文档\开发接口文档\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\短信\短信接口—操作文档\软维开发接口文档\开发接口文档\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo.Form1.resources
+F:\短信\短信接口—操作文档\软维开发接口文档\开发接口文档\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.Properties.Resources.resources
+F:\短信\短信接口—操作文档\软维开发接口文档\开发接口文档\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\短信\短信接口—操作文档\软维开发接口文档\开发接口文档\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Sun\Desktop\行业接口方式\二次开发C#接口\二次开发C#接口\二次开发C#接口\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.exe
+C:\Users\Sun\Desktop\行业接口方式\二次开发C#接口\二次开发C#接口\二次开发C#接口\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.pdb
+C:\Users\Sun\Desktop\行业接口方式\二次开发C#接口\二次开发C#接口\二次开发C#接口\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\bin\Debug\SendSmsDemo_winform.exe
+C:\Users\Sun\Desktop\行业接口方式\二次开发C#接口\二次开发C#接口\二次开发C#接口\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\bin\Debug\SendSmsDemo_winform.pdb
+C:\Users\Sun\Desktop\行业接口方式\二次开发C#接口\二次开发C#接口\二次开发C#接口\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.csprojResolveAssemblyReference.cache
+C:\Users\Sun\Desktop\行业接口方式\二次开发C#接口\二次开发C#接口\二次开发C#接口\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo.Form1.resources
+C:\Users\Sun\Desktop\行业接口方式\二次开发C#接口\二次开发C#接口\二次开发C#接口\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.Properties.Resources.resources
+C:\Users\Sun\Desktop\行业接口方式\二次开发C#接口\二次开发C#接口\二次开发C#接口\二次开发C#接口\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.csproj.GenerateResource.Cache
+C:\Users\Sun\Desktop\httpMD5加密示例\C#Demo\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.exe
+C:\Users\Sun\Desktop\httpMD5加密示例\C#Demo\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.pdb
+C:\Users\Sun\Desktop\httpMD5加密示例\C#Demo\SendSmsDemo_winform\SendSmsDemo_winform\bin\Debug\SendSmsDemo_winform.exe
+C:\Users\Sun\Desktop\httpMD5加密示例\C#Demo\SendSmsDemo_winform\SendSmsDemo_winform\bin\Debug\SendSmsDemo_winform.pdb
+C:\Users\Sun\Desktop\httpMD5加密示例\C#Demo\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.csprojResolveAssemblyReference.cache
+C:\Users\Sun\Desktop\httpMD5加密示例\C#Demo\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo.Form1.resources
+C:\Users\Sun\Desktop\httpMD5加密示例\C#Demo\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.Properties.Resources.resources
+C:\Users\Sun\Desktop\httpMD5加密示例\C#Demo\SendSmsDemo_winform\SendSmsDemo_winform\obj\x86\Debug\SendSmsDemo_winform.csproj.GenerateResource.Cache
