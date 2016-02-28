@@ -98,6 +98,7 @@ abstract class Driver {
                 if(empty($config['dsn'])) {
                     $config['dsn']  =   $this->parseDsn($config);
                 }
+			
                 if(version_compare(PHP_VERSION,'5.3.6','<=')){ 
                     // 禁用模拟预处理语句
                     $this->options[PDO::ATTR_EMULATE_PREPARES]  =   true;
